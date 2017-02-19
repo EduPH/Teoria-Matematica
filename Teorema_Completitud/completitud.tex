@@ -1,0 +1,163 @@
+\documentclass[18pt]{article}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{fancyvrb}              % Verbatim extendido
+\usepackage{makeidx}               % Índice
+\usepackage{amsmath}               % AMS LaTeX
+\usepackage{amsthm} 
+\usepackage{latexsym}
+\newtheorem{teor}{Teorema}
+\newtheorem{prop}{Proposición}
+\newtheorem{Def}{Definición}
+\newtheorem{Cor}{Corolario}
+\newtheorem{nota}{Nota}
+\usepackage{vmargin}
+\newenvironment{itemize*}%
+  {\vspace*{-0mm}
+   \begin{itemize}%
+    \setlength{\itemsep}{0pt}%
+    \setlength{\parskip}{0pt}}%
+  {\vspace*{-0mm}
+  \end{itemize}}
+
+\setpapersize{A4}
+\setmargins{2.5cm}       % margen izquierdo
+{1.5cm}                        % margen superior
+{16.5cm}                      % anchura del texto
+{23.42cm}                    % altura del texto
+{10pt}                           % altura de los encabezados
+{1cm}                           % espacio entre el texto y los encabezados
+{0pt}                             % altura del pie de página
+{2cm}                           % espacio entre el texto y el pie de página
+\begin{document}
+
+\title{Completitud en la lógica proposicional}
+\maketitle 
+\large
+Primero definamos una serie de conceptos previos:
+
+\begin{Def}
+  Dado un conjunto de fórmulas $\phi_1,\dots, \phi_n$ que llamaremos \textbf{premisas}, a través de las distintas reglas de la deducción natural se obtienen más fórmulas, hasta finalmente obtener la conclusión. Se denota por:
+  $$\phi_1,\dots, \phi_n \vdash \varphi $$
+Se llama \textbf{secuencia}
+\end{Def}
+
+\begin{Def}
+  Se dirá que una secuencia es \textbf{válida} si se puede encontrar una prueba o demostración para ella.
+\end{Def}
+
+\begin{Def}
+Las fórmulas lógicas $\phi$ con una secuencia válida $\vdash \phi$ son \textbf{teoremas}
+\end{Def}
+
+\begin{nota}
+Cualquier prueba de $\phi_1,\dots, \phi_n \vdash \varphi $ se puede transformar en una prueba del teorema $\vdash \phi_1 \rightarrow (\phi_2 \rightarrow ( \phi_3 \rightarrow (\cdots \rightarrow (\phi_n\rightarrow \varphi )\cdots )))$
+\end{nota}
+
+\begin{Def}
+  Las contradicciones son expresiones del tipo $\phi \wedge \neg \phi$ o $\neg \phi \wedge \phi$, donde $\phi$ es cualquier fórmula. 
+\end{Def}
+
+\begin{nota}
+  $$\phi_1,\dots, \phi_n \models \psi $$
+
+  Se basa en los valores de verdad de las fórmulas atómicas de las premisas y la conclusión, y como las conectivas lógicas manipulan esos valores de verdad. 
+\end{nota}
+
+\begin{Def}
+  \begin{enumerate}
+  \item El conjunto de los valores de verdad contiene dos elementos $T$ y $F$.
+  \item Un modelo de una fórmula $\phi$ es una asignación a cada átomo proposicional en $\phi$ de un valor de verdad. 
+  \end{enumerate}
+\end{Def}
+
+\begin{nota}
+Dada una prueba de $\phi_1,\dots, \phi_n \vdash  \varphi $, no es posible que $\varphi$ sea falsa cuando todas las fórmulas $\phi_1,\dots, \phi_n$ son verdaderas. 
+\end{nota}
+
+\begin{Def}
+  Si para todas las evaluaciones en las que $\phi_1,\dots, \phi_n$ evalúa en $T$, $\psi$ evalua a $T$ también, decimos que
+  $$\phi_1,\dots, \phi_n \models \varphi $$
+  es \textbf{consistente} (es decir, $\varphi$ es consecuencia de las premisas $\phi_1,\dots,\phi_n$) y $ \models $ es la relación \textbf{vinculación semántica}. 
+\end{Def}
+
+\begin{teor} \label{soundness}
+Sean $\phi_1,\dots, \phi_n$ y $\varphi$ una fórmula de la lógica proposicional. Si $\phi_1,\dots, \phi_2,\dots, \phi_n \vdash \varphi$ es válida, entonces $\phi_1,\dots,\phi_n \models \varphi$ es consistente. 
+\end{teor}
+
+Hasta aquí la base necesaria para entender el teorema de completitud de la lógica proposicional. A partir de ahora, se pretende demostrar dicho teorema, el cual establece que las reglas de la lógica proposicional son completas, es decir, para cualquier $\phi_1,\dots , \phi_n \models \varphi$ consistente, se tiene que existe una prueba vía deducción natural para la secuencia $\phi_1,\dots, \phi_n\vdash \varphi$.  Si lo combinamos al teorema \ref{soundness} dado previamente, se obtiene que
+$$\phi_1,\dots, \phi_n \vdash \varphi \text{ es válida sii } \phi_1,\dots, \phi_2,\dots, \dots, \phi_n \models \varphi \text{ es consistente}. $$
+
+Si asumimos que $\phi_1,\dots, \phi_n \models \varphi$ es consistente, el argumento para la prueba tendrá tres pasos:
+
+\begin{enumerate}
+\item Probar que $\models \phi_1 \rightarrow (\phi_2 \rightarrow (\phi_3 \rightarrow ( \dots (\phi_n \rightarrow \varphi)\dots )))$ es consistente.
+\item Probar que $\vdash \phi_1 \rightarrow (\phi_2 \rightarrow (\phi_3 \rightarrow (\dots (\phi_n \rightarrow \varphi )\dots )))$ es válida.
+\item Probar que $\phi_1,\dots, \phi_n\vdash \varphi$ es válida. 
+\end{enumerate}
+
+\textbf{Primer paso:}
+
+
+\begin{Def}
+Una fórmula lógica $\phi$ se llama tautología si y sólo si evalúa en $T$ bajo todas las posibles evaluaciones, es decir, $\models \phi$. 
+\end{Def}
+
+Supongamos que $\phi_1,\phi_2,\dots, \phi_n \models \varphi$ es consistente, comprobemos que $\phi_1 \rightarrow (\phi_2 \rightarrow (\phi_3 \rightarrow (\dots (\phi_n \rightarrow \varphi )\dots )))$ es una tautología. Si estudiamos con detenimiento la última fórmula, vemos que se trata de una fórmula construida por anidación de implicaciones, y que sólo evalúa a $F$ si todas las $\phi_i, i=1,\dots, n$ evalúan a $T$ y $\varphi$ evalúa a $F$. Pero eso contradice el hecho de que $\phi_1,\dots, \phi_n \models \varphi$ sea consistente. Por lo tanto, $\models \phi_1\rightarrow (\phi_2 \rightarrow (\phi_3 \rightarrow (\dots (\phi_n \rightarrow \varphi )\dots )))$ es consistente.
+
+\vspace{2mm}
+\textbf{Segundo 2:}
+
+
+\begin{teor}
+  Si $\models \eta$ es consistente, entonces $\vdash \eta$ es válida. En otras palabras, si $\eta$ es una tautología, entonces $\eta$ es un teorema. 
+\end{teor}
+
+Supongamos que $\models \eta$ es consistente, y que contiene $n$ átomos proposicionales distintos $p_1,\dots, p_n$. Al ser $\eta$ una tautología, sabemos que evalúa a $T$ para las $2^n$ líneas de su tabla de verdad. Pretendemos encontrar una forma uniforme de construir una prueba, para ellos ``codificaremos'' cada línea de la tabla de verdad de $\eta$ como una secuencia. Entonces, construimos pruebas para las $2^n$ secuencias y las ``unimos'' en una prueba de $\eta$.
+
+\begin{prop}
+  Sea $\phi$ una fórmula tal que $p_1,\dots, p_n$ son sus únicos átomos proposicionales. Sea $l$ cualquier línea de la tabla de verdad de $\phi$. Para todo $1\le i \le n$ sea $\hat{p}_i$ igual a $p_i$ si la entrada en la línea $l$ de $p_i$ es $T$, e igual a $\neg p_i$ en caso contrario. Entonces se tiene:
+  \begin{enumerate}
+  \item $\hat{p}_1,\dots,\hat{p}_n \vdash \phi$ se puede probar si la entrada para $\phi$ en la línea $l$ es $T$.
+  \item $\hat{p}_1,\dots,\hat{p}_n \vdash \neg \phi$ se puede probar si la entrada para $\phi$ en la línea $l$ es $F$. 
+  \end{enumerate}
+\end{prop}
+
+\underline{Demostración:}
+
+
+\begin{enumerate}
+\item Si $\phi$ es un átomo proposicional $p$, necesitamos probar que $p\vdash p$ y $\neg p \vdash \neq p$. Trivial.
+\item Si $\phi$ es de la forma $\neg \phi_1$, se consideran dos casos. Supongamos que $\phi$ evalúa a $T$. En este caso $\phi_1$ evalúa a $F$. Aplicamos la hipótesis de inducción en $\phi_1$ para concluir que $\hat{p}_1,\dots , \hat{p}_n \vdash \neg \phi_1$, pero $\neg \phi_1$ es $\phi$. Por otro lado, si $\phi$ evalúa a $F$, entonces $\phi_1$ evalúa a $T$ y se tiene por inducción que $\hat{p}_1,\dots,\hat{p}_n \vdash \phi_1$. Usando la regla de la doble negación, podemos extender la prueba de $\hat{p}_1,\dots, \hat{p}_n \vdash \phi_1$ a $\hat{p}_1,\dots, \hat{p}_n \vdash \neq \neg \phi_1$, pero $\neg \neg \phi_1$ es $\neg \phi$.
+
+  \begin{nota}
+En el resto de casos, $\phi$ será la ``composición de dos fórmulas, $\phi_1 \circ  \phi_2$, donde $\circ$ podrá ser $\rightarrow , \wedge$ o $\vee$. En todos estos casos, sea $q_1,\dots, q_l$ los átomos proposicionales de $\phi_1$ y $r_1,\dots, r_k$ los de $\phi_2$. Entonces, se tiene que $\{q_1,\dots, q_l \} \cup \{r_1,\dots, r_k \} = \{ p_1,\dots, p_n \}$. Entonces, cuando $\hat{q}_1,\dots, \hat{q}_l \vdash \varphi_1$ y $\hat{r}_1,\dots, \hat{r}_k \vdash \varphi_2$ son válidas, lo será $\hat{p}_1,\dots, \hat{p}_n  \vdash \varphi_1\wedge \varphi_2$ usando la regla de introducción de la conjunción.  De esta forma, podemos usar la hipótesis de inducción y sólo hay que probar que las conjunciones nos permiten probar los casos $\phi$ o $\neg \phi$. 
+\end{nota}
+
+
+\item Sea $\phi$ igual a $\phi_1 \rightarrow \phi_2 $. Si $\phi$ evalúa a $F$, entonce sabemos que $\phi_1$ evalúa a $T$ y $\phi_2$ evalúa a $F$. Usando la hipótesis de inducción, tenemos $\hat{q}_1,\dots, \hat{q}_l \vdash \phi_1$ y $\hat{r}_1,\dots, \hat{r}_k \vdash \neg \phi_2$, así que tenemos $ \hat{p}_1,\dots, \hat{p}_n \vdash \phi_1\wedge \neg \phi_2$.  Necesitamos probar que $\hat{p}_1,\dots, \hat{p}_n \vdash \neg (\phi_1\rightarrow \phi_2)$, pero usando $ \hat{p}_1,\dots, \hat{p}_n \vdash \phi_1\wedge \neg \phi_2$, basta probar la secuencia $\phi_1\wedge \neg \phi_2 \vdash \neg (\phi_1 \rightarrow \phi_2)$.
+
+  Si $\phi$ evalúa a $T$, entonces se tendrán tres casos.
+
+\item Si $\phi$ es de la forma $\phi_1 \wedge \phi_2$, también tratamos con cuatro casos.
+\item Finalmente, si $\phi$ es una disyunción, también se tienen cuatro casos. 
+\end{enumerate}
+
+\qed
+
+Se aplica esta técnica a la fórmula $\models \phi_1 \rightarrow ( \phi_2 \rightarrow ( \phi_3 \rightarrow ( \cdots (\phi_n \rightarrow \varphi )\cdots )))$. Como es una tautología, evalúa a $T$ en todas las $2^n$ lineas de su tabla de verdad. La proposición anterior nos da pruebas para $\hat{p}_1,\dots, \hat{p}_n \vdash \eta$, una para cada caso en el que $\hat{p}_i $ es $p_i$ o $\neq p_i$. Ahora el objetivo será unir todas estas pruebas ,que nos facilita la proposición, en una única prueba para $\eta$ que no usa premisas. 
+
+
+\vspace{2mm}
+\textbf{Tercer paso:}
+
+Se necesita encontrar una prueba para $\phi_1,\dots, \phi_n \vdash \varphi$. Se toma la prueba para $\vdash \phi_1 \rightarrow ( \phi_2 \rightarrow (\phi_3 \rightarrow ( \cdots (\phi_n \rightarrow \varphi ) \cdots )))$ dada por el paso 2 e introduciendo las premisas $\phi_1,\dots, \phi_n$. Entonces se aplica eliminación de la implicación $n$ veces, de manera ordenada, en cada una de  las premisas.Así, se llega a  $\varphi$ como conclusión, lo que nos da una prueba para la secuencia $\phi_1,\dots, \phi_n \vdash \varphi$. 
+
+\begin{Cor}
+Sean $\phi_1,\dots , \phi_n,\varphi$ formulas de la lógica
+proposicional. Entonces $\phi_1,\dots, \phi_n \models \varphi$ es consistente
+si y sólo si la secuencia $\phi_1,\dots, \phi_n \vdash \varphi$ es válida. 
+\end{Cor}
+\end{document}

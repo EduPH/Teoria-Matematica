@@ -1,0 +1,76 @@
+\documentclass{article}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{fancyvrb}              % Verbatim extendido
+\usepackage{makeidx}               % Índice
+\usepackage{amsmath}               % AMS LaTeX
+\usepackage{amsthm} 
+\usepackage{latexsym}
+\usepackage{vmargin}
+\newtheorem{teor}{Teorema}
+\newtheorem{nota}{Nota}
+\setpapersize{A4}
+\setmargins{2.5cm}       % margen izquierdo
+{1.5cm}                        % margen superior
+{16.5cm}                      % anchura del texto
+{23.42cm}                    % altura del texto
+{10pt}                           % altura de los encabezados
+{1cm}                           % espacio entre el texto y los encabezados
+{0pt}                             % altura del pie de página
+{2cm}                           % espacio entre el texto y el pie de página
+\begin{document}
+
+\title{Teorema de la base de Hilbert}
+\maketitle
+
+\large
+
+\begin{teor}
+(Teorema de la base de Hilbert) Todo ideal de $k[x_1,\dots,x_n]$ está finitamente generado. 
+\end{teor}
+
+\underline{\textit{Demostración.}}
+\vspace{2mm}
+
+Observemos que $k[x_1,\dots,x_n]=k[x_1][x_2]\cdots [x_n]$. Sabemos que $k$ es Noetheriano (todos sus ideales son finitamente generados), porque los únicos ideales de $k$ son $\{ 0 \} = <0>$ y $k=<1> $.
+
+\begin{nota}
+Si $K$ es cuerpo, $<0>$ y $<1>$ son sus únicos ideales. 
+\end{nota}
+
+Vamos a demostrar que si $R$ es un anillo Noetheriano, entonces $R[x]$ es un anillo Noetheriano (y esto termina la demostración por inducción en $n$).
+
+Sea $I$ un ideal de $R[x]$. Vamos a demostrar que está finitamente generado.
+
+\begin{nota}
+Dado un polinomio: $p(x)=a_mx^m+\dots + a_1x+a_0$ el elemento $a_m\in R$ se llama \textbf{coeficiente lider}.
+\end{nota}
+
+Definimos el ideal $I_L=\{ a \in R : a \text{ es coeficiente lider de algún } p(x)\in I\}$. $I_L$ es un ideal de $R$ por la proposición 3 tel tema 2. Por hipótesis, $I_L$ está finitamente generado, es decir,  $I_L=<c_1,\dots , c_m>\subset R$ para ciertos $c_i,i=1,\dots , m$.
+
+\vspace{2mm}
+Tomemos polinomios $g_1,\dots, g_m$ que tengan como coeficientes líderes aquellos $c_i$. Sea $N$ el máximo grado de $g_1,\dots, g_m$.
+
+\vspace{2mm}
+Fijado un grado $d$, definimos el ideal
+$$I_d=\{a\in R : a \text{ es coeficiente lider de un }f(x)\in R \text{ de grado } d \}\cup \{0\}.$$
+$I_d$ es un ideal de $R$, por lo tanto, $I_d=<c_{d,1},\dots , c_{d,m_d}>$. Tomamos $g_{d,1},\dots , g_{d,m_d}$ polinomios de $I$, de grado $d$ que los tengan como coeficientes líderes.
+\vspace{2mm}
+
+Veamos que
+$$I=<g_1,\dots , g_m, g_{N-1,1},\dots , g_{N-1,m_{N-1}},\dots, g_{1,1},\dots , g_{1,m_1},\dots , g_{0,1},\dots , g_{0,m_0}>$$
+
+Para ello, tomemos un polinomio cualquiera $f\in I$, y vamos a escribirlo como suma de múltiplos de los $g_i,g_{d,j}$. Iremos bajando el grado de $f$, sumándole múltiplos de los $g_i,g_{d,j}$, hasta llegar al polinomio nulo.
+
+Si $deg(f)\ge N \Rightarrow f=a_rx^r+\dots + a_1x+a_0 \Rightarrow a_r\in I_L=<c_1,\dots, c_m>$.
+
+Entonces, $\exists \alpha_1,\dots, \alpha_n\in R$ tales que $a_r=\alpha_1 c_1+\dots + \alpha_m c_m$. Consideramos $f-\alpha_1 x^{r-deg(g_1)}g_1-\dots - \alpha_m x^{r-deg(g_m)}g_m$, así el término de grado $r$ tiene coeficiente $0$. Y así hemos bajado el grado de $f$.
+
+Se itera el razonamiento hasta que $deg(f)<N$. Ahora, se procede a cancelar el término lider restando múltiplos de $g_{d,1},\dots, g_{d,m_d}$, iterando hasta tener el grado $0$, es decir, hasta que el polinomio sea constante, y sea una suma de múltiplos de$g_{0,1},\dots, g_{0,m}$.
+
+Por lo tanto, el polinomio $f$ es suma de múltiplos de los $g_i$ y los $g_{d,j}$. 
+\qed
+
+\end{document}

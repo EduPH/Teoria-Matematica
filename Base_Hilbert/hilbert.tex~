@@ -1,0 +1,49 @@
+\documentclass{article}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{fancyvrb}              % Verbatim extendido
+\usepackage{makeidx}               % Índice
+\usepackage{amsmath}               % AMS LaTeX
+\usepackage{amsthm} 
+\usepackage{latexsym}
+\newtheorem{teor}{Teorema}
+\newtheorem{nota}{Nota}
+\begin{document}
+
+\begin{teor}
+(Teorema de la base de Hilbert) Todo ideal de $k[x_1,\dots,x_n]$ está finitamente generado. 
+\end{teor}
+
+\underline{\textit{Demostración.}}
+\vspace{2mm}
+
+Observemos que $k[x_1,\dots,x_n]=k[x_1][x_2]\cdots [x_n]$. Sabemos que $k$ es Noetheriano (todos sus ideales son finitamente generados), porque los únicos ideales de $k$ son $\{ 0 \} = <0>$ y $k=<1> $.
+
+\begin{nota}
+Si $K$ es cuerpo, $<0>$ y $<1>$ son sus únicos ideales. 
+\end{nota}
+
+Vamos a demostrar que si $R$ es un anillo Noetheriano, entonces $R[x]$ es un anillo Noetheriano (y esto termina la demostración por inducción en $n$).
+
+Sea $I$ un ideal de $R[x]$. Vamos a demostrar que está finitamente generado.
+
+\begin{nota}
+Dado un polinomio: $p(x)=a_mx^m+\dots + a_1x+a_0$ el elemento $a_m\in R$ se llama \textbf{coeficiente lider}.
+\end{nota}
+
+Definimos el ideal $I_L=\{ a \in R : a \text{ es coeficiente lider de algún } p(x)\in I\}$. $I_L$ es un ideal de $R$ por la proposición 3 tel tema 2. Por hipótesis, $I_L$ está finitamente generado, es decir,  $I_L=<c_1,\dots , c_m>\subset R$ para ciertos $c_i,i=1,\dots , m$.
+
+\vspace{2mm}
+Tomemos polinomios $g_1,\dots, g_m$ que tengan como coeficientes líderes aquellos $c_i$. Sea $N$ el máximo grado de $g_1,\dots, g_m$.
+
+\vspace{2mm}
+Fijado un grado $d$, definimos el ideal $I_d=\{a\in R : a \text{ es coeficiente lider de un }f(x)\in R \text{ de grado } d \}\cup \{0\}$. $I_d$ es un ideal de $R$, por lo tanto, $I_d=<c_{d,1},\dots , c_{d,m_d}>$. Tomamos $g_{d,1},\dots , g_{d,m_d}$ polinomios de $I$, de grado $d$ que los tengan como coeficientes líderes.
+\vspace{2mm}
+
+Veamos que
+$$I=<g_1,\dots , g_m, g_{N-1,1},\dots , g_{N-1,m_{N-1}},\dots, g_{1,1},\dots , g_{1,m_1},\dots , g_{0,1},\dots , g_{0,m_0}>$$
+\qed
+
+\end{document}

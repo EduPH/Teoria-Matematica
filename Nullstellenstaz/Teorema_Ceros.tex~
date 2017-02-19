@@ -1,0 +1,101 @@
+\documentclass{article}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{fancyvrb}              % Verbatim extendido
+\usepackage{makeidx}               % Índice
+\usepackage{amsmath}               % AMS LaTeX
+\usepackage{amsthm} 
+\usepackage{latexsym}
+\usepackage{vmargin}
+\newtheorem{teor}{Teorema}
+\newtheorem{nota}{Nota}
+\newtheorem{Def}{Definición}
+\newenvironment{itemize*}%
+  {\vspace*{-0mm}
+   \begin{itemize}%
+    \setlength{\itemsep}{0pt}%
+    \setlength{\parskip}{0pt}}%
+  {\vspace*{-0mm}
+   \end{itemize}}
+\newtheorem{Lem}{Lema}
+\setpapersize{A4}
+\setmargins{2.5cm}       % margen izquierdo
+{1.5cm}                        % margen superior
+{16.5cm}                      % anchura del texto
+{23.42cm}                    % altura del texto
+{10pt}                           % altura de los encabezados
+{1cm}                           % espacio entre el texto y los encabezados
+{0pt}                             % altura del pie de página
+{2cm}                           % espacio entre el texto y el pie de página
+\begin{document}
+
+\title{Teorema de los ceros de Hilbert}
+\maketitle
+
+\large
+
+\begin{Def}
+Un cuerpo $K$ es algebraicamente cerrado si todo polinomio de $K[x]$ tiene una raíz en $K$.  
+\end{Def}
+\begin{Lem}
+Si $K$ y $L$ son cuerpos con $K\subset L$ y $L$ una $K-$ álgebra finitamente generada ($L=K[\alpha_1,\dots, \alpha_r]$). Entonces $L$ es una extensión algebraica de $K$, es decir, todo elemento de $L$ es raíz de algún polinomio de $K[x]$. 
+\end{Lem}
+
+\begin{teor}
+ \textbf{(Versión débil del Nullstellensatz)} Si $K$ es algebraicamente cerrado e $I$ es un ideal de $K[x_1,\dots,x_n]$. Se tiene que $I\neq k[x_1,\dots, x_n] \Leftrightarrow V(I)\neq \emptyset$.
+\end{teor}
+
+\underline{\textit{Demostración:}}
+\vspace{3mm}
+
+
+\framebox{$\Leftarrow$} Trivial, si $I=K[x_1,\dots, x_n]$ entonces $1\in I$, lo que implica que $V(I)=\emptyset$.
+
+\framebox{$\Rightarrow$} Como $I\neq K[x_1,\dots,x_n]$, entonces se tiene que existe $m$ ideal maximal que lo contiene.
+
+Consideremos la proyección canónica:
+$$ \pi: K[x_1,\dots,x_n] \rightarrow k[x_1,\dots,x_n]/m$$
+Como $m$ es maximal, $K[x_1,\dots,x_n]/m$ es un cuerpo, que denotamos por $L$. $L$ es una $K-$álgebra finitamente generada por $(x_1+m,\dots, x_n+m)$. Aplicando el lema de Zariski se tiene que $L$ es una extensión algebraica de, y como $K$ es algebraicamente cerrado, $L=K$. Por tanto,
+$$\pi : k[x_1,\dots,x_n] \rightarrow K$$
+Vamos a encontrar un punto $P\in V(I)$. Concretamente, tomamos $P=(\pi(x_1),\dots, \pi(x_n)) \in k^n$. Veamos que $P$ anula a todos los polinomios de $I$.
+
+Dado $f\in I \Rightarrow f\in m \Rightarrow \pi(f)=0 \Rightarrow f(\pi(x_1),\dots, \pi(x_n))=0 \Rightarrow f(P)=0$ \qed
+
+\begin{nota}
+  Si $V_1,\dots, V_k$ son variedades afines, entonces $V_1\cup \dots \cup V_k$ es una variedad afin es una variedad afin.
+  \begin{itemize*}
+  \item Si $\{ V_i \}_{i\in I}$ es un conjunto de variedad afines, entonces $\cap_{i\in I} V_i$ es una variedad afín.
+  \item $\emptyset $ es una variedad afín $(V([k[x_1,\dots,x_n])=\emptyset)$.
+  \item $k^n$ es una variedad afín $(V(\{0\})=k^n)$.
+  \end{itemize*}
+\end{nota}
+Las variedades afines son los cerrados de una topología de $k^n$, que se llama topología de Zariski.
+
+\begin{Def}
+  Dado $I$, un ideal de $k[x_1,\dots, x_n]$, se define el radical de $I$ como:
+  $$\sqrt{I}=\{ f \in k[x_1,\dots,x_n] : f^n \in I \text{ para algún } m\ge 1\}$$
+  Se dice que un ideal $I$ es radical, si $I=\sqrt{I}$.
+\end{Def}
+
+\begin{nota}
+  $I\subset \sqrt{I}$, y $\sqrt{I}$ es un ideal.
+\end{nota}
+
+\begin{teor}
+  \textbf{(Nullstellensatz fuerte)} Si $K$ es algebraicamente cerrado.
+  \begin{enumerate}
+  \item $\forall I$ ideal de $K[x_1,\dots, x_n]$, $I(V(I))=\sqrt{I}$.
+  \item Si $A$ es un subconjunto de $K^n$, $V(I(A))=\bar{A}$. 
+  \end{enumerate}
+\end{teor}
+
+\textit{\underline{Demostración}}
+
+\vspace{3mm}
+
+\framebox{$\supseteq $} Si $f\in \sqrt{I}$, entonces $f^m\in I \Rightarrow f^m(P)=0, \forall P \in V(I) \Rightarrow f(P)=0, \forall P\in V(I) \Rightarrow f\in I(V(I)). $
+
+\framebox{$\subseteq $}
+\end{document}
