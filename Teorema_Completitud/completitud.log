@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.6.17)  14 FEB 2017 09:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.9.16)  23 FEB 2017 17:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -601,27 +601,29 @@ LaTeX Info: Redefining \. on input line 6.
 LaTeX Info: Redefining \% on input line 6.
 ) ) 
 Here is how much of TeX's memory you used:
- 3978 strings out of 494891
- 50620 string characters out of 6179039
- 125407 words of memory out of 5000000
- 7203 multiletter control sequences out of 15000+600000
- 13352 words of font info for 37 fonts, out of 8000000 for 9000
+ 3985 strings out of 494891
+ 50695 string characters out of 6179039
+ 125411 words of memory out of 5000000
+ 7207 multiletter control sequences out of 15000+600000
+ 15570 words of font info for 40 fonts, out of 8000000 for 9000
  40 hyphenation exceptions out of 8191
  38i,6n,30p,807b,384s stack positions out of 5000i,500n,10000p,200000b,80000s
- </home/eduardo/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk> </hom
-e/eduardo/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbi1200.600pk> </home/eduardo
-/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1200.600pk> </home/eduardo/.texmf-v
-ar/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </home/eduardo/.texmf-var/fonts/
-pk/ljfour/jknappen/ec/ecrm1200.600pk> </home/eduardo/.texmf-var/fonts/pk/ljfour
-/jknappen/ec/ecrm1728.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-r12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb>
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on completitud.pdf (3 pages, 107057 bytes).
+ </home/eph/.texmf-var/fonts/pk/ljfour/jknappen/ec/eccc1200.600pk> </home/ep
+h/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </home/eph/.texmf-var/
+fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk> </home/eph/.texmf-var/fonts/pk/ljfo
+ur/jknappen/ec/ecbi1200.600pk> </home/eph/.texmf-var/fonts/pk/ljfour/jknappen/e
+c/ecti1200.600pk> </home/eph/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.60
+0pk> </home/eph/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </home/e
+ph/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1728.600pk></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmsy10.pfb>
+Output written on completitud.pdf (3 pages, 115029 bytes).
 PDF statistics:
- 225 PDF objects out of 1000 (max. 8388607)
- 47 compressed objects within 1 object stream
+ 258 PDF objects out of 1000 (max. 8388607)
+ 55 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
