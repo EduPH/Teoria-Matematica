@@ -1,0 +1,17 @@
+*#
+*.aux
+*.bbl
+*.bib
+*.blg
+*.el
+*.gz
+*.idx
+*.ilg
+*.ind
+*.log
+*.maf
+*.mtc*
+*.pdf
+*.toc
+*_region_.tex
+*~
