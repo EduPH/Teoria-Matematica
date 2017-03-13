@@ -1,0 +1,71 @@
+\documentclass{article}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{fancyvrb}              % Verbatim extendido
+\usepackage{makeidx}               % Índice
+\usepackage{amsmath}               % AMS LaTeX
+\usepackage{amsthm} 
+\usepackage{latexsym}
+\usepackage{vmargin}
+\newtheorem{teor}{Teorema}
+\newtheorem{nota}{Nota}
+\newtheorem{lem}{Lema}
+\setpapersize{A4}
+\setmargins{2.5cm}       % margen izquierdo
+{1.5cm}                        % margen superior
+{16.5cm}                      % anchura del texto
+{23.42cm}                    % altura del texto
+{10pt}                           % altura de los encabezados
+{1cm}                           % espacio entre el texto y los encabezados
+{0pt}                             % altura del pie de página
+{2cm}                           % espacio entre el texto y el pie de página
+\begin{document}
+
+\title{Lema de Dickson}
+\maketitle
+
+\large
+
+
+$f$ pertenece a $I$ un ideal monomial si y sólo si todos los términos de $f$ pertenecen a $I$, o de manera equivalente, todos los monomios de $f$ pertenecen a $I$.
+
+\begin{lem}
+(de Dickson) Sea $I=\langle x^\alpha | \alpha \in A \rangle $ un ideal monomial, entonces existe $\alpha^{(1)},\dots ,\alpha^{(r)}\in A$ tales que $I=\langle x^{\alpha^{(1)}},\dots,x^{\alpha^{(r)}}\rangle$.
+\end{lem}
+
+\underline{\textit{Demostración:}}
+
+\vspace{3mm}
+
+Sabemos, por el teorema de la base de Hilbert, que existen polinomios $f_1,\dots,f_k$ tales que $I=\langle f_1,\dots,f_k\rangle $. Llamamos $x^{\beta^{(1)}},\dots,x^{\beta^{(m)}}$ a todos los monomios de los $f_i$, y tendremos $I=\langle x^{\beta^{(1)}},\dots, x^{\beta^{(m)}}\rangle $.
+
+Ahora, dado $\beta^{(i)}$ tenemos $x^{\beta^{(i)}}\in I$. Entonces, $x^{\beta^{(i)}}=\sum_{\alpha \in A}g_\alpha x^\alpha \Rightarrow \exists \alpha^{(i)}\in A$ tal que $x^{\beta^{(i)}}=x^\gamma \cdot x^{\alpha^{(i)}}$. Como $x^{\beta^{(1)}},\dots,x^{\beta^{(m)}}$ generan $I$, se sigue que $x^{\alpha^{(1)}},\dots,x^{\alpha^{(n)}}$ generan $I$.
+
+\qed
+
+
+Ahora introduzcamos otro lema sobre bases de Gröbner:
+
+\begin{lem}
+Dado un orden monomial. Entonces cada ideal $I\subset k[x_1,\dots,x_n]$ distinto del $\{0\}$ tiene una base de Gröbner. Además, cualquier base de Gröbner para un ideal $I$ es una base de $I$. 
+\end{lem}
+
+\underline{\textit{Demostración:}}
+
+\vspace{3mm}
+
+Sea $I$ un ideal distinto del $\{0\}$. Consideremos $\underbrace{LT(I)}_{\text{ideal monomial}}=\langle LT(f),f\in I  \rangle = \langle LM(f),f\in I \rangle $. Por el lema de Dickson, existen $f_1,\dots,f_r\in I$ tales que $LT(I)=\langle LM(f_1),\dots, LM(f_r)\rangle = \langle LT(f_1),\dots,LT(f_r)\rangle $.
+
+Veamos que $I= \langle f_1,\dots, f_r \rangle $ y habremos terminado la prueba.
+
+\framebox{$\supseteq $} Es trivial ya que $f_1,\dots,f_r\in I$.
+
+\framebox{$\subseteq $} Sea $f\in I$, usando el algoritmo de la división se tiene
+$$ f=a_1f_1+\dots+a_rf_r+r(x)$$
+y suponemos que $r(x)\neq 0$, y donde ningún monomio de $r(x)$ es múltiplo de ningún $LT(f_i)$. En particular, $LT(r(x))\not \in \langle LT(f_1),\dots,LT(f_r)\rangle $. Pero, $r(x)=f-a_1f_1-\dots - a_rf_r\Rightarrow LT(r(x))\in LT(I) \underbrace{\Rightarrow}_{\rightarrow \leftarrow}r(x)=0 \Rightarrow f=a_1f_1+\dots +a_rf_r  \Rightarrow f\in \langle f_1,\dots, f_r \rangle $. 
+
+\qed
+
+\end{document}
