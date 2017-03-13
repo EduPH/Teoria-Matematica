@@ -104,6 +104,57 @@ Por el Nullstellensatz débil, $I'=k[x_1,\dots,x_n,y] \Rightarrow 1\in I' \Right
 $$1=h_1g_1+\dots+h_rh_r+h_{r+1}(1-yf) $$
 Sustituyendo $y$ por $\frac{1}{f}$, y quitando denominadores, queda:
 $$f^m=f_1g_1+\dots+f_rg_r\in I$$
-Luego $f\in \sqrt{I}$.
+Luego $f\in \sqrt{I}$. \qed
+
+\item Como $V(I(A))$ es cerrado en la topología de Zariski, (es decir, es una variedad afín) sólo tenemos que demostrar que es el menor cerrado que contiene a $A$. 
+
+Sea $W$ un cerrado que contiene a $A$. $W=V(J)$ para un ideal $J$. 
+\begin{equation}
+  \begin{split}
+    V(J)&\supset A \\
+    I(V(J))&\subset I(A) \\
+    J\subset \sqrt{J} &\subset I(A) \\
+    W=V(J) &\supset V(I(A))
+  \end{split}
+\end{equation}
+\qed
 \end{enumerate}
+
+\begin{nota}
+El anillo cociente $k[x_1,\dots,x_n]/I$ es un cuerpo si y sólo si $I$ es maximal. 
+\end{nota}
+\begin{nota}
+Los puntos son los conjuntos algebraicos más pequeños, no vacíos. Por lo tanto, se corresponden con los ideales maximales. 
+\end{nota}
+
+
+\underline{\textit{Demostración:}}
+
+\vspace{3mm}
+
+Sea $p=(a_1,\dots,a_n)\in K^n$, veamos que le corresponde el ideal $<x_1-a_1,\dots,x_n-a_n>$, es decir,
+$$ I(\{a_1,\dots,a_n\})=\underbrace{<x_1-a_1,\dots,x_n-a_n>}_I$$
+El ideal $I$ se anula en el punto $p$, luego se tiene la contención \framebox{$\supseteq $}. Si demostramos que $I$ es maximal, habremos probado la igualdad. Para verlo, definimos el siguiente morfismo de anillos:
+\begin{equation}
+  \begin{split}
+    \varphi: K[x_1,\dots,x_n] &\rightarrow K  \\
+    f(x_1,\dots,x_n) & \mapsto f(a_1,\dots,a_n)
+  \end{split}
+\end{equation}
+Se tiene que $Im(\varphi)=K$, pues si $f$ es un polinomio constante, $f(\alpha)=\alpha$. Veamos que el núcleo es $I=<x_1-a_1>$. 
+$$ker(\varphi) = <x_1-a_1,\dots,x_n-a_n> $$
+
+\framebox{$\supseteq $} Trivial.
+
+\framebox{$\subseteq $} Sea $f\in ker(\varphi)$, entonces $f(a_1,\dots,a_n)=0$. Podemos escribir cualquier polinomio $f(x_1,\dots,x_n)$ de la siguiente manera:
+$$f(x_1,\dots,x_n)=h_1(x_1,\dots,x_n)(x_1-a_1)+h_2(x_2,\dots,x_n)(x_2-a_2)+\dots +h_n(x_n)(x_n-a_n)+\underbrace{\alpha}_{\in K}$$
+Entonces, $f(a_1,\dots,a_n)=\alpha$, pero si $f\in ker(\varphi) \Rightarrow \alpha=0$. Por lo tanto, $f\in I$, lo que implica que $\frac{K[x_1,\dots,x_n]}{ker(\varphi)} \simeq Im(\varphi)$.
+Tomamos $\frac{K[x_1,\dots,x_n]}{I} \simeq K$, y como $K$ es cuerpo, $I$ es ideal maximal. \qed
+
+
+
+\begin{thebibliography}{X}
+\bibitem{COX} \textsc{Cox,D.,Little,J.,O'Shea,D.} ,
+\textit{Ideals,Varieties,and Algorithms}, Springer-Verlag,2007.
+\end{thebibliography}
 \end{document}
