@@ -1,5 +1,5 @@
-# Teoremas
-Recolección de teoremas y demostraciones
+# Compendio matemático
+Recolección de teoría, teoremas y demostraciones
 
 ## Álgebra
 
