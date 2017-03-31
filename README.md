@@ -10,3 +10,7 @@ Recolección de teoremas y demostraciones
 ## Lógica
 
 1. [Teorema de completitud](https://github.com/EduPH/Teoremas/blob/master/Teorema_Completitud/completitud.pdf)
+
+## Ciencias de la Computación
+
+1. [Autómatas con pila](https://github.com/EduPH/Teoria-Matematica/blob/master/AutomatasPila/AutomatasPila.pdf)
