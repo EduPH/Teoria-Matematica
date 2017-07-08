@@ -1,0 +1,113 @@
+\chapter{Variables aleatorias discretas}
+\section{Variable aleatoria degenerada}
+
+Una variable aleatoria $X$ es degenerada cuando toda la masa
+de la probabilidad se concentra en un único punto. $P(X=b)=1$.
+
+\begin{itemize*}
+\item $F_X(x) = I_{[b,+\infty)}$
+\item $E(X^r)=b^r$
+\item $Var(X) = 0$
+\item $M_X(t) = E(e^{tX})=e^{tb}$
+\end{itemize*}
+
+\section{Distribución de Bernoulli, Be(p)}
+
+Se trata de un experimento con dos posibles casos (cara o cruz, positivo o negativo,...)
+donde uno de los casos tiene probabilidad $p$ y el otro $q$, donde $q=1-p$, es decir,
+la masa de la probabilidad se distribuye en dos puntos.
+$$ P(X=1)= p \quad P(X=0)=q$$
+$$ P(X=x_i)= p^{x_i}q^{1-x_i}$$
+
+\begin{itemize*}
+\item $E(X^r)=p, \forall r >0$
+\item $E(X)=p$
+\item $Var(X)=pq$
+\item $M_X(t)=q+pe^t$
+\end{itemize*}
+
+Tiene como función de probabilidad del producto de distribuciones
+Bernoulli's la expresión
+
+$$\prod_{i=1}^{n}P(X=x_i) =p^{\sum_{i=1}^n x_i}q^{n-\sum x_i} $$
+
+\section{Distribución binomial}
+
+Se trata de la repetición de $n$ experimentos Bernoulli. Es decir, la probabilidad
+de que se cumpla un suceso $k$ veces \textbf{con reposición}.
+
+$$P(X=k) = {n \choose k}p^kq^{n-k}$$
+\begin{itemize*}
+\item $E(X)=np$
+\item $Var(X)=npq$
+\item $M_X(t)=(q+pe^t)^n$
+\item Es reproductiva
+\end{itemize*}
+
+\section{Distribución geométrica}
+
+Mide el número de fracasos hasta que se llega al éxito.
+
+$$P(X=k)=q^kp$$
+
+\begin{itemize*}
+\item $E(X)=\frac{q}{p}$
+\item $Var(X)=\frac{q}{p^2}$
+\item $M_X(t)=\frac{p}{1-qe^t}$
+\item No es reproductiva
+\end{itemize*}
+
+\section{Distribución binomial negativa}
+
+Se trata de la suma de distribuciones geométricas. \textbf{número de experimentos
+  realizados hasta que se obtiene el r-ésimo éxito}
+
+$$P(X=k)={k+r-1 \choose k}q^kp^r $$
+
+\begin{itemize*}
+\item $E(X)=r\frac{q}{p}$
+\item $Var(X)=r\frac{q}{p^2}$
+\item $M_X(t)=\frac{p^r}{(1-qe^t)^r}$
+\item Es reproductiva
+\end{itemize*}
+
+\section{Distribución de Poisson}
+
+$$P(X=x)=e^{-\lambda}\frac{\lambda^x}{x!}$$
+
+Cuando el número de ensayos de una Binomial tiende a infinito
+se trata de una distribución de Poisson.
+
+\begin{itemize*}
+\item $E(X)=Var(X)=\lambda $
+\item $M_X(t)=e^{\lambda (e^t-1)}, \forall t \in \mathcal{R}$
+\item Es reproductiva
+\end{itemize*}
+
+\section{Distribución hipergeométrica}
+
+Se trata de un experimento en el que tenemos $N$ elementos, de los cuales
+$N_1$ son de un tipo y el resto de otro tipo. En la variable aleatoria $X$
+se cuenta \textbf{el número de elementos del primer tipo que hay en la muestra
+  extraida}
+
+$$P(X=k)=\frac{{N_1 \choose k}{N-N_2 \choose n-k}}{{N\choose n}}$$
+
+\begin{itemize*}
+\item $E(X)=np $
+\item $Var(X)=npq\frac{N-n}{N-1}$
+  \begin{nota}
+    $p=\frac{N_1}{N} \quad q=1-p$
+  \end{nota}
+\end{itemize*}
+
+\section{Distribución uniforme discreta en $N$ puntos}
+
+La masa de la probabilidad se distribuye de igual forma sobre $N$ puntos.
+
+$$P(X=x_k)=\frac{1}{N},k=1,\dots, N $$
+
+\begin{itemize*}
+\item $E(X)= \frac{N+1}{2}$
+\item $Var(X)= \frac{N^2-1}{12}$
+\end{itemize*}

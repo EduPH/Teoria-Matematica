@@ -1,0 +1,38 @@
+\chapter{Distribuciones especiales}
+
+\section{Distribución chi cuadrado ($\chi $)}
+
+Una $\chi^2_n$ con $n$ grados de libertad es la suma
+de $n$ distribuciones $N(0,1)$ al cuadrado. Es decir,
+$$\chi_n^2=\sum_{i=1}^nX_i^2,\quad X_i\text{ con } F\in N(0,1),\forall i\in \mathbb{N}$$
+
+\begin{itemize*}
+\item $\chi_{n_1}^2+\chi_{n_2}^2=\chi_{n_1+n_2}^2$
+\item $E\chi_n^2=n$
+\item $\frac{\chi_n^2}{n} \xrightarrow{P} 1$
+\item $\frac{1}{\sigma²}\sum(Y_k-\bar{Y})²$ se distribuye según una chi cuadrado
+  con $n-1$ grados de libertad. Con cada $Y_i$ con distribución $N(\mu,\sigma²)$
+\end{itemize*}
+
+\section{Distribución t de student}
+Si tenemos
+$$X \text{ una } N(0,1)$$
+y
+$$Y \text{ una } \chi_n^2$$
+entonces
+$$\frac{X}{\sqrt{\frac{Y}{n}}} \text{ se distribuye según una } t_n$$
+
+\begin{itemize*}
+\item la función de densidad es simétrica.
+\item Tiende en ley a una $N(0,1)$
+\item $\sqrt{n}\frac{\bar{X}-\mu}{S_c} \text{ se distribuye según una } t_{n-1}$
+\end{itemize*}
+
+\section{Distribución F de Snedecor}
+
+Sean
+
+$$X,Y \text{ con distribuciónes } \chi_n^2 \text{ y } \chi_m^2,\text{ independientes.}$$
+Entonces se tiene,
+
+$$\frac{\frac{X}{n}}{\frac{Y}{m}} \text{ se distribuye según una } F_{n,m}$$

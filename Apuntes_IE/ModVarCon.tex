@@ -1,0 +1,61 @@
+\chapter{Variables continuas}
+\section{Distribución uniforme}
+
+Una distribución uniforme en el intervalo $(a,b)$ tiene
+como \textbf{función de densidad}
+$$f(x)=\frac{1}{b-a}I_{[a,b]}(x),x\in \mathbb{R} $$
+
+Se trata de la selección al azar de un punto del intervalo.
+Tiene como \textbf{función de distribución}
+
+$$
+F(x)=
+\left\{
+  \begin{array}{l}
+    0, \quad x<a \\
+    \frac{x-a}{b-a}, \quad a<x<b \\
+    1, \quad x>b
+  \end{array}
+    \right.
+    $$
+
+\begin{itemize*}
+\item $E(X)=\frac{a+b}{2}$
+  \vspace{2mm}
+\item $Var(X)= \frac{(b-a)^2}{12}$
+  \vspace{2mm}
+\item $E(X^k)=\frac{b^{k+1}-a^{k+1}}{(b-a)(k+1)}$
+\end{itemize*}
+
+\section{Distribución exponencial}
+
+Una distribución exponencial de parámetro $\lambda $ tiene
+como \textbf{función de densidad}
+
+$$f(x)=\lambda e^{-\lambda x}I_{(0,+\infty)}(x)$$
+
+y como \textbf{función de distribución}
+
+$$F(x)=(1-e^{-\lambda x})I_{(0,+\infty)}(x)$$
+
+\begin{itemize*}
+\item $E(X)= \frac{1}{\lambda }$
+\item $Var(X)= \frac{1}{\lambda^2 }$
+\item $E(X^k)=\frac{k!}{\lambda^k}$
+\item No es reproductiva
+\end{itemize*}
+
+\section{Distribución Gamma}
+$$f(X)=\frac{a^p}{\Gamma (p)}e^{-ax}x^{p-1}I_{(0,+\infty)}$$
+
+\begin{itemize*}
+  \item $\Gamma (1) = 1$
+  \item $\Gamma (p) = (p-1)\Gamma(p-1)$ 
+\end{itemize*}
+
+\section{Distribución normal univariante}
+
+Sea $X$ una variable aleatoria que se distribuye según una
+$N(\mu,\sigma^2)$, su función de densidad es de la forma
+
+$$f(x)=\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma²}}$$
