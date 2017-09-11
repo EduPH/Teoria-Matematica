@@ -1,0 +1,219 @@
+\chapter{Curvas proyectivas planas}
+
+\begin{Def}
+  Una curva proyectiva plana es una clase de equivalencia 
+
+  $\{ \text{polinomios homogeneos de }$ $k[X,Y,Z] \} /  \sim $, donde $F \sim G \Leftrightarrow \exists \lambda \neq 0$ tal que $F=\lambda G$.
+  
+\end{Def}
+
+\begin{nota}
+$P\in F$ y $P\in U_i$, sabemos que $O_P(F)=O_{\varphi_i^{-1}(P)}(F_{*i})$.
+\end{nota}
+
+\begin{Def}
+$m_P(F)=m_{\varphi_i^{-1}(P)}(F_{*i})$ para cualquier carta $P\in U_i$. 
+\end{Def}
+
+\begin{nota}
+$m_P(F)$ no depende de la carta $U_i$ y es invariante por cambio de coordenadas proyectivas. 
+\end{nota}
+
+\textbf{Ejemplo:} $(X^2+Y^2)^3-4X^2Y^2Z^2=F, P=[0:0:1]$, $F_*=F(X,Y,1)=(X^2+Y^2)^3-4X^2Y^2$, entonces $m_P(F)=2$.
+
+\vspace{4mm}
+
+Igual que en el caso afín:
+$$P \text{ simple} \Leftrightarrow m_P(F)=1$$
+$$P \text{múltiple, singular} \Leftrightarrow m_P(F)>1$$
+
+\begin{Lem}
+$P$ es múltiple para $F \Leftrightarrow F(P)=\partial_XF(P)=\partial_YF(P)=\partial_ZF(P)=0$. 
+\end{Lem}
+
+\begin{Dem}
+  $F(\lambda X, \lambda Y, \lambda Z)=\lambda^dF(X,Y,Z)$, con $d=deg(F)$. Derivamos respecto a $\lambda$, $D(F(\lambda X, \lambda Y, \lambda Z))= \partial_XF\cdot \frac{d\lambda X}{d\lambda}+\partial_YF\cdot \frac{d\lambda Y}{d\lambda}+\partial_ZF\cdot \frac{d\lambda Z}{d\lambda}= d\lambda^{d-1}F(X,Y,Z)$.
+
+  Obtenemos: $X\partial_XF+Y\partial_YF+Z\partial_ZF=d\lambda^{d-1}F(X,Y,Z)=dF(X,Y,Z)$
+
+  Supongamos $P=[a:b:1]$, $P$ es múltiple $\Leftrightarrow (a,b)$ es múltiple para $F_*(X,Y)=F(X,Y,1) \Leftrightarrow F_*(a,b)=0=F(a,b,1), \underbrace{\partial_X F_*(a,b)}_{\partial_X F(a,b,1)} =0, \underbrace{\partial_YF_*(a,b)}_{\partial_Y F(a,b,1)}=0$.  Así que tenemos que $F(a,b,1)=0, \partial_XF(a,b,1)=0, \partial_YF(a,b,1)=0, \partial_ZF(a,b,1)=0$.
+
+  Si la última coordenada de $P$ es $0$, podemos reducir al caso anterior permutando las variables.
+
+  Además, si $P$ es simple, tiene una única recta tangente que es $X\partial_XF(P)+Y\partial_YF(P)+Z\partial_ZF(P)=0$. \qed
+\end{Dem}
+
+\textbf{Ejemplo:} $F=XY^4+YZ^4+XZ^4$, los puntos singulares tienen de ecuaciones $XY^4+YZ^4+XZ^4=0, Y^4+Z^4=0, 4XY^3+Z^4=0,4YZ^3+4XZ^3=0$.
+
+Si $Z=0 \Rightarrow Y=0 \Rightarrow [1:0:0]$.
+
+Si $Z\neq 0$ lo evaluamos $Z=1 \Rightarrow $ $XY^4+Y+X=0, Y^4+1=0, 4XY^3+1=0,Y+X=0 \Rightarrow $ no tiene solución.
+
+
+\textbf{Deshomogeneización por cualquier recta:}
+
+Sea $L:a_1X_1+\dots + a_{n+1}X_{n+1}=0$, y $P=[P_1:\dots : P_{n+1}]\notin L$, entonces $\tilde{P}=[\frac{P_1}{L(P)}:\dots : \frac{P_{n+1}}{L(P)}]$, y se tiene que $L(\tilde{P})=1$, así que podemos quitar una coordenada, pues podemos escribir $\tilde{P}=[\frac{P_1}{L(P)}:\dots : \frac{1}{a_{n+1}}(L(P)-\sum (a_i\frac{P_i}{L(P)}))]$, es decir, la última coordenada depende de las demás, y podemos quitarla. 
+
+Dados $P_1,\dots , P_r$ existe una recta proyectiva que no pasa por ninguno. Entonces, si tenemos $O_{P_1}(\mathbb{P}^2), \dots ,O_{P_2}(\mathbb{P}^2)$, y a ellos pertenece $\frac{F}{L^{deg F}}$, pero depende de la $L$ escogida. 
+
+\begin{nota}
+$\frac{F}{L^{deg F}}=\underbrace{\frac{L'^{deg F}}{L^{deg F}}}_{\text{Unidad}}\frac{F}{L'^{deg F}}$
+\end{nota}
+
+Definimos $F_*=\frac{F}{L^{deg F}}$ como la deshomogeneización respecto de la recta $L$. Y coincide con la deshomogeneización respecto de la última variable. Y así, tiene sentido definir en $\mathbb{P}^n$ a $I(P,F\cap G)=O_P(\mathbb{P}^2)/<F/L^{deg F},G/L^{deg G}>$.
+
+\begin{nota}
+Sea $\P_1,\dots , P_r \in \mathbb{P}^2$.
+\begin{itemize*}
+\item Existe una recta $L$ tal que $P_i\notin L$, $i=1,\dots , r$.
+\item $F$ forma de grado $d$, $F\in k[X,Y,Z]$, $F/L^d\in O_{p_i}$.
+\item Si $L'$ es otra recta, $P_i\notin L'$, $F/L'^d\in O_{p_i}(\mathbb{P}^2)$ y $F_*= F/L^d=F/L'^du $ en $O_{p_i}(\mathbb{P}^2)$. 
+\end{itemize*}
+\end{nota}
+
+En el caso particular $L=Z$:
+$$F_*=F/Z^d\in k(\mathbb{P}^2)\xrightarrow{\alpha } k(\mathbb{A}^2) $$
+$$\alpha (\frac{F(X,Y,Z)}{Z^d})=F(X,Y,1)/1^d=F_*$$
+
+\vspace{5mm}
+
+
+Sea $F$ una curva irreducible, $P\in F$. Si $P$ es un punto simple, $O_P(F)$ es un anillo de valoración discreta (porque $O_P(F) \cong O_{\varphi_i^{-1}(P)}(F_{*i})$ para toda carta $U_i \ni P$). 
+
+
+\vspace{5mm}
+
+Se define el orden: 
+$$ord_P^F(G)= ord_P^F(G/H)=ord_{\varphi_i^{-1}}^{F_{*i}}(G_{*i}) \text{ para } U_i\ni P$$
+, donde $H$ es cualquier forma del mismo grado que $G$ y $H(P)\neq 0$. 
+
+$= ord_P^F(\bar{G}_*)$, $G_*$ es la deshomogeneización en $O_P(\mathbb{P}^2)$ y $\bar{G}_*$ la imagen de $G_*$ en $O_P(\mathbb{P}^2)/FO_P(\mathbb{P}^2)=O_P(F)$. 
+
+\begin{Def}
+$I(P,F\cap G)=dim_k(O_P(\mathbb{P}^2)/<F_*,G_*>)$
+\end{Def}
+
+\begin{nota}
+No es completamente trivial que no depende de la deshomogeneización. Si tenemos $L,L'$ tales que $P\notin L$ y $P\notin L'$, entonces 
+$dim_k(O_P(\mathbb{P}^2)/<F/L^{degF},G/L^{degG}>=dim_k O_P(\mathbb{P}^2/<F/l'^{degF},G/L'^{degF}>$. 
+\end{nota}
+
+\begin{Cor}
+\begin{enumerate}
+\item $I(P,F\cap G) \ge 0$ para todos $P,F,G; F$ y $G$ con intersección propia. $I(P,F\cap G)=\infty$ para todos $P,F,G; F$ y $G$ sin intersección propia. 
+\item $I(P,F\cap G)=0  \Leftrightarrow P\notin F\cap G$. $I(P,F\cap G)$ depende sólo de las componentes irreducibles de $F$ y $G$ que pasan por $P$. 
+\item Si $T$ es un cambio de coordenadas proyectivo, con $T(Q)=P$, $I(P,F\cap G)=I(Q,F^T\cap G^T)$. 
+\item $I(P,F\cap G)=I(P,G\cap F)$. 
+\item $I(P,F\cap G)\ge m_P(F)\cdot m_P(G);$ y se da la igualdad $\Leftrightarrow F$ y $G$ no tienen tangentes comunes en $P$, donde la recta $L$ es tangente a $F$ en $P$, si $I(P,F\cap L)>m_P(F)$. 
+\item $F=\prod F_i^{r_i}, G=\prod G_j^{s_j}$, entonces $I(P,F\cap G)=\sum r_i s_j I(P,F_i\cap G_j)$. 
+\item $I(P,F\cap G)=I(P,F\cap G+AF)$ donde $A\in k[X,Y,Z]$ forma de grado $deg(G)-deg(F)$.
+\item Si $P$ es simple para $F$, entonces $I(P,F\cap G)=ord_P^F(G)$.
+\end{enumerate}
+\end{Cor}
+
+\textbf{Ejercicio:} Sean $F,G$ curvas planas proyectivas; si no tienen componentes comunes. Entonces tienen un número finito de puntos de intersección. Idea: Reducir al caso afín. 
+
+
+\textbf{Ejemplo:} Sea $F=X^2Y^3+X^2Z^3+Y^2Z^3$. Cálculo de puntos singulares. 
+
+$sing(F)= ...$ Se resuelve el sistema:
+$$ X^2Y^3+X^2Z^3+Y^2Z^3=0$$
+$$ 2XY^3+2XZ^3=0$$
+$$3X^2Y^2+2YZ^3=0$$
+$$3X^2Z^2+3Y^2Z^2=0$$
+Obteniendo: Si $z=0 \rightarrow P_1=[1:0:0],P_2=[0:1:0]$, si $z\neq 0 \rightarrow P_3=[0:0:1]$. 
+Obtenemos sus multiplicidades:
+\begin{itemize*}
+\item Como $P_1\in U_1$, deshomogeneizamos por la $X$, $F_1=Y^3+Z^3+Y^2Z^3 \Rightarrow m_{p_1}(F)=m_{(0,0)}(F_1)=3$.
+\item Como $P_2\in U_2$, deshomogeneizamos por $Y$, $F_2=X^2+X^2Z^3+Z^3$, $m_{p_2}(F_2)=2$.
+
+\item Como $P_3\in U_3$, deshomogeneizamos por $Z$, $F_3=X^2Y^3+X^2+Y^2$, $m_{p_3}(F_3)=m_{(0,0)}(F_3)=2$.
+\end{itemize*}
+
+\vspace{5mm}
+
+
+Sea $F=Y^2Z-X(X-2Z)(X+Z)$ y $G=Y^2+X^2-2XZ$. Calcular los puntos de intersección, y sus números de intersección.  (Irreducible, se puede ver homogeneizando alguna de las variables). 
+
+$F\cap G:$ Consideramos $Y=0$ y luego cuando $Y=1$. Si $Y=0$, se tiene que $-X(X-2Z)(X+Z)=0$ y $X^2-2X=0$, quedando así $P_1=[0:0:1],P_2=[2:0:1]$, que son solución de $F$ y $G$. Ahora veamos si $Y=1$, obtenemos $Z-X(X-2Z)(X+Z)=0$, y $1+X^2-2XZ=0$, obteniendo del sistema $Z=X/-2, X=+-i\frac{\sqrt{2}}{2}$, obteniendo así dos puntos más $P_3$ y $P_4$. 
+
+Falta calcular los números de intersección. 
+
+
+$P_1\subset U_3, Z=1$, $I(P_1,F\cap G)=I(0,F_*\cap G_*)=I(0,Y^2-X(X-2)(X+1)\cap Y^2+X^2-2X)= I(0, Y^2-X(X-2)(X+1)\cap Y^2+X(X-2)) = I(0,F_*+(X+1)G_*\cap G_*)=I(0, \underbrace{Y^2+(X+1)Y^2}_{Y^2\underbrace{(X+2)}_{unidad,O_p(\mathbb{A})=Y^2}}\cap Y^2+X(X-2))=I(0,Y^2\cap Y^2+X(X-2))=I(0,Y^2\cap X(X-2))=2$ 
+
+
+$P_2$, consideramos en $U_3$ el punto $(2,0)$. $I((2,0),F_*\cap G_*)\underbrace{=}_{T(X,Y)=(X+2,Y)}I(0,F_*(X+2,Y)\cap G_*(X+2,Y))=I(0,Y^2-(X+2)X(X+3)\cap Y^2+X(X+2))= I(0,H_1\cap H_2)=I(0,H_1+(X+3)H_2\cap H_2)=I(0,Y^2(X+4) \cap H_2-Y^2)=I(0,Y^2\cap X(X+2))=I(0,Y^2\cap X)=2$.
+
+
+Por el teorema de Bézout, $deg(F)deg(G)=\sum_{i=1}^4I(P_i,F\cap G) \Rightarrow I(P_3,F\cap G)=1, I(P_4,F\cap G)=1$. 
+
+\section{Teorema de Bézout}
+\begin{Teo}
+Sean $F,G$ dos curvas proyectivas planas sin componentes comunes. Entonces 
+$$\sum_P I(P,F\cap G)=degF \cdot degG$$
+\end{Teo}
+
+\begin{Cor}
+Si $F,G$ no tienen componentes comunes, entonces
+$$\sum_P m_P(F)\cdot m_P(G) \le deg(F)\cdot deg(G) $$
+\end{Cor}
+
+\begin{Cor}
+Si el grado de $F$ es m y el grado de $G$ es $n$ y se cortan en un número de puntos igual a $m\cdot n$, entonces se cortan en exáctamente en $mn$ puntos y todos los puntos de corte son simples. 
+\end{Cor}
+
+\begin{Cor}
+Si $F$ y $G$ tienen más de $mn$ puntos comunes, entonces tienen una componente común. 
+\end{Cor}
+
+\textbf{Ejercicios 5.20,5.21,5.22}
+
+\section{Sistemas lineales de curvas}
+
+Se pretende estudiar todas las curvas proyectivas planas de grado $d$. Hay exáctamente $N=\frac{(d+1)(d+2)}{2}=dim(V(d,3))$, monomios de grado $d$ en $X,Y,Z$, y fijamos un orden.
+
+$$M_1,\dots , M_N$$
+
+\begin{nota}
+Existe una biyección entre curvas proyectivas de grado $d$ y el conjunto de puntos proyectivos de $\mathbb{P}^{N-1}$. Que lleva $a_1M_1+\dots +a_NM_N \leftrightarrow [a_1:\dots :a_N]$. 
+\end{nota}
+
+\textbf{Ejemplo:} Sea $aX^2+bXY+cXZ+dY^2+eYZ+fZ^2$, y se identifica con el punto $[a:b:c:d:e:f]\in \mathbb{P}^5$. 
+
+\begin{Lem}
+\begin{enumerate}
+\item El conjunto de curvas de grado $d$ que pasan por un punto $P$ es un hiperplano de $\mathbb{P}^{d(d+3)/2}$.
+\item Si $T:\mathbb{P}^2\rightarrow \mathbb{P}^2$ es un cambio de coordenadas proyectivo, entonces $F\mapsto F^T$ es un cambio de coordenadas. 
+\end{enumerate}
+\end{Lem}
+
+\begin{Dem}
+\begin{enumerate}
+\item Sea $P=[a:b:c]$, y consideramos la curva $U_1M_1+\dots + U_NM_N$, el punto $P$ pertenece a la curva si y sólo si $U_1M_1(a,b,c)+\dots + U_NM_N(a,b,c) = 0$, que es un hiperplano. 
+
+\item $T:\mathbb{P}^2\rightarrow \mathbb{P}^2$, $T=(T_1,T_2,T_3)$, polinomio de grado 1. Entonces, $M_i^T=M_i(T_1,T_2,T_3)=\sum_j \lambda_{i,j} M_j$. 
+
+La transformación $F\mapsto F^T$, mandamos $[a_1:\dots : a_N]\mapsto (\lambda_{ij})$, invertible porque $T$ tiene inversa. 
+\end{enumerate}
+\qed
+\end{Dem}
+
+Sea $V(d,r_1P_1,\dots , r_nP_n)$ el conjunto de curvas de grado $d$ tales que la multiplicidad de la curva en el punto $P_i$ es mayor o igual que $r_i$. 
+
+\begin{Teo}
+\begin{enumerate}
+\item $V(d,r_1P_1,\dots, r_nP_n)$ es una variedad proyectiva de dimensión mayor o igual que $\frac{d(d+3)}{2}-\sum \frac{r_i(r_i+1)}{2}$.
+\item Si $d\ge ( \sum r_i)-1$, entonces se da la igualdad. 
+\end{enumerate}
+\end{Teo}
+
+\begin{Dem}
+\begin{enumerate}
+\item Consideramos $V(d,rP)$. Tomo $T$ un cambio de coordenadas de manera que, $p=[0:0:1]$ y por tanto, $F=\sum F_i(X,Y)Z^{d-i}$. $m_P(F)\ge r \Leftrightarrow m_0(F_*)\ge r \Leftrightarrow F_0=\cdots =F_{r-1}=0$, por lo tanto, $V(d,rP)= \{U_1=\dots =U_{r(r+1)/2}=0 \}$, y eso implica que $dim(V(d;rP) = dim \{U_1=\dots =U_{r(r+1)/2}=0 \}=\frac{d(d+3)}{2}-\frac{r(r+1)}{2}$.
+
+$V(d,r_1P_1,r_2P_2)=V(d,r_1P_1)\cap V(d,r_2P_2)$, entonces $dim(d,r_1P_1,r_2P_2)\ge \frac{d(d+3)}{2}-\frac{r_1(r_1+1)}{2}-\frac{r_2(r_2+1)}{2}$, y se itera el argumento para la generalización. \qed
+\end{enumerate}
+\end{Dem}
+
+\textbf{Ejercicio 5.17}

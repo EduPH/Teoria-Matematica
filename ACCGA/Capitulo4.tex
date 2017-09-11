@@ -1,0 +1,370 @@
+\chapter{Variedades proyectivas}
+
+\section{Conjuntos algebraicos proyectivos}
+
+\begin{Def}
+Dado un polinomio $F\in k[X_1,\dots,X_{n+1}]$ y $P=[a_1:\dots :a_{n+1}]\in \mathbb{P}^n$, decimos que $F(P)=0$ si $F(b_1,\dots,b_{n+1})=0$ para toda elección $[b_1:\dots :b_{n+1}]=[a_1:\dots : a_{n+1}]$. 
+\end{Def} 
+
+\begin{nota}
+Es equivalente a que $F(\lambda a_1,\dots,\lambda a_{n+1})=0, \forall \lambda$. 
+\end{nota}
+
+\begin{nota}
+Sea $F=F_m+\dots + F_n$ la descomposición en formas de $F$. $F(P)=0 \Leftrightarrow F_m(P)=\dots =F_n(P)=0$.
+
+\begin{Dem}
+Sea $P=[a_1:\dots :a_{n+1}]$, $F(\lambda a_1,\dots ,\lambda a_{n+1})=0 \forall  \lambda \in K^*$. Sea $\lambda $ una variable, consideramos el polinomio $G(\lambda) = F(\lambda, \dots, \lambda a_{n+1})= F_m(\lambda a_1, \dots , \lambda a_{n+1}) + \cdots + F_n (\lambda a_1,\dots , \lambda a_{n+1}) = \lambda^m F_m(a_1,\dots , a_{n+1})+\cdots + \lambda^n F_n(a_1,\dots, a_{n+1})$, pero $F(P)=0 \Leftrightarrow G(\lambda) = 0 \Leftrightarrow F_i(a_1,\dots, a_{n+1})=0 \Leftrightarrow F_i(\mu a_1,\dots , \mu a_{n+1})=0, \forall \mu \in K^* \Leftrightarrow F_i(P)=0$. 
+\end{Dem}
+\end{nota}
+
+\begin{Def}
+Sea $S \subseteq K[X_1,\dots,X_{n+1}]$, se denota $V(S)$ 
+$$V(S)=\{ P : F(P)=0, \forall F \in S  \} $$
+y se llama el conjunto algebraico proyectivo definido por $S$. 
+\end{Def}
+
+\begin{Prop}
+Si $I=<S>$, entonces $V(I)=V(S)$. Más aún, $I=<F^{(1)},\dots, F^{(r)}>$, entonces $V(I)=V(<\{ F^{(i)}_j\} >)$ donde $F^{(i)}=F_{m_1}^{(i)}+\cdots +F_{n_i}^{(i)}$, suma de formas homogéneas. 
+\end{Prop}
+
+\begin{Dem}
+$S\subseteq I \Rightarrow V(I) \subset V(S)$. Recíprocamente, $P\in V(S),H\in I \Rightarrow H_1,\dots, H_r  \in S$ tal que $H=A_1H_1+\cdots +A_s+H_s$. 
+
+$H(P)=A_1(P)H_1(P)+\cdots A_s(P)H_s(P)=0$, suma de ceros, luego $H(P)=0, \forall H\in I \Rightarrow P\in V(I)$. 
+
+Veamos que $V(<F^{(1)},\dots , F^{(r)}>)=V(<F_j^{(i)}>)$. $P\in V(<F^{(1)},\dots , F^{(r)}>) \Leftrightarrow F^{(i)}(P)=0, i=1,\dots , r \Leftrightarrow F^{(i)}(P)=0, i=1,\dots , r$ y $j=m_i,\dots ,n_i \Leftrightarrow P\in V(<F^{(i)}_j>)$. Puedo pensar que $I$ está generado por formas. 
+\end{Dem}
+
+\textbf{Ejemplo:}
+$V(<Y-X^2,X^2Y-Y^4,Y^4+Z^4>)=V(<\{Y,X^2,X^2Y,Y^4,Y^4+Z^4\}>)$.
+
+
+\begin{Def}
+Sea $\mathbb{X} \subset \mathbb{P}^n$. Se llama el ideal de $\mathbb{X}$ a $I(\mathbb{X})= \{ F \in K[X_1,\dots, X_{n+1}] \text{ tal que } F(P)=0, \forall P \in \mathbb{X}\} $. 
+\end{Def}
+
+\begin{nota}
+$I(\mathbb{X})$ es un ideal y verifica que $\forall F \in I=I(X)$, si $F=F_m+\dots + F_n, F_i\in I, i=m,\dots , n$.  
+\end{nota}
+
+\begin{Def}
+Un ideal homogéneo es un ideal $I\subset K[X_1,\dots ,X_{n+1}]$ con esa propiedad, es decir, si $F=\sum F_i \in I \Leftrightarrow F_i\in I$. 
+\end{Def}
+
+\begin{Prop}
+Sea $I$ un ideal de $K[X_1,\dots , X_{n+1}]$, entonces $I$ es homogéneo si y sólo si $I$ tiene un sistema de generadores homogéneos. 
+\end{Prop}
+
+\begin{Dem}
+\framebox{$\Rightarrow $} Si $I=<F^{(1)},\dots , F^{(r)}> \Rightarrow I=<F^{(i)}_j>$. 
+
+\framebox{$\Leftarrow $} Sea $I=<G_1,\dots , G_s>, G_i$ homogéneos. Tomamos $F\in I$ arbitrario, $F=F_m+\dots + F_n$, demostremos que $F_n \in I$. $F=A_1G_1+\cdots + A_sG_s$, puedo suponer que el grado de los $G_i$ es menor o igual que $n$, pues si alguno tiene grado mayor y es homogéneo va a cancelar. También podemos suponer que $deg(A_i) \le n- deg(G_i)$. $F_n = (A_1G_1+\cdots + A_s G_s)_n = \sum A_{in-d_i}G_i$ con $d_i = deg(G_i), A_i= \sum A_{ij}$, por lo tanto $F_n\in I$.  \qed
+\end{Dem}
+
+\begin{Cor}
+$$\{ \text{ Conjuntos algebraicos } \mathbb{X}\subset \mathbb{P}^n  \}$$
+ $$I \downarrow \quad \uparrow V $$
+$$\{ \text{ Ideales homogéneos de } K[X_1,\dots ,X_{n+1}] \}$$
+\end{Cor}
+
+\textbf{Ejercicio:} Denotamos $I,J$ ideales homogéneos, $\mathbb{X}, \mathbb{Y}$ conjuntos algebraicos proyectivos.
+
+\begin{enumerate}
+\item $I=<S> \Rightarrow V(I)=V(S)$.
+\item $V(\cup_i I_i)= V(\sum I_i) = \cap_i V(I_i)$. 
+\item $I\subset J \Rightarrow V(I)\supset V(J)$. 
+\item $F,G$ son formas, entonces $V(F\cdot G)=V(F)\cup V(G)$. Por tanto, $V(I)\cup V(J)= V(\{ FG : F \text{ forma } \in I, G \text{ forma } \in J \})$. 
+\item $V(<0>) = \mathbb{P}^n$. $V(<1>)=V(K[X_1,\dots ,X_{n+1}])=\emptyset $. $V(<X_1,\dots ,X_{n+1}>)=\emptyset $, $<X_1,\dots ,X_{n+1}>$ es el ideal irrelevante. Sea $P\in \mathbb{P}^n, [a_1:\dots :a_{n+1}]=P=V(\{a_iX_j-a_jX_i \} ) $(, todos los menores de orden 2).
+\item $\mathbb{X} \subseteq \mathbb{Y} \Rightarrow I(\mathbb{Y})\subset I(\mathbb{X})$. 
+\item $I(\emptyset ) = <1>=k[X_1,\dots ,X_{n+1}]$ 
+\item $I(V(S)) \supset S, V(I(\mathbb{X})) \supset \mathbb{X} $
+\item $V(I(V(S)))=V(S), I(V(I(\mathbb{X})))=I(\mathbb{X})$. 
+\item $I(\mathbb{X})$ es homogéneo y radical. 
+\end{enumerate} 
+
+\begin{Lem}
+Sea $I$ un ideal homogéneo, $I$ es primo si y sólo si $FG\in I, F,G$ formas, entonces $F\in I$, ó $G\in I$. 
+\end{Lem}
+
+\begin{Dem}
+\framebox{$\Rightarrow $} Trivial.
+
+\framebox{$\Leftarrow $} ¿$I$ primo? $F,G\in K[X_1,\dots ,X_{n+1}]$, supongo que $FG \in I$ , pero $F\notin I, G\notin I$. $F=\sum_{i=0}^n F_i, G=\sum_{j=0}^m G_j \Rightarrow \exists r=$ máximo grado de la formas de $F$, tal que $F_r\notin I, F_r \neq 0$, y $s=$ máximo grado de las formas de $G$, tales que $G_s \notin I, G_s \neq 0$. Consideremos la forma $(F\cdot G)_{r+s}=F_0G_{r+s}+F_1G_{r+s-1}+\underbrace{\cdots + F_rG_s}_{\neq 0} + F_{r+1}G_{s-1}+\cdots + F_{r+s}G_0$. Tenemos dos casos posibles, $F_lG_h$, con $(l,h)=(r,s)$ ó $(l>r)\vee (h>s)$, en este último puede ser 0 o pertenecer al ideal.
+
+Como $I$ es homogéneo, $(\underbrace{FG}_{\underbrace{H}_{\in I}+F_rG_s})_{r+s}\in I \Rightarrow F_rG_s \in I$, que al ser primo para las formas, $F_r\in I \vee G_s \in I \rightarrow \leftarrow$. \qed
+\end{Dem}
+
+\begin{Def}
+Un conjunto algebraico proyectivo se llama irreducible si y sólo si no es unión de dos subconjuntos propios, es decir , si $\mathbb{X}=\mathbb{X}_1\cup \mathbb{X}_2 \Rightarrow \mathbb{X}=\mathbb{X}_1$ ó $\mathbb{X}=\mathbb{X}_2$. 
+\end{Def}
+
+\begin{Prop}
+Sea $\mathbb{X}$ conjunto algebraico proyectivo irreducible si y sólo si $I(\mathbb{X})$ es primo. Todo conjunto algebraico proyectivo se descompone de forma única (salvo orden) en conjuntos algebraicos proyectivos irreducibles, que se llaman las componentes irreducibles de $\mathbb{X}$. 
+\end{Prop}
+
+\begin{Dem}
+Misma demostración que en el caso afín. 
+\end{Dem}
+
+\begin{Def}
+Dado $V$ un conjunto algebraico proyectivo, no vacío. Se llama el cono afín de $V$ a 
+ $$C(V)=V_a(I(V)) = \{ (a_1,\dots , a_{n+1}) \in \mathbb{A}^{n+1} : [a_1:\dots : a_{n+1}]\in \mathbb{X}\} \cup \{ \vec{0} \} $$
+
+\end{Def}
+
+\begin{Prop}
+Sea $V\neq \emptyset$ conjunto algebraico proyectivo, $I_a(C(V))=I_p(V)$. Si $I$ es homogéneo, $V_p(I)\neq \emptyset$, entonces $C(V_p(I))=V_a(I)$. 
+\end{Prop}
+
+\begin{Teo}
+(Nullstellensatz) $I$ homogeneo $\subseteq k[X_1,\dots ,X_{n+1}]$.
+\begin{enumerate}
+\item $V_p(I)=\emptyset \Leftrightarrow $ existe una potencia $N>>0$ tal que $I$ contiene todas las formas de grado $N$.
+\item $V_p(I)\neq \emptyset$, $I_p(V_p(I))= rad I$.
+\end{enumerate}
+\end{Teo}
+
+\begin{Dem}
+\begin{enumerate}
+\item $V_p(I)=\emptyset \Leftrightarrow V_a(I)\subset \{(0,\dots ,0)\} \Leftrightarrow  \underbrace{I_a(V_a(I))}_{rad I}\supset \underbrace{I_a(\{ 0, \dots , 0 \})}_{<X_1,\dots , X_{n+1}>} \Leftrightarrow 
+\exists N >> 0 $ tal que $<X_1,\dots , X_{n+1}>^N\subseteq I$. 
+
+\item $V_p(I) \neq \emptyset$, $I_p(V_p(I))=I_a(C(V_p(I))) = I_a(V_a(I)) = rad I$ \qed
+\end{enumerate}
+\end{Dem}
+
+\begin{Cor}
+$I$ un ideal radical de $k[X_1,\dots , X_{n+1}]$ homogéneo tal que $V_p(I)\neq \emptyset$ (i.e. $I \neq <X_1,\dots ,X_n>$), entonces, $I(V(I))=I$.
+\end{Cor}
+
+\begin{Cor}
+$I$ homogéneo y primo, $I\neq <X_1,\dots ,X_n> \Rightarrow V(I)$ es irreducible. 
+\end{Cor}
+
+\begin{Cor}
+Existe una correspondencia biyectiva entre:
+
+$$\{ \text{Ideales primos homogéneos distintos del ideal irrelevante} \} $$
+$$\updownarrow$$
+$$\{\text{Conjuntos algebraicos proyectivos irreducibles} \} = \{\text{Variedades proyectivas}\}$$
+\end{Cor}
+
+\begin{Cor}
+$F$ un polinomio homogéneo no constante, $F= F_1^{r_1}\dots F_s^{r_s}$, $F_i$ formas, $V(F)=V(F_1)\cup \dots \cup V(F_s)$, $I(V(F))=<F_1,\dots , F_s>$. En particular,
+
+$$\{\text{Polinomios homogéneos irreducibles no constantes} \} $$
+$$\updownarrow $$
+$$\{ \text{hipersuperficies irreducibles de } \mathbb{P}^n  \} $$
+
+\end{Cor}
+
+\begin{Def}
+$V$ variedad, $V\neq \emptyset , V \subseteq \mathbb{P}^n$, definimos $\Gamma_h (V) = k[X_1,\dots , X_{n+1}]/I(V)$ (dominio) como el anillo de coordenadas de $V$. Dado un polinomio $f\in \Gamma(V), f = F+ I(V)$, donde $F\in k[X_1,\dots , X_{n+1}]$, diremos que $f$ es una forma si $F$ es una forma. 
+\end{Def}
+
+
+\textbf{Ejemplo: } $x^2-y^3 = X^2Z+I(V)$, con $R[X,Y,Z]/<X^2Z-Y^3,X>$, a pesar de no tener forma de homogéneo en el cociente, si vemos de donde proviene, sí lo es. 
+
+\begin{nota}
+$f+I(V)$ forma de grado $i$ si existe $F=F_i$ tal que $f=F+I(V)$. $f=F+I(V)=G+I(V)$, pero $F=F_1+F_2, F_1\notin I(V), F_2\in I(V), G=G_1+G_2, G_1\notin I(V), G_2\in I(V)$, pueden tener grados distintos $F$ y $G$. Si  $F=+I(V)=G+I(V)$, se tiene $F-G\in I(V) \Rightarrow F-G =H= \sum H_i \in I(V)$. Podemos escribir que $F=G+\sum H_i$, si tomamos la forma de mayor grado de $F$ que llamamos $F_n$, se cumple que $F_n=G_n+H_n$, si $G_k\neq 0$, $k>n$, entonces $G_k \in I(V)$. Por lo tanto, el grado de una forma está bien definido. 
+\end{nota}
+
+\textbf{Ejemplo: } $k[X,Y,Z]/<X-Y>$, y sea $Z^{10}+Z^9X+Z^9Y$ y $Z^{10}$ en el cociente son iguales. 
+
+\begin{Prop}
+Todo elemento $f$ de $\Gamma_h(V)$ se descompone en suma única (salvo orden) de formas. 
+\end{Prop}
+
+\begin{Dem}
+Existencia: $f\in \Gamma_h(V) = f_n+\dots + f_m, f_i$ de grado $i$. $F= F_n+\dots + F_m + I(V)$.
+
+Unicidad: $f=\sum f_i = \sum g_i \Rightarrow \sum f_i - \sum g_i = 0 \Leftrightarrow \sum F_i - \sum G_i \in I(V)$, pero $I(V)$ es homogéneo, así que podemos escribirlo como $\sum (F_i- G_i)$, por lo tanto, $F_i-G_i \in I(V) \Rightarrow f_i=g_i$.
+\end{Dem}
+
+\begin{nota}
+$\Gamma_h(V)$ no se puede interpretar, en genera, como funcionesd $V \rightarrow k$. 
+\end{nota}
+
+\textbf{Ejemplo: } $\mathbb{C}[X,Y,Z]/<X^2Z-Y^3>$, $f=X^2+I=x^2$. Tomamos el punto $[1,1,1]=[2,2,2]\in V, f([1,1,1])= 1 \neq 4 = f([2,2,2])$. 
+
+
+\begin{Def}
+$k_h(V)=$ anillo de fracciones de $\Gamma_h (V)$.
+$$k(V) = \{ z = \frac{f}{g} : f,g \in \Gamma_h (V) \text{ formas del mismo grado } \} $$
+
+$f_i$ es de grado $i$ si $f_i=F_i+I(V)$ con $F_i$ de grado $i$. 
+\end{Def}
+
+\begin{nota}
+
+$k\subset k(V) \subset k_h(V)$, pero en general $\Gamma_h(V) \not \subseteq k(V)$.
+\end{nota}
+
+\begin{Def}
+Dado $z=\frac{f}{g} \in k(V)$, decimos que $z$ está definida en $P$ si $g(P) \neq 0$, i.e, $g=G+I(V), G(P)\neq 0$.
+$$O_p(V)=\{ z = \frac{f}{g}  \in k(V): z \text{ está definido en } P \} $$
+
+$O_p(V)$ es anillo local, con ideal maximal
+$$m_p= \{ z = f/g\in O_P(V) \text{ con } f(P)=0, i.e, f=F+I(V), F(P)=0\} $$
+\end{Def}
+
+\begin{nota}
+$z(P)$ sí está bien definido en $O_p(V)$ i.e, $z=f/g = f'/g'$, $P=[\vec{u}]=[\vec{v}]$. 
+
+$$z(P)=f(\vec{u})/g(\vec{u}) = \frac{f'(\vec{v})}{g'(\vec{v})} $$
+
+\end{nota}
+
+Si $T: \mathbb{A}^{n+1}\rightarrow \mathbb{A}^{n+1}$ es un cambio (lineal) de coordenadas (base). T induce un cambio de coordenadas proyectivo. 
+
+\textbf{Ejemplo: } $T:\mathbb{A}^3 \rightarrow \mathbb{A}^3$, con $T$ con matriz [T]
+[1,1 |  ]
+[1,1 |  ]
+[    |1 ]
+
+El cambio de base sería [T][X' Y' Z']' = [X Y Z]'. Si $V$ es un conjunto algebraico, $V^T = T^{-1}(V)$ también es un conjunto algebraico, $V=V(I)$, 
+$$V^T=T^{-1}(V) =V(F_1^T,\dots , F_r^T >) = <F_1\circ T, \dots , F_r \circ T > = <F_1(T_1,\dots , T_{n+1}),\dots , F_r(T_1,\dots , T_{n+1})>  $$
+donde $T_i= T(X_i)$.
+
+
+\textbf{Ejemplo: } $V=V(X^2Z-Y^3), V^T((X'+Y')^2Z'-(X'-Y')^3)$. 
+
+
+\begin{Prop}
+Si $T$ es un cambio de coordenadas proyectivo, con $T(Q)=P$, entonces $T$ induce isomorfismos , 
+$$T:k[X_1,\dots, X_{n+1}] \rightarrow k[X_1',\dots , X_{n+1}']$$
+$$T: \Gamma_h(V) \rightarrow \Gamma_h(V^T)$$
+$$T: k(V) \rightarrow k(V^T)$$
+$$T: O_p(V)\rightarrow O_Q(V^T)$$
+Sustitución. 
+\end{Prop}
+
+\section{Variedades proyectivas y afines}
+
+Recordamos: $\varphi_{n+1}: \mathbb{A}^n \rightarrow \mathbb{P}^{n}$, que manda $(a_1,\dots , a_n) \mapsto [a_1:\dots : a_n : 1]$ .
+
+
+Dado un polinomio $F\in k[X_1,\dots , X_n]$, definimos $F^*=X_{n+1}^{deg F}F(X_1/X_{n+1},\dots , X_n/X_{n+1})\in k[X_1,\dots , X_{n+1}].$ $F^*$ es homogéneo. 
+
+\textbf{Ejemplo: } $F=X^2-Y^3, F^*= Z^3((X/Z)^2-(Y/Z)^3)=X^2Z-Y^3$
+
+\begin{Def}
+Sea $I\subset k[X_1,\dots , X_n] $,
+$$ I^* = < F^* | F \in I > $$
+\end{Def}
+
+\textbf{Ejercicio 4.20}
+
+\begin{nota}
+$I^*$ es un ideal homogéneo. 
+\end{nota}
+
+\begin{Def}
+Sea $I\subset k[X_1,\dots, X_n]$, $V\subset \mathbb{A}^n$, $V=V(I)$, definimos $V^*=V_p(I^*) $
+\end{Def}
+
+
+\textbf{Ejemplo: } En el caso de hipersuperficies, $V=V(F) \Rightarrow V^*=V(F^*)$, ejercicio 4.19. 
+
+\begin{Def}
+Sea $F\in k[X_1,\dots , X_{n+1}]$, $F$ homogéneo, $F_*=F(X_1,\dots , X_n,1)$. $I$ homogéneo, $I\subseteq k[X_1,\dots , X_{n+1}], I_*=<F_* | F_* \in I >$. $V=V(I)$ conjunto algebraico proyectivo, $V_*=V_a(I_*)$. 
+\end{Def}
+\begin{Def}
+$V^*$ se llama la clausura proyectiva de $V$. 
+\end{Def}
+
+
+\begin{Lem}
+\begin{enumerate}
+\item $V\subset \mathbb{A}^n, \varphi_{n+1}(V)=V^* \cap U_{n+1}$ y $(V^*)_*=V$.
+\item $V\subset W \subseteq \mathbb{A}^n, V^*\subseteq W^* \subseteq \mathbb{P}^n$.
+\item $V\subseteq W \subseteq \mathbb{P}^n \Rightarrow V_*\subseteq W_* \subseteq \mathbb{A}^n$. 
+\item $V\subseteq \mathbb{A}^n$ irreducibles, entonces $V^*$ es irreducible. 
+\item $V=\cup V_i$, es descomposición en componentes irreducibles, entonces $V^*=\cup V_i^*$ es descomposición en componentes irreducibles.
+\item $V^*$ es el menor conjunto algebraico proyectivo que contiene a $\varphi_{n+1}(V)$, y por eso se llama clausura proyectiva. 
+\item $\emptyset \neq V\subseteq \mathbb{A}^n,$ entonces $V^*$ no está contenida en $H_\infty$, ni contiene a $H_\infty$. 
+\item $V\subseteq \mathbb{P}^n$ tal que ninguna componente irreducible de $V$ está en o contiene a $H_\infty$, etnonces $V_*\subset \mathbb{A}^n$, pero $V_*\not = \mathbb{A}^n$ y $(V_*)^*=V$. 
+\end{enumerate}
+\end{Lem}
+
+\begin{Prop}
+Existe una correspondencia biyectiva entre 
+$$ \{ \text{Variedades afines distintas del vacío de } \mathbb{A}^n\}$$
+$$V^* \updownarrow V_* $$
+$$ \{ \text{ Variedades proyectivas no contenidas en } H_\infty\}$$
+\end{Prop}
+
+\begin{Dem}
+\textbf{Ejercicio}, en esencia el ejercicio 4.22.
+\end{Dem}
+
+\begin{nota}
+$A=k[X_1,\dots ,X_n], B=k[X_1,\dots , X_{n+1}]$, si partimos de un polinomio $F\in A$, $(F^*)_*=F$, ya que $F^*=X^{deg(F)}_{n+1}F(\frac{X_1}{X_{n+1},\dots , \frac{X_n}{X_{n+1}}})$.
+
+$F\in B, (F_*)^*X^r_{n+1}=F$, donde $r$ es tal que $F=X^r_{n+1}F'$ con $X_{n+1}\not | F'$. 
+\end{nota}
+
+\begin{nota}
+  $$\mathbb{A}^n \rightarrow \mathbb{P}^n$$
+  $$p\in V \rightarrow V^* \ni \varphi_{n+1}(P)$$
+  $$O_P(V) \quad O_P(V^*)$$
+\end{nota}
+
+\begin{Teo}
+  Sea $V\subset \mathbb{A}^n$ una variedad afín, $P\in V$. Se tienen isomorfismos naturales:
+  \begin{enumerate}
+  \item $k(V^*)\cong k(V)$
+  \item $O_{\varphi_{n+1}(P)}(V^*)\cong O_P(V)$
+  \end{enumerate}
+\end{Teo}
+
+\begin{Dem}
+  $$\Gamma(V) \xleftarrow{\alpha} \Gamma_h(V^*)$$
+  $$f_*=F_*+I(V) \leftarrow f = F+I(V^*)$$
+  Comprobemos que $\alpha$ está bien definido. $f=F+I(V^*)=G+I(V^*)\Leftrightarrow F-G\in I(V^*) \Rightarrow (F-G)_*\in I(V) \Rightarrow F_*+I(V)=G_*+I(V)$.
+
+
+  DIAGRAMA
+  
+  Si $f\neq 0$, entonces $\tilde{\alpha}(f)=f_*/1$ es una unidad. $\bar{\alpha}(\frac{f}{g})=\tilde{\alpha}(f)\cdot \tilde{\alpha}(g)^{-1}=\frac{f_*}{g_*}$, por lo tanto, está bien definido.
+
+  
+  \vspace{2mm}
+
+  $\bar{\alpha}(\frac{f}{g})=0/1 \Rightarrow f_* = 0$ en $k(V)$, por lo tanto también lo es en $\Gamma(V)$, y eso implica que  $F_*\in I(V)$, entonces $F\in I(V^*) \Rightarrow \frac{f}{g}=\frac{0}{1}$ en $k(V^*)$, así que tenemos la inyectividad.
+
+  
+  \vspace{2mm}
+
+  
+  Sea $h_1/h_2\in k(V), h_1=H_1+I(V), h_2=H_2+I(V)$, consideremos $\bar{H_1^*}, \bar{H_2^*}$, entonces $\frac{\bar{H_1^*}}{\bar{H_2^*}}X_{n+1}^a$, de manera que tienen mismo grado, y habita en $\k(V^*)$, y entonces $\alpha(\frac{\bar{H_1^*}}{\bar{H_2^*}}X_{n+1}^a)=\frac{h_1}{h_2}$, así que es sobreyectiva.
+
+  El apartado 2 es consecuencia de 1, pues DIAGRAMA . La restricción es trivialmente un isomorfismo. 
+  
+  
+\end{Dem}
+
+\begin{Cor}
+$\mathbb{P}^n=\cup_{i=1}^{n+1}U_i$ con $U_i: x_i\neq 0$. Sea $P\in U_i\cap U_j$, entonces $O_{\varphi_i^{-1}(P)}(\underbrace{V\cap U_i}_{V_{*i}})=O_P(V)=O_{\varphi^{-1}_j(P)}(\underbrace{V\cap U_J}_{V_{*j}})$
+\end{Cor}
+
+\textbf{Ejemplo:} $q=[1:1:1]\in X^2Z-Y^3$, $O_q(V), V=V(X^2Z-Y^3),$
+
+$P\in U_1, V_{*1}, O_{(1,1)}(V_{1}), V_1=V(Z-Y^3)$.
+
+$P\in U_2, V_{*2}, O_{(1,1)}(V_2), V_2=V(X^2Z-1)$.
+
+$P\in U_3, V_{*3}, O_{(1,1)}(V_3), V_3=V(X^2-Y^3)$.
+
+Estos espacios son isomorfos por el teorema. Comprobemos:
+
+$O_{(1,1)}(V_1)=O_{(0,0)}(V_1'), V_1': (Z+1)-(Y+1)^3 = Z+1-(Y^3+3Y^2+3Y+1)=Y^3+3Y^2+3Y+Z=H$, $\Gamma(H)=k[Y,Z]/H=k[Y]$, por lo tanto, $k(V_1')=k(Y) \supset O_{(0,0)}(V_1')$.
+
+$O_{(1,1)}(V_2)=O_{(0,0)}(V_2')$, con $V_2'=V((X+1)^2(Z+1)^2-1)=V((X^2+2X+1)(Z+1)-1)=V(X^2Z+2XZ+Z+X^2+2X)$. Se tiene $\Gamma(V_2)=k[X,Z]/<Z(X^2+2X+1)+X^2+2X>$ en el anillo local, $O_{(0,0)}(V_2)$, $Z(X^2+2X+1)=-(X+2)X$, $Z=UX$.
+
+\vspace{5mm}
+
+\begin{nota}
+  $m_P(V)=dim(\frac{m'^n}{m'^{n+1}})=m_{\varphi^{-1}(P)}(\varphi^{-1}(V\cap U_i)), n>>0, m'$ ideal maximal de $O_p(V)$
+\end{nota}

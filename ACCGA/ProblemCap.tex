@@ -1,0 +1,998 @@
+\chapter{Problemas a entregar}
+
+\section{Problemas 30 de Septiembre}
+
+\subsection{Problema 1.4}
+
+\textbf{\textit{Sea $k$ un cuerpo infinito, $F\in k[x_1, \dots , x_n]$. Supongamos que $F(a_1, \dots , a_n ) = 0, \forall (a_1, \dots , a_m) \in k^n$. Hay que probar que $F=0$.}}
+
+
+\textit{Solución: }
+\vspace{2mm}
+
+
+Demostramos por reducción al absurdo:
+
+
+Supongamos que $F\neq 0$, entonces existiría algún $(a_1,\dots,a_n)\in k^n$ tal que $F(a_1,\dots ,a_n)\neq 0$.
+Sea $n=1$ con $F\neq 0$. El grado de $F$ es  mayor o igual al número de raíces de $F$. Como el grado es finito, las raíces son finitas.
+Luego, como $k$ es un cuerpo infinito, tiene elementos que no son raíces de $F$, lo que entra en contradicción con que $F(a)=0, \forall a \in k$.
+
+Suponemos que es cierto para cualquier $m\le n-1$. Sea $n\ge 2$, entonces $F=\sum_{i=1}^nF_ix^i_n$, donde $F_i \in k[x_1,\dots , x_{n-1}]$, como
+$F\neq 0$ entonces se tiene que existe $F_i$ tal que $F_i\neq 0$. Por la hipótesis de inducción existirá $a_1,\dots,a_{n-1}$ tal que $F_i(a_1,\dots,a_{n-1})\neq 0$.
+Por lo tanto, $F(a_1,\dots ,a_{n-1},x_n)$ es un polinomio en $k[x_n]$, y como demostramos antes para $n=1$, debe existir $a_n$ tal que $F(a_1,\dots , a_{n-1},a_n)\neq 0$.
+
+
+\subsection{Problema 1.7}
+
+\textbf{\textit{ Sea $k$ un cuerpo, $F\in k[x_1, \dots , x_n], a_1, \dots , a_n \in k$. Probar:}}
+
+\begin{enumerate}
+\item \textbf{\textit{$F=\sum \lambda_{(i)}(x_1-a_1)^{i_1}\dots(x_n-a_n)^{i_n}, \lambda_{(i)}\in k$ }}
+\item \textbf{\textit{Si $F(a_1,\dots,a_n) = 0$, probar $F=\sum_{i=1}^n(x_i-a_i)G_i$ con $G_i \in k[x_1,\dots ,x_n]$}}
+\end{enumerate}
+
+\textit{Solución:}
+\vspace{2mm}
+
+\begin{enumerate}
+\item Se demuestra por inducción. Sea $n=1$, $F\in k[x_1]$, por el algoritmo de la división en $k[x_1]$ se tiene $F=\sum \lambda_{(i)}(x_1-a_1)^i$, con $\lambda_{(i)}\in k$. Se supone cierpo para $n=r$. Sea $F\in k[x_1,\dots,x_{r+1}]$ ($k[x_1,\dots,x_{r+1}]$ es isomorfo a $k[x_1,\dots,x_r][x_{r+1}]$), entonces se tiene por el algoritmo de la división en  $k[x_1,\dots,x_r][x_{r+1}]$ que:
+  $$F=\sum G_{(i)}(x_{r+1}-a_{r+1})^{i},\text{ con } G_{(i)}\in k[x_1,\dots,x_r]$$
+  Como era cierto para $r$, aplicándolo a cada $G_{(i)}$, se tiene:
+  $$F=\sum \lambda_{(i)}(x_1-a_1)^{i_1}\cdots(x_{r+1}-a_{r+1})^{i_{r+1}} \text{ con } \lambda_{(i)}\in k$$
+\item Por el apartado 1, sabemos que $F= \sum \lambda_{(i)}(x_1-a_1)^{i_1}\dots(x_n-a_n)^{i_n}$, con $\lambda_{(i)} \in k$. Como $F(a_1,\dots, a_n)=0$, se tiene en particular para $i_j=0 \forall j = 1,\dots ,n$ que $\lambda_{(i)}=0$. Por lo tanto, $\exists j$ tal que $i_j\neq 0$, y esto último implica que podemos sacar el factor $(x_j-a_j)$ y reagrupar la suma, quedando
+$$F=\sum_{i=1}^n(x_i-a_i)G_i \text{ con } G_i \in k[x_1,\dots ,x_n] $$
+\end{enumerate}
+
+\subsection{Problema 1.14}
+
+\textbf{\textit{Sea $F$ un polinomio no constante, $F\in k[x_1,\dots ,x_n]$, $k$ algebraicamente cerrado. Prueba que $\mathbb{A}^n \backslash V(F)$ es infinito si
+  $n \ge 1$, y $V(F)$ es infinito si $n\ge 2$. Concluye que el complementario de cualquier conjunto algebraico es infinito.}}
+
+\textit{Solución: }
+
+\vspace{2mm}
+$k$ es algebráicamente cerrado, es decir, todo polinomio tiene al menos una raíz. $k$ es infinito, y eso implica que $\mathbb{A}^n$ tambien lo es. Supongo que $\mathbb{A}^n \backslash V(F)$ es finito, y tomo $ f \in k[x_1,\dots , x_n]$ tal que $V(f)=\mathbb{A}^n(k) \backslash V(F)$. Añado entonces los elementos del conjunto algebraico $V(F)$ a $V(f)$ $\Rightarrow V(f)\cap V(F) = V(fF) = \mathbb{A}^n(k)$. Pero hemos visto en una de las propiedades de los conjuntos algebraicos que $V(fF)= \mathbb{A}^n(k) \Leftrightarrow fF=0$, luego $(f=0)\vee (F=0)$ lo cual es imposible, pues $F$ no es constante, y $f\neq 0$.
+\vspace{1mm}
+
+
+¿$V(F)$ es infinito? Tomamos, $F(a_1,\dots,a_{n-1},x)\in k[x]$, como $k$ es infinito y algebraicamente cerrado, tenemos que para cada elemento de la forma $a_1,\dots ,a_{n-1}$ existirá $a\in k$ en el que $F$ se anula. La cantidad de elementos de la forma $a_1,\dots, a_{n-1}$ es infinito, así que $V(F)$ es infinito.
+
+Como $\mathbb{A}^n \backslash V(F)$ es infinito siendo $V(F)$ infinito, se tiene la finitud de los complementarios.
+
+\begin{nota}
+Teniamos dos posibilidades, quitar un conjunto finito de puntos a un conjunto infinito, que claramente es infinito; y quitar infinitos puntos a otro conjunto infinito, que hemos demostrado que en este caso es infinito.
+\end{nota}
+
+
+\subsection{Problema 1.15}
+
+\textbf{\textit{Sea $V\subset \mathbb{A}^n(k), W\subset \mathbb{A}^m(k)$, conjuntos algebraicos. Prueba que $$V\times W = \{ (a_1,\dots ,a_n,b_1,\dots ,b_m) | (a_1,\dots ,a_n)\in V, (b_1,\dots ,b_m)\in W \} $$ es un conjunto algebraico en $\mathbb{A}^{n+m}(k)$. Se llama producto de V y W. }}
+
+\textit{Solución: }
+\vspace{2mm}
+
+Sabemos que un conjunto algebraico se puede expresar como conjunto algebraico de un ideal, por ello tomamos $V=V(I)$ y $W=V(J)$ , con $I\subset k[x_1,\dots,x_n]$ y $J\subset k[x_1,\dots, x_m]$ ideales. Construimos dos ideales a partir de $I$ y $J$, de manera que:
+
+$$ V(I') = \{(a_1,\dots, a_n,0,\dots,0) |(a_1,\dots,a_n)\in V(I) \} \subset \mathbb{A}^{n+m}$$
+$$ V(J') = \{(0,\dots , 0,b_{n+1}, \dots,b_{n+m}) | (b_{n+1},\dots , b_m \in V(J)\} \subset \mathbb{A}^{n+m}  $$
+$$I'+J'= \{ f + g | f \in I', g \in J' \}, I'\cap J' =\emptyset$$
+
+Luego tenemos que $V(I'+J')=V\times W$, y como $V(I'+J')$ es un conjunto algebraico, $V\times W$ tambien lo es.
+
+\subsection{Problema 1.20}
+
+\textbf{\textit{Demuestra que para cualquier ideal $I$ en $k[x_1,\dots ,x_n], V(I)=V(\sqrt{I})$, y $\sqrt{I} \subset I(V(I))$  }}
+
+\textit{Solución: }
+\vspace{2mm}
+
+$$V(I)=V(\sqrt{I})$$
+
+\framebox{$\subseteq$} $a\in V(I) \Rightarrow f(a)=0  \forall f \in I \Rightarrow f^m(a)=0 \forall f \in I \Rightarrow f\in \sqrt{I} \Rightarrow a\in \sqrt{I}$.
+
+\framebox{$\supseteq $} $a\in V(\sqrt{I}) \Rightarrow f(a)= 0 \forall f\in \sqrt{I} \Rightarrow a\in V(I)$. La última implicación se debe a que $I\subseteq \sqrt{I}$, ya que por definición $I\ni f = f^1 \Rightarrow f\in \sqrt{I}$.
+
+\subsection{Problema 1.21}
+
+\textbf{\textit{Prueba que $I=(x_1-a_1,\dots ,x_n-a_n)\subset k[x_1,\dots,x_n]$ es un ideal maximal, y que el homomorfismo natural $\varphi: k \rightarrow k[x_1,\dots,x_n]/I$ es un isomorfismo.}}
+
+\textit{Solución: }
+\vspace{2mm}
+
+Si $I$ no fuera maximal, existiría un ideal $J$ tal que $I\subset J \subset k[x_1,\dots ,x_n]$. $I=<x_1-a_1,\dots ,x_n-a_n>$. Sea $f\in J$ tal que $f\notin I$, entonces $f$ no debería poder expresarse como combinación de elementos del tipo $x_i-a_i$, pero eso entra en contradicción con el problema 1.7.
+
+Hay que probar que $\varphi $ es un isomorfismo, es decir, que es un homomorfismo biyectivo. Como $I$ es un ideal maximal, se tiene que $A/I$ es un cuerpo, y sabemos que todo homomorfismo entre cuerpos es inyectivo. Falta probar que es sobreyectivo, pero es trivial que todo elemento de $A/I$ tiene anti-imagen por $\varphi $.
+
+$\sqrt{I}\subseteq I(V(I)$ $\Rightarrow I(V(I))=I(V(\sqrt{I}))\supset \sqrt{I}$.
+
+\section{Problemas 7 Octubre}
+
+\subsection{Problema 1.22}
+
+\textbf{\textit{Sea $I$ un ideal en un anillo $R$, $\pi:R\rightarrow R/I$ el homomorfismo natural.
+\begin{enumerate}
+\item Prueba que cada ideal $J'$ de $R/I$,$\pi^{-1}(J')=J$ es un ideal de $R$ que contiene a $I$, y para cada ideal $J$ de $R$ que contiene a $I$, $\pi(J)=J'$ es un ideal de $R/I$. Esto construye una correspondencia natural uno a uno entre ideales de $R/I$ e ideales de $R$ que contienen $I$.
+\item Prueba que $J'$ es radical si y solo si $J$ es radical. Análogamente para ideales primos y maximales.
+\item Prueba que $J'$ está finitamente generado si $J$ lo está. Concluye que $R/I$ es Noetheriano si $R$ lo es. Cualquier anillo de la forma $k[X_1,\dots,X_n]/I$ es Noetheriano.
+\end{enumerate}}}
+\textit{Solución: }
+
+$$\pi: R \rightarrow R/I $$
+$$ a \mapsto a+I$$
+\begin{enumerate}
+\item Como $J'$ es un ideal, se cumple que $\forall a \in R/I$, $\forall b\in J'$, $ab\in J'$. $\pi$ es sobreyectiva, asi que tiene sentido que hablemos de anti-imagen, lo que nos lleva a $J\ni \pi^{-1}(ab)=\underbrace{\pi^{-1}(a)}_{\in R}\underbrace{\pi^{-1}(b)}_{\in J} \Rightarrow J$ ideal. ¿$I\subset J$? Supongamos que existe $a\in I$ tal que $a\notin J$, y sea $b\in J$. Entonces $J \ni ab \in I$, pues $I$ y $J$ son ideales, $\rightarrow \leftarrow $. Como $\pi$ es homomorfismo, mantiene las operaciones y sigue siendo subgrupo respecto la suma.
+
+  Finalmente, $I\subset J\subset R$ ideal, sean $a\in R$, $b\in J$, $ab\in J \Rightarrow \pi(ab)=\underbrace{\pi(a)}_{\in R/I}\underbrace{\pi(b)}_{\in J'} \in J'$, entonces $J'$ ideal.
+
+\item Tenemos por hipótesis $\sqrt{J'}=J'$. Recordemos que $\sqrt{J}=\{ a\in R : a^m\in J, m>0 \}$. $J\subset \sqrt{J}$ por la propiedad probada en clase, demostremos la contención contraria.
+  $a\in \sqrt{J}\Rightarrow \pi(a)\in \sqrt{J'} \Rightarrow \pi(a)\in J' \Rightarrow a \in J$. La implicación contraria la tenemos de manera análoga.
+
+  $J'$ ideal primo $\Leftrightarrow J$ ideal primo. Sea $J$ primo, $a\cdot b \in J' \Rightarrow \pi^{-1}(ab) \in J \Rightarrow \pi^{-1}(a)\pi^{-1}(b) \in J \Rightarrow \pi^{-1}(a) \vee \pi^{-1}(b) \in J$ pues $J$ es primo $\Rightarrow (a' \in J) \vee (b \in J')$. La implicación contraria es análoga.
+
+  $J'$ ideal maximal $\Leftrightarrow J$ ideal maximal. Sea $J'$ ideal maximal, entonces no existe ningún ideal que lo contenga contenido en $R/I$. Supongo que existe $L$ ideal tal que $J\subset L \subset R \Rightarrow $ ¿$J'\subset L'=\pi^{-1}(L)$? $a\in J' \Rightarrow \pi^{-1}(a)\in J \Rightarrow \pi^{-1}(a)\in L \Rightarrow a \in L' \Rightarrow J'\subset L' \rightarrow \leftarrow$. La implicación contraria es análoga.
+
+\item Hay que probar que $J$ finitamente generado implica que $J'$ es finitamente generado. Como $J$ es finitamente generado, entonces $\exists f_i, i=1,\dots,n$ tales que $J=<f_1,\dots,f_n>$, y tales que $\forall f \in J, f=\sum \lambda_if_i, \lambda_i\in \mathbb{R}$. Por lo tanto, sea $g\in J'$, como $\pi$ es sobreyectiva, $g$ tiene anti-imagen en $J$, es decir, $\pi^{-1}(g)\in J \Rightarrow \pi^{-1}(g)=\sum \lambda_if_i \rightarrow \forall g \in J', g =\pi(\sum \lambda_i f_i)=\sum \lambda_i\underbrace{\pi(f_i)}_{\in J'}$.
+\end{enumerate}
+
+\begin{nota}
+Al tomar $\pi^{-1}(a)$ nos referimos a tomar un representante del conjunto.
+\end{nota}
+
+
+\section{Problemas 14 de Octubre}
+
+\subsection{Problema 1.38}
+
+\textbf{\textit{Sea $R=k[x_1,\dots,x_n]$, $k$ algebraicamente cerrado, $V=V(I)$. Prueba que hay una correspondencia biyectiva entre subconjuntos algebraicos de $V$ e ideales radicales en $k[x_1,\dots,x_n]/I$, y que conjuntos algebraicos irreducibles tienen correspondencia con ideales primos. Así como los puntos a ideales maximales.}}
+
+\textit{Solución: }
+
+Por el \textit{corolario 1.7.1} existe una correspondencia biyectiva entre ideales radicales y conjuntos algebraicos. Es la correspondencia dada por las aplicaciones $I$ y $V$.
+
+Por el \textit{teorema de los ceros} tenemos que en $k$ algebraicamente cerrado, $IV(I)=\sqrt{I}$.
+Pretendemos unir ambos resultados al \textit{problema 1.22}, y así demostrar lo que nos piden.
+
+Sea $\pi $ el homomorfismo natural que se define en el \textit{problema 1.22}, es decir $\pi : R \rightarrow R/I$. Sea $J$ un ideal que contiene a $I$, entonces se tiene que $V(J)\subset V(I)$, es decir, todo subconjunto algebráico de $V$ es de esa forma con ideales que contienen a $I$. Así que tenemos las mismas condiciones que el \textit{problema 1.22}, y podemos decir que $\pi(I(V(J)) \xrightarrow{\pi} J'$ es radical, pues por el \textit{teorema de los ceros} tenemos que $I(V(J))=\sqrt{J}$, y por tanto, $J'=\sqrt{J'}$ por aplicación directa del problema. Así que tenemos la composición de correspondencias biyectivas, obteniendo la correspondencia biyectiva que deseabamos.
+
+Demostremos la correspondencia entre conjuntos algebraicos irreducibles e ideales primos. Sea $V$ un conjunto algebraico irreducible, $I(V)$ es un ideal primo, si aplicamos $\pi$ tenemos por el problema ya mencionado que se hereda la propiedad ``primo'' de los ideales.
+
+
+De manera análoga, tenemos que la correspondencia biyectiva lleva puntos en ideales maximales (\textit{Corolario 1.7.3}).
+
+\subsection{Problema 1.44}
+
+\textit{\textbf{Prueba que $L=K(X)$ (el cuerpo de funciones racionales en una variable) es una extensión de cuerpos finitamente generada de $K$, pero $L$ no es un k-álgebra finitamente generada sobre $K$.}}
+
+\textit{Solución: }
+
+Recordemos los conceptos clave para el ejercicio:
+\vspace{2mm}
+
+
+$L$ es una \textbf{extensión finitamente generada} de $K$ si $L=k(v)$ para un cierto $v\in L$.
+
+$L$ es un \textbf{k-álgebra finitamente generada} sobre $K$ si $L=K[v]= \{\sum a_{(i)}v^{i} | a_{(i)}\in K\}$ para algún $v\in L$.
+\vspace{2mm}
+
+
+Demostremos el primer aserto, el cuerpo de funciones racionales en una variable es el cuerpo de fracciones del dominio de integridad $K$, y es claro que es una extensión, falta ver que es finitamente generada. $L=k(x)=\{ \frac{f}{g}:f,g\in k[x],g\neq 0 \}$, si tomamos cualquier $\alpha $, $L= \{ \frac{f(\alpha)}{g(\alpha)}:f,g\in k[\alpha],g(\alpha) \neq 0 \}$.
+
+Ahora, supongamos que $L$ es un k-álgebra finitamente generada, entonces $\exists f_1,\dots,f_r$ tales que $k(x)=k[f_1,\dots,f_r]$. La contención \framebox{$\supseteq $} se tiene de manera trivial. Veamos la contención contraria: Sea $\frac{f}{g}\in K(x)$, elemento cualquiera. Si estuvieran generados por $f_1,\dots,f_r$, tomando $h\in k[x]$ el mínimo común múltiplo de los denominadores de los generadores, $\frac{f}{g}\cdot h^n$ debe pertenecer a $K[x]$ para algún $n$. Pero siempre podemos tomar $f=1$ y $g=c$ con $c$ tal que $c\not | h$ y, por lo tanto, no está generado por ellos y no tenemos la contención.  
+
+\subsection{Problema 1.45}
+
+\textit{\textbf{Sea $R$ un subanillo de $S$, $S$ un subanillo de $T$.}}
+\begin{enumerate}
+    \item Si $S=\sum R v_i, T=\sum S w_j$, prueba que $T=\sum Rv_iw_j$.
+    \item Si $S=R[v_1,\dots,v_n], T=S[w_1,\dots,w_m]$, prueba que $T=R[v_1,\dots,v_n,w_1,\dots,w_m]$
+    \item Si $R,S,T$ son cuerpos, y $S=R(v_1,\dots,v_n)$, $T=S(w_1,\dots,w_m)$, prueba que $T=R(v_1,\dots,v_n,w_1,\dots,w_m)$.
+\end{enumerate}
+
+\textit{Solución: }
+    
+\begin{enumerate}
+\item $\sum S w_j= \sum (\sum R v_i)w_j = \sum R v_i w_j$.
+\item $R[v_1,\dots,v_n][w_1,\dots,w_m] \cong R[v_1,\dots,v_n,w_1,\dots,w_m]$.
+\item $R(v_1,\dots,v_n)=\{\frac{f(v_1,\dots,v_n)}{g(v_1,\dots,v_n)}: f,g\in R[x_1,\dots,x_n], g(v_1,\dots,v_n)\neq 0 \}, S(w_1,\dots, w_m)= \{\frac{f(w_1,\dots,w_m)}{g(w_1,\dots,w_w)}: f,g\in S[x_1,\dots,x_m], g(w_1,\dots,w_m)\neq 0 \}= \{\frac{f(v_1,\dots,v_n,w_1,\dots,w_m)}{g(v_1,\dots,v_n,w_1,\dots,w_w)}: f,g\in R[x_1,\dots,x_n,y_1,\dots,y_m], g(v_1,\dots,v_n,w_1,\dots,w_m)\neq 0 \} = R(v_1,\dots,v_n,w_1,\dots,w_m)$
+\end{enumerate}
+
+\subsection{Problema 1.49}
+
+\textbf{\textit{Sea $K$ un cuerpo, $L=K(X)$ el cuerpo de las funciones racionales en una variable sobre $K$. Probar:}}
+\begin{enumerate}
+\item \textit{\textbf{Que cualquier elemento de $L$ que sea entero sobre $K[X]$ está en $K[X]$.}}
+\item \textit{\textbf{Que no existe ningún elemento no nulo $F\in K[X]$ tal que cada $z\in L, F^nz$ es entero sobre $K[X]$ para algún $n>0$.}}
+\end{enumerate}
+      
+\textit{Solución: }
+
+\begin{enumerate}
+\item Sea $z\in L$, $z$ entero sobre $K[X]$, entonces existe un polinomio mónico que se anula en $z$. Es decir, tenemos $z^n+a_1z^{n-1}+\dots =0 $. Como $z\in L=K(X) \Rightarrow z=\frac{f}{g}$, tomamos $f$ y $g$ primos relativos. $(\frac{f}{g})^n+a_1(\frac{f}{g})^{n-1}+\dots = 0 \Rightarrow f^n+a_1f^{n-1}g+\dots =0  \Rightarrow f^n = g(a_1f^{n-1}+\dots) \Rightarrow g | f \Rightarrow z\in K[X]$.
+\item Sea $z=\frac{1}{G}$ donde $G$ es un polinomio irreducible que no divide a $F$. Para cualquier $F$ existe $G$ que cumpla esas condiciones, por lo tanto, no existe $F$ que cumpla lo pedido. Además, aplicando el \textit{ejercicio 1.44} pues no pertenece $F^nz$, y si no pertenece no puede ser entero.
+\end{enumerate}
+
+\subsection{Problema 1.50}
+
+\textit{\textbf{Sea $K$ un subcuerpo de un cuerpo $L$.}}
+\begin{enumerate}
+\item \textit{\textbf{Prueba que el conjunto de los elementos de $L$ que son algebraicos sobre $K$ es un subcuerpo de $L$ que contiene a $K$.}}
+\item \textit{\textbf{Supón que $L$ es $K$-módulo finitamente generado, y $K\subset R\subset L$. Prueba que $R$ es un cuerpo.}}
+\end{enumerate}
+
+\textit{Solución: }
+
+\begin{enumerate}
+\item   La proposición y corolario de la sección 1.9 se pueden extender a cuerpos y la demostración de este ejercicio sería inmediata, pero procederemos con otra estrategia. Sea $v\in L$ algebraico sobre $K$, entonces existe un polinomio mónico $v^n+a_1v^{n-1}+\dots+a_n=0$, si $a_n\neq 0$, entonces tendríamos $-a_n=v(v^{n-1}a_1+\dots)$, por lo tanto, $v|a_n$, de ahí se deduce la contención $K\subset T$,
+
+  con $T=\{\text{ elementos de } L \text{ algebraicos sobre } K \}$.
+
+\item Como $L$ es K-módulo finitamente generado, tenemos $L=\sum Kl_i$ con $l_i\in L$, es decir, todos los elementos de $L$ serán combinaciones de elementos de $L$ y $K$, y como $R$ está contenido en $L$, sus elementos también estarán expresados de la misma manera y, por lo tanto, hereda las propiedades de los cuerpos de $L$.
+\end{enumerate}
+
+\begin{nota}
+Un elemento es algebraico en un cuerpo si es raiz de un polinomio con coeficientes en el cuerpo.
+\end{nota}
+
+\section{Problemas 20 de Octubre}
+
+\subsection{Problema 2.2}
+
+\textit{\textbf{Sea $V\subset \mathbb{A}^n$ una variedad afin. Una subvariedad de $V$ es una variedad $W\subset \mathbb{A}^n$ que está contenida en $V$. Prueba que existe una correspondencia biyectiva entre subconjuntos algebraicos (respectivamente subvariedades y puntos) de $V$ e ideales radicales (respectivamente ideales primos e ideales maximales) de $\Gamma(V)$ }}.
+
+\textit{Solución: }
+
+Este problema se resuelve por aplicación directa del \textit{problema 1.38}. Por dicho problema sabemos que existe una correspondencia uno a uno entre subconjuntos algebraicos (las variedades son casos particulares) e ideales radicales de $k[\vec{x}]/I$, que es lo primero que tenemos que demostrar.
+
+Por otro lado, por el mismo problema sabemos que conjuntos algebraicos irreducibles tienen correspondencia biyectiva con ideales primos, y una subvariedad es un subconjunto algebraico irreducible.
+
+Además, también sabemos que los puntos tienen una correspondencia biyectiva con ideales maximales.
+
+Todo fue demostrado en el \textit{problema 1.38}, pues $\Gamma(V)=\frac{k[x_1,\dots,x_n]}{I(V)} $.
+
+\vspace{30mm}
+\subsection{Problema 2.7}
+
+\textit{\textbf{Si $\varphi:V\rightarrow W$ es una aplicación polinómica, y $X$ es un subconjunto algebraico de $W$, prueba que $\varphi^{-1}(X)$ es un subconjunto algebraico de $V$. Si $\varphi^{-1}(X)$ es irreducible, y $X$ está contenido en la imagen por $\varphi$. Probar que $X$ es irreducible. Ésto da un test para la irreducibilidad.}}
+
+\textit{Solución: }
+
+Como $X$ es un conjunto algebraico, $X=V(I)$ con $I$ un ideal contenido en $\Gamma(W)$. Sea $f\in I$, entonces $\tilde{\varphi}(f)\in \Gamma(V)$, además, $\tilde{\varphi}(I)=J$ con $J$ ideal, formado por la imagen de los polinomios de $I$ por $\tilde{\varphi}$. Por lo tanto, $X=V(I)\Rightarrow \varphi^{-1}(X)=V(J)$, es decir, un subconjunto algebraico de $V$.
+
+Ahora, si $\varphi^{-1}$ es irreducible y $X$ está contenido en la imagen de $\varphi$, tenemos que $k[V]/J \cong K[W]/I $ (pues $\varphi$ es biyectiva al ser sobreyectiva y $\varphi(\varphi^{-1}(X))\subset X$)$ \Rightarrow k[W]/I$ es un dominio de integridad si y sólo si $k[V]/J$ lo es, y de ahí se deduce la irreducibilidad. 
+\subsection{Problema 2.9}
+
+\textit{\textbf{Sea $\varphi: V \rightarrow W$ una aplicación polinómica de variedades. Sean $V'\subset V, W'\subset W$ subvariedades. Supón que $\varphi(V')\subset W'$. Probar que $\tilde{\varphi}(I_W(W'))\subset I_V(V')$. Probar también que la restricción de $\varphi$ da una aplicación polinómica de $V'$ a $W'$.}}
+
+
+\textit{Solución: }
+
+Sabemos que $I_W(W')=\{f\in \Gamma(W):f(P)=0, \forall p\in W'\}$, de manera análoga $I_V(V')=\{f\in  \Gamma(V): f(p)=0, \forall p\in V'\}$. Hay que probar que $\tilde{\varphi}(I_W(W'))\subset I_V(V')$, sabiendo que $\varphi(V')\subset W'$. Sabemos del \textit{problema 2.3} que toda aplicación polinómica en una variedad, restringe en una subvariedad suya.
+
+Basta probar que dado $f\in I_W(W')$, se cumple que $f\circ \varphi \in I_V(V')$.
+
+$f(P')=0, \forall P'\in W'$, y $\forall P  \in V', \varphi(P)\in W'\Rightarrow f(\varphi(P))=0, \forall p \in V' \Rightarrow f \circ \varphi \in I_V(V')$.
+
+Ahora tenemos que probar que la restricción de $\varphi $ da una aplicación polinómica de $V'$ a $W'$. $\varphi$ es una función polinómica de $V$ en $W$, entonces $\exists F\in k[x_1,\dots,x_n], \varphi(P)=F(P), \forall P\in V$, por el \textit{problema 2.3} podemos restringirlo a $V'$ y seguiría siendo aplicación polinómica, y como $\varphi(V')\subset W'$, tenemos que $\varphi_{|V'}:V'\rightarrow W'$ es una aplicación polinómica. 
+
+
+
+
+\subsection{Problema 2.12}
+
+\textit{\textbf{Sea $\varphi: \mathbb{A}^1\rightarrow V=V(Y^2-X^3)\subset \mathbb{A}^2$ definida por $\varphi(t)=(t^2,t^3)$. Probar que, a pesar de ser $\varphi$ una aplicación polinómica uno a uno, $\varphi$ no es un isomorfismo.}}
+
+\textit{Solución: }
+
+Por la \textit{proposición 2.2.1}, sabemos que dos variedades son isomorfas si y sólo si sus anillos de coordenadas lo son. Luego, ¿$\Gamma(\mathbb{A}^1)\cong \Gamma(V)$?
+
+$$  \varphi:\mathbb{A}^1\rightarrow V $$
+$$ t \rightarrow (t^2,t^3)$$
+$$\tilde{\varphi}:\underbrace{\Gamma(V)}_{k[T²,T³]}\rightarrow \underbrace{\Gamma(\mathbb{A}^1)}_{k[T]}$$
+$$f=f(t)\rightarrow f(t^2,t^3)$$
+
+Luego, tenemos que $\Gamma(V)=k[T^2,T^3]\subset K[T]=\Gamma(\mathbb{A}^1)$, que claramente no son isomorfos.
+\vspace{2mm}
+
+\textit{\textbf{Sea $\varphi:\mathbb{A}^1\rightarrow V=V(Y^2-X^2(X+1))$ definida por $\varphi(t)=(t^2-1,t(t-1))$. Prueba que $\varphi$ es biyectiva excepto para $\varphi(\pm 1)=(0,0)$.}}
+
+\textit{Solución: }
+
+
+Es claro que la inyectividad falla para los valores $1$ y $-1$, así que quitemos esos puntos del dominio y veamos la biyectividad.
+
+Es equivalente a ver que $\Gamma(\mathbb{A}^1)\cong k[x]=\Gamma(V)=\frac{k[x,y]}{V(Y^2-X^2(X+1))}$. Debido a que $X$ e $Y$ están al cuadrado teníamos el problema con los valores $\pm 1$, pero sin ellos podemos expresar $Y$ en función de $X$, y con ello tenemos el isomorfismo. Por lo tanto, $\varphi $ es biyectiva.
+\newpage
+
+\section{Problemas 28 de Octubre}
+
+\subsection{Problema 2.35}
+
+\textit{\textbf{(a) Probar que existen $d+1$ monomios de grado $d$ en $R[X,Y]$, y $\frac{(d+1)(d+2)}{2}$ monomios de grado $d$ en $R[X,Y,Z]$.}}
+
+\textit{Solución: }
+
+Primero tenemos que ver que existen $d+1$ monomios de grado $d$ en $R[X,Y]$, es decir, elementos del tipo $X^iY^j$ tales que $i+j=d$. Es claro que hay $d-1$ valores distintos de $d$ para el índice $j$ para el que $j\neq 0$, y luego queda sumar los dos casos que faltan de tener monomios del tipo $X^d$ e $Y^d$.
+
+Ahora tenemos que probar que existen $\frac{(d+1)(d+2)}{2}$ monomios de grado $d$ en $R[X,Y,Z]$, es decir, $X^iY^jZ^k$ tales que $i+j+k=d$ con $i,j,k\in \{0,\dots,d\}$. Sea $F\in R[X,Y,Z]$ que sea un monomio. Entonces tenemos que $F*\in R[X,Y]$ también es un monomio, y existen $d+2$ posibles, pues hay que contemplar el caso $X^0Y^0$, ahora, homogeneizando, tendríamos $d+1$ valores para la potencia de $Z$. Por lo tanto, si construyeramos una tabla con los valores que obtenemos, solo nos quedamos con la mitad de ellos, quedando $\frac{(d+1)(d+2)}{2}$ monomios. También podemos verlo como el combinatorio ${d+1 \choose 2}$.
+
+\textit{\textbf{(b) Sea $V(d,n)=\{\text{ formas de grado } d \text{ en } k[X_1,\dots,X_n] \}$, $k$ un cuerpo. Probar que $V(d,n)$ es un espacio vectorial sobre $k$, y que los monomios de grado $d$ constituyen una base. $dim V(d,1)=1; dim V(d,2)=d+1, dim V(d,3)=\frac{(d+1)(d+2)}{2}$.}}
+
+\textit{Solución: }
+
+Hay que ver que $V(d,n)$ es un espacio vectorial. La demostración es muy sencilla:
+
+Para ello basta ver que $\forall \lambda,\mu\in k, \forall f_1,f_2\in V(d,n)$ se tiene que $\lambda f_1+\mu f_1\in V(d,n)$, que es trivial pues las formas de mismo grado al sumarlas mantienen el grado, y el producto por escalares no afecta al grado.
+
+Veamos que los monomios de grado $d$ forman base:
+
+Sea $f= X_1^{i_1}\cdot X_n^{i_n}$ tal que $\sum_{j=1}^n i_j= d$ un monomio de grado $d$. Es claro que la suma de monomios es sistema generador pues las formas pueden expresarse como suma de monomios del mismo grado. Basta ver que forman base, es decir, la independencia lineal, que se tiene por la independencia de las $X_i$.
+
+\textit{\textbf{(c) Sean $L_1,L_2,\dots$ y $M_1,M_2,\dots$ sucesiones de formas lineales en $k[X,Y]$, y supóngase que es $L_i=\lambda M_j,\lambda\in k$. Sea $A_{ij}=L_1L_2\cdots L_iM_1M_2\cdots M_j, i,j\ge 0$. Probar que $\{A_{ij}|i+j=d\}$ forma una base de $V(d,2)$. }}
+
+
+\textit{Solución: }
+
+Cada $A_{ij}$ es un monomio de grado $d$, y por el apartado anterior sabemos que forman base, pues hay $d+1$ elementos $A_{ij}$ distintos.
+
+
+\subsection{Problema 2.37}
+\textit{\textbf{¿Cuáles son las identidades para la suma y el producto en el anillo $\prod R_i$?¿Es la aplicación $\varphi $ de $R_i$ a $\prod R_j$ que lleva a $a_i$ a $(0,\dots,a_i,\dots,0)$ un homomorfismo de anillos?}}
+
+\textit{Solución: }
+
+El elemento neutro para la suma es $(0,\dots,0)$, mientras que el elemento identidad para el producto es $(1,\dots,1)$.
+
+La aplicación no es un homomorfismo de anillos, pues:
+\begin{itemize*}
+\item $\varphi(a_i+b_i)=(0,\dots,a_i+b_i,0,\dots,0)=\varphi(a_i)+\varphi(b_i)$.
+\item $\varphi(a_ib_i)=(0,\dots,a_ib_i,0,\dots,0)=\varphi(a_i)\varphi(b_i)$.
+\item $\varphi(1_{R_i}) \neq 1_{\prod R_j}$
+\end{itemize*}
+
+
+\subsection{Problema 2.38}
+
+\textit{\textbf{Probar que si $k\subset R_i$, y cada $R_i$ es de dimensión finita sobre $k$, entonces $dim(\prod R_i)=\sum_i dim (R_i)$.}}
+
+\textit{Solución: }
+
+Para probar esto simplemente vamos a formar una base y contar los elementos que tiene:
+$$\lambda_1 (a_1,0,\dots,0)+\dots+\beta_{dim R_1}(a_{dim R_1},0,\dots,0)+\dots + \beta_1(0,\dots,0,b_1)+\dots+\beta_{dim R_n}(0,\dots,0,b_{dim R_n})$$
+
+Es claro que hay $\sum dim R_i$ sumandos, y forma base porque está formada por la suma disjunta de bases de cada $R_i$. 
+\newpage
+
+\section{Problemas 4 de Octubre}
+
+\subsection{Problema 2.28}
+
+\textit{\textbf{Una función $\varphi$ de $K$ sobre $\mathbb{Z}\cup \infty$, que satisfaga:}}
+
+\begin{itemize*}
+\item $\varphi(a) = \infty \Leftrightarrow a = 0$.
+\item $\varphi(ab)= \varphi(a)+\varphi(b)$
+\item $\varphi(a+b)\ge min(\varphi(a),\varphi(b))$
+\end{itemize*}
+
+\textit{\textbf{Se llamará una función de orden sobre el cuerpo $K$. Probar que $R=\{ z\in K : \varphi(z)\ge 0 \}$ es un anillo de valoración discreta cuyo ideal maximal es $m=\{z: \varphi(z)>0\}$, y cuyo cuerpo cociente es $K$. Recíprocamente, probar que si $R$ es un anillo de valoración discreta con cuerpo de fracciones $K$, entonces la función orden es una función orden sobre $K$. Dar un anillo de valoración discreta con cuerpo cociente $K$ es lo mismo que definir una función orden sobre $K$. }}
+
+\textit{Solución:}
+
+Para probar que $R$ es un anillo de valoración discreta, tenemos que ver que se cumple:
+\begin{enumerate}
+\item $R$ anillo.
+\item $M$ ideal maximal.
+\item Unicidad de $M$ como ideal maximal.
+\item $R$ Noetheriano.
+\end{enumerate}
+
+1. $R$ anillo:
+
+a) $(R,+)$ grupo abeliano. Es trivial comprobarlo, pues los elementos de $R$ son elementos de $K$, así que cumplen las propiedades de grupo. Además, la suma es una operación interna para $R$, pues si $a\in R, b\in R \Rightarrow \varphi(a+b)\ge 0 \Rightarrow a+b\in R$. 
+
+b) $a(bc)=(ab)c$ se cumple. Pues son elementos de $K$
+
+c) $a(b+c)=ab+ac$ también se cumple. Pues son elementos de $K$.
+
+d) $1\in R$, pues $\varphi(1)= \varphi(1\cdot 1)= \varphi(1) +\varphi(1) \Rightarrow \varphi(1)=0\ge 0$.
+
+2. $M$ ideal maximal.
+\vspace{2mm}
+
+Primero comprobemos que es un ideal: es subgrupo de $(R,+)$, y es cerrado para el producto: $a\in R, b\in M \Rightarrow \varphi(ab)= \underbrace{\varphi(a)}_{\ge 0}+\underbrace{\varphi(b)}_{>0} >0$.
+
+Veamos que es maximal, pero para eso basta ver que el único elemento de $R$ que no está en $M$, es aquel que tiene imagen por $\varphi$ igual a $0$, es decir, las unidades de $R$. Aplicando el lema de la sección de funciones racionales y anillos locales, eso implica que $R$ posee un ideal maximal único que contiene a todo ideal propio de $R$.
+
+3. Se tiene del apartado anterior.
+
+4. $R$ Noetheriano: Como existe $M$ ideal maximal que contiene a todos los ideales propios. Podemos construir una cadena ascendente de ideales, de manera que se estabiliza en $M$, y eso implica que $R$ es Noetheriano. También se puede deducir porque $K$ es el menor cuerpo que contiene a $R$, y es algebraicamente cerrado y, por lo tanto, $R$ es finitamente generado. 
+
+
+La función $ord$ es una función de orden sobre $K$:
+
+$$ord(0)=ord(ut^n,\text{ para cualquier } n) =\infty$$
+$$ord(ab)= ord(a)+ord(b) = ord(ut^nut^m) = ord(ut^{n+m})=n+m$$
+$ord(a+b)=ord(ut^n+ut^m)=ord(ut^{m}(t^{n-m}+1))=ord(ut^m)+ord(t^{n-m}+t^0)=m+ord(t^{n-m}+1) \ge m=min(ord(a),ord(b)) $
+
+\subsection{Problema 2.29}
+
+\textit{\textbf{Sea $R$ un anillo de valoración discreta con cuerpo de fracciones $K$, y se designa con ord, la función orden de $K$.}}
+\begin{enumerate}
+\item \textit{\textbf{Si $ord(a)<ord(b)$, probar que $ord(a+b)=ord(a)$.}}
+\item \textit{\textbf{Si $a_1,\dots,a_n\in K$, y para algún $i$, $ord(a_i)<ord(a_j),\forall i\neq j$, entonces $a_1+\cdots +a_n\neq 0$.}}
+\end{enumerate}
+
+\textit{Solución: }
+
+\begin{enumerate}
+\item $ord(a)=n, ord(b)=m, n<m \Rightarrow ord(a+b)=ord(ut^n+ut^m)=ord(ut^n(1+t^{m-n}))=ord(ut^n)+ord(\underbrace{1+t^{m-n}}_{(*)})=n$.
+
+  $(*) 1+t^{m-n}=ut^s$ para un cierto $s$, y $t$ no unidad $\Rightarrow t^s|(1+t^{m-n}) \Rightarrow s=0$
+
+\item Si $ord(a_i)<ord(a_j) ,\forall j\neq i \Rightarrow ord(a_i) < ord(\sum_{j\neq i} a_j) \Rightarrow ord(\underbrace{a_1+\cdots + a_n}_{ut^s})= ord( a_i + \sum_{j\neq i}a_j ) = ord (a_i) \Rightarrow s= ord(a_i) \Rightarrow ut^s \neq 0 \Rightarrow a_1+\cdots + a_n \neq 0$.
+\end{enumerate}
+
+\subsection{Problema 2.30}
+
+\textit{\textbf{Sea $R$ un AVD cuyo ideal maximal sea $M$, y cuerpo de fracciones $K$, y supóngase que un cierto cuerpo $k$ es un subanillo de $R$,y que la composición $k\rightarrow R \rightarrow R/M$ es un isomorfismo de $k$ con $R/M$. Verificar las siguientes afirmaciones:}}
+
+\begin{enumerate}
+\item \textbf{\textit{Para todo $z\in R$, existe un número $\lambda \in k$,único, tal que $z-\lambda\in M$.}}
+\item \textit{\textbf{Sea $t$ un parámetro de uniformización para $R$, $z\in R$. Entonces para todo $n\ge 0$ existen $\lambda_0,\lambda_1,\dots,\lambda_n\in k$ y $z_n\in R$ tales que $z=\lambda_0+\lambda_1t+\cdots +\lambda_n t^n+z_nt^{n+1}$, y son únicos.}}
+\end{enumerate}
+
+\textit{Solución:}
+
+\begin{enumerate}
+\item $k\xrightarrow{i} R \xrightarrow{\pi} R/M$, y denotamos $\varphi=i \circ \pi$. Como $\varphi$ es biyectiva, sabemos que $\pi$ debe ser inyectiva e $i$ debe ser sobreyectiva. Por lo tanto, sea $z\in R$ tiene sentido tomar $\pi(z)$, y debe existir $\tilde{\lambda}$ tal que $\pi(z)-\tilde{\lambda}=0$ que es equivalente a que pertenezca a $M$. Empleamos la imagen inversa de $\varphi$, obteniendo $\varphi^{-1}(\pi(z)-\tilde{\lambda})=\varphi^{-1}(0) \Rightarrow \varphi^{-1}(\pi(z))-\underbrace{\varphi^{-1}(\lambda)}_{\lambda}=0 \Rightarrow \lambda = \varphi^{-1}(\pi(z))$, y es único por las propiedades de las funciones empleadas.
+
+\item Existencia: Para $n=0$, por el apartado anterior tenemos que existe $\lambda$ tal que $z=\lambda$.  Suponemos cierto para $n$ y lo probarmos para $n+1$. Como es cierto para $n$, tenemos:
+  $$ z= \lambda_0+\lambda_1t+\cdots +\lambda_n t^n+z_nt^{n+1}$$
+  Podemos expresar $z_n= \lambda_{n+1} + z_{n+1}t$, por lo tanto, tenemos:
+  $$ z = \lambda_0 +\lambda_1t + \cdots \lambda_{n+1}t^{n+1}+z_{n+1}t^{n+2}$$
+  que es lo que queríamos probar.
+
+  Unicidad: Lo deducimos por reducción al absurdo, si no fueran únicos, se tendría que
+  $$ z = \lambda_0+\lambda_1t+\cdots +\lambda_n t^n+z_nt^{n+1}$$
+  $$ z = \beta_0 + \beta_1 t+ \cdots +\beta_n t^n + \bar{z}_n t^{n+1}$$
+  Restando ambas expresiones:
+  $$ 0 = (\lambda_0-\beta_0) + \cdots (z_n-\bar{z}_n)t^{n+1}$$
+  pero por el problema 2.29, sabemos que si algún sumando fuera distinto de 0, tendríamos un elemento cuyo orden minoraría los demás y la suma sería distinta de cero y llegaríamos a contradicción.
+\end{enumerate}
+
+\subsection{Problema 2.52}
+
+\textit{\textbf{Sean $N,P$ submódulos de un módulo $M$. Probar que el subgrupo $N+P=\{n+p : n\in N, p \in P \}$ es submódulo de $M$. Probar que existe un isomorfismo natural entre $R-$ módulos de $N/N\cap P$ sobre $(N+P)/P$.}}
+
+\textit{Solución:}
+
+Para probar que $N+P$ es submódulo de $M$ basta probar que es subgrupo abeliano y que $\forall a \in N+P, \forall b \in M, ab \in N+P$.
+
+Es claro que es subgrupo abeliano pues se verifican todas las propiedades, y se tiene que $\forall a \in N+P, a=a_N+a_P, ab = \underbrace{a_Nb}_{\in N}+\underbrace{a_Pb}_{\in P} \in N+P$.
+
+Para probar que $N/N\cap P$ y $(N+P)/P$ son isomorfos aplicaremos el primer teorema de isomorfía.
+Sea $f:N \rightarrow (N+P)/P$, donde $f$ es la inmersión de $N$ en $N+P$ tomando clases en $P$, $ker(f)= \{a : a \in N, f(a) \in P \}$, es decir, aquellos elementos de $N$, que también están en $P$, $ker(f)=N\cap P$. Por lo tanto, tenemos el isomorfismo.
+
+\newpage
+
+\section{Problemas 2 de Diciembre}
+
+\subsection{Lema}
+
+\textbf{Si $F$ y $G$ tienen tangentes distintas en $P$, entonces $I^t\subset (F,G)O$ para $t\ge m+n-1$}
+
+\begin{Dem}
+  Sean $L_1,\dots ,L_m$ las tangentes a $F$ en $P$, $M_1,\dots, M_n$ las tangentes a $G$ en $P$. Sea $L_i=L_m$ si $i>m$, $M_j=M_n$ si $j>n$, y sea $A_{ij}=L_1\cdot \dots \cdot L_i \cdot M_1 \cdot \dots \cdot M_j$ para todo $i,j\ge 0$, se define $A_{00}=1$. Por el problema 2.35, apartado (c) (entregado el día 28 de Octubre), tenemos que el conjunto $\{A_{ij} : i+j = t\}$ constituye una base del espacio vectorial de todas las formas de grado $t$ de $k[X,Y]$, que tiene dimensión $t+1$, pues los monomios del tipo $X^iY^{t-i}$, para $0\le i \le t$ forman una base de dicho espacio.
+
+  Por lo tanto, para demostrar que el ideal $I^t\subset (F,G)O$ basta probar que los $A_{ij}$ que forman base pertenecen a $(F,G)O$ para todo $t=i+j\ge m+n-1$ ($I^t$ es el ideal formado por los elementos $X^t, Y^t$ de $K[X,Y]$). La desigualdad $i+j \ge m+n-1$ implica que o bien $i\ge m$ o que $j \ge n$.
+
+  Sin pérdida de generalidad, supongamos que $i\ge m$, entonces $A_{ij}=A_{m0}B$, donde $B$ es una forma de grado $t=i+j-m$.  COmo $A_{m0}$ es $F_m$, podemos escribir $F=A_{m0}+F'$, donde todos los términos de $F'$ son de grado mayor o igual que $m+1$, es decir, $F'$ es un polinomio en $I^{m+1}$,. Entonces, $A_{ij}=BF-BF'$, pues $A_{ij}=B(A_{m0}+F')-BF'=BF'-BF'+BA_{m0}=BA_{m0}$, donde cada uno de los términos de $BF'$ tiene grado mayor o igual que $i+j+1$ (suma de los grados de $B$ y $F'$). Habremos terminado si podemos probar que $I^t\subset (F,G)O$ para todo $t$ suficientemente grande.
+
+  Este hecho es consecuencia del ``teorema de los ceros'': sea $V(F,G)=\{P,Q_1,\dots , Q_s\}$, y elijamos un polinomio $H$ tal que $H(Q_i)=0, H(P)\neq 0$ (está definido en $P$), que podemos tomarlo por el problema 1.17. Se tiene que $HX,HY\in I(V(F,G))$, pues si $P=(0,0)$, ambos se anulan en él, por lo tanto por el ``teorema de los ceros'', se tiene que $(HX)^N,(HY)^N \in <F,G>\subset k[X,Y]$ para un cierto $N$. Como $H(P)\neq 0$, $\frac{1}{H}\in O$, así que $\frac{1}{H^N}(HX)^N= X^N \in (F,G)O$,  luego $X^N,Y^N\in (F,G)O$, pues para $Y^N$ se razona de manera análoga, y se tiene que $I^{2N}\subset <X^N,Y^N \subseteq (F,G)O$, ya que si $X^aY^b \in I^{2N}$, entonces $a+b\ge 2N$, y así $(a\ge N)\vee (b\ge N)$  \qed
+\end{Dem}
+
+\begin{nota}
+$O=O_P(\mathbb{A}^2)$. 
+\end{nota}
+
+\textbf{$\psi$ es inyectiva si y sólo si $F$ y $G$ poseen tangentes distintas en $P$.}
+
+\begin{Dem}
+  Supongamos que las tangentes son distintas y que $\psi(\bar{A},\bar{B}) = \bar{AF+BG}=0$, es decir, que $AF+BG$ consta exclusivamente de términos de grado mayor o igual que $m+n$. Escribamos $A=A_r+$ términos de grado superior, $B=B_s+\dots$, luego $AF+BG=A_rF_m+B_sG_n+\dots$. Entonces debe ser $r+m=s+n$ y $a_rF_m=-B_sG_n$. Pero $F_m$ y $G_n$ no tienen factores comunes, luego $F_m$ divide a $B_s$, y $G_n$ dvide a $A_r$. Por lo tanto, $s\ge m, r \ge n$, y en consecuencia $(\bar{A},\bar{B})=(0,0)$.
+
+  Recíprocamente, si $L$ fuese una tangente común a $F$ y a $G$ en $P$, se tendría $F_m=LF_{m-1}',G_n=LG_{n-1}'$ para ciertas formas $F_{m-1}'$ y $G_{n-1}'$. Pero entonces $\psi(\bar{G'_{n-1}},\bar{F_{m-1}'})=\bar{FG'_{n-1}-F'_{m-1}G}$, los grados menores cancelan, pues $F_mG_{n-1}'=F'_{m-1}LG'_{n-1}=F_{m-1}'G_n$, como cada término tiene grado al menos $m+n$, se tiene $\psi(\bar{G'_{n-1}},\bar{F_{m-1}'})=0$, y por lo tanto $\psi$ no es inyectiva.  \qed
+\end{Dem}
+
+\subsection{Propiedad 8}
+
+\textbf{Si $P$ es un punto simple de $F$, entonces $I(P,F\cap G)=ord_P^F(G)$. }
+
+\begin{Dem}
+  Podemos suponer que $F$ es irreducible. Si $g$ es la imagen de $G$ en $O_P(F)$, entonces $ord_P^F(G)=dim_k(O_P(F)/<g>)$ por el problema 2.50, apartado c. Como $O_P(F)/<g>$ es isomorfo a $O_P(\mathbb{A}^2)/<F,G>$ por el problema 2.44, y esta dimensión es $I(P,F\cap G)$.
+  \begin{nota}
+    \begin{itemize*}
+    \item \textbf{Problema 2.50:} Sea $R$ un anillo de valoración discreta, si $z\in R$ entonces $ord(z)=dim_k(R/<z>)$. 
+      \end{itemize*}
+  \end{nota}
+\end{Dem}
+
+
+\subsection{Propiedad 9}
+
+\textbf{Si $F$ y $G$ no poseen componentes comunes, entonces $\Sigma_P I(P,F\cap G) = dim_k(k[X,Y]/<F,G>)$.}
+
+\begin{Dem}
+Como $V(F,G)$ es finito, por el corolario 1 de la proposición 6 de la sección 2.9, se tiene que $$dim_k(k[X,Y]/<F,G>)= \sum_{i=1}^N dim_k(O_i/(F,G)O_i) = \sum_P dim_k(O_P(\mathbb{A}^2)/<F,G>)=$$ $$= \sum_i I(P, F\cap G)$$
+\end{Dem}
+
+\subsection{Problema 3.19}
+
+\textbf{Una recta $L$ es tangente a la curva $F$ en el punto $P$ si y sólo si $I(P, F\cap L)> m_p(F)$.}
+
+\vspace{2mm}
+\underline{\textit{Solución: }}
+
+Por la propiedad 5, tenemos que $I(P,F\cap L)\ge m_P(F)\underbrace{m_P(L)}_{=1} = m_P(F)$, y se alcanzaba la igualdad si no tenian tangentes comunes, es decir, que si la desigualdad es estricta, deben tener tangentes comunes, y al ser $L$ una recta, ésta tiene que ser tangente a $F$ en $P$.
+
+\newpage
+
+\section{Problemas 9 Diciembre}
+
+\subsection{Lema}
+\begin{enumerate}
+\item $V\subset \mathbb{A}^n$,entonces $\varphi_{n+1}(V)=V^* \cap U_{n+1}$ y $(V^*)_*=V$.
+\item $V\subset W \subseteq \mathbb{A}^n$, entonces $V^*\subseteq W^* \subseteq \mathbb{P}^n$. Si $V\subseteq W \subseteq \mathbb{P}^n \Rightarrow V_*\subseteq W_* \subseteq \mathbb{A}^n$. 
+\item $V\subseteq \mathbb{A}^n$ irreducible, entonces $V^*$ es irreducible. 
+\item $V=\cup_i V_i$, es descomposición en componentes irreducibles, entonces $V^*=\cup_i V_i^*$ es descomposición en componentes irreducibles.
+\item $V^*$ es el menor conjunto algebraico proyectivo que contiene a $\varphi_{n+1}(V)$, y por eso se llama clausura proyectiva. 
+\item $\emptyset \neq V\subseteq \mathbb{A}^n,$ entonces $V^*$ no está contenida en $H_\infty$, ni contiene a $H_\infty$. 
+\item $V\subseteq \mathbb{P}^n$ tal que ninguna componente irreducible de $V$ está en o contiene a $H_\infty$, entonces $V_*\subset \mathbb{A}^n$, pero $V_*\not = \mathbb{A}^n$ y $(V_*)^*=V$. 
+\end{enumerate}
+
+\begin{Dem}
+  \begin{enumerate}
+  \item $\varphi_{n+1}(V)=V^*\cap U_{n+1}$, lo demostramos por doble contención:
+
+    \framebox{$\supseteq $} Los elementos de $V^*\cap U_{n+1}$ son del tipo $[x_1:\dots:x_n:x_{n+1}]$ con $x_{n+1}\neq 0$, esto es debido a que $\mathbb{P}^n \supset U_{n+1}= \{[x_1:\dots : x_{n+1}]\in \mathbb{P}^n : x_{n+1}\neq 0 \}$. Por otro lado, $V^*$ es la homogeneización de $V$, es decir, $V^*=V(I^*)$ con $I^*=<F^*:F\in I>$ ($I^*$ ideal homogéneo), sabiendo que $V=V(I)$ para $I$ un cierto ideal. Por lo tanto, tomando los representantes de la forma $[\frac{x_1}{x_{n+1}}:\dots :\frac{x_n}{x_{n+1}}: 1]$ demostramos la inclusión.
+    
+    \framebox{$\subseteq$} $\varphi_{n+1}(V)$ tiene elementos del tipo $[x_1:\dots :x_n:1]$, luego está contenido en $U_{n+1}$. Por otro lado, si $V^*=V(I^*)$, se tiene que cada polinomio $F^* \in I^*$ procede de un polinomio $F\in I$, y si evaluamos la última coordenada $x_{n+1}$ en $1$, mantienen los mismos puntos algebraicos, es decir, si $F((a_1,\dots, a_n))=0$, entonces $F^*([a_1:\dots :a_n:1])=0$, por lo tanto, aquellos elementos de $V^*$ que tienen la última coordenada distinta de $0$, proceden de elementos de $V$, y tenemos la contención.
+
+    Falta probar que $(V^*)_*=V$, pero para ello basta ver que como $V=V(I)$, $V=\{P: F(P)=0, \forall F \in I\}$, y que además, $V^*=V(I^*)$ con una definición análoga. Y por la proposición 5 de la sección 2.6 sabemos que $(F^*)_*=F$, así que tienen las mismos puntos en los conjuntos algebraicos.
+
+
+  \item Sea $V=V(I), W=V(J)$ para $I,J$ ideales. Entonces $J\subseteq I$, por lo que $J^*\subseteq I^*$, y como $V$ invierte inclusiones, se tiene que $V(J^*)\supseteq V(I^*) \Rightarrow V\subseteq W$. De manera análoga, $J\subseteq I$, por lo que $J_*\subseteq I_*$, lo que implica que $V_*\subseteq W_*$.
+
+  \item Sea $F$ una forma e $I=I(V)$, entonces $F\in I^* \Leftrightarrow F_*\in I$. Ésto se tiene ya que $F_*\in I \Leftrightarrow X_{n+1}^r(F_*)^*=F \in I^*$. Sabemos que $V$ es irreducible si y sólo si $I(V)$ es un ideal primo, así que basta probar que $I^*$ es primo. Entonces, $FG\in I^*\Leftrightarrow (FG)_*=F_*\cdot G_*\in I \Leftrightarrow (F_*\in I)\vee (G_*\in I) \Leftrightarrow (F\in I^*) \vee (G \in I^*)$.
+
+  \item Se sigue de los apartados (2), (3) y (5). Como $V=\cup_i V_i$, $V_i\subset V$, por lo que aplicando (2) tenemos que $V_i^*\subset V^*$. Por otro lado, cada $V_i^*$ es irreducible por el apartado (3), así que $\cup_i V_i^*\subseteq V^*$. Falta ver la igualdad, pero se tiene por el apartado (5), pues $V^*$ es el menor conjunto algebraico que contiene a $\varphi_{n+1}(V)$, por lo que es el menor que contiene a la inclusión de $V$ en $\mathbb{P}^n$, así mismo, ésto es aplicable a cada $V_i^*$ y $V_i$, así que $\cup V_i^*$ es el menor conjunto que contiene $\cup V_i$, y por lo tanto que contiene a $V$, y eso implica la igualdad.  
+
+  \item Por el apartado (1), tenemos que $\varphi_{n+1}(V)\subseteq V^*$, falta probar que es el menor. Sea $W$ un conjunto algebraico de $\mathbb{P}^n$ tal que $\varphi_{n+1}(V)\subseteq W$. Si $F\in I(W)$, como $I(W)\subseteq I(\varphi_{n+1}(V))$, entonces se tiene que $F_*\in I(V)$, por lo tanto como vimos en la demostración (3), $F=X_{n+1}^r(F_*)^* \in I(V)^*\subseteq I(V^*)$, así $I(V^*) \supseteq I(W) \Rightarrow V^*\subseteq W$.
+
+  \item Supongamos que $V$ es irreducible, si no lo fuera se podría descomponer y valdría una prueba análoga. \framebox{$V^*\not \subset H_\infty$}, ya que por (1) tenemos que $\varphi_{n+1}(V)=V^*\cap U_{n+1}$ y $V\neq \emptyset$, entonces $\varphi_{n+1}(V) \neq \emptyset$, es decir, hay elementos de $V^*$ que no están en $H_\infty$. Si $V^*\supset H_\infty$, entonces $I^*=I(V)^*\subset I(V^*)\subset I(H_\infty)=<X_{n+1}>$. Pero como $V\neq \emptyset$, entonces existe $F\neq 0$ tal que $F\in I(V)$, por lo que $F^*\in I^*$, con $F^*\not \in <X_{n+1}>$. Así que \framebox{$V^*\not \supset H_\infty$}.
+
+    \item Al igual que en el apartado anterior, podemos suponer que $V$ es irreducible. Como $\varphi_{n+1}(V_*)\subset V$, basta probar que $V\subset (V_*)^*$, o que $I(V_*)^*\subset I(V)$, pues $I$ invierte las inclusiones. Sea $F\in I(V_*)$. Entonces $F^N\in I(V)_*$ para algún $N$, así que $X_{n+1}^t(F^N)^*\in I(V)$ para algún $t$ (proposición 5 (3) de la sección 2.6). Pero $I(V)$ es primo al ser $V$ irreducible, y $X_{n+1}\not \in I(V)$ ya que $V\not \in H_\infty$, así que $F^*\in I(V)$. 
+  \end{enumerate}
+\end{Dem}
+
+\subsection{Problema 4.19}
+
+\textbf{Si $I=<F>$ es el ideal de una hipersuperficie afín, probar que $I^*=<F^*>$.}
+
+\underline{\textit{Solución:}}
+
+\vspace{2mm}
+
+Por definición, $I^*=<F^*: F\in I>$, pero $I$ está generado solo por $F$. Por lo tanto $I^*=<F^*>$.
+
+\newpage
+\subsection{Problema 4.20}
+
+\textbf{Sea $V=V(Y-X^2,Z-X^3)\subset \mathbb{A}^3$. Probar:}
+
+(a) $I(V)=<Y-X^2,Z-X^3>$.
+
+(b) $ZW-XY\in I(V)^*\subset k[X,Y,Z,W]$, \textbf{pero} $ZW-XY\not \in <(Y-X^2)^*,(Z-X^3)^*>$.
+
+\underline{\textit{Solución:}}
+
+\vspace{2mm}
+
+(a) Sea $F\in I(V)$, entonces debe cumplir que $F(P) = 0, \forall P=(\alpha,\beta,\gamma) \in V$, es decir, $\beta - \alpha^2=0$, y que $\gamma-\alpha^3=0$. Por lo tanto, podemos escribir $F$ como:
+$$F= F_1(Y-X^2)+F_2(Z-X^3)+F_3 $$
+con $F_1\in k[X,Y,Z]$, $F_2\in k[X,Z]$ y $F_3\in k[X]$. Como debe cumplir la relación antes mencionada, $F_3(\alpha)=0$, para cualquier $\alpha$ que anule en los sumandos previos. Por lo tanto, $F\in <Y-X^2,Z-X^3>$.  
+\vspace{2mm}
+
+
+(b) Como $Z-XY=Z-X^3-X(Y-X^2)$, se tiene que $Z-XY\in I(V)$ y, por lo tanto, $ZW-XY\in I(V)^*$. Por otro lado, si $ZW-XY\in <(Y-X^2)^*,(Z-X^3)^*>$, se debe cumplir que
+$$ZW-XY=\alpha (YW-X^2)+ \beta (ZW^2-X^3) $$
+
+para $\alpha,\beta \in k[X,Y,Z,W]$. Pero por el grado,$\beta $ debería ser 0 y $\alpha $ ser constante $\rightarrow \leftarrow $.
+
+\subsection{Problema 4.22}
+
+\textbf{Supongamos que $V$ es una variedad en $\mathbb{P}^n$ y $V\supseteq H_\infty$. Probar que $V=\mathbb{P}^n$ o $V=H_\infty$. Si $V=\mathbb{P}^n,V_*=\mathbb{A}^n$, mientras que si $V=H_\infty,V_*=\emptyset$.}
+
+\underline{\textit{Solución}}
+
+\vspace{2mm}
+
+Como $H_\infty \subset V$, entonces todos los elementos del tipo $[x_1:\dots :x_n:0]$ están en $V$. Hay dos posibilidades, que $V\cap U_{n+1}=\emptyset $, lo que implica que $V=H_\infty$, o que $V\cap U_{n+1} \neq \emptyset $, entonces existe $P\in V$ tal que $P_{n+1}\neq 0$, el subíndice denota la coordenada de $P$. Por lo tanto, si $P=[y_1:\dots:y_{n+1}$, $P/P_{n+1}=[y_1/y_{n+1}:\dots : 1]\in V$, y como $H_\infty $ contiene todas los elementos posibles con 0 en la última coordenada, podemos obtener una base $[1:0:\dots:0],\dots , [0:\dots :0: 1]$ de $\mathbb{P}^n$, y así $V=\mathbb{P}^n$.
+
+Sea $V=\mathbb{P}^n \Rightarrow V=V(<0>) \Rightarrow V_*=V(0)= \mathbb{A}^n$. Si $V=H_\infty $, entonces $V=V(<X_{n+1}>) \Rightarrow V_*=V(k[\vec{X}])=\emptyset $. 
+
+%\newpage
+
+\subsection{Desigualdad del cono para $V=\emptyset$}
+
+\textbf{Contraejemplo o demostración de las igualdades sobre el Cono afín asociado a una variedad proyectiva cuando V es el vacío.}
+
+\underline{\textit{Solución:}}
+
+Si $V=\emptyset$ , entonces $C(V)=\{(0,\dots ,0)\}$. Por lo tanto, ¿$I_a(C(V))=I_p(\emptyset)$?
+Por un lado, $I_a(C(V))=I_a(\{(0,\dots ,0)\})=<X_1,\dots, X_n>$, e $I_p(\emptyset )=k[X_1,\dots , X_{n+1}]$.
+
+\section{Problemas 19 Diciembre}
+
+\subsection{Problema 4.25}
+
+\textbf{Sea $P=(x,y,z)\in \mathbb{P}^2$.}
+
+\begin{enumerate}
+\item \textbf{Probar que $\{(a,b,c)\in \mathbb{A}^3|ax+by+cz=0\}$ es un hiperplano de $\mathbb{A}^3$.}
+\item \textbf{Probar que para todo conjunto finito de puntos de $\mathbb{P}^2$, existe una recta que no pasa por ninguno de ellos.}
+\end{enumerate}
+
+
+\underline{\textit{Solución:}}
+
+\begin{enumerate}
+\item Viene dado por una ecuación, y será un hiperplano si tiene dimensión $n-1$, con $n=3$. Pero sabemos que la dimensión viene dada por $n-$número de ecuaciones. Por lo tanto, es un hiperplano.
+  
+\item Lo demostramos por reducción al absurdo. Supongamos que existe un conjunto finito de puntos $\mathcal{P}=\{p_1,\dots ,p_n\}$ tal que cada línea en $\mathbb{P}^2$ interseca con $\mathcal{P}$. Entonces algún $p_i$ es solución de cada ecuación $aX+bY+cZ+d=0$ con $a,b,c,d\in K$. Dada esa ecuación, supongamos que $p_i=[X_i,Y_i,Z_i]$ es una raíz. Si tomamos otro término independiente $d'$, $aX_i+bY_i+cZ_i+d'\neq 0$. Sin embardo, debe existir $j$ tal que $p_j$ cumpla que $aX_j+bX_j+cZ_j+d'=0$. Así, tomamos para cada $p\in \mathcal{P}$ su respectivo término independiente. Por lo tanto, si pudieramos tomar un $d^{(n)}$ distinto a los anteriores llegaríamos a contradicción. Supongamos que no podemos, entonces $K$ sería finito y eso entra en contradicción con que $K$ es un cuerpo algebraicamente cerrado, y por lo tanto, infinito. 
+\end{enumerate}
+
+\subsection{Ejercicio 5.4}
+
+\textbf{Sea $P$ un punto simple de $F$. Probar que la recta tangente a $F$ en $P$ es $F_X(P)X+F_Y(P)Y+F_Z(P)Z=0$.}
+
+\underline{\textit{Solución:}}
+
+Sea $P=(P_1,P_2,P_3)$. Para demostrarlo, emplearemos la ecuación de la tangente en el caso afín, así como la identidad de Euler. Por la identidad de Euler, tenemos que $dF=XF_X+YF_Y+ZF_Z$, si evaluamos en $P$, que es un punto de la curva, se tiene que $P_3F_Z(P)=-P_1F_X(P)-P_2F_Y(P)$. Ahora, mediante la ecuación de la recta tangente en el afín, deshomogeneizando, es decir, tomando $F(X,Y,Z)\rightarrow F(X/Z,Y/Z,1)$:
+
+$$F_X(P)(X-\frac{P_1}{P_3})+F_Y(P)(Y-\frac{P_2}{P_3})=0$$
+y homogeneizando:
+$$F_X(P)(X-\frac{P_1}{P_3}Z)+F_Y(P)(Y-\frac{P_2}{P_3}Z)=0$$
+Y, por lo tanto, el coeficiente de $Z$ será $\frac{P_1F_X(P)+P_2F_Y(P)}{-P_3}$, que por la identidad de Euler, habíamos determinado que ésto era igual a $F_Z(P)$, y finalmente, se tiene la recta tangente. 
+
+
+\subsection{Ejercicio 5.5}
+
+\textbf{Sea $P=[0:1:0]$, $F$ una curva de grado $n$, $F=\sum F_i(X,Z)Y^{n-i},F_i$ una forma de grado $i$. probar que $m_P(F)$ es el menor $m$ tal que $F_m\neq 0$, y los factores de $F_m$ determinan las tangentes de $F$ en $P$.}
+
+\underline{\textit{Solución:}}
+
+Se tiene que $F=F_0Y^n+F_1Y^{n-1}+\cdots +F_n$, $P\in U_2$, por lo tanto, podemos deshomogeneizar por la segunda variable, obteniendo $\tilde{F}=F_0+\cdots + F_n$, así, como $m_P(F)=m_P(\tilde{F})$, por definición, $m_P(F)=m_P(\tilde{F})=m$, siendo $F_m$ la menor (en grado) forma no nula.
+
+Como estámos en un cuerpo algebraicamente cerrado, $F_m$ descompone en factores lineales, es decir, $F_m=\prod_{i=1}^mL_i$, faltaría ver que esos factores son las rectas tangentes a $F$ en $P$, pero como estamos en el afín al haber deshomogeneizado, son esas. 
+
+\subsection{Ejercicio 5.6}
+
+\textbf{Para cualquier $F,P\in F$, probar que $m_P(F_X)\ge m_P(F)-1$.}
+
+\underline{\textit{Solución:}}
+Como $XF_X=\lambda F$, y sea $F=\sum F_i$ su descomposición en formas. Y sea $F_m$ la forma de menor grado distinta de 0. Entonces:
+\begin{itemize*}
+\item Si $F_{m_X}\neq 0$, entonces tenemos $m_P(XF_X)=m_P(X)+m_P(F_X)=1+m_P(F_X)= m_P(F) \Rightarrow m_P(F_X)= m_P(F)-1$.
+
+\item Si $F_{m_X}=0$, entonces tenemos que $m_P(XF_X)=m_P(X)+m_P(F_X)>m_P(F)\Rightarrow m_P(F_X)>m_P(F)-1$.
+\end{itemize*}
+Juntando ambas obtenemos lo que queríamos probar.
+
+\subsection{Ejercicio 5.7}
+
+\textbf{Probar que dos curvas planas sin componentes comunes intersecan en un número finito de puntos.}
+
+\underline{\textit{Solución:}}
+
+En la sección 1.6, proposición 2, vimos que $V(F,G)=V(F)\cap V(G)$ y que con las hipótesis del problema, era finito. $V(F)\cap V(G)=\{P: f(P)=0=g(P), \forall f\in <F>, g\in <G>\}$.
+
+\subsection{Ejercicio 5.8}
+
+\textbf{Sea $F$ una curva irreducible. probar que $F_X,F_Y,$ ó $F_Z\neq 0$. Probar que $F$ tiene una cantidad finita de puntos múltiples.}
+
+\underline{\textit{Solución:}}
+Supongamos que todos son cero, y sea $F$ ese polinomio. $F=F(X^k,Y^k,Z^k)$, pero estamos en un cuerpo algebraicamente cerrado, por lo tanto $F=G(X,Y,Z)^k$, y no sería irreducible. 
+
+
+El conjunto de los puntos múltiples es $V(F,F_X,F_Y,F_Z)\subset V(F)$. Por el ejercicio anterior, sabemos que si no tienen componentes comunes, entonces será finito. Por razones de grado, $F$ no divide a ningún $F_X,F_Y,F_Z$, y al ser irreducible, tampoco lo dividen, por lo tanto, no tienen componentes comunes, además, sabemos que alguno es distinto de cero. Así que tenemos la finitud.
+
+\newpage
+
+\section{Problemas 9 Enero}
+
+\subsection{Ejercicio 5.17}
+
+\textbf{Sean $P_1,P_2,P_3,P_4\in \mathbb{P}^2$ y $V$ el sistema lineal de cónicas que pasa por estos puntos. Probar que $dim(V)=2$, si $P_1,\dots , P_4$ están alineados, y $dim(V)=1$, en caso contrario.}
+
+
+\underline{\textit{Solución:}}
+
+
+Sabemos que dado un punto $P$, las curvas de grado $d$ que pasan por ese punto forman un hiperplano de $\mathbb{P}^{\frac{1}{2}d(d+3)}$. Por lo tanto, si tenemos $4$ puntos, trabajamos con la intersección de $4$ hiperplanos de dimensión $4$. La fórmula de la dimensión, nos dice que dados dos variedades $H_1$ y $H_2$, se cumple que:
+$$dim(H_1+H_2)=dim(H_1)+dim(H_2)-dim(H_1\cap H_2)$$
+
+así que, primero trabajemos con dos de los puntos, sea $H_i$ el hiperplano que forman las curvas de grado $2$ que pasan por el punto $P_i$, con $i=1,2,3,4$. Entonces:
+
+$$dim(H_1+H_2)=4+4-dim(H_1\cap H_2) $$
+$dim(H_1+H_2)=5$ (ya que $H1\neq H_2)$ , obteniendo $dim(H_1\cap H_2)=3$, y tomamos la variedad $V_1=H_1\cap H_2$. De manera análoga, $V_2=H_3\cap H_4$. Finalmente, apliquemos la fórmula de la dimensión a $V_1$ y $V_2$, pues $V=V_1\cap V_2$.
+$$dim(V_1+V_2)=3+3-dim(V_1\cap V_2)$$
+$dim(V_1+V_2)$ puede ser $5$ o $4$, dependiendo de si están o no alineados, obteniendo así que $dim(V_1\cap V_2)=2$ si están alineados e igual a $1$ en caso contrario. 
+
+
+
+\subsection{Ejercicio 5.20}
+\textbf{Buscar los puntos de intersección de los siguientes pares de curvas, y los números de intersección en dichos puntos:}
+\begin{enumerate}
+\item $Y^2Z-X(X-2Z)X+Z)$ y $Y^2+X^2-2XZ$.
+\item $(X^2+Y^2)Z+X^3+Y^3$ y $X^3+Y^3-2XYZ$.
+\item $Y^5-X(Y^2-XZ)^2$ y $Y^4+Y^3Z-X^2Z$.
+\item $(X^2+Y^2)^2+3X^2YZ-Y^3Z$ y $(X^2+Y^2)^3-4X^2Y^2Z^2$. 
+\end{enumerate}
+
+\underline{\textit{Solución:}}
+
+\begin{enumerate}
+\item Para hallar los puntos de intersección en $H_\infty$, sea $Z=0$, obtenemos el sitema de ecuaciones:
+
+\begin{equation*}
+\left\{\begin{array}{ll}
+         X^3=0 \\
+         Y^2+X^2=0
+       \end{array} \right.
+\end{equation*}
+Como la única solución del sistema es $(0,0)$, $F$ y $G$ no intersecan en $H_\infty$. 
+
+Para encontrar la intersección en $U_1$, tomamos $Z=1$ y obtenemos el sistema de ecuaciones
+\begin{equation*}
+\left\{\begin{array}{ll}
+         Y^2-X(X-2)(X+1)=0 \\
+         Y^2+X^2-2X=0
+       \end{array} \right.
+\end{equation*}
+que por sustitución, se obtiene $X^3-4X=0$, así que $X=0,X=2, X=-2$, así que se obtienen los puntos:
+$$P_1=[0:0:1],P_2=[2:0:1],P_3=[-2:-2^{\frac{3}{2}}i:1],P_4=[-2:2^{\frac{3}{2}}i : 1] $$
+Ahora, sea $P_0=(0,0)$
+
+
+$I(P_1,F\cap G)=I(P_0,Y^2-X(X-2)(X+1)\cap Y^2+X^2-2X)=I(P_0,Y^2-X^3+X^2+2X\cap Y^2+X^2-2X)=
+I(P_0,-X^3+4X\cap Y^2X^2-2X)=I(P_0,X(X+2)(X-2)\cap Y^2+X^2-2X)=I(P_0,X\cap Y^2-2X)+I(P_0,(X+2)(X-2)\cap Y^2+X^2-2X)=I(P_0,X\cap Y^2+X^2-2X)+\underbrace{0}_{P_\not \in (X+2)(X-2)}=I(P_0,X\cap Y^2)=2$
+
+$I(P_2,F\cap G)=I((0,2),Y^2-X(X-2)(X+1)\cap Y^2+X^2-2X)=I(P_0,Y^2-(X+2)X(X+3)\cap Y^2+(X+2)^2-2(X+2))=I(P_0,-X^3-6X^2-8X\cap Y^2+X^2+2X)=I(P_0,X(X+2)(X+4)\cap Y^2+X^2+2X)=I(P_0,X\cap Y^2+X^2+2X) = I(P_0,X\cap Y^2)=2$.
+
+Y por el teorema de Bézout, $6=\sum_{i=1}^4 I(P_i,F\cap G)\Rightarrow I(P_3,F\cap G)=1=I(P_4,F\cap G)$. 
+\item Para calcular los puntos de intersección en $U_1$, consideramos $Z=1$, y obtenemos el sistema de ecuaciones:
+\begin{equation*}
+\left\{\begin{array}{ll}
+         X^2+Y^2+X^3+Y^3=0 \\
+         X^3+Y^3-2XY=0
+       \end{array} \right.
+\end{equation*}
+
+
+Por sustitución se obtiene $(X+Y)^2=X^2+2XY+Y^2=0$, siendo las soluciones del tipo $(\lambda,-\lambda), \lambda \in k$, para finalmente obtener $\lambda =0$. Así que el único punto de intersección en $U_1$ es $P_1=[0:0:1]$.
+
+Ahora veamos los puntos de intersección en $H_\infty$, consideramos $Z=0$ y obtenemos el sistema de ecuaciones:
+
+\begin{equation*}
+\left\{\begin{array}{ll}
+        X^3+Y^3=0 \\
+         X^3+Y^3=0
+       \end{array} \right.
+\end{equation*}
+
+
+Obtenemos los puntos 
+$$P_1=[0:0:1],P_2=[1:-1:0],P_3=[1:\frac{1+\sqrt{3}i}{2}:0],P_4=[1:-\frac{\sqrt{3}i-1}{2}:0]$$
+
+Calculamos las intersecciones:
+
+$I(P_1,F\cap G)=I(P_0,X^2+Y^2+X^3+Y^3\cap X^3+Y^3-2XY)=I(P_0,X^2+Y^2+2XY\cap X^3+Y^3-2XY)=I(P_0,(X+Y)^2\cap X^3+Y^3-2XY)=2I(P_0,X+Y\cap XY)=4$.
+
+$I(P_2,F\cap G)=I((-1,0),(1+Y^2)Z+1+Y^3\cap 1+Y^3-2XY)=I((-1,0),(1+Y^2)Z+2YZ\cap 1+Y^3-2YZ)=I(P_0,(1+(Y-1)^2)Z+2(Y-1)Z\cap 1+(Y-1)^3-2(Y-1)Z)=I(P_0,Y^2Z\cap Y^3-3Y^2-2YZ+3Y+2Z)=2I(P_0,Y\cap 2Z)+I(P_0,Z\cap Y^3-3Y^2+3Y)=2+1=3$
+
+Así que por el teorema de Bézout, como $deg(F)deg(G)=9$, sabemos que deben intersecar transversalmente en los otros dos puntos de intersección. 
+
+\item Comprobamos la intersección en $H_\infty$, obteniendo el sistema:
+\begin{equation*}
+\left\{\begin{array}{ll}
+        Y^5-XY^4=0 \\
+        Y^4 = 0
+       \end{array} \right.
+\end{equation*}
+obteniendo $P_1=[1:0:0]$.
+
+Ahora calculamos los puntos de intersección en $U_1$, tomando $Z=1$, así que se tiene el sistema:
+\begin{equation*}
+\left\{\begin{array}{ll}
+         Y^5-X(Y^2-X)^2=0 \\
+         Y^4+Y^3-X^2 = 0
+       \end{array} \right.
+\end{equation*}
+
+Y no hay soluciones distintas del $0$, por lo tanto, tenemos el punto $P_2=[0:0:1]$. Aplicamos el teorema de Bézout,  $I(P_1,F\cap G)=I(P_2,F\cap G) = \frac{4\cdot 5}{2}=10$. 
+
+\item Comprobamos como antes $Z=0$ y $Z=1$, obteniendo en el primer caso los puntos $P_1=[1:-i:0]$ y $P_2=[1:i:0]$ ,y $P_3=[0:0:1]$ en el otro caso. 
+
+Sea $G-(X^2+Y^2)F=yJ$, y $J+3F=yH$.
+
+$I(P_3,F\cap G)= I(P_3,F\cap (G+F(3*Y-(X^2+Y^2))))=I(P_3,F\cap (G-(X^2+Y^2)F+3FY))=I(P_3,F\cap (YJ+3FY))=I(P_3,F\cap Y(J+3F))=I(P_3,F\cap y^2H)=2I(P_3,F\cap Y)+I(P,F\cap H)$.
+
+$I(P,F\cap H)=I(P_3,X^4\cap Y)=4$ y $I(P_3,F\cap H)=m_p(F)m_P(H)=6$. Por lo tanto, $I(P_3,F\cap G)=14$. 
+
+Por lo tanto, aplicamos el teorema de Bézout, obteniendo $I(P_1,F\cap G)=I(P_2,F\cap G)= 5$, pues $deg(F)\cdot deg(G)= 4\cdot 6 = 24$. 
+\end{enumerate}
+
+
+A continuación, las comprobaciones de los sistemas algebráicos en maxima:
+
+
+\noindent
+%%%%%%%%%%%%%%%
+%%% INPUT:
+\begin{minipage}[t]{8ex}\color{red}\bf
+\begin{verbatim}
+(%i1) 
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+\begin{verbatim}
+algsys([x^3, y^2+x^2], [x,y]);
+\end{verbatim}
+\end{minipage}
+%%% OUTPUT:
+\definecolor{labelcolor}{RGB}{100,0,0}
+
+\[\displaystyle
+\parbox{10ex}{$\color{labelcolor}\mathrm{\tt (\%o1) }\quad $}
+[[x=0,y=0]]\mbox{}
+\]
+%%%%%%%%%%%%%%%
+
+
+\noindent
+%%%%%%%%%%%%%%%
+%%% INPUT:
+\begin{minipage}[t]{8ex}\color{red}\bf
+\begin{verbatim}
+(%i2) 
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+\begin{verbatim}
+algsys([y^2-x*(x-2)*(x+1), y^2+x^2-2*x], [x,y]);
+\end{verbatim}
+\end{minipage}
+%%% OUTPUT:
+\definecolor{labelcolor}{RGB}{100,0,0}
+
+\[\displaystyle
+\parbox{10ex}{$\color{labelcolor}\mathrm{\tt (\%o2) }\quad $}
+[[x=2,y=0],[x=-2,y=-{{2}^{\frac{3}{2}}}\cdot i],[x=-2,y={{2}^{\frac{3}{2}}}\cdot i],[x=0,y=0]]\mbox{}
+\]
+%%%%%%%%%%%%%%%
+
+\noindent
+%%%%%%%%%%%%%%%
+%%% INPUT:
+\begin{minipage}[t]{8ex}\color{red}\bf
+\begin{verbatim}
+(%i3) 
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+\begin{verbatim}
+algsys([x^2+y^2+x^3+y^3, x^3+y^3-2*x*y], [x,y]);
+\end{verbatim}
+\end{minipage}
+%%% OUTPUT:
+\definecolor{labelcolor}{RGB}{100,0,0}
+
+\[\displaystyle
+\parbox{10ex}{$\color{labelcolor}\mathrm{\tt (\%o3) }\quad $}
+[[x=0,y=0]]\mbox{}
+\]
+%%%%%%%%%%%%%%%
+
+\noindent
+%%%%%%%%%%%%%%%
+%%% INPUT:
+\begin{minipage}[t]{8ex}\color{red}\bf
+\begin{verbatim}
+(%i4) 
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+\begin{verbatim}
+algsys([x^3+y^3, x^3+y^3], [x,y]);
+\end{verbatim}
+\end{minipage}
+%%% OUTPUT:
+\definecolor{labelcolor}{RGB}{100,0,0}
+
+\[\displaystyle
+\parbox{10ex}{$\color{labelcolor}\mathrm{\tt (\%o4) }\quad $}
+[[x=\mathit{\%r1},y=\frac{\left( 1+\sqrt{3}\cdot i\right) \cdot \mathit{\%r1}}{2}],[x=\mathit{\%r2},y=-\frac{\left( \sqrt{3}\cdot i-1\right) \cdot \mathit{\%r2}}{2}],[x=\mathit{\%r3},y=-\mathit{\%r3}],[x=0,y=0]]\mbox{}
+\]
+%%%%%%%%%%%%%%%
+
+\noindent
+%%%%%%%%%%%%%%%
+%%% INPUT:
+\begin{minipage}[t]{8ex}\color{red}\bf
+\begin{verbatim}
+(%i6) 
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+\begin{verbatim}
+algsys([y^5-x*y^4,y^4], [x,y]);
+\end{verbatim}
+\end{minipage}
+%%% OUTPUT:
+\definecolor{labelcolor}{RGB}{100,0,0}
+
+\[\displaystyle
+\parbox{10ex}{$\color{labelcolor}\mathrm{\tt (\%o6) }\quad $}
+[[x=\mathit{\%r4},y=0]]\mbox{}
+\]
+%%%%%%%%%%%%%%%
+
+\noindent
+%%%%%%%%%%%%%%%
+%%% INPUT:
+\begin{minipage}[t]{8ex}\color{red}\bf
+\begin{verbatim}
+(%i7) 
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+\begin{verbatim}
+algsys([y^5-x*(y^2-x)^2, y^4+y^3-x^2], [x,y]);
+\end{verbatim}
+\end{minipage}
+%%% OUTPUT:
+\definecolor{labelcolor}{RGB}{100,0,0}
+
+\[\displaystyle
+\parbox{10ex}{$\color{labelcolor}\mathrm{\tt (\%o7) }\quad $}
+[[x=0,y=0]]\mbox{}
+\]
+%%%%%%%%%%%%%%%
+
+\subsection{Ejercicio 5.21}
+
+\textbf{Probar que toda curva proyectiva plana no-singular es irreducible. ¿Es cierto para curvas afines?}
+
+\underline{\textit{Solución:}}
+
+Supongamos que $F$ es una curva no singular del plano proyectivo, y supongamos que $F$ es reducible, es decir, $F=GH$ con $gr(F),gr(G)>0$. Entonces por el teorema de Bézout, existe un punto $P\in F\cap G$. Pero, entonces
+$$F_{X_i}(P)=(GH)_{X_i}(P)=G(P)H_{X_i}(P)+G_{X_i}(P)H(P)=0 , i=1,2,3$$
+Eso implica que $P$ es un punto singular de $F$, llegando a una contradicción.
+
+Por otro lado, en $\mathbb{A}^2$, $F=(Y-X)(Y-X-1)$ es no singular, ya que $F_X=0=F_y$ no tiene soluciones. 
+
+\subsection{Ejercicio 5.22}
+
+\textbf{Sea $F$ una curva irreducible de grado $n$. Supongamos que $F_X\neq 0$. Aplicar el corolario 1 a $F$ y a $F_X$, y concluir que $\sum m_P(F)(m_P(F)-1)\le n(n-1)$.  En particular, $F$ tiene a lo sumo $\frac{1}{2}n(n-1)$ puntos múltiples.}
+
+\underline{\textit{Solución:}}
+
+Sea $F$ una curva irreducible de grado $n$ y $F_X\neq 0$. Por el ejercicio 5.6, $m_P(F_X)\ge m_P(F)-1, \forall P\in \mathbb{P}^2$. Como $F_X\neq 0$, $deg(F_X)=n-1$. Así que por el primer corolario del teorema de Bézout:
+$$n(n-1)=deg(F)deg(F_X)\ge \sum_P m_P(F)m_P(F_X)\ge \sum_P m_P(F)(m_P(F)-1) $$
+
+Ahora, por el ejercicio 5.6 sabemos que si $m_P(F)\ge 2$ entonces $m_P(F_X)\ge 1$, y en ese caso $m_P(F)m_P(F_X)\ge 1$, así que:
+
+$$n(n-1) \ge \sum_P m_P(F)(m_P(F)-1)=\sum_{\text{P:múltiple en F}}m_P(F)(m_P(F)-1)=$$ $$=\sum_{\text{p:múltiple en F}} 1 = \# \{P: P\text{ punto múltiple de } F\} $$
+
+

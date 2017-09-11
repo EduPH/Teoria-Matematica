@@ -1,0 +1,945 @@
+\chapter{Variedades afines}
+
+Suponemos que $k$ es un cuerpo algebraicamente cerrado. 
+
+\index{\texttt{Variedad afín}}
+\begin{Def}
+Si $V\subseteq \mathbb{A}^n$ es un conjunto algebraico irreducible, diremos que $V$ es una \textbf{Variedad (afín)}.
+\end{Def}
+
+\section{Anillo de coordenadas de una variedad}
+
+
+\begin{Def}
+Se llama \textbf{anillo de coordenadas} de $V$ a $\Gamma(V):= \frac{k[x_1,\dots,x_n]}{I(V)}$ es un dominio de integridad.
+\end{Def}
+
+Sea \textit{F}$(V,k)=\{ f:V\rightarrow k : f \text{ función }\}\supseteq k$ (funciones constantes).
+
+$(\text{\textit{F}}(V,k),+,\cdot)$ es un anillo.
+
+$$f,g:V\rightarrow k$$
+$$f+g:V\rightarrow k $$
+$$(f+g)(P)=f(P)+g(P)$$
+$$fg:V\rightarrow k$$
+
+\begin{Def}
+$f\in$ \textit{F}$(V,k)$ se llama función polinómica (o regular) si existe un polinomio $F\in k[x_1,\dots,x_n]$ tal que $f(P)=F(P), \forall P\in V$.
+\end{Def}
+
+\begin{nota}
+El conjunto de las funciones polinómicas de $V$ en $k$ es un subanillo sobre $k$. 
+\end{nota}
+
+$$\varphi : k[x_1,\dots,x_n]\rightarrow \text{\textit{F}}(V,k)$$
+$$f \rightarrow (\varphi(f): V \rightarrow k)$$
+
+$$P \rightarrow f(P)$$
+
+$Im\varphi =$ Funciones polinómicas de $V$ en $k$.
+
+Veamos cual es el núcleo de $\varphi $. $\varphi (f)=0 \Leftrightarrow f(P)=0, \forall p \in V \Leftrightarrow f \in I(V) \Rightarrow ker\varphi = I(V)$.
+
+Por el primer teorema de isomorfía tenemos: 
+
+$$\Gamma(V)=\frac{k[\vec{x}]}{I(V)}\cong Im\varphi $$
+
+\textbf{Ejercicio propuesto 21 de Octubre:} 2.2
+
+
+\textbf{Ejemplo: } 
+
+1. $V=\mathbb{A}^n $, $I(V)=0 $, $\Gamma(V)=k[x_1,\dots,x_n]$.
+
+2. $V=\{P\}, I(V)=<x_1-a_1,\dots,x_n-a_n> \Rightarrow \Gamma (V)\cong k$.
+
+3. $V=V(y-(ax+c))\subseteq \mathbb{A}^2, \Gamma (V)=\frac{K[x,y]}{<y-(ax+c)>}\cong k[x]=\Gamma(\mathbb{A}^n)$
+
+\textbf{Problema 2.3: } Sea $W\subseteq V$ subvariedad de la variedad $V$ y sea $I_V(W)\subseteq \Gamma(V)$ ideal correspondiente a $W$, es decir, $I_V(W)=\{f\in \Gamma(V): f(P)=0, \forall p\in W \}$.
+
+(a) Probar que toda función polinómica en $V$ se restringe a una en $W$.
+
+(b) Probar que la aplicación $\Gamma(V)\rightarrow \Gamma (W)$ es un morfismo sobreyectivo con núcleo $I_V(W)$. 
+
+\underline{\textit{Solución: }}
+
+(a) $f$ función pol. en $V \Rightarrow \exists F\in k[x_1,\dots,x_n], f(P)=F(P), \forall P\in V \Rightarrow f_{|W}$ es función polinómica de $V$ en $k$.
+
+(b) Se restringe como en el apartado anterior. $f\rightarrow f_{|w}$.
+
+Hay que ver que es sobreyectivo. Sea $g\in \Gamma(W)\Rightarrow \exists G\in k[x_1,\dots,x_n]$ tal que $g(P)=G(P), \forall P\in V$.
+
+Sea $\tilde{g}:W\rightarrow k$, $\tilde{g}(P)\rightarrow G(P), \forall P\in W,$ es claro que $\tilde{g}_{|V}=g:V\rightarrow k$. Luego, el morfismo $\psi$ es sobreyectivo.
+
+$ker\psi = \{f\in \Gamma(V): f_{|W}=0\}=I_V(W)\xrightarrow{\text{1º Teo iso}} \frac{\Gamma(V)}{I_V(W)}\cong \Gamma(W)$.
+
+\textbf{Problema 2.4: } $V\subseteq \mathbb{A}^n$ variedad. Son equivalentes:
+\begin{enumerate}
+\item $V$ es un punto.
+\item $\Gamma(V)=k$
+\item $dim_k\Gamma(V) <\infty$
+\end{enumerate}
+
+\underline{\textit{Solución: }}
+\vspace{1mm}
+
+
+\framebox{$1\Rightarrow 2$} Obvio, las únicas funciones de $\{P\} \rightarrow k$ son las constantes.
+
+\framebox{$2\Rightarrow 3$} $\Gamma(V)=k \Rightarrow dim_k \Gamma(V)=1<\infty $.
+
+\framebox{$3\Rightarrow 1$} $dim_k(\Gamma(V))<\infty, dim_k(\Gamma(V))= dim_k \frac{k[\vec{x}]}{I(V)}$, $V=V(I(V))$, y ya teniamos por una prop. anterior que : $\# V(I) \le dim_k \frac{K[\vec{x}]}{I}$.
+
+\section{Aplicaciones polinómicas entre variedades}
+
+\begin{Def}
+Sean $V\subseteq \mathbb{A}^n$, $W\subseteq \mathbb{A}^m$ variedades afines, una aplicación $\varphi : V \rightarrow W$ se llama \textbf{aplicación polinómica} si existen $f_1,\dots,f_n\in \Gamma(V)$ tales que $\varphi(P)=(f_1(P),\dots, f_m(P))$.
+\end{Def}
+
+Dada una aplicación $\varphi: V \rightarrow W$ polinómica, $\varphi$ induce el morfismo: 
+
+$$\tilde{\varphi}: \Gamma(W)\rightarrow \Gamma(V), f\rightarrow \tilde{\varphi}(f)=f\circ \varphi$$
+
+Es morfismo de K-álgebra, es decir, es un morfismo de anillos y $\tilde{\varphi}(\lambda)=\lambda, \forall \lambda\in k$.
+
+\begin{Prop}
+Sean $V\subseteq \mathbb{A}^n, W\subseteq \mathbb{A}^n$ variedades. Existe una correspondencia biyectiva entre las aplicaciones polinómicas $\varphi: V\rightarrow W$ y los morfismos de k-álgebras $\alpha: \Gamma(W)\rightarrow \Gamma(V)$. 
+
+$$ \varphi : V\rightarrow W \text{ polinómica } \longrightarrow \underbrace{\tilde{\varphi}: \Gamma(W)\rightarrow \Gamma(V)}_{\tilde{\varphi}(\bar{f})=\bar{f\circ \varphi}}$$
+$$\alpha: \Gamma(W)\rightarrow \Gamma(V)$$
+$$\varphi_\alpha: V\rightarrow W $$ 
+\end{Prop}
+
+\begin{Dem}
+Hay que probar que $\tilde{\varphi}$ bien definida y morfismo de k-álgebra dada $\varphi:V\rightarrow W$, y que $\varphi$ está bien definida y aplicación polinómica dada $\alpha: \Gamma(W)\rightarrow \Gamma(V)$.
+
+$\tilde{\varphi}_\alpha = \alpha $.
+
+$\varphi_{\tilde{\varphi}}=\varphi$. 
+
+Para ver que $\tilde{\varphi}$ está bien definida basta probar que si $f\in k[y_1,\dots,y_m],f\in I(W)$, entonces $f\circ \varphi \in I(V)$.
+
+$f(P')=0, \forall P'\in W, \forall P\in V,\varphi(P)\in W \Rightarrow f(\varphi(P))=0, \forall p\in V \Rightarrow f\circ \varphi\in I(V)$.
+
+Por otro lado, sea $\alpha : \Gamma(W)\rightarrow \Gamma(V)$ morfismo de k-álgebras, $\bar{y}_i\rightarrow \alpha(\bar{y}_i)=\bar{g}_i$, $g_i\in k[x_1,\dots,x_n]$.
+
+$\varphi_\alpha :V\rightarrow W$, $P\rightarrow (g_1(P),\dots,g_m(P))\in \mathbb{A}^m$, hay que probar que $\varphi_\alpha (P)\in W$.
+
+Sea $\psi_\alpha:\mathbb{A}^n\rightarrow \mathbb{A}^m$ sí está bien definido. Hay que probar que $\psi_\alpha(P)\in W,\forall P\in V$.
+
+$\alpha $ bien definida, entonces $\forall f \in I(W), \bar{f}=\bar{0}$ en $ \Gamma(W)\Rightarrow \bar{f(g_1(x),\dots,g_m(x))}=\alpha(\bar{f})=\bar{0}$ en $\Gamma(V)$, $\Rightarrow f(g_1(x),\dots,g_m(x))\in I(V)  \Rightarrow \forall P\in V, f(g_1(P),\dots,g_m(P))=0, \forall f\in I(W)$. Luego $\psi_\alpha(P)\in VI(W)=W$, que es lo que queríamos probar.
+
+$\psi_\alpha(V)\subseteq W \Rightarrow \varphi_\alpha=\psi_{\alpha|V}:V\rightarrow W$ bien definida y polinómica.
+
+$\tilde{\varphi}_\alpha = \alpha $:
+$$\bar{y_i\circ \varphi_\alpha}=\bar{g}_i$$
+LLevan los representantes de las clases al mismo sitio. Las composiciones se tienen de manera trivial.
+\end{Dem}
+
+\begin{nota}
+$\varphi : V\rightarrow W, \psi: W \rightarrow T$ aplicación polinómica. Entonces $\psi\circ \varphi : V\rightarrow T, \tilde{\psi\circ \varphi}=\tilde{ \varphi}\circ \tilde{\psi}$.
+
+Demostración: Sea $\bar{f}\in \Gamma(T), \tilde{\psi \circ \varphi (\bar{f})}=f\circ (\psi \circ \varphi)=(f\circ \psi)\circ \varphi = \tilde{\varphi}(f\circ \psi)=(\tilde{\varphi}\circ \tilde{\psi })(f)$.
+
+$\varphi_{\beta \circ \alpha}=\varphi_\alpha \circ \varphi_\beta $.
+\end{nota}
+
+\begin{Cor}
+$V\sim W \Leftrightarrow \Gamma(V)\sim \Gamma(W)$
+\end{Cor}
+
+\begin{Dem}
+$\varphi: V\rightarrow W, \psi: W\rightarrow V$ aplicaciones polinómicas tales que $\varphi\circ \psi = id_W, id_V = \psi \circ \varphi \Rightarrow \tilde{\varphi\circ \psi} = id_{\Gamma (W)}, \tilde{\psi\circ \varphi}=id_{\Gamma (V)}$. $\tilde{\varphi}:$ isometría entre $\Gamma(W)$ y $\Gamma (V)$.
+\end{Dem}
+
+\textbf{Ejercicio 1.47:} $R\subset S$ (No necesariamente dominio de integridad). $R$-álgebra finitamente generada. Probar que $S$ es $R$-módulo finitamente generado si y sólo si $S$ entero sobre $R$.
+\vspace{1mm}
+
+
+\underline{\textit{Solución: }}
+
+\framebox{$\Rightarrow $} $S=R[a_1,\dots,a_n]$ es R-módulo finitamente generado. $R[a_i]\subseteq S$, $\exists R'=S, R[a_i]\subseteq R'$ y $R'$ es $R$-módulo finitamente generado. Por lo tanto por la implicación \framebox{$3\Rightarrow 1$}, se tiene $a_i$ entero sobre $R$, $\forall i$, $R$ entero sobre $R'$, entonces $R[a_1,\dots,a_n]$ entero sobre $R$ por ser el menor anillo que contiene a $R$ y a todos los $a_i$, $i=1,\dots,n$.
+
+\framebox{$\Leftarrow $} $S$ entero sobre $R\subseteq R[a_1]\subseteq \dots \subseteq S_{n-1}=R[a_1,\dots,a_{n-1}]=R[a_1,\dots,a_{n-2}][a_{n-1}]\subseteq R[a_1,\dots,a_n]= S =S_{n-1}[a_n]$.
+
+$S$ entero sobre $S_{n-1} \Rightarrow S_n=S$ es $S_m$-módulo finitamente generado.
+
+$S_i=S_{i-1}[a_i]$ entero sobre $S_{i-1}\Rightarrow S_i$ es $S_{i-1}$-mód f.g. Por la transitividad de módulo finitamente generado demostrado en el apartado a del \textit{ejercicio 1.45} tenemos $S$ es $R$-módulo finitamente generado.
+
+
+\section{Funciones racionales y anillos locales}
+
+Sea $V\subseteq \mathbb{A}^n$ variedad con $V\neq \emptyset $. Entonces $\Gamma(V)$ es un dominio de integridad.
+
+\index{\texttt{Cuerpo de las F.Racionales}}
+\begin{Def}
+$k(V):=Q(\Gamma(V))=\{\frac{f}{g} : f,g\in \Gamma(V),g\neq 0 \}$ se llama el \textbf{cuerpo de las funciones racionales en $V$}. A sus elementos los llamaremos \textbf{funciones racionales en $V$}.
+\end{Def}
+
+\begin{Def}
+Se dice que una función racional $f\in k(V)$ está definida en $P\in V$ si $\exists g,h\in \Gamma(V)$ tales que $f=\frac{g}{h}$ y $h(P)\neq 0$.
+\end{Def}
+
+\textbf{Ejemplo: }
+
+$W=V(xy-zt)\subseteq \mathbb{A}^4(\mathbb{C})$, $f=\frac{x}{z}$, $P=(0,2,0,1)$. Veamos que $f$ sí está definido en $P$. 
+
+$xy-zt=0$ en $\Gamma(V)=\frac{k[x,y,z,t]}{<xy-zt>}$.
+
+En $k(V)$, $f=\frac{x}{z}=\frac{t}{y}$, $y(P)=2, t(P)=1 \Rightarrow f$ está definida en $P$ y $f(P)=\frac{1}{2}$.
+
+\begin{Def}
+Sea $f\in k(V)$ definido en $P$ se llama valor de $f$ en $P$ a $\frac{g(P)}{h(P)}$ donde $f=\frac{g}{h}$ con $h(P)\neq 0, f,g\in \Gamma(V)$.
+\end{Def}
+
+\begin{nota}
+El valor de $f$ en un punto $P$ en el que está definido está bien definido. Si $\frac{g}{h}=\frac{g'}{h'}$ en $k(V) \Leftrightarrow gh'=hg'$ en $\Gamma(V) \Rightarrow g(P')h'(P')=h(P')g'(P), \forall P'\in V \Rightarrow \frac{g(P)}{h(P)}=\frac{g'(P)}{h'(P)}$ si $h(P),h'(P)\neq 0$.
+\end{nota}
+
+\index{\texttt{Polo}}
+\begin{Def}
+Sea $f\in k(V), P\in V$ se dice que $P$ es un \textbf{polo de $f$} si $f$ no está definida en $P$. 
+\end{Def}
+
+\begin{nota}
+Si $f=\frac{g}{h} \in k(V), P\in V$ y $h(P)=0 \wedge g(P)\neq 0 \Rightarrow P$ es polo de $f$.
+
+\begin{Dem}
+Reducción al absurdo: Si $\exists g',h'\in \Gamma(V)$ tales que $h'(P)\neq 0$ y $f=\frac{g'}{h'}=\frac{g}{h}$ en $k(V) \Rightarrow g'h=gh'$ en $\Gamma(V) \Rightarrow 0=g'(P)h(P)=g(P)h'(P)\neq 0  \rightarrow \leftarrow$. \qed
+\end{Dem}
+\end{nota}
+
+\textbf{Ejemplo: }
+
+ $f=\frac{x}{z}=\frac{t}{y}$ en $k(W), W=V(xy-zt)$, $\forall P \in W \backslash V(z,y), f$ definida en $P$.
+
+Sea $P\in V(z,y)\subseteq W$.
+
+Si $P=(x_0,0,0,t_0)$, si $x_0\neq 0$, por la observación $P$ es polo de $f$.
+
+Si $t_0\neq 0$, por la observación $P$ es polo de $f$.
+
+El conjunto de los polos de $f$ está contenido en $V(z,y)$, y contiene a todos los puntos cuya primera o última coordenada es cero, es decir, contiene a $V(x,y)\backslash \{(0,0,0,0)\}$ ¿ Es $(0,0,0,0)$ un polo de $f$?
+
+Sí, porque el conjunto de los polos es un conjunto algebraico $W'$. Lo vemos por reducción al absurdo: $W'=V(z,y)\backslash \{(0,0,0,0)\} \Rightarrow V(z,y)=W'\cup \{(0,0,0,0\}$, pero $V(z,y)$ es irreducible, entonces $W'=V(z,y)$, por lo tanto contiene al cero.
+
+\begin{Prop}
+Sea $f\in k(V) \Rightarrow $ el conjunto de los polos de $f$ es subconjunto algebraico.
+\end{Prop}
+
+\begin{Dem}
+Sea $J_f=\{ G\in k[x_1,\dots,x_n] : \bar{G}\cdot f \in \Gamma(V)\}$, hay que ver que $J_f$ es un ideal que contiene a $I(V)$. 
+
+\begin{itemize*}
+\item $0\in J_f$
+\item $G,G'\in J_f \Rightarrow \bar{G}f,\bar{G'}f\in \Gamma(V) \Rightarrow \bar{(G-G')}f\in \Gamma(V) \Rightarrow G-G'\in J_f$
+\item $G\subset J_f, F\in k[\vec{x}] \rightarrow GF\in J_f$.
+\end{itemize*}
+
+$V(I_f)=\{P\in \mathbb{A}^n : G(P)=0, \forall 0\in k[x_1,\dots,x_n], \bar{G}f\in \Gamma(V)\}$.
+
+$I(V)\subseteq J_f \Rightarrow V(J_f)\subseteq VI(V)=V$.
+
+$f$ definido en $P \Leftrightarrow  \exists g,h \in \Gamma(V), f=\frac{g}{h}, h(P)\neq 0 \Leftrightarrow \exists h\in \Gamma(V), hf \in \Gamma(V), h(P)\neq 0 \Leftrightarrow \exists H\in k[x_1,\dots,x_n], \bar{H}f\in \Gamma(V)$ tal que $H(P)\neq 0 \Leftrightarrow P\notin V(J_f)$.
+
+$V(J_f)\subseteq$ Polos de $f$.
+
+Si $P$ polo de $f \Rightarrow \not \exists H$ tal que $\bar{H}f\in \Gamma(V)$. \qed
+
+
+\end{Dem}
+
+\begin{Def}
+Sea $P\in V$, se define \textbf{el anillo local de $V$ en $P$} como el conjunto : 
+$$O_P(V):=\{f\in k(V): f\text{ está definido en } P\} $$
+\end{Def}
+
+\begin{nota}
+$O_P(V)$ es anillo, $k\subseteq \Gamma(V)\subseteq O_p(V)\subseteq k(V)$.
+
+\vspace{1mm}
+Comprobemos que es anillo:
+\begin{enumerate}
+\item $1\in O_p(V)$
+\item $f,g\in O_p(V)\Rightarrow f=\frac{G}{H},g=\frac{G}{H'},F,G,H,H'\in \Gamma(V), H(P),H'(P)\neq 0$. $f-g\in \k(V)$ y $HH'(P)\neq 0 \Rightarrow f-g\in O_p(V)$. 
+\item Análogo para el producto.
+\end{enumerate}
+\end{nota}
+
+Definimos $m_P=\{f\in O_P(V): f(P)=0 \}\subseteq O_p(V)$ es un ideal y además maximal. Si $f\notin m_P \Rightarrow f$ es una unidad. Se tiene que $f(P)\neq 0, f\in O_P(V), \exists g,h\in \Gamma(V), f=\frac{g}{h},h(P)\neq 0 \Rightarrow g(P)\neq 0$. Entonces $\frac{h}{g}=f^{-1}\in  O_p(V) \Rightarrow f$ es unidad en $\Gamma(V)$. 
+
+Además, $m_P$ no contiene unidades. Se razona por reducción al absurdo, pues si no, $m_P=O_p$, y podríamos tomar $1\in O_p, 1\notin m_P$.  Luego $m_P$ es el conjunto de los elementos no unidades $m_P=\{f\in O_P(V): f\text{ no unidades } \}$.
+
+\begin{Prop}
+Si $R$ es un anillo. Son equivalentes:
+
+\begin{enumerate}
+\item $R$ tiene un único ideal maximal y éste contiene a todos los ideales propios. 
+\item El conjunto de los elementos de $R$ que no son unidades es un ideal. 
+\end{enumerate}
+\end{Prop}
+
+\begin{Dem}
+\framebox{$1 \Rightarrow 2$} Sea $m$ ese ideal maximal. Si $a\in R$ es unidad, entonces $<a>=R \Rightarrow a\notin m$. Si $a\in R$ no es unidad $ \Rightarrow <a>\neq R \Rightarrow <a>\subseteq m \Rightarrow a \in m \Rightarrow a\in m \Leftrightarrow a $ no unidad.
+
+\framebox{$2\Rightarrow 1$} Sea $m=\{a\in R: a \text{ no es unidad }\}$ es ideal propio. 
+
+Sea $J\subset R$ ideal propio $\Rightarrow J$ no contiene unidades $\Rightarrow J\subseteq m$. En particular, $m$ es el único maximal. \qed
+\end{Dem}
+
+Si $R$ verifica (1) (y, por tanto (2)) se dice que $R$ es un anillo local. 
+
+\begin{Prop}
+$O_P(V)$ es un anillo local Noetheriano.
+\end{Prop}
+
+\begin{Dem}
+Hay que probar que si $J\subseteq O_P(V)$ ideal $\Rightarrow J$ es finitamente generado. 
+
+En primer lugar, vamos a probar la inclusión 
+$$i:\Gamma(V)\rightarrow O_P(V)$$
+$J'=i^{-1}(J)=J\cap \Gamma(V)$ es un ideal de $\Gamma(V)=\frac{k[x_1,\dots,x_n}{I(V)}$ es Noetheriano $\Rightarrow J'$ es un ideal finitamente generado, es decir, $\exists f_1,\dots,f_r \in \Gamma(V)$ tales que $J'=<f_1,\dots,f_r>\subseteq \Gamma(V)$. 
+
+Veamos que $J=<f_1,\dots,f_r>\subseteq O_P(V)$. Sea $f\in J \Rightarrow \exists h \in  \Gamma(V)$ tal que $fh\in \Gamma(V)\cap J=J',h(P)\neq 0$. Por lo tanto, $\exists h_1,\dots,h_r\in \Gamma(V)$ tales que $fh=h_1f_1+\dots+h_rf_r$ en $\Gamma(V)$. Entonces, $f=\underbrace{\frac{h_1}{h}}_{\in O_P (V)}f_1+\dots+\frac{h_r}{h}f_r \in <f_1,\dots,f_r>\subseteq O_P(V)$. Luego, $J\subseteq <f_1,\dots,f_r>\subseteq O_P(V)\Rightarrow_{(f_i\in J')} J=<f_1,\dots,f_r>$
+\end{Dem}
+
+
+\textbf{Problema 2.17: } Sea $V=V(y^2-x^2(x+1))\subseteq \mathbb{A}^2, \bar{x},\bar{y}\in \Gamma(V)=\frac{k[x,y]}{<y^2-x^2(x+1)>}$ (Que es asi porque $I(V)=IV(\cdot)=\sqrt{(\cdot)}=<y^2-x^2(x+1)>$). Sea $f=\frac{y}{x}$ encontrar los polos de $f$ y de $f^2$.
+
+\underline{\textit{Solución: }}
+
+$P=(x_0,y_0)\in V, \bar{y}^2=\bar{x}^2(\bar{x+1})$ en $\Gamma(V)$.
+
+Si $x_0\neq 0 \rightarrow x(P)\neq 0 \Rightarrow P$ no es polo.
+
+En $k(V), \frac{\bar{y}}{\bar{x}}=\frac{\bar{x}(\bar{(x+1)}}{\bar{y}}.$
+
+Si $y_0\neq 0 \rightarrow f$ definida en $P$. Luego $f$ está definida en $V\backslash \{(0,0)\}$ ¿Está $f$ definida en $(0,0)$?
+Por la siguiente proposición, tenemos: $f\in \Gamma(V) \Rightarrow f=\frac{y}{x}= \bar{h} \in \Gamma(V) \Rightarrow y=hx$ en $\Gamma(V) \Rightarrow y-hx\in I(V)=<y^2-x^2(x+1)> \Rightarrow (y-hx)=g(y^2-x^2(x+1)) $ si $x=0$, entonces $y=g(0,y)g² \rightarrow \leftarrow $.
+
+Los de $f^2$: 
+
+$f^2=\frac{y^2}{x^2}=x+1\in \Gamma(V)$, no tiene polos.
+
+\begin{Prop}
+$\cap_{P\in V}O_P(V)=\Gamma(V)$. Es decir, las únicas funciones racionales en $V$ definidas en todo punto de $V$ son las funciones polinómicas. 
+\end{Prop}
+
+\begin{Dem}
+\framebox{$\supseteq $} Es obvia. 
+
+\framebox{$\subseteq $} Sea $f\in \cap_{p\in V}O_P(V) \Rightarrow f$ no tiene polos $\Rightarrow V(J_f)=\emptyset \Rightarrow_{k \text{ al.cerr }\Rightarrow \text{ ceros débil}} J_f=<1>=k[x_1,\dots,x_n]=\{G\in k[\vec{x}]: \bar{G}f\in \Gamma(V) \} \Rightarrow \bar{1}f=f\in \Gamma(V)$. \qed
+\end{Dem}
+
+\textbf{Problema 2.18: } Se considera $O_P(V)$, hay que probar que existe una correspondencia natural biyectiva entre los ideales primos de $O_P(V)$ y las subvariedades de $V$ que pasan por $P$.
+
+$$\{J\subseteq O_P(V):J \text{ ideal primo } \} \leftrightarrow \{W\subseteq V \text{ subvariedades } : P\in W \} $$
+
+\underline{\textit{Solución: }}
+
+$J \rightarrow V(J)=\{P\in V : f(P)=0,\forall f\in J\}$ es una subvariedad.
+
+Y hay que probar que $W \rightarrow I(W) = \{f\in O_P(V):f(Q)=0\,\forall Q\in W \}$.
+
+$J\subseteq O_P(V)$ es un ideal primo $\Rightarrow i^{-1}(J)=J\cap \Gamma(V)$ ideal primo $\Rightarrow V(J)=V(J')\subseteq V$ subvariedad.  $V(J)=V(J')$ por la prueba de que $O_P(V)$ es Noetheriano.
+
+Por otro lado, como $J$ ideal primo $\Rightarrow J\subset O_P(V)$ propio $\Rightarrow J\subseteq m_P \Rightarrow \{ P \}=V(m_P)\subseteq V(J) \Rightarrow P\in V(I)$.
+
+Si $W\subseteq V$ subvariedad, $P\in W \Leftrightarrow I(W)\subseteq I(P)=\{f\in O_P(V): f(P)=0\}=m_P$.
+
+$I_V(W)=\{ f\in \Gamma(V): f(Q)=0, \forall Q\in W\}\subseteq \Gamma(V)$ ideal primo.  Hay que probar que $I'(W)$ es primo. 
+
+Tenemos que $I'(W)\cap  \Gamma(V)=I_V(W)$ es primo. Sea entonces $\underbrace{f,g\in O_P(V)}_{h_1f,h_2g\in \Gamma(V), h_i\in \Gamma(V)}$ tales que $fg\in I'(W) \Rightarrow (h_1f)(h_2g)\in I'(W)\cap \Gamma(V) \Rightarrow_{\text{Primo}} h_1f\in I'(W) \vee h_2g\in I'(W) \Rightarrow f\in I'(W) \vee g \in I'(W)$, pues $\frac{1}{h_i}\in O_p(V)$, y podemos multiplicar por ellos.
+
+
+\textbf{Problema 2.21: } Sea $\varphi:V\rightarrow W$ aplicación polinómica entre variedades afines. Supongamos que $P\in V, Q=\varphi(P)\in W$. Probar que existe un único $\psi: O_Q(W)\rightarrow O_P(V)$ tal que $\psi(f)=\tilde{\varphi}(f), \forall f \in \Gamma(W)\subseteq O_Q(W)$. 
+
+\underline{\textit{Solución: }}
+
+$\psi(\frac{f}{1})=\tilde{\varphi}(f)=f\circ \varphi$.  Para que sea morfismo, $\psi(\frac{1}{1})=1$. 
+
+Sea $g\in \Gamma(W), g(Q)\neq 0, \frac{1}{g} \in O_P(W)$.
+
+$$\frac{1}{1}=\psi(\frac{1}{1})=\psi(\frac{g}{g})=\psi(\frac{1}{g})\psi(\frac{g}{1}) \Rightarrow \psi(\frac{1}{g})=\frac{1}{g\circ \varphi}$$
+
+Por tanto, debe ser $\psi(\frac{f}{g})=\frac{f\circ \varphi}{g\circ \varphi}, \forall \frac{f}{g}\in O_Q(W)$.
+
+$\psi(h)=h\circ \varphi, \forall h\in O_Q(W)$, si existe debe estar así definido, pero hay que demostrar que está bien definido. 
+
+Hay que ver que tomando dos clases distintas se tiene que tenemos la misma imagen. Y también que es una aplicación de $O_Q(W)$ a $O_Q(V)$.
+
+Si $\frac{f}{g}=\frac{f'}{g'}$ en $O_Q(W)\subseteq k(W) \Leftrightarrow fg'=gf'$ en $\Gamma(W) \Rightarrow \tilde{\varphi}(fg')=\tilde{\varphi}(gf')\Rightarrow (f\circ \varphi)(g'\circ \varphi)= (g\circ \varphi)(f'\circ \varphi) \Rightarrow \frac{f\circ \varphi}{g\circ \varphi}= \frac{f'\circ \varphi}{g'\circ \varphi}$ en $k(V)$ , y como $\frac{f}{g}\in O_Q(W) \Rightarrow \exists f_1,g_1\in \Gamma(W)/g_1(Q)\neq 0 \Rightarrow f_1\circ \varphi, g_1\circ \varphi \in \Gamma(V), (g_1\circ \varphi)(P)=g_1(Q)\neq 0$.
+
+Y tenemos que $\frac{f\circ \varphi}{g\circ \varphi}\in O_P(V)$.
+
+\begin{nota}
+$\tilde{\varphi}$ no tiene por qué extenderse a un morfismo $k(W)\rightarrow k(V)$. 
+
+\textbf{Ejemplo:} $\varphi:\mathbb{A}^1\rightarrow \mathbb{A}^2$, tal que $t\rightarrow (t^2,t^3)$. $Im\varphi=V(y^2-x^3)$. $\tilde{\varphi}:\Gamma(\mathbb{A}^2)=k[x,y]\rightarrow \Gamma(\mathbb{A}^1)=k[t]$. 
+
+$k(\mathbb{A}^2)=Q(\Gamma(\mathbb{A}^2))=k(x,y) \ni \frac{1}{y^2-x^3}, \not \exists \psi: k(x,y)\rightarrow k(t)$ tal que $\psi_{|k[x,y]}=\tilde{\varphi}$. R.A. si $\exists \psi \Rightarrow \psi(\frac{f}{g})=\frac{f\circ \varphi}{g\circ \varphi}$. 
+
+Para $g=y^2-x^3 $ tal que $g\circ \varphi = g(t^2,t^3)=0$ en $k [t]$. 
+\end{nota}
+
+\begin{nota}
+$\tilde{\varphi}:O_Q(W)\rightarrow O_P(V), h\rightarrow h\circ \varphi$. $\tilde{\varphi}(m_Q(W))\subseteq m_P(V)$. 
+
+Sea $g\in m_Q(W)$, y hay que probar que $\tilde{\varphi}(g)\in m_P(V)$. 
+
+$\tilde{\varphi}(g)(P)= (g\circ \varphi)(P)=g(\varphi(P))=0$
+\end{nota}
+
+\textbf{Problema 2.22: } $T:\mathbb{A}^n\rightarrow \mathbb{A}^n$, cambio de coordenadas es una afinidad, que es lo mismo que una aplicación polinómica biyectiva donde todos los polinomios tienen grado 1. La inversa de una afinidad es una afinidad. Hay que probar que $\tilde{T}$ es un isomorfismo.
+
+\underline{\textit{Solución: }}
+
+$T$ isomorfismo $\Rightarrow \tilde{T}$ isomorfismo de $\Gamma(\mathbb{A}^n)$ y $\tilde{T}^{-1}=\tilde{T^{-1}}$, y por el ejercicio anterior, inducen de manera única morfismos entre los anillos locales. 
+
+DIAGRAMA
+
+Por la unicidad en el ejercicio anterior, se tiene que $\tilde{T}^{-1}\circ \tilde{T}=id_{O_Q(\mathbb{A}^n)}$.
+
+Análogamente, $\tilde{T}\circ \tilde{T^{-1}}=id_{O_P(\mathbb{A}^n)}$.
+Luego, $\tilde{T}:O_Q(\mathbb{A}^n)\cong O_P(\mathbb{A}^n)$.
+
+\section{Anillos de valoración discreta}
+
+\begin{Prop}
+Sea $R$ un dominio de integridad que no sea cuerpo. Son equivalentes:
+\begin{enumerate}
+\item $R$ es Noetheriano, local y con ideal maximal principal.
+\item $\exists t\in R$ irreducible tal que $\forall z\in R \backslash \{0\}, \exists ! u$ unidad, $\exists ! n \ge, z=ut^n$.
+\end{enumerate}
+\end{Prop}
+
+\begin{Dem}
+\framebox{$1\Rightarrow 2$} Sea $m=<t>$ el único ideal maximal de P. Veamos que $t$ es irreducible. 
+
+R.A. Si $t=rs$ con $s$ y $r$ no unidades $\Rightarrow <t>=m\subset <r> \neq R \rightarrow \leftarrow$.
+
+(si $<t>=<r> \Rightarrow r=ts'=rss', s$ unidad).
+
+Unicidad: Supongamos $t^nu=t^mv$, $u,v\in R$ unidades, $n,m\ge 0$. $\Rightarrow_{(\text{Prop. canc. ddi}n\ge m)}t^{n-m}u=v \Rightarrow t^{n-m}=vu^{-1}$ es unidad $\Rightarrow n=m$, t irreducible, y por lo tanto no es unidad.
+
+Sea $z\in R,z\neq 0$:
+\begin{enumerate}
+\item Si $z$ es unidad $\Rightarrow z=zt^0$.
+\item Si $z$ no es unidad $\Rightarrow <z>\subseteq m=<t>, z=tz_1,z_1\in R$.
+\end{enumerate}
+Reiterando el proceso construimos $z_{i}=tz_{i+1}$. 
+
+$$(z)\subseteq (z_1)\subseteq \cdots \subseteq (z_i)\subseteq \cdots$$
+Esta cadena sería estrictamente creciente si ningún $z_i$ fuera unidad, y esto contradice a que $R$ es Noetheriano. 
+
+Por tanto $\exists n  \ge 0$ tal que $<z_n>=<z_{n+1}>\Rightarrow z_{n+1}=vz_n$ para algún $v\in R \Rightarrow vt=1 \Rightarrow t$ unidad $\rightarrow \leftarrow$.
+
+Por tanto, $\exists n \ge 0$ tal que $z_n$ es unidad $\Rightarrow z=tz1=\cdots t^nz_n$ unidad.  
+
+\framebox{$2\Rightarrow 1$} $\exists t \in R$ irreducible tal que $\forall z \in R, z=ut^n, u$ unidad, $n\in \mathbb{N}$. 
+
+Sea $m=<t>\subseteq R$. Veamos que $m=\{z\in R : z\text{ no unidad }\}$ ($\Rightarrow R$ local y $m=<t>$ su único ideal maximal).
+
+Sea $z\in R$, si $z$ unidad $\Rightarrow z \notin m$ ($m\neq R$).
+
+Si $z=ut^n$ no es unidad $\Rightarrow n\ge 1 \Rightarrow z=ut^n\in <t>=m$. 
+
+Veamos que $R$ es DIP ($\Rightarrow R$ Noetheriano ). 
+
+Sea $J\subseteq R$ ideal y sea $z=ut^n \in J$ tal que $n$ sea mínimo $\Rightarrow J=<t^n> \Rightarrow R $ es DIP. \qed
+\end{Dem}
+
+\textbf{Ejemplo: }
+
+\begin{itemize*}
+\item $$[x]=\{\sum_{m=0}^\infty a_mx^m:a_i\in k \}$$
+  $a_0+a_1x+\dots=f\in k[x]$ unidad $\Leftrightarrow a_0\neq 0$. Entonces $f$ no es unidad si $a_0=0$ $\Leftrightarrow f=xg,g\in k[X] \Leftrightarrow f\in <x>$.
+
+$m=<x>=\{f\in k[x]: f \text{ no unidad } \} $ es el único maximal de $k[x]$ (anillos local).
+
+Toda serie $f=a_nx^n+a_{n+1}x^{n+1}+\dots=x^n(a_n+a_{n+1}x+\dots)$
+
+Probemos: 
+$$a_0+a_1x+\dots=f\in k[x] \text{ unidad } \Leftrightarrow a_0\neq 0$$
+\begin{Dem}
+$g=b_0+b_1x+\cdots, fg=b_0a_0+(a_0b_1+b_0a_1)x+\cdots \sum a_ib_jx^k+\cdots$.
+
+$fg=1 \Rightarrow a_0\neq 0$ y $b_0=a_0^{-1}$, $b_k=-\frac{1}{a_0}(\sum a_ib_j)$. 
+
+\end{Dem}
+\end{itemize*}
+
+\index{\texttt{Parametro de uniformizacion}}
+\index{\texttt{Anillo de valoracion discreta}}
+
+\begin{Def}
+Un anillo $R$ que sea dominio de integridad, no cuerpo y que cumple alguna de las dos propiedades anteriores, se llama \textbf{anillo de valoración discreta} (AVD). Un elemento $t\in R$ irreducible como en (2) se llama un \textbf{parámetro de uniformización} de $R$.
+\end{Def}
+
+\index{\texttt{Funcion orden}}
+\begin{Def}
+Sea $k=Q(R)$ el cuerpo de fracciones de $R$, podemos definir la siguiente \textbf{función orden}: $ord: k\rightarrow \mathbb{Z}\cup \{\infty \}$, que asocia a $f=ut^n \rightarrow n$, donde $n$ se denomina el orden de $f$.
+\end{Def}
+
+\textbf{Problema 2.23:} La función  $ord:k\rightarrow \mathbb{Z} \sqcup \{\infty \}$ no depende del parámetro de uniformización. 
+
+\underline{\textit{Solución: }}
+
+$m=<t>=<s>$, es decir, $s$ y $t$ dos parámetros de unif. $\Rightarrow s=vt$ con $v$ unidad.
+
+Sea $f\in k$ tal que $f=t^nu=s^mu'$ con $u,u'$ unidades en $R$ $\Rightarrow t^nu=v^mt^mu'$. Si $n\ge m \Rightarrow t^{n-m}=v^mu'u^{-1}$
+ unidad de $R \Rightarrow n=m$.
+
+\textbf{Problema 2.24a:} Sea $V=\mathbb{A}^1$, $\Gamma(V)=k[x]$, $K=k(v)=k(x)$. Probar que $O_a(V)$ es un anillo de valoración discreta con parámetro de uniformización $(x-a),a\in k$. 
+
+\underline{\textit{Solución: }}
+
+$Q_a(V)=\{\frac{g}{h}=f\in k(x): f \text{ definida en } a \}$. Vimos que $O_a(\mathbb{A}^1)$ es Noetheriano y anillo local con ideal maximal $m_a(\mathbb{A}^1)=\{f\in O_a(\mathbb{A}^1): f(a)=0\}$ . $\frac{g}{h}(a)=\frac{g(a)}{h(a)}=0 \Leftrightarrow g(a)=0 \Leftrightarrow g\in <x-a>\subseteq k[x]=\Gamma(V)$. 
+
+Por tanto, $m_a(\mathbb{A}^1)=<x-a>\subseteq O_a(\mathbb{A}^1)$. Por lo tanto, es un parámetro de uniformización. 
+
+\textbf{Problema 2.24b:} Probar que $O_\infty:=\{\frac{F}{G}: F,G\in k[x], G\neq 0, deg(G)\ge deg(F) \}\subseteq k(x)$.
+
+\underline{\textit{Solución: }}
+
+Unidades de $O_\infty$ son de la forma $\frac{F}{G}$, $deg(F)=deg(G)$.  Las no unidades son: $\{\frac{F}{G}: deg(G)>deg(F)\}=:m$. Si $m$ es ideal $\Rightarrow O_\infty$ es local y $m$ su único maximal. 
+
+$\frac{F_1}{G_1},\frac{F_2}{G_2} \rightarrow \frac{F_1}{G_1}-\frac{F_2}{G_2}\in m$. Es facil ver que es un ideal. 
+
+Si $\frac{F}{G}\in O_\infty$ con $m=deg(F)\le deg(G)=n \Rightarrow u=\frac{x^{n-m}F}{G}$ es unidad $\Rightarrow \frac{F}{G}=u\frac{1}{x^{n-m}}=u(\frac{1}{x})^{n-m}$, y $\frac{1}{x}$ es irreducible (En apuntes). 
+
+La unicidad se prueba fácilmente. Luego, $O_\infty$ es anillo de valoración discreta con parámetro de uniformización $\frac{1}{x}$. 
+
+\textbf{Problema 2.26:} Sea $R$ un dominio de valoración discreta (que en particular implica dominio de integridad), $k=Q(R)$, sea $m\subseteq R$ su ideal maximal. 
+
+\begin{enumerate}
+\item Si $z\in k,z\notin R \Rightarrow z^{-1}\in m$.
+\item Supongamos $R\subset S \subset K$, y $S$ es también DVR. Supongamos que el ideal maximal $m'=<s>=Ss$ de $S$ contiene a $m=<t>=Rt$. Probar que $S=R$.
+\end{enumerate}
+
+\underline{\textit{Solución: }}
+
+\begin{enumerate}
+\item $z=ut^n, n\in \mathbb{Z}$. Si $n\ge 0 \Rightarrow z=ut^n\in R$, por lo tanto $n<0$ si $z\notin R$, $n\le -1 \Rightarrow z^{-1}=u^{-1}t^{-n}\in m$.
+
+\item $t\in <s>$, con lo cual $t=sv$. $\forall z \in k, z?ut^m,m\in \mathbb{Z} \Rightarrow $ en particular $s=ut^m \Rightarrow t=ut^mv \Rightarrow m=0$ y $t=uv$ unidad en $S$ $ \rightarrow\leftarrow$, o bien $m\ge 1 \Rightarrow 1=ut^{m-1}v\Rightarrow m=1, v$ unidad de $R$. 
+
+$\Rightarrow t=sv \Rightarrow t$ irreducible en $S$ y $<s>=<t>$, entonces $s=tv^{-1}\in R$. 
+
+Sea $z$ unidad de $S\subset K$ tal que $z\notin R$, y por (a) $z^{-1}\in m \subseteq m' \subset S \rightarrow \leftarrow$.
+
+Toda unidad de $S$ está en $R$. 
+
+$\forall z\in S, z=u's^m=u'(ut)^m=u'u^mt^m\in R$ .
+
+\end{enumerate}
+\section{Formas}
+
+Sea $R$ un dominio. Si $F\in R[X_1,\dots,X_{n+1}]$ es una forma, definiremos $F_*\in R[X_1,\dots,X_n]$ por $F_*=F(X_1,\dots,X_n,1)$. Recíprocamente, para todo polinomio $f\in R[X_1,\dots,X_n]$ de grado $d$, que se puede escribir de la siguiente manera: $f=f_0+f_1+\cdots+f_d$, donde $f_i$ es una forma de grado $i$, definiremos $f^*\in R[X_1,\dots,X_{n+1}]$ por
+$$f^*=X^d_{n+1}f_0+X^{d-1}_{n+1}f_1+\cdots + f_d= X^d_{n+1}f(X_1/X_{n+1},\dots,X_n/X_{n+1})$$
+
+$f^*$ es una forma de grado $d$.
+
+\begin{Prop}
+  Se tiene que:
+
+  
+  \begin{enumerate}
+  \item $(FG)_*=F_*G_*; (fg)^*=f^*g^*$.
+  \item Si $r$ es la mayor potencia de $X_{n+1}$ que divide a $F$, entonces $X^r_{n+1}(F_*)^*=F$; $(f^*)_*=f$.
+  \item $(F+G)_*=F_*+G_*; X^t_{n+1}(f+g)^*=X^r_{n+1}f^*+X^s_{n+1}g^*$, donde $r=gr(g), s=gr(f),$ y $t=r+s-gr(f+g)$.
+  \end{enumerate}
+\end{Prop}
+
+\begin{Dem}
+  \begin{enumerate}
+  \item $F\in R[X_1,\dots,X_{n+1}],G\in R[X_1,\dots,X_{m+1}]$. Por lo tanto, $F=\sum_{i}^{n+1} \lambda_iX_i^{d}$, donde $d$ es el grado de la forma, y $G=\sum_{k}^{m+1} \beta_kX_k^{e}$,donde $e$ es el grado de la forma $G$, con $\lambda_i,\beta_k \in R$. Entonces tenemos $F_*=\sum_{i}^{n} \lambda_iX_i^{d}+\lambda_{n+1}$, y $G_*=\sum_{k}^{m} \beta_kX_k^{e}+\beta_{m+1}$. Finalmente, $(FG)_* = (\sum_{i,k}\lambda_i\beta_k X_i^{d}X_k^{e})_* =$
+
+    $\sum_{i,k} \lambda_i\beta_k X_i^{d}X_k^{d} + \lambda_{n+1}\beta_{m+1}$ ,pues la variable que se hace $1$ es aquella que tiene como coeficiente los más altos en subíndice de cada una de las formas. Por otro lado, $F_*G_*= (\sum_{i}^{n} \lambda_iX_i^{d}+\lambda_{n+1})(\sum_{k}^{m} \beta_kX_k^{e}+\beta_{m+1}) =  \sum_{i,k} \lambda_i\beta_k X_i^{d}X_k^{e} + \lambda_{n+1}\beta_{m+1}$, y tenemos la igualdad.
+
+    Ahora tenemos que probar que $(fg)^*=f^*g^*$. $f\in R[X_1,\dots,X_n], g\in R[X_1,\dots,X_m]$, $f$ y $g$ se pueden escribir de la siguiente forma: $f=f_0+\cdots+f_d, g=g_0+\cdots+g_e$.
+    $$f^*=X^d_{n+1}f_0+X^{d-1}_{n+1}f_1+\cdots + f_d$$
+    $$g^*=X^e_{m+1}g_0+X^{e-1}_{m+1}g_1+\cdots + g_e$$
+    $$f^*g^*=\sum_{i,j}X_{n+1}^{d-i}X_{m+1}^{e-j}f_ig_j=(fg)^* $$ \qed
+    \begin{nota}
+      Hay que notar que en la expresión $F_*G_*$, así como en $(FG)_*$, algunos sumandos del sumatorio presentan $X_{n+1}$ y por lo tanto se hace 1, es decir, hay sumandos que solo tienen una variable y no el producto de dos.
+    \end{nota}
+  \item $F= \sum_{i}^{n+1} \lambda_iX_i^{d} \Rightarrow F_* =\underbrace{\sum_{i}^{n} \lambda_iX_i^{d}}_{\text{Cada sumando se denota }f_{i}}+\underbrace{\lambda_{n+1}}_{f_{0}} $. Por lo tanto, $(F_*)^*= \sum_iX_{n+1}^{n-i}f_i \Rightarrow X^r_{n+1}(F_*)^*=F$. \qed
+
+  \item Primero hay que probar que $(F+G)_*=F_*+G_*$: $F+G=\sum_{i,k}\lambda_iX_i^d+\beta_kX_k^e \Rightarrow (F+G)_*=\sum_{i}^{max(m,n)}(\lambda_iX_i^d+\beta_iX_i^e) + (\lambda_{n+1}+\beta_{m+1})=\sum_i \lambda_iX_i^d+\lambda_{n+1}+\sum_k\beta_kX_k^e+\beta_{n+1}=F^*+G^*$.
+    \begin{nota}
+      En el sumatorio consideramos que si $X_j$ no está definido para algún $j$, entonces $X_j$ vale 0.
+    \end{nota}
+    Falta probar que $f^*+g^*=(f+g)^*$:
+    \begin{nota}
+      \begin{itemize*}
+      \item El grado de $f^*$ es el mismo que el de $f$, pues al homogeneizar se convierte en una suma de formas todas del grado de $f$.
+      \item El grado de $f+g$ coincide con el grado de $(f+g)^*$. La demostración es trivial.
+      \item El grado de $f+g$ es el $max(r,s)$.
+      \end{itemize*}
+    \end{nota}
+    Teniendo en cuenta la nota, es facil ver que
+    $$\underbrace{\underbrace{X^r_{n+1}\underbrace{f^*}_{\text{Tiene grado s}}}_{\text{Tiene grado }r\cdot s}+\underbrace{X_{n+1}^s\underbrace{g^*}_{\text{Tiene grado r}}}_{\text{Tiene grado }r\cdot s}}_{\text{Tiene grado }r\cdot s}$$
+    Y si analizamos:
+    $$\underbrace{\underbrace{X_{n+1}^t}_{t=r+s-max(r,s)}\underbrace{(f+g)^*}_{\text{Tiene grado }max(r,s)}}_{\text{Tiene grado }r\cdot s} $$
+    Y finalmente, tenemos la igualdad.
+  \end{enumerate}
+
+\end{Dem}
+
+
+
+\begin{Cor}
+Salvo potencias de $X_{n+1}$, la descomposición en factores de una forma $F\in R[X_1,\dots,X_{n+1}]$ es la misma que la descomposición en factores de $F_*\in R[X_1,\dots,X_n]$. En particular, si $F\in k[X,Y]$ es una forma, y $k$ es algebraicamente cerrado, entonces $F$ descompone en producto de factores lineales.
+\end{Cor}
+
+\begin{Dem}
+  La primera afirmación se tiene de (1) y (2) de la proposición anterior. Si $F=F_1F_2$, entonces se tiene que $F_*=F_{1*}F_{2*}$, y por (2), tenemos que homogeneizando, es decir, multiplicando por potencias de $X_{n+1}$ tendríamos la misma factorización.
+
+  Para la segunda afirmación, tomamos la mayor potencia de $Y$ que divida a $F$, teniendo $F=Y^rG$, es decir, $Y$ no divide a $G$ y, por lo tanto, $G\in k[X]$. Entonces $F_*=G_*=c\prod (X-\lambda_i)$, pues $k$ es un cuerpo algebraicamente cerrado, así que factoriza en factores lineales. Finalmente, solo queda deshacer la deshomogeneizaciónquedando $F=cY^r\prod(X-\lambda_iY)  $ \qed
+\end{Dem}
+
+
+\section{Módulos cociente y sucesiones exactas de módulos}
+
+Sea $R$ un anillo, $M,N$ R-módulos.
+
+\index{\texttt{Homomorfismo de R-módulos}}
+\begin{Def}
+Una aplicación $\varphi : M\rightarrow N$ es un \textbf{(homo)morfismo de R-módulos} es un morfismo de grupos abelianos tal que $\varphi(am)=a\varphi(m),\forall a \in R$.
+\end{Def}
+
+\begin{nota}
+$ker(\varphi)=\{m\in M : \varphi(m)=0 \}\subseteq M$ sub-R-módulo. Es decir, es subgrupo abeliano de $M$ por ser $\varphi$ morfismo de grupos abelianos. Basta ver que $\forall m \in ker(\varphi),\forall a \in R \Rightarrow \varphi(am)=a\underbrace{\varphi(m)}_{=0}=0\Rightarrow am\in ker\varphi$. 
+\end{nota}
+
+\begin{nota}
+$Im \varphi\subseteq N$ sub-R-módulo. Es subgrupo abeliano por ser $\varphi$ morfismo de grupos abelianos. $\forall a\in R, m'\in Im\varphi \exists m\in M$ tal que $\varphi(m)=m' \Rightarrow am'=a\varphi(m)=\varphi(am)\in Im \varphi$. 
+\end{nota}
+
+\begin{nota}
+$\varphi$ es inyectivo $\Leftrightarrow ker \varphi =0$, $\varphi$ sobreyectivo $\Leftrightarrow Im \varphi = N$. 
+\end{nota}
+
+
+\index{\texttt{Isomorfismo de R-módulos}}
+\begin{Def}
+Un \textbf{isomorfismo de R-módulos} es un morfismo biyectivo de R-módulos. 
+\end{Def}
+
+
+\begin{Def}
+Dada una sucesión de R-módulos y morfismos de la forma siguiente:
+$$M_1\xrightarrow{\varphi_1}M_2 \xrightarrow{\varphi_2}M_3   $$
+diremos que es exacta (en $M_2$) si se verifica que $ker \varphi_2=Im \varphi_1$
+\end{Def}
+
+
+\textbf{Ejemplo: }
+
+$k$ cuerpo, 
+$$k^n \xrightarrow{i} k^{n+m} \xrightarrow{\pi} K^m $$
+$$(a_1,\dots,a_n)\rightarrow (a_1,\dots,a_n,0,\dots,0) | (a_1,\dots,a_n,b_1,\dots,b_m)\rightarrow (b_1,\dots,b_m) $$
+
+
+\begin{nota}
+\begin{itemize*}
+\item Si $M_3=0$, $M_1\xrightarrow{\varphi_1}M_2 \xrightarrow{\varphi_2} 0$, $ker \varphi_2=M_2$. Esta sucesión es exacta $\Rightarrow Im \varphi_1=M_2 \Leftrightarrow \varphi_1$ sobreyectiva. 
+\item Si $M_1=0,M_2,M_3\neq 0$ la sucesión es exacta si y sólo si $\varphi_2$ inyectiva.
+\end{itemize*}
+\end{nota}
+
+\index{\texttt{Sucesión exacta}}
+\begin{Def}
+Diremos que una \textbf{sucesión} de R-módulos y morfismos:
+$$\cdots M_1\xrightarrow{\varphi_1}M_2\xrightarrow{\varphi_2}\cdots \rightarrow M_{n-1}\xrightarrow{\varphi_{n-1}M_n \cdots} $$
+
+es \textbf{exacta} si y sólo si $ker\varphi_{i+1}=Im \varphi_i, \forall i$. 
+\end{Def}
+
+
+\index{\texttt{Sucesión exacta corta}}
+\begin{Def}
+Llamaremos \textbf{sucesión exacta corta} a las sucesiones exactas que son de la forma: 
+$$0\rightarrow N \xrightarrow{\psi} M \xrightarrow{\varphi} P \rightarrow 0 $$
+\end{Def}
+
+\begin{nota}
+Esta sucesión es exacta si y sólo si: 
+\begin{itemize*}
+\item $\psi$ inyectiva.
+\item $\varphi$ sobreyectiva.
+\item $ker\varphi = Im \psi$. 
+\end{itemize*}
+
+El ejemplo anterior podemos generalizarlo. 
+\end{nota}
+
+\subsection{Módulos cocientes}
+
+Sea $N\subseteq M$ sub-R-módulo, entonces el grupo abeliano cociente $\frac{M}{N}$ R-módulo con el siguiente producto por escalares de $R$.
+$$ a \bar{m} := \bar{am}, \forall a \in R, \forall m\in M $$
+
+donde $\bar{m}\in \frac{M}{N}$.
+
+
+La proyección natural $\pi : M \rightarrow \frac{M}{N}$ es morfismo de R-módulos. Lleva $m$ a $\bar{m}$.
+
+\textbf{Ejemplo: }
+
+Si $N\subseteq M$ sub-R-módulo, entonces $0\rightarrow N \xrightarrow{i} M \xrightarrow{\pi}\frac{M}{N} \rightarrow 0$ es sucesión exacta corta. 
+
+\begin{Prop}
+Sean $V_1,V_2,V_3,V_4$ k-espacios vectoriales de dimensión finita. Entonces:
+\begin{enumerate}
+
+\item $$\text{Si } 0\rightarrow V_1 \xrightarrow{\varphi_1}V_2 \xrightarrow{\varphi_2} V_3 \rightarrow 0 $$
+es sucesión exacta corta. Entonces, $dim V_2=dim V_2+dim V_3$. 
+
+\item $$ \text{Si } 0 \rightarrow V_1 \xrightarrow{\varphi_1}V_2 \xrightarrow{\varphi_2} V_3 \xrightarrow{\varphi_2} \rightarrow 0 $$
+Entonces, $dim V_1 - dim V_2 + dim V_3- dim V_4 =0$.
+\end{enumerate}
+\end{Prop}
+
+\begin{Dem}
+\begin{enumerate}
+\item $\varphi_2: V_2 \rightarrow V_3$ aplicación k-lineal. Fijando bases $B_i$ de $V_i$, $i=1,2 \Rightarrow  \varphi_2(v)^{t}_{B_3}=Av^t_{B_2}$ donde $A=M_{B_1,B_2}(\varphi)$ matriz $m_2\times m_3$. 
+
+$dim V_2=m_2, dim V_3 = m_3$, $ker \varphi_2= Ax^t=0, Im \varphi_2 = <v_1,\dots,v_{m_3}>$, $A=[x_1^t| \dots | x_{m_3}^t]$.
+
+Entonces, $dim (Im \varphi_2)=rango(A)$,
+
+$dim (ker \varphi_2)=dim V_2- rango(A) \Rightarrow dim \underbrace{(Im \varphi_2)}_{V_3}+dim \underbrace{(ker\varphi_2)}_{\sim V_1} = dim V_2$
+
+\item  Tenemos dos sucesiones exactas:
+$$0  \rightarrow V_1 \xrightarrow{\varphi_1} V_2 \xrightarrow{\varphi_2} W \rightarrow 0$$
+$$0\rightarrow W \xrightarrow{i} V_3 \xrightarrow{\varphi_3} V_4 \rightarrow 0 $$
+
+Con lo que aplicando el apartado 1, tenemos:
+$$dim V_1 -dim V_2 +dim W =0 $$
+$$ dim W -dim V_3 + dim V_4 =0$$
+que restando se obtiene:
+$$ dim V_1 - dim V_2+dim V_3 - dim V_4 = 0$$
+\qed
+\end{enumerate}
+\end{Dem}
+
+
+\textbf{Ejemplo (ej 2.48):}
+
+$\varphi: M\rightarrow M'$ morfismo de R-módulos. 
+
+$$0\rightarrow ker \varphi \xrightarrow{i} M \xrightarrow{\varphi} Im \varphi \rightarrow 0 $$
+
+es una sucesión exacta. $Im i = i(ker \varphi)=ker\varphi$.
+
+\textbf{Ejercicio 2.49:}  
+
+(a) $N\subseteq M$ submódulo $\pi: M \rightarrow  \frac{M}{N}$. 
+
+Sea $M\rightarrow M'$ morfismo de R-módulos y $\varphi(N)=0$, hay que probar que existe un único $\bar{\varphi}: \frac{M}{N}\rightarrow M'$ tal que $\bar{\varphi}\circ \pi =\varphi \Rightarrow (\bar{\varphi}\circ \pi)(m) = \varphi (m) = \bar{\varphi(\bar{m})}, \forall m \in M$. 
+
+\underline{\textit{Solución: }}
+
+
+$\bar{\varphi}$ bien definida. 
+
+Si $\bar{m}=\bar{m'} \Rightarrow m-m'\in N \Rightarrow \varphi(m-m') \in \varphi(N)=0  \Rightarrow \varphi(m-m')=0= \varphi(m)-\varphi(m')=\bar{\varphi(\bar{m})}-\bar{\varphi(\bar{m'})}$. 
+
+(b) Si $P\subseteq N \subseteq M$ sub-R-módulo, entonces existe $\frac{M}{P} \rightarrow \frac{M}{N}$ y $\frac{M}{P} \rightarrow \frac{M}{P}$, veamos que es exacta $0\rightarrow \frac{N}{P} \rightarrow \frac{M}{P} \rightarrow  \frac{M}{N} \rightarrow 0$.
+
+\underline{\textit{Solución: }}
+
+$$0\rightarrow \frac{N}{P} \xrightarrow{iny.} \frac{M}{P} \xrightarrow{Sobr.}  \frac{M}{N} \rightarrow 0$$
+
+$ker \pi = \{ m+P:m+N=0 \}, Im (i) = \{n+P: n\in N \} \Rightarrow $ exacta en $\frac{M}{P}$. 
+
+$\frac{M/P}{N/P} \sim M/N$.
+
+\section{Operaciones con ideales}
+
+Sean $I,J\subseteq R$ ideales:
+\begin{itemize*}
+\item $I+J = \{a+b : a\in I, b\in J \}$ ideal suma de $I$ y $J$.
+\item $IJ = <ab : a \in I, b \in J > = \{ \sum_{i=1}^ra_ib_i : a_i \in I, b_i \in J, 1 \le r \in \mathbb{N} \}$ 
+\item $I^n=I\cdots I \neq <a^n : a\in I>$, si no $I^n = <a_1\cdots a_n : a_i \in I >$. 
+\end{itemize*}
+
+\textbf{Ejemplo:} $I=<x,y>\subseteq k[x,y], I^2=<x^2,y^2,xy>$.
+\framebox{$\subseteq $} $f=ax,by,g=cx+dy \Rightarrow fg = acx^2+(ad+bc)xy+bdy^2$. Los generadores de $I^2$ son todas de esta forma y está en $<x^2,xy,y^2> \Rightarrow I^2\subseteq <x^2,xy,y^2>$. 
+
+\begin{Lem}
+\begin{itemize*}
+\item $IJ\subseteq I\cap J$
+\item Si $I+J=R$ ($I$ y $J$ maximales), entonces $I\cap J=IJ$
+\item $(I_1+I_2)J=I_1J+I_2J$. 
+\end{itemize*}
+\end{Lem}
+
+\begin{Dem}
+(1) es obvio.
+
+(3) $I_i\subseteq I_1+I_2 \Rightarrow I_iJ\subseteq (I_1+I_2)J\Rightarrow I_1J+I_2J\subseteq (I_1+I_2)J$.
+
+Para ver que $(I_1+I_2)J\subseteq I_1J+I_2J$ basta probar que los generadores del primero está en el segundo. 
+
+Sea $(a_1+a_2)b$ con $a_i\in I_i,b\in J$, $a_1b+a_2 \in I_1J+I_2J$.
+
+(2) $(I\cap J)=R(I\cap J)=(I+J)(I\cap J)=\underbrace{I\underbrace{(I\cap J)}_{\subseteq J}}_{\subseteq IJ}+\underbrace{J\underbrace{(I\cap J)}_{\subseteq J}}_{\subseteq IJ}\subseteq IJ$.
+\end{Dem}
+
+\textbf{Problema 2.39: } Apartado b, $(I_1\cdots I_N)^n=I_1^n\cdots I_N^n$. 
+
+\underline{\textit{Solución:}}
+
+Hay que ver que los generadores de uno están contenidos en los del otro y el recíproco. 
+
+$I_1\cdots I_N := <a_1\cdots a_N : a_I \in I_i >$, $(I_1\cdots I_N)^n=<b_1\cdots b_n : b_i \in  I_i >=<(a_1^{(1)\cdots a_N^{(1)}})\cdots (a_1^{(n)}\cdots a_N^{(n)}) : a_i^{(j)}\in I_i>=I_1^n\cdots I_N^n$. 
+
+\textbf{Problema 2.40:} $I+J=R$, hay que probar que $I+J^2=R$. (b) $I_1,\dots, I_N\subseteq R$ ideales, $I_i$ y $J_i:= \cap_{I\neq j} I_i$ comaximales $\Rightarrow I_1^n\cap \cdots \cap I_N^n=(I_1\cdots I_N)^n=(I_1\cap \cdots \cap I_n)^n$
+
+\underline{\textit{Solución:}}
+
+$$J=RJ=(I+J)J=IJ +J^2\subseteq I+J^2$$
+$$ I\subseteq  I+J^2$$
+$$\Rightarrow R=I+J\subseteq I+J^2 $$
+
+Hay que probar que $I^n+J^m=R, \forall n,m \ge 1$.
+
+Supongo que $I^n+J^m=R$, hay que probar $I^{n+1}+J^{m}=R$.
+$I^n=RI^n=(I+J)I^n=I^{n+1}+JI^n \subseteq I^{n+1}J^n \Rightarrow I^n+J^n\subseteq I^{n+1}+J^n$.
+
+(b) $N=2 \rightarrow I_1^n \cap I_2^n=I_1^nI_2^n=(I_1I_2)^n=(I_1\cap I_2)^n$. $I_1+I_2=R \Rightarrow I_1^n+I_2^n =R$.
+
+
+Supongo cierto para $N$ y lo veremos para $N+1$ ideales. 
+
+$I_1,\dots ,I_{N+1}$ ideales tales que $I_i+\cap I_j = R$, hay que probar que $I_1^n\cap \cdots \cap I_{N+1}^n = (I_1\cdots I_{N+1})^n = (I_1\cap \cdots \cap I_{n+1})^n$.
+
+$I_i+\underbrace{\cap_{j\neq i,k}I_j}_{ \supseteq \cap_{I\neq j}I_j} = R \Rightarrow I_1^n \cap \cdots \cap I_n^n= (I_1\cap \cdots \cap I_N)^n$ quitando el elemento $k-$ésimo. 
+
+$I_1^n \cdots I_{N+1}^n=I_k^n(\prod_{j\neq k}I_j)^n = \cap I_j^n$
+
+\textbf{Problema 2.41:} Sean $I,J\subseteq R$ ideales, $I=<a_1,\dots,a_r>$ finitamente generado. $I\subset \sqrt{J}$. Hay que probar que $I^n\subset J$ para algún $n$. 
+
+\underline{\textit{Solución: }}
+
+$a_i \in I \Rightarrow \exists n_i$ tal que $a_i^{n_i}\in J$, nos basta que $I^n=<a_1^{k_i}\cdots a_r^{k_r}: \sum k_i = n >$, tomamos $n=\sum n_i$. 
+
+\textbf{Problema 2.42:} (a) $I\subseteq J \subseteq R$ ideales, $\exists \varphi : R/I \rightarrow R/J$ homomorfismo natural de anillos sobreyectivo.  $r+I \rightarrow \varphi(r+I)=r+J$.
+
+(b) $I \underbrace{\subseteq}_{\text{ideal}} R \underbrace{\subseteq}_{\text{subanillo}} S$. Notaremos $IS=<I> \subseteq S$ ideal generado por $I$ en $S$. $\exists \psi : R/I\rightarrow S/IS$ homomorfismo natural.  $r+I \rightarrow \varphi(r+I)=r+IS$.
+
+\underline{\textit{Solución: }}
+
+(a)
+Bien definida:
+
+
+$r+I=r'+I\Rightarrow r-r'\in I\subseteq J \Rightarrow r+J =r'+J$. 
+
+Sea $r+J\in R/J$ cualquiera, $r\in R \Rightarrow \varphi(r+I)=r+J$. 
+
+\begin{nota}
+$ker\varphi = J/I \subseteq R/I$. Luego, $\varphi$ no inyectivo si $I\neq J$. 
+\end{nota}
+
+(b)
+
+Bien definido porque $I\subseteq IS$. Es homomorfismo trivial. 
+
+\textbf{Ejemplo: } $I=<x> \subseteq R=k[x]\subseteq S=k(x), IS=<x>=<1>=k(x)\Rightarrow S/IS = 0, \psi : \frac{k[x]}{<x>}\rightarrow 0$ no inyectivo. 
+
+\textbf{Ejemplo: } $I=<x>\subseteq R = k[x] \subseteq S=k[x,y]$, $\psi: \frac{k[x]}{<x>} \rightarrow \frac{k[x,y]}{<x>}$ no sobreyectiva pues $\bar{y} \notin Im \psi$, reducción al absurdo: $f(x)\in k[x], \bar{f}=\bar{y}, f-y \in <x> \rightarrow \leftarrow$. 
+
+
+\textbf{Problema 2.43:} 
+
+\underline{\textit{Solución:}}
+
+Sea $\frac{f}{g} \in m, f,g \in k[x]$ tales que $f(P)=0, g(P)\neq 0 \Rightarrow \frac{f}{g}=\frac{1}{g}f=IO$. 
+
+$\frac{x_i}{1}\in m \Rightarrow IO \subseteq m$.
+
+En particular, se deduce que $m^r=I^rO, \forall r \ge 1$.
+
+\textbf{Problema 2.44:} 
+
+\underline{\textit{Solución:}}
+
+Por un ejercicio anterior, tenemos que existe un único homomorfismo $\tilde{i}:O_p(\mathbb{A}^n)\rightarrow O_p(v)$ único homomorfismo que extiende el del enunciado, que lleva $\frac{f}{g} \rightarrow \frac{\bar{f}}{\bar{g}}$.
+
+$\varphi(\frac{f}{g}+JO_p(\mathbb{A}^n))=\tilde{i}(\frac{f}{g})+J'O_p(V)$.
+
+$\frac{f}{g}-\frac{f'}{g'}\in IO_p(\mathbb{A}^n)\Leftrightarrow g'f-gf' \in J \Leftrightarrow g'f-gf'+I \in J/I=\pi(J)=J' \underbrace{\Leftrightarrow}_{\frac{1}{\bar{gg'}}\in O_p(V)} \frac{\bar{f}}{\bar{g}}-\frac{\bar{f'}}{\bar{g'}}\in J'O_p(V)$, luego está bien definido e inyectivo. Y es homomorfismo por serlo $\tilde{i}$.
+
+$\varphi $ sobreyectiva es claro pues todo elementos de $\frac{O_p(V)}{JO_p(V)}$ es de la forma $\frac{\bar{f}}{\bar{g}}+J'O_p(V)$. 
+
+
+\textbf{Problema 2.45:} 
+
+\underline{\textit{Solución:}}
+
+\framebox{$\Rightarrow$} $V(I)\cap V(J)=V(I+J)=V(1)=\emptyset$
+
+\framebox{$\Leftrightarrow$} Por el teorema débil de los ceros de Hilbert. 
+
+\textbf{Problema 2.46: }
+
+\underline{\textit{Solución: }}
+
+$n=1$ $\frac{k[x,y]}{<x,y>}\cong k \Rightarrow dim_k k = 1$. 
+$I^n=<x^n,x^{n-1}y, \dots, xy^{n-1},y^n>$, $\frac{k[x,y]}{I}\cong \{f\in k[x,y] \text{ de grado } \le n-1\}$ como $k-$espacio vectorial. Una base será todos los monomios de grado menor o igual que $n-1$. 
+
+\textbf{Problema 2.49:  }
+
+$P\subseteq N \subseteq M$ R-módulos.
+$0 \rightarrow N/P \rightarrow M/P \Rightarrow M/N \rightarrow 0$ s.e.c.
+
+(c) $V\subseteq W \subseteq V$, $dim_k(V/U)<\infty, dim(V/W)+dim(W/U)$.
+
+$0\rightarrow W/U \rightarrow V/U \rightarrow V/W \rightarrow 0$ es s.e.c de k-espacio vectorial $\Rightarrow$ por la prop.7 $dim(V/U)=dim(W/U)+dim(V/W)$.
+
+(d) $O$ anillo local con $m$ ideal maximal, existe una sucesión exacta corta de la forma:
+$$0 \rightarrow m^n \rightarrow O/m^{n+1} \rightarrow O/m^n \rightarrow 0 $$
+
+Con $P=m^{n+1}\subseteq N=m^n\subseteq M=O$  son $O-$módulos. Por (b) se tiene que la sucesión anterior es s.e.c.
+
+
+\textbf{Problema 2.50: } $R$ anillo de valoración discreta, $R\rightarrow R/m$, $m$ ideal maximal.(a) Probar que $dim_k(m^n/m^{n+1})=1$.(b) $dim_k(R/m^n)=n,\forall n>0$. 
+
+\underline{\textit{Solución: }}
+
+(a) $m=<t>$, veamos que $\{t^n+n^{n+1}\}$ es base de $m^n/m^{n+1}$.
+Sea $0\neq b\in m^n = <t^n>, ord(b)\ge n \Rightarrow_{2.30} \exists ! \lambda_0,\dots,\lambda_n  \in k, z_n \in R$ tales que $b= \sum_{i=0}^n \lambda_it^i + z_nt^{n+1} \Rightarrow b=\lambda_nt^n+z_nt^{n+1} \Rightarrow b+m^{n+1}=\lambda_nt^n+m^{n+1}$. Es lo mismo que decir que es una base, así que $dim(m^n/m^{n+1})=1$. 
+
+(b) Se puede hacer tomando $\{1+m^n,\dots, t^{n-1}+m^n\} $ base. O también, usando la sucesión exacta corta:
+$$0\rightarrow m^n/m^{n+1} \rightarrow O/m^{n+1}\rightarrow R/m^n \rightarrow O$$
+Así que $dim(R/m^{n+1})=1+dim(R/m^n)$, usando que el caso base es $dim_k(R/m)=1$, y por inducción $dim(R/m^n)=n$. 
+
+\section{Ideales con un número finito de ceros}
+
+$k$ cuerpo algebraicamente cerrado. Sea $I\subseteq k[x_1,\dots,x_n]$ tales que $V(I)=\{P_1,\dots,P_N\}\subseteq \mathbb{A}^n$. 
+
+$O_{P_i}(\mathbb{A}^n)=\{ \frac{f}{g}: f,g \in k[x], g(P_i)\neq 0 \}:= O_i$.
+
+\begin{Prop}
+Se tiene el siguiente isomorfismo natural de anillos $\varphi: \frac{k[x_1,\dots,x_n]}{I}\rightarrow \frac{O_1}{IO_1}\times \cdots \times \frac{O_N}{IO_N}$. 
+\end{Prop}
+
+\begin{Dem}
+Libro, página 27.
+\end{Dem}
+
+
+\begin{Cor}
+$dim \frac{k[\vec{x}]}{I} = dim (\prod_{i=1}^N \frac{O_i}{IO_i}) = \sum dim \frac{O_i}{IO_i}$
+\end{Cor}
+
+\begin{Cor}
+Si $V(I)=\{ P \}$, entonces $\frac{k[\vec{x}]}{I} \cong \frac{O_P(\mathbb{A}^n}{IO_P(\mathbb{A}^n}$.
+\end{Cor}
+
+\textbf{Problema 2.47: }
+
+Se tiene que $R$ es una k-álgebra finitamente generada, lo que implica que es isomorfo a $k[x_1,\dots,x_n]/I$. Como $dim_kR <\infty $, $V(I)$ es finito, y podemos aplicar la proposición anterior. 

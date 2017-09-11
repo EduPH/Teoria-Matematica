@@ -1,0 +1,1114 @@
+\chapter{Conjuntos algebraicos afines}
+
+\section{Preliminares algebraicos}
+\index{\texttt{anillo}}
+\begin{Def}
+Un \textbf{anillo} es un conjunto $A$ dotado de dos operaciones binarias, que llamaremos suma (+)  y producto (·) que verifican:
+
+\begin{enumerate}
+\item $(A,+)$ Grupo abeliano.
+\item Propiedad asociativa del producto:  $a(bc)=(ab)c$
+\item Propiedad distributiva del producto respecto de la suma: 
+$a(b+c)=ab+ac$
+\item Existencia de elemento neutro para el producto: $1_A$ tal que $1_A$·$a=a, \forall a,b,c \in A$
+\end{enumerate}
+\end{Def}
+Algunos ejemplos de anillos:
+
+\begin{itemize*}
+\item $A=\{ 0 \}$ es un anillo.
+\item $\mathbb{Z}$ el anillo de los enteros.
+\item $k[x]$ el anillo de los polinomios con coeficiente en un cuerpo $k$.
+\item $A[x]$ el anillo de los polinomios con coeficientes en un anillo $A$.
+\end{itemize*}
+
+\index{\texttt{Ideal}}
+\begin{Def}
+Un subconjunto $I\subseteq A$ de un anillo $A$ se llama \textbf{ideal} si $(I,+)$ subgrupo de $(A,+)$ y $\forall a\in A, \forall b \in I$ entonces $ab\in I$
+\end{Def}
+
+
+\index{\texttt{anillo cociente}}
+\begin{Def}
+Sea $I\subseteq A$ un ideal, se llama \textbf{anillo cociente} de $A$ por $I$ al conjunto cociente $A/I$ dado por el cociente de $A$ respecto de la siguiente relación de equivalencia en $A$: $a,b\in A$, $a \sim b \Leftrightarrow a-b \in I$
+\end{Def}
+
+Denotaremos $[a]= \bar{a} = a+I$ a la clase de equivalencia de $a\in A$ respecto de la relación de equivalencia anterior.
+
+$A/ I$ es anillo con las operaciones + y · naturales:
+
+\begin{itemize*}
+\item $\bar{a} + \bar{b} = \bar{a+b}$
+\item $\bar{a}$ · $\bar{b} = \bar{ab}$, $\forall \bar{a},\bar{b}\in A \backslash I$
+\end{itemize*}
+
+Más ejemplos de anillos:
+
+\begin{itemize*}
+\item Sea $m\in \mathbb{Z}, <m>=\{am : a\in \mathbb{Z} \} \subseteq \mathbb{Z}$ ideal. $\mathbb{Z} / m\mathbb{Z}$ anillo cociente.
+\end{itemize*}
+
+
+\index{\texttt{Divisor de cero}}
+\begin{Def}
+Un elemento $a\in A$ se llama \textbf{divisor de cero} si $\exists b \neq 0, b \in A$ tal que $ab=0$.
+\end{Def}
+
+
+\index{\texttt{Cuerpo}}
+\begin{Def}
+Un anillo $A \neq 0$ es un \textbf{dominio de integridad} si no tiene divisores de cero distintos del cero. Un dominio de integridad en el que todo elemento no nulo tiene inverso se llama \textbf{cuerpo}.
+\end{Def}
+
+\begin{Def}
+Un ideal $I\subseteq A$ es \textbf{propio} si $I\neq A$ .
+\end{Def}
+
+\begin{Def}
+Un ideal $I\subseteq A$ es \textbf{primo} si es propio y $\forall a,b\in A$, si $ab\in I \Rightarrow a\in I$ o $b\in I$.
+\end{Def}
+
+\begin{Def}
+Un ideal $I\subseteq A$ es \textbf{maximal} si es propio y $\not\exists J$ ideal propio tal que $I \subseteq J, I\neq J$.
+\end{Def}
+
+
+\begin{Prop}
+Sea $I\subseteq A$ ideal, entonces:
+
+\begin{enumerate}
+\item $I$ primo $\Leftrightarrow A/I$ es dominio de integridad.
+\item $I$ maximal $\Leftrightarrow A/I$ es cuerpo. 
+\end{enumerate}
+\end{Prop}
+
+Ejemplo:
+
+\begin{itemize*}
+\item $\mathbb{Z}/m\mathbb{Z}$ es dominio de integridad 
+$\Leftrightarrow m =0$ y $m$ primo. ($<m>$ primo o cero).
+\item $\mathbb{Z}/m\mathbb{Z}$ es cuerpo $\Leftrightarrow m $ primo. ($<m>$ maximal)
+\end{itemize*}
+
+
+\begin{Def}
+Sea $a\in A$, se dice que $a$ es una \textbf{unidad} si $\exists b \in A$ tal que $ab=1_A$ y notaremos $a^{-1}=b$
+\end{Def}
+
+
+\index{\texttt{Irreducible}}
+\begin{Def}
+Un elemento $a\in A$ se llama \textbf{irreducible} si no es 0 ni unidad y $\forall b,c \in A$ tal que $a=bc$ $\Rightarrow b$ unidad o $c$ unidad.
+\end{Def}
+
+
+\index{\texttt{Dominio de factorización única}}
+\begin{Def}
+Un \textbf{dominio de factorización única} es un dominio de integridad tal que todo elemento no nulo de $A$ se puede escribir
+como producto de elementos irreducibles y unidades. Además, esta factorización es única, salvo producto 
+por unidades y el orden de los factores.
+\end{Def}
+
+Ejemplos:
+
+\begin{itemize*}
+\item $\mathbb{Z}$, $k[x]$
+\end{itemize*}
+
+
+\index{\texttt{Cuerpo de fracciones}}
+\begin{Def}
+Sea $A$ un dominio de integridad, se llama \textbf{cuerpo de fracciones} de $A$ al conjunto cociente de $A \times (A \backslash \{0 \})$ respecto de la siguiente relación de equivalencia:
+
+\begin{itemize*}
+\item $(a,b),(c,d)\in A \times (A\backslash \{ 0 \})$,
+  $(a,b) \sim (c,d) \Leftrightarrow ad=bd$ en $A$.
+\end{itemize*}
+\end{Def}
+
+Denotaremos $\frac{a}{b}$ a la clase de equivalencia de $(a,b)$.
+
+Denotaremos $Q(A)=\frac{ A\times (A \backslash \{ 0 \})}{\sim}$
+
+\begin{Prop}
+$Q(A)$ con las operaciones + y · siguientes es un cuerpo:
+
+\begin{itemize*}
+\item $\frac{a}{b} + \frac{c}{d}= \frac{ad+bc}{bd}$
+\item $\frac{a}{b} \frac{c}{d} = \frac{ac}{bd}$
+\end{itemize*}
+\end{Prop}
+Ejemplo:
+
+\begin{itemize*}
+\item $A=\mathbb{Z} \Rightarrow Q(\mathbb{Z})=\mathbb{Q}$
+\item $A=k[x] \Rightarrow Q(k[x])=k(x)= \{\frac{f}{g} : f,g\in k[x], g\neq 0  \}$
+\end{itemize*}
+
+\begin{Lem}
+\textbf{Lema de Gauss} Sea $A$ un dominio de factorización única y $f,g \in A[x]$. Entonces, $c(fg)=c(f)c(g)$.
+\end{Lem}
+
+
+\index{\texttt{Contenido}}
+\begin{Def}
+El \textbf{contenido} de $f$ , $c(f)$, es el máximo comun divisor de los coeficientes de $f$.
+\end{Def}
+
+\begin{Cor}
+Si $A$ es dominio de factorización única y $f\in A[x]$ entonces $f$ es irreducible en $A[x] \Leftrightarrow f$ es irreducible en $K[x]$ , donde $K=Q(A)$.
+\end{Cor}
+
+\index{\texttt{Subanillo}}
+\begin{Def}
+Sea $A$ anillo y $B\subseteq A$, diremos que $B$ es \textbf{subanillo} de $A$ si $(B,+)$ es subgrupo abeliano de $(A,+)$,
+$1_A \in B$, y $B$ es cerrado para el producto ($ab\in B, \forall a,b\in B$).
+\end{Def}
+
+
+\index{\texttt{Ideal generado por un conjunto}}
+\begin{Def}
+Un ideal $I\subseteq A$ se dice que está \textbf{generado por un conjunto} 
+$ S \subseteq A$ si $I = <S> := \{ \sum_{i=1}^{r}a_is_i : s_i \in S, a_i  \in A, r\in \mathbb{N},i=1,\dots , r \} $
+\end{Def}
+
+\index{\texttt{Ideal principal}}
+\begin{Def}
+Un ideal es \textbf{principal} si está generado por un único elemento.
+\end{Def}
+
+
+\index{\texttt{Dominio de ideales principales}}
+\begin{Def}
+Un dominio de integridad en el que todo ideal es principal se llama \textbf{dominio de ideales principales}.
+\end{Def}
+
+Ejemplos:
+\begin{itemize*}
+\item $\mathbb{Z},k[x]$ con $k$ cuerpo.
+\item $k[x_1, \dots, x_n]$ $(n \le 2)$ es dominio de factorización única, pero no es dominio de ideales principales.
+\end{itemize*}
+
+\begin{nota}
+Si $A$ es dominio de ideales principales, entonces $A$ es dominio de factorización única.
+\end{nota}
+
+
+\index{\texttt{Morfismo de anillos}}
+\begin{Def}
+Sea $f: A \rightarrow B$ una aplicación entre anillos, se dice que $f$ es un \textbf{morfismo de anillos} si:
+
+\begin{enumerate}
+\item $f(a+b) = f(a)+f(b), \forall a,b \in A$ ($f$ morfismo de grupos abelianos).
+\item $f(ab)=f(a)f(b), \forall a,b \in A$.
+\item $f(1_A)=1_B$.
+\end{enumerate}
+\end{Def}
+
+Ejemplo:
+
+\begin{itemize*}
+\item id:$A\rightarrow A$ es un morfismo de anillos.
+\item $I \subseteq A$ ideal, $\pi : A \rightarrow A/ I$, $a\rightarrow \bar{a}$ es un morfismo de anillos.
+\end{itemize*}
+
+\begin{Prop}
+Si $f:A \rightarrow B$ es morfismo de anillos y $J\subseteq B$ es un ideal $\Rightarrow $ $f^{-1}(J)$ es un ideal de $A$.
+\end{Prop}
+
+En particular, el núcleo de $f$, $ker(f):=f^{-1}(0)$ es un ideal.
+
+\begin{nota}
+Un homomorfismo es inyectivo si y sólo si el núcleo es 0.
+\end{nota}
+
+\subsubsection{Operaciones con ideales:}
+
+\begin{itemize*}
+\item La intersección de ideales es un ideal.
+\item La unión de ideales \textbf{NO} es en general un ideal. La unión infinita de ideales encajados sí es un ideal.
+\item La suma de ideales es el ideal generado por la unión.
+\item El producto de dos ideales $I,J\subseteq A$ es el ideal $$IJ := <\{ab : a\in I, b \in J \} > = \{\sum_{i=1}^{r}a_i b_i : a_i \in I, b_j \in J, r \in \mathbb{N}, i,j=1, \dots, r  \}$$
+\end{itemize*}
+
+\textbf{Cuestión(Entrega antes de la clase del viernes 30 Sept.):} Sea $k$ un cuerpo infinito, $F\in k[x_1, \dots , x_n]$. Supongamos que $F(a_1, \dots , a_n ) = 0, \forall (a_1, \dots , a_m) \in k^n$. Hay que probar que $F=0$.
+
+
+\textbf{Cuestión:}  Sea $k$ un cuerpo, $F\in k[x_1, \dots , x_n], a_1, \dots , a_n \in k$. Probar:
+
+\begin{enumerate}
+\item $F=\sum \lambda_{(i)}(x_1-a_1)^{i_1}\dots(x_n-a_n)^{i_n}$ 
+\item Si $F(a_1,\dots,a_n) = 0$, probar $F=\sum_{i=1}^n(x_i-a_i)G_i$ con $G_i \in k[x_1,\dots ,x_n]$
+\end{enumerate}
+
+
+Problemas 1.4 y 1.7 Fulton.
+
+\section{El espacio afín y los conjuntos algebraicos}
+
+Sea $k$ cuerpo, se denotará $\mathbb{A}^n=\mathbb{A}^n(k)$ al espacio afín de dimensión $n$ sobre el cuerpo $k$, cuyos elementos son del tipo $(a_1,\dots,a_n)$, $a_i\in k$.
+
+
+\index{\texttt{Conjunto algebraico afín}}
+\begin{Def}
+Un \textbf{conjunto algebraico afín} es el conjunto de puntos del espacio afín, $\mathbb{A}^n$, que es solución de un sistema de ecuaciones polinómicas. Es decir, es un conjunto de la forma:
+
+$$ V(S):= \{ p=(a_1,\dots , a_n) \in \mathbb{A}^n | f(a_1,\dots , a_n) = 0, \forall f\in S \} $$
+
+Para cierto $S\subseteq k[x_1,\dots, x_n]$
+\end{Def}
+
+Ejemplo:
+
+\begin{itemize*}
+\item $S= \{ 0 \} \Rightarrow V(S)= \mathbb{A}^n$ es un conjunto algebraico.
+\item $S=k[x_1, \dots, x_n] \Rightarrow V(S)= 0$
+\item $S$ es un conjunto finito de polinomios de grado 1 $\Rightarrow V(S)$ variedad lineal afín.
+\item $S=\{f \}$ con grado($f$) = 2 $\Rightarrow V(S)$ es una hipercuádrica lugar afín.
+\end{itemize*}
+
+\begin{nota}
+Si $S=\{f \}, f\neq 0$ diremos que $V(S)$ es una hipersuperficie. En particular, si $n=2 \rightarrow V(f)$ se llama una curva plana afín. 
+\end{nota}
+
+\begin{nota}
+$S\subseteq k[x_1,\dots x_n]$, $V(S)=\bigcap_{f\in S}V(f)$
+\end{nota}
+
+\subsubsection{Propiedades}
+
+\begin{enumerate}
+\item $I=<S>\subseteq k[x_1,\dots , x_n] \Rightarrow V(I)=V(S)$. Luego, todo conjunto algebraico es de la forma $V(I)$ para algún ideal.
+
+\item $\{ I_\alpha \}_{\alpha \in A}$ familia de ideales $\Rightarrow V(\bigcup_{\alpha \in A}I_\alpha )=\bigcap_{\alpha \in A} V(I_\alpha)$; En particular, $V(<\cup_\alpha I_\alpha >)=\cap_\alpha V(I_\alpha)$.
+\item $I\subseteq J \Rightarrow V(J)\subseteq V(I)$
+\item $V(fg)=V(f)\cup V(g)$. Sean $I,J\subseteq k[x_1,\dots,x_n]$ ideales $\Rightarrow V(IJ)=V(I\cap J)=V(I)\cup V(J)$
+\item $V(0)=\mathbb{A}^n, V(k[\vec{x}])=\emptyset$
+\item Si $p=(a_1,\dots, a_n)\in \mathbb{A}^n, V(x_1-a_1,\dots,x_n-a_n)=\{p \}$.
+\end{enumerate}
+
+
+\begin{Dem}
+
+\framebox{3}. Es obvio pues en $J$ hay más polinomios que en $I$ y, por tanto, todo punto solución de $\{ f=0 : f\in J \}$ es también solución de $\{ f = 0: f \in I \}$. \qed
+
+\framebox{1}. $S\subseteq I \Rightarrow V(I) \subseteq V(S)$
+
+\framebox{$\supseteq $} Sea $p\in V(S) \Rightarrow f(p) = 0, \forall f\in S$. Hay que probar que $f(p)=0, \forall f \in I$.
+Sea $f\in I=<S> \Rightarrow \exists g_1,\dots, g_r \in S, \exists h_1,\dots , h_r \in k[\vec{x}] | f=\sum h_i g_i \Rightarrow f(p)=\sum h_i(p)g_i(p) = 0 \Rightarrow p\in V(I)$ \qed
+
+\framebox{4}. $(IJ \subseteq I) \wedge (IJ\subseteq J) \Rightarrow (V(I)\subseteq V(IJ))\wedge (V(J)\subseteq V(IJ)) \Rightarrow V(I)\cup V(J) \subseteq V(IJ)$.
+
+\framebox{$\supseteq$} $P\in V(IJ)$. Supongo $P\notin V(I)$, hay que probar que $P\in V(I)\cup V(J)$. $\exists f\in I$ tal que $f(P)\neq 0$. Sea $g\in J$ cualquiera, entonces $fg \in IJ \Rightarrow (fg)(P)=f(P)g(P)=0 \Rightarrow g(P) =0 \Rightarrow P\in V(J)$ \qed 
+\end{Dem}
+
+\begin{Cor}
+$\{ V(I) : I\subseteq k[x_1,\dots ,x_n] \text { ideal } \}$ es la familia de cerrados de una topología en $\mathbb{A}^n$, que llamaremos topología de Zariski en $\mathbb{A}^n$.
+\end{Cor}
+
+\textbf{Ejercicio 1.3. } Sea $R$ un dominio de ideales principales, sea $p$ ideal primo, $0\neq p \subset R$.
+\begin{enumerate}
+\item Probar que $p$ está generado por un elemento irreducible.
+\item Probar que $p$ es maximal.
+\end{enumerate} 
+
+\textit{Solución:}
+\begin{enumerate}
+\item $\exists a \in R$ tal que $p=<a>$ por ser $R$ DIP. Reducción al absurdo: $a=bc$ con $b,c$ no unidades $\Rightarrow b\in p \vee c \in p$.
+
+Si $b\in p = <a> \Rightarrow \exists d \in R$ tal que $b=da=dbc \Rightarrow dc=1$. Luego, $d$ y $c$ unidades $\rightarrow \leftarrow $
+
+\item Reducción al absurdo. Si $p$ no es maximal $\Rightarrow \exists q$ ideal, $p\subset q \subset R$, $q=<b>$. $b$ unidad ya que $q\neq R$. $a\in <b> \Rightarrow a=cb$ para cierto $c\in R$, $\Rightarrow c$ unidad ($a$ irreducible) $\Rightarrow b=c^{-1}a$ y $p=<a>=<b>=q$
+\end{enumerate}
+
+\textbf{Ejercicio 1.5. } Sea $k$ un cuerpo cualquiera. Probar que existe un número infinito de polinomios mónicos irreducibles en $k[x]$. 
+
+\underline{\textit{Solución: }}
+
+Sean $F_1,\dots ,F_n$ todos los polinomios mónicos irreducibles de $k[x]$. Sea $F=1+F_1\cdots F_n$, como $F_i|\prod F_j$ y $F_i \not | 1 \Rightarrow F_i\not | F \Rightarrow F$ irreducible.
+
+\textbf{Ejercicio 1.6. } Probar que cualquier cuerpo algebraicamente cerrado (Todos los polinomios no constantes tienen al menos una raíz) es infinito.
+
+\underline{\textit{Solución: }}
+
+Si $k$ fuera finito $\Rightarrow \{X-a : a\in k \}$ también sería finito, y entraría en contradicción con el ejercicio anterior.
+
+\textbf{Ejercicio 1.8. } Probar que los conjuntos algebraicos de $\mathbb{A}^1(k)$ son $\mathbb{A}^1$ y los conjuntos finitos de puntos de $\mathbb{A}^1$.
+
+\underline{\textit{Solución: }}
+
+$I\subseteq k[x]$ ideal $\Rightarrow_{(k[x] \text{ DIP })}I=<f>$ para cierto $f\in k[x]$.
+
+$V(f)$ es $\mathbb{A}^1$ si $f=0$, y si $f\neq 0$ entonces serían las raíces del polinomio  que no pueden ser más que el grado del polinomio.
+
+\textbf{Ejercicio 1.9. } Si $k$ cuerpo finito, entonces todo conjunto de $\mathbb{A}^n$ es algebraico.
+
+\underline{\textit{Solución: }}
+
+Como $k$ es finito, entonces $\mathbb{A}^n$ es finito, y entonces todo subconjunto de $\mathbb{A}^n$ es finito. Como de las propiedades (5) y (4), los puntos y la unión de conjuntos algebraicos son algebraicos, entonces todo conjunto finito de puntos es algebraico.
+
+\textbf{Ejercicio 1.10. } Ejemplo de conjunto infinito numerable de conjuntos algebraicos que no sea conjunto algebraico.
+
+\underline{\textit{Solución: }}
+
+En $\mathbb{A}^1(k)$ si $\mathbb{Q}\subseteq k$, $\mathbb{Z}$ es un ejemplo.
+
+\textbf{Ejercicio 1.11 } Probar que los siguientes conjuntos son algebraicos:
+
+\begin{enumerate}
+\item $\{ (t,t^2,t³): t\in k \} \subseteq \mathbb{A}^3(k)$
+\item $\{ (cos(t),sin(t)): t\in \mathbb{R} \} \subseteq \mathbb{A}²(\mathbb{R}$
+\item El conjunto de puntos de $\mathbb{A}^2(\mathbb{R})$ con coordenadas polares $(r,\theta)$ tales que $r=sen(\theta)$.
+\end{enumerate}
+
+\underline{\textit{Solución: }}
+
+\begin{enumerate}
+\item $V(y-x²,z-x³)$
+\item $V(x²+y²-1)$
+\item $x=rcos(\theta),y=rsin(\theta)$, entonces $x²+y²-y=0$. (Elevando cuadrado y sumando).
+\end{enumerate}
+
+\textbf{Ejercicios 1.14,1.15: Entregar 30 Septiembre}
+
+\section{El ideal de un conjunto de puntos en $\mathbb{A}^n$}
+
+
+\index{\texttt{Ideal de $X$}}
+\begin{Def}
+Sea $X\subseteq \mathbb{A}^n$ un conjunto cualquiera, el conjunto $I(X):= \{ f \in k[x_1,\dots ,x_n] : f(p)=0, \forall p \in X \}$ es un ideal de $k[x_1, \dots,x_n]$ que llamaremos \textbf{ideal de $X$}.
+\end{Def}
+Propiedades:
+
+\begin{enumerate}
+\item Si $X\subseteq Y \Rightarrow I(Y)\subseteq I(X)$
+\item $I(\emptyset )=k[x_1,\dots ,x_n]$, si $k$ infinito, $I(\mathbb{A}^n)=<0>=0$
+\item $I(\{ (a_1, \dots , a_n) \}) = <x_1-a_1,\dots ,x_n-a_n>$
+\item $S\subseteq IV(S), \forall S\subseteq k[x] ; \forall X\subseteq \mathbb{A}^n, X\subseteq VI(X)$
+\item $IVI(X)=I(X); VIV(S)=V(S)$
+\item $I(X)$ es radical
+\item $I(X\cup Y)=I(X)\cap I(Y)$
+\end{enumerate}
+
+\begin{Dem}
+\framebox{1}. $X\subseteq Y$. Sea $f\in I(Y) \Leftrightarrow f(p)=0, \forall p \in Y \Rightarrow f(p)=0, \forall p\in X \Leftrightarrow f\in I(X)$ \qed
+
+\framebox{3}. $S\subseteq IV(S), S\subseteq k[\vec{x}]$. Sea $f\in S$, hay que probar que $f(p)=0, \forall p\in V(S) \Rightarrow $ se tiene. \qed
+
+\framebox{4}. $IVI(X)=I(X)$, por (3), tenemos \framebox{$\supseteq $}, hay que probar \framebox{$\subseteq $}. Sea $f\in IVI(X) \Rightarrow f(p)=0, \forall p \in VI(X) (\supseteq X )  \Rightarrow f\in I(X)$. (La otra igualdad es análoga). \qed
+
+\framebox{5}. $I(X)= \{ f\in k[\vec{x}] : f(p) = 0, \forall p\in X \} \subseteq \sqrt{I(X)}$. Sea $f\in  \sqrt{I(X)} \Rightarrow \exists m \ge 0 $ tal que $f^m\in I(X) \Rightarrow f^m(p)=0, \forall p\in X \Rightarrow f(p)=0, \forall p\in X \equiv f\in I(X) $ \qed
+ 
+\framebox{6}. $I(X\cup Y) = I(X)\cap I(Y)$. $(X\subseteq X\cup Y)\wedge (Y\subseteq X\cup Y) \Rightarrow (I(X\cup Y)\subseteq I(X))\wedge (I(X\cup Y)\subseteq I(Y))$.
+
+Sea $f\in I(X)\cap I(Y) \Rightarrow f(p)=0 \Rightarrow f(p) = 0 \forall p \in X\cup Y$.
+
+\end{Dem}
+
+\begin{Def}
+Dado un ideal $I\subseteq A$, se llama \textbf{radical} de $I$ al conjunto $\sqrt{I} := \{a \in A : \exists m \ge 0, a^m \in I \}$. Un ideal $J \subseteq A$ se llama radical si $J= \sqrt{J}$.
+\end{Def}
+
+\textbf{Ejercicio 1.16 } $V=W \Leftrightarrow  I(V)=I(W)$
+
+\underline{\textit{Solución: }}
+
+\framebox{$\Leftarrow $} $I(V)=I(W) \Rightarrow V=VI(V)=VI(W)=W$
+
+\textbf{Ejercicio 1.17 } Sea $V\subseteq \mathbb{A}^n$ conjunto algebraico, $p\notin V$. 
+\begin{enumerate}
+
+\item Probar que existe un polinomio $F\in k[x_1,\dots, x_n]$ tal que $F(Q)=0, \forall Q\in V$ pero $F(p)=1$.
+\item Sean $P_1,\dots , P_r \in \mathbb{A}^n$ distintos, $P_i\notin V$. Probar que existen $F_1,\dots ,F_r \in k[\vec{x}]$ tales que $F_i(P_j) = 0$ si $i\neq j$, y $F_i(P_i)=1$ . 
+\item $a_{ij}\in k, i\le i,j \le r$, hay que probar que existe $G_i \in I(V) $ tal que $G_i(P_J)=a_{ij}, \forall i,j$
+\end{enumerate}
+
+\underline{\textit{Solución: }}
+
+\begin{enumerate}
+\item Sea $G\in I(V)-I(V\cup \{P \}) \Rightarrow G(Q) = 0, \forall Q \in V, G(p)=a \neq 0 \Rightarrow F = \frac{G}{a}$
+\item Sea $W_i = V \cup P_1 \cup \cdots \cup P_{i-1}\cup P_{i+1}\cup \cdots  \cup P_r$. $W_i\neq W_i\cup \{ P_i \}$. $I(W_i)\neq I(W_i\cup \{P_i \}) \Rightarrow \exists F_i \in I(V) $ tal que $F_i(P_i)=1, F_i(P_j)=0, \forall j\neq i$.
+\item Usando ayuda y apartado anterior.
+\end{enumerate}
+
+\textbf{Ejercicio 1.18 } Sea $I\subseteq R$ ideal. Si $a^n\in I, b^m \in I$, hay que probar que $(a+b)^{n+m}\in I$.
+
+\underline{\textit{Solución: }}
+
+$\sum_{k=0}^{n+m}  {n+m \choose k} a^kb^{n+m-k}$, se tiene $k\ge n \Rightarrow a^k \in I$ o bien $n+m -k \ge m \Rightarrow b^{m+n}\in I$.
+
+$\sqrt{I}$ ideal. $0\in \sqrt{I}$. Sean $a,b\in \sqrt{I} \Rightarrow a^n,b^m \in I$, por lo anterior $(a-b)^{n+m}\in I \Rightarrow a-b\in \sqrt{I}$.
+
+$a\in A,b\in \sqrt{I} \Rightarrow a^nb^m\in I \Rightarrow ab\in \sqrt{I}$.
+
+Todo ideal primo es radical. Sea $J$ un ideal primo de $A$, $J\subseteq \sqrt{J}$. Sea $a\in \sqrt{J} \Rightarrow a^m\in J \Rightarrow a\in J \vee a^{m-1}$, y por inducción $a\in J$, luego $J$ es radical.
+
+\textbf{Ejercicio 1.19 } $I=<x²+1> \subseteq \mathbb{R}[x]$ es primo, luego radical. Pero, $I\neq I(X), \forall X\subseteq \mathbb{A}^1(\mathbb{R}).$
+
+\underline{\textit{Solución: }}
+
+$\frac{\mathbb{R}[x]}{<x²+1>} \cong \mathbb{C}$ cuerpo $\Rightarrow I$ maximal $\Rightarrow I$ primo $\Rightarrow I$ radical.
+
+Reducción al absurdo: Si $I=I(X) \Rightarrow V(I)=VI(X) \Rightarrow IV(I) = I(X), I(\emptyset) = \mathbb{R}[x] \neq I$.
+
+\textbf{Cuestiones a entregar 1.20,1.21}
+
+\section{El teorema de la base de Hilbert}
+
+Sea $k$ cuerpo.
+
+\begin{Teo}
+Sea $V\subseteq \mathbb{A}^n$ conjunto algebraico cualquiera, entonces $V$ es intersección finita de hipersuperficies.
+\end{Teo}
+
+\begin{Dem}
+Sabemos que $V=V(I)$ para algún ideal $I\subseteq k[x_1,\dots, x_n]$.  En particular, \framebox{si todo ideal de $k[x_1,\dots,x_n]$ es finitamente generado} $\Rightarrow I=<f_1,\dots,f_r >$ para cierto $f_i\in k[\vec{x}] \Rightarrow V=V(I)=V(f_1,\dots , f_n) = V(f_1) \cap V(f_2)\cap \dots \cap V(f_r)$.\qed 
+\end{Dem}
+
+\begin{nota}
+El contenido recuadrado en la demostración se demostrará más adelante.
+\end{nota}
+
+\begin{Def}
+Un anillo $A$ se dice \textbf{Noetheriano} si todo ideal de $A$ es finitamente generado.
+\end{Def}
+
+\textbf{Ejemplos:} cuerpos, dominios de ideales principales.
+
+\begin{Teo}
+\textbf{de la base de Hilbert}. Si $R$ es un anillo Noetheriano $\Rightarrow R[x]$ es Noetheriano.
+\end{Teo} 
+
+\begin{Dem}
+Sea $I\subseteq R[x]$ ideal cualquiera, hay que probar que $I$ es finitamente generado. Sea $J= \{ \text{(coeficientes líderes) } cl(f) : f\in I \}$, sean $cl(f), cl(g),f,g \in I$. Sea $m=deg(f), n=deg(g), n\le m, h=x^{m-n}g-f\in I$ y $J \ni cl(h)=cl(g)-cl(f)$. 
+
+$J\subseteq R$ ideal $\Rightarrow_{(R \text{ Noether })}J=<a_1,\dots,a_r>$, $a_i=cl(f_i)$ para cierto $f_i\in I$.
+
+Sea $N=max \{deg(f_i) \}$, para cada $m\le N$, definimos $J_m=\{ cl(f): f\in I \wedge deg(f)\ge m \}$, entonces cada ideal $J_m\subseteq R \Rightarrow \exists \{f_{mj} \}_{j\in \Lambda_m}$ finitos que genera a $J_m$. $f_{mj}\subset I$.
+
+$I'=<f_1,\dots,f_r,f_{mj}, m\ge N, j\in \Lambda_m >$. Veamos que $I=I'$. ($\Lambda_m$ es finito)
+
+$I'\subseteq I$ es obvio porque $f_i,f_{mj}\in I$. La contención contraria se demuestra por reducción al absurdo.
+$I'\subset I \Rightarrow$ sea $g\in I \backslash I'$ de grado mínimo.
+
+
+Si $deg(g)>N$, como $cl(g)\in J \Rightarrow cl(g)=\sum_{i=1}^r b_ia_i, b_i \in \mathbb{R}$, entonces puedo tomar $g-\sum h_if_i$ con $cl(h_i)=b_i$.  \\
+$deg(h_i)=\underbrace{deg(g)}_{>N}-\underbrace{deg(f_i)}_{\le N}$. $deg(g-\sum h_if_i) < deg(g) \Rightarrow_{(g \text{ de grado mínimo}} g-\sum h_if_i \in I' \Rightarrow g\in I' \rightarrow \leftarrow $.
+
+Luego $I=I'$ es finitamente generado. \qed
+
+\end{Dem}
+
+\begin{Cor}
+$R$ Noetheriano $\Rightarrow R[x_1,\dots,x_n]$ Noetheriano.
+\end{Cor}
+
+\begin{Dem}
+Por inducción usando el teorema.
+
+\framebox{$n=1$} Se aplica el teorema.
+
+\framebox{$n\rightarrow n+1$} $R[x_1,\dots, x_n] \cong P[x_1,\dots , x_{n-1}][x_n]$
+\end{Dem}
+
+\begin{Cor}
+Si $k$ es cuerpo $\Rightarrow k[x_1,\dots ,x_n]$ es Noetheriano.
+\end{Cor}
+
+\begin{Cor}
+$\mathbb{Z}[x_1,\dots , x_n]$ es Noetheriano
+\end{Cor}
+
+\textbf{Cuestión a entregar el viernes 7 de octubre:} Problema 1.22.
+
+
+\section{Componentes irreducibles de un conjunto algebraico}
+
+Sea $V\subseteq \mathbb{A}^n$ un  conjunto algebraico.
+
+
+\index{\texttt{Conjunto algebraico irreducible}}
+\begin{Def}
+Se dice que $V$ es \textbf{irreducible} si no existen $V_1,V_2$ conjuntos algebraicos tales que $V=V_1\cup V_2$, $V_i\subset V$ con $V_i \neq V$.
+\end{Def}
+
+\begin{Prop}
+$V\subseteq \mathbb{A}^n$ es irreducible $\Leftrightarrow I(V)\subset k[x_1,\dots ,x_n]$ es ideal primo.
+\end{Prop}
+
+\begin{Dem}
+\framebox{$\Rightarrow$}
+
+
+Lo demostramos por reducción al absurdo. Supongamos que $I(V)$ no es primo. Entonces, $ \exists f,g \in k[\vec{x}]$ tal que $fg \in I(V)$ pero $f\notin I(V) \wedge g\notin I(V)$. $V\subseteq VI(V) \subseteq V(fg) =V(f)\cup V(g)$.
+
+Como $V\subseteq V(f)\cup V(g) \Rightarrow V=V\cap (V(f)\cup V(g)) = [V\cap V(f)]\cup [V\cap V(g)]$, entonces como $V$ es irreducible se tendrá que $V=V\cap V(f)$ o que $V=V\cap V(g)$, lo demostramos para el primer caso, el otro es análogo.
+
+Si $V=V\cap V(f) \Rightarrow V\subseteq V(f) \Rightarrow f \ni IV(f) \subseteq I(V) \rightarrow \leftarrow $
+
+\framebox{$\Leftarrow $}
+
+
+$\exists V_1,V_2 \subset V, V=V_1\cup V_2 \Rightarrow I(V)\subset_{\text{estrictamente}}I(V_1)\cap I(V_2) \wedge I(V)=I(V_1\cup V_2)=I(V_1)\cap I(V_2) \rightarrow \leftarrow$. \qed
+\end{Dem}
+
+
+\begin{Lem}
+Sea $A$ un anillo Noetheriano y sea $S \neq \emptyset$ un conjunto de ideales de $A$. Entonces existe un ideal en $S$ que es maximal en $S$ respecto del orden parcial dado por la inclusión.
+\end{Lem}
+
+\begin{Dem}
+Se demuestra por reducción al absurdo. Supongamos que $S\neq \emptyset$ no tiene elementos maximales como $f\neq \emptyset \Rightarrow \exists I_1 \in S$ ideal que no es maximal en $S \Rightarrow \exists I_2 \in S, I_1 \subset I_2$. Por inducción se construye una cadena de ideales infinita en $S$: 
+
+$$ I_1 \subset I_2 \subset \dots $$
+
+$\Rightarrow I=\cup_{n\ge 1} I_n \subseteq A$ ideal (Noetheriano) $\Rightarrow I$ es finitamente generado.
+
+Cada $a_i\in I=\cup I_n \Rightarrow \exists m_i\ge 1 $ tal que $a_i \in I_{m_i} \Rightarrow a_1,\dots , a_r \in I_m$ si $m=max (m_i)$.
+
+$I_m\subseteq I_{m+1} \dots \subseteq I$, $I_m =<a_1,\dots , a_r >=I=I_{m+1}=\dots \rightarrow \leftarrow $
+\end{Dem}
+
+\begin{Cor}
+Todo conjunto $S\neq \emptyset $ de conjuntos algebraicos de $\mathbb{A}^n$ posee un elemento minimal respecto de la inclusión. 
+\end{Cor}
+
+\begin{Dem}
+Basta aplicar el lema anterior a $S'=\{ I(V): V\in S \}$.
+\end{Dem}
+
+\begin{Teo}
+Todo conjunto algebraico $V\subseteq \mathbb{A}^n$ se puede escribir de forma única como $V=V_1\cup \dots \cup V_r$, con $V_i$ irreducible, $V_i \not \subset V_j, \forall i\neq j$
+\end{Teo}
+
+\begin{Dem}
+Se demuestra por reducción al absurdo. Supongamos que existen conjuntos algebraicos que no pueden escribirse de esta forma. 
+
+$S= \{ V \subseteq \mathbb{A}^n \text{ conjunto algebraico que no se escriben de esta forma} \} \neq \emptyset \Rightarrow \exists V\in S$ minimal respecto de la inclusión.
+
+En particular, $V\in S \Rightarrow V$ reducible $\Rightarrow \exists V_1 , V_2 \subset V$ tales que $V=V_1\cup V_2$, como $V$ es minimal en $S$, eso significa que $V_1,V_2 \notin S \Rightarrow$ 
+$$V1=W_1\cup \dots \cup W_r \text{ con } W_i\not \subset W_j, \forall i \neq j$$
+$$V=W_1'\cup \dots \cup W_s' \text{ con } W_i'\not \subset W_j', \forall i \neq j$$
+Entonces, $V=W_1\cup \dots \cup W_r \cup W_1'\cup \dots \cup W_s'$
+Si algún $W_i\subset W_{j(i)}'$ o bien $w_j'\subseteq W_{i(j)}$ se quita el menor. $V\notin S \rightarrow \leftarrow $.
+
+Falta probar la unicidad: $V=W_1\cup \dots \cup W_r =W_1'\cup \dots \cup W_s'$, cada $W_i,W_j'$ irreducible, y tales que $W_i\not \subset W_j, W_i' \not \subset W_j', \forall i \neq j$.  Entonces, como $W_i \subseteq V= \cup_j W_j' \Rightarrow W_i=\cup_{j=1}^s(W_i\cap W_j')$, $W_i$ es irreducible, entonces existe $j(i)$ tal que $W_i=W_i\cap W_{j(i)}' \Rightarrow W_i \subseteq W_{j(i)}'\subseteq W_{i(j(i))}$. Análogamente, $W_j'\subseteq W_{i(j)} \Rightarrow W_i=W_j{j(i)}'$, con lo cual, $r=s$ y $W_i=W_{j(i)}', i=1,\dots r$.
+\end{Dem}
+
+\textbf{Problema 1.23: } \textit{Dar un ejemplo de colección $S$ de ideales en un anillo Noetheriano tal que ningún elemento maximal sea ideal maximal.}
+
+\underline{\textit{Solución: }}
+
+Sea el anillo $A=k[x,y]$ con $k$ cuerpo. $S= \{ <x^m >, m\ge 1 \}$, $<x^{m+1}>\subset <x^m>$, pero estrictamente contenido. Entonces, el único elemento maximal de $S$ es $<x>$ que no es ideal maximal ya que $<x>\subset <x,y> \subset A$.
+
+\textbf{Problema 1.24: } \textit{ Todo ideal propio $J$ de un anillo Noetheriano está contenido en un ideal.}
+
+\underline{\textit{Solución: }}
+
+Basta aplicar el lema 1.5.1 a $S=\{ I \subset A \text{ ideal } : J\subseteq I \} $.
+
+\textbf{Cuestión a entregar el viernes 7 de octubre:} Escribir la sección 1.6: Subconjuntos algebraicos en el plano.
+
+
+\section{Subconjuntos algebraicos en el plano}
+
+Encontremos todos los subconjuntos algebraicos del espacio afín $\mathbb{A}^2(k)$. Por el \textit{teorema 1.5.1} es suficiente encontrar los conjuntos algebraicos irreducibles.
+
+\begin{Prop}
+Sean $F$ y $G$ polinomios, ambos en $k[X,Y]$ sin factores comunes. Entonces $V(F,G)=V(F)\cap V(G)$ es un conjunto finito de puntos.
+\end{Prop}
+
+\begin{Dem}
+  $F$ y $G$ no tienen factores comunes en $k[X][Y]$, así que tampoco tienen factores comunes en $k(X)[Y]$ (Son isomorfos). $k(X)[Y]$ es un dominio de ideales principales (de hecho, fue uno de los ejemplos que dimos en clase), $gcd(F,G)=1$ en $k(X)[Y]$, así que existen $R,S\in k(X)[Y]$ tales que $RF+SG=1$ por el teorema de Bézout. 
+
+  Sea $D\in k[X]$ un polinomio no nulo tal que $DR=A$, $DS=B\in k[X,Y]$. Entonces $AF+BG=D$.
+
+  Si $(a,b)\in V(F,G)$, entonces $D(a)=0$. Pero, $D$ tiene una cantidad finita de raíces. Esto prueba que solo una cantidad finita de coordenadas de $X$ pertenecen a $V(F,G)$.  Análogamente para las coordenadas $Y$ se aplica el mismo razonamiento en $k(Y)[X]$, y eso implica que solo puede haber una cantidad finita de puntos. \qed
+
+\end{Dem}
+
+\begin{Cor}
+Si $F$ es un polinomio irreducible en $k[X,Y]$ tal que $V(F)$ es infinito, entonces $I(V(F))=F$, y $V(F)$ es irreducible.
+\end{Cor}
+
+\begin{Dem}
+  Si $G\in I(V(F))$, $F$ divide a $G$,ésto es claro pues tienen raíces comunes pero $F$ es irreducible. Por lo tanto, se tiene que $G\in <F>$ entonces $V(F,G)$ es infinito ($V(F)\subset V(G) \Rightarrow V(F,G)=V(F)\Rightarrow \text{ infinito}$.Por la proposición anterior  tienen factores comunes, y $I(V(F))\subset <F>$ . Además, $<F> \subset I(V(F))$, y por la \textit{proposición 1.5.1}, $V(F)$ es irreducible. ($<F>$ es ideal primo al ser $F$ irreducible). \qed
+\end{Dem}
+\begin{nota}
+La proposición 1.5.1 dice que $V(F)$ es irreducible si y sólo si $<F>$ es ideal primo.
+\end{nota}
+
+\begin{Cor}
+Supongamos que $k$ es infinito. Entonces los subconjuntos algebraicos irreducibles de $\mathbb{A}^2(k)$ son: $\mathbb{A}^2(k),\emptyset$, puntos, y curvas planas irreducibles $V(F)$, donde $F$ es un polinomio irreducible y $V(F)$ es infinito.
+\end{Cor}
+
+\begin{Dem}
+  Sea $V$ un conjunto algebraico irreducible en $\mathbb{A}^2(k)$. Tenemos los siguientes casos:
+  \begin{itemize*}
+  \item $V$ es finito.
+  \item $I(V)= 0$
+  \item Si $\exists F$ polinomio no constante. Como $I(V)$ es primo (pues $V$ es irreducible), podemos considerar que $F$ es irreducible, pues en caso contrario podríamos tomar el factor irreducible de $F$ que pertenezca a $I(V)$. $I(V)=<F>$ pues si $G\in I(V)$ y $G\notin <F>$, entonces $V\subset V(F,G)$ que es finito por la proposición 1.6.1.
+  \end{itemize*}
+\qed
+\end{Dem}
+
+\begin{Cor}
+Sea $k$ algebraicamente cerrado, $F$ un polinomio no constante en $k[X,Y]$. Sea $F=F_1^{n_1}\cdots F_r^{n_r}$ la descomposición de $F$ en factores irreducibles. Entonces $V(F)=V(F_1)\cup \dots \cup V(F_r)$ es la descomposición de $V(F)$ en componentes irreducibles, y $I(V(F))=<F_1\cdots F_r>$.
+\end{Cor}
+
+\begin{Dem}
+ $F_i\not| F_j, \forall i\neq j$, así que no hay relaciones de inclusión entre $V(F_i)$. Se tiene que $I(\cup_i V(F_i))=\cap_iI(V(F_i))=\cap_i<F_i>$. Como cualquier polinomio es divisible por cada $F_i$, también lo será por $F_1\cdots F_r$, $\cap_i<F_i>=<F_1\cdots F_r>$. Notar que $V(F_i)$ es infinito para cada $i$, ya que $k$ es algebraicamente cerrado como se demostró en el problema 1.14. \qed
+\end{Dem}
+
+\subsection{Problemas}
+
+\textbf{Problema 1.30: } Sea $k=\mathbb{R}$.
+\begin{enumerate}
+\item Prueba que $I(V(X^2+Y^2+1))=<1>$. \\
+  \underline{\textit{Solución: }}
+
+  $X^2+Y^2+1$ es irreducible en $\mathbb{R}$, y además no existe $(a,b)\in \mathbb{A}^2(\mathbb{R})$ tale que $a^2+y^2+1=0 \Rightarrow V(X^2+Y^2+1)=\emptyset.$ Y se tiene $ I(\emptyset) = <1> =k[X,Y]$
+\item Prueba que cada subconjunto algebraico de $\mathbb{A}^2(\mathbb{R})$ es igual a $V(F)$ para algún $F\in \mathbb{R}[X,Y]$. \\
+  \underline{\textit{Solución: }}
+
+  Los subconjuntos algebraicos irreducibles de $\mathbb{A}^2(\mathbb{R})$ por el \textit{corolario 1.6.2} son: $\mathbb{A}^2, \emptyset$ y curvas planas. Las curvas planas cumplen lo que nos piden. $\mathbb{A}^2=V(\emptyset)$, y $\emptyset = V(k[X,Y])$.
+
+  Los subconjuntos algebraicos no irreducibles se pueden descomponer en unión de subconjuntos algebraicos irreducibles, y por el \textit{corolario 1.6.3}, el producto de los polinomios que generan dichos subconjuntos irreducibles cumple lo pedido.
+\end{enumerate}
+
+\begin{nota}
+$V(F)=V(F_1,\dots,F_r), F=\sum F_i^2 \text{ si } F=0 \Rightarrow$ todos los $F_i=0$.
+\end{nota}
+
+\textbf{Problema 1.31: }
+\begin{enumerate}
+\item Encuentra los componentes irreducibles de $V(Y^2-XY-X^2Y+X^3)$ en $\mathbb{A}^2(\mathbb{R})$, y también en $\mathbb{A}^2(\mathbb{C})$. \\
+  \underline{\textit{Solución: }}
+
+  $Y^2-XY-X^2Y+X^3=(X-Y)(X^2-Y)$ en $\mathbb{A}^2(\mathbb{R}) \Rightarrow V(Y^2-XY-X^2Y+X^3)=V(X-Y)\cup V(X^2-Y)$.
+
+  $Y^2 − XY − X^2Y + X^3= (X-Y)(X+\sqrt{Y})(X-\sqrt{Y})$ en $\mathbb{A}^2(\mathbb{C}) \Rightarrow V(Y^2-XY-X^2Y+X^3)=V(X-Y)\cup V(X-\sqrt{Y})\cup V(X+\sqrt{Y})$.
+  
+\item Haz lo mismo para $V(Y^2-X(X^2-1))$, y para $V(X^3+X-X^2Y-Y)$.
+  \begin{itemize*}
+  \item En $\mathbb{A}^2(\mathbb{R})$: \\
+    - $Y^2-X(X^2-1)=(Y+\sqrt{X^3+X})(Y-\sqrt{X^3+X}) \Rightarrow V(Y^2-X(X^2-1))=V(Y+\sqrt{X^3+X})\cup V(Y-\sqrt{X^3+X})$ \\
+    - $X^3+X-X^2Y-Y= (X^2+1)(X-Y) \Rightarrow V(X^3+X-X^2Y-Y)=V(X^2+1)\cup V(X-Y)$
+  \item En $\mathbb{A}^2(\mathbb{C})$: \\
+    - $X^3+X-X^2Y-Y= (X-i)(X+i)(X-Y) \Rightarrow V(X³+X-X²Y-Y)=V(X-i)\cup V(X+i) \cup V(X-Y)$ 
+  \end{itemize*}
+  
+\end{enumerate}
+\section{El teorema de los ceros (Nullstellensatz) de Hilbert}
+
+Sea $k$ cuerpo algebraicamente cerrado (ejemplo $\mathbb{C}$). 
+
+\begin{Teo}
+\textbf{debil de los ceros.} Sea $I\subset k[\vec{x}]$ ideal propio, entonces $V(I)\neq \emptyset $.
+\end{Teo}
+
+\begin{Dem}
+Existe $m\subset k[\vec{x}]$ ideal maximal tal que $I\subseteq m \Rightarrow V(m)\subseteq V(I)$. Basta probar que $V(m)\neq \emptyset $. Como $m$ es maximal, se tiene que $\frac{k[\vec{x}]}{m}$ es un cuerpo.
+
+$k\subseteq L = \frac{k[\vec{x}]}{m}$ extensión de cuerpos. \framebox{Supongamos que $k=L$} $\Rightarrow \forall i = 1,\dots , n$, se tiene que $\bar{x_i}=\bar{a_i}$ en $L, a\in k$.
+
+$\Rightarrow \underbrace{<x_1-a_1,\dots ,x_n-a_n>}_{\text{maximal}} \subseteq m \Rightarrow m = <x_1-a_1,\dots ,x_n-a_n> \Rightarrow V(m)=V(x_1-a_1,\dots , x_n-a_n)=\{(a_1,\dots ,a_n)\}\neq \emptyset $
+\end{Dem}
+
+\begin{nota}
+La suposición en el recuadro queda pendiente de probar.
+\end{nota}
+
+\begin{Teo}
+\textbf{de los ceros.} $k$ algebraicamente cerrado, $I\subseteq k[x_1,\dots ,x_n]$ ideal $\Rightarrow IV(I)=\sqrt{I}$
+\end{Teo}
+
+\begin{Dem}
+\begin{itemize*}
+\item $\sqrt{I}\subseteq I(V(I))$ (ejercicio)
+\end{itemize*}
+\framebox{$ \subseteq$} Sea $f\in IV(I)$, hay que probar que $\exists m \ge 1$ tal que $f^m\in I$.  Si $I=<f_1,\dots ,f_r >$, $f$ se anula en todo punto que sea cero común de $f_1,\dots ,f_r$. Si consideramos otro ideal $J=<f_1,\dots ,f_r,f \underbrace{x_{n+1}}_h-1>\subseteq k[x_1,\dots ,x_n,x_{n+1}]$ ideal. $\forall P\in V(f_1,\dots ,f_r) \Rightarrow f(P)=0 \Rightarrow h(P) =-1 \neq 0$. Por tanto $V(I)=\emptyset \Rightarrow_{\text{teo. ceros débil}} J=k[x_1,\dots , x_{n+1}] \Leftrightarrow 1 \in J$.
+
+$\Rightarrow 1 = g_1f_1 + \dots + g_rf_r + g_{r+1}(f x_{n+1}-1)$. Podemos hacer el cambio $x_{n+1}=\frac{1}{y}$, y así obtenemos :
+$$1= \sum_j g_j(x_1,\dots ,x_n, \frac{1}{y})f_j(x)+g_{r+1}(x_1,\dots ,x_n,\frac{1}{y})(f\frac{1}{y}-1)$$
+
+Tomo $N\ge 1$ suficientemente grande tal que $y^{N-1}g_j(x_1,\dots ,x_n,\frac{1}{y})\in k[x_1,\dots ,x_n,y]$
+
+$$y^N = \sum_j g'_j(\vec{x},y)f_j(\vec{x})+g'_{r+1}(\vec{x},y)(f-y) $$
+$\Rightarrow f^N=\sum g_j'(\vec{x},f(\vec{x}))f(x) \in I$ \qed
+\end{Dem}
+
+\begin{Cor}
+Existe una correspondencia biyectiva entre ideales radicales de $k[\vec{x}]$ y conjuntos algebraicos de $\mathbb{A}^n$.
+
+$$\{ I\subseteq k[\vec{x}] \text{ ideal } : I=\sqrt{I} \} \leftrightarrow \{v\subseteq \mathbb{A}^n \text{ conjunto algebraico } \}$$
+$$ I\rightarrow_V V(I)$$
+$$I(X) \leftarrow_I X$$
+\end{Cor}
+
+\begin{Dem}
+$X$ conjunto algebraico $\Rightarrow $ $VI(X)=X$ (propiedad ya vista) $\Rightarrow V\circ I = id$.
+
+$I$ ideal radical $\Rightarrow IV(I)=\sqrt{I}=I \Rightarrow I\circ V =id$.
+
+Entonces se deduce que $I$ y $V$ son biyectivas y una es la inversa de la otra. 
+\end{Dem}
+
+\begin{Cor}
+Esta correspondencia lleva ideales primos en conjuntos algebraicos irreducibles y viceversa.
+\end{Cor}
+
+\begin{Cor}
+Esta correspondencia lleva ideales maximales en puntos y viceversa.
+\end{Cor}
+
+\begin{Cor}
+Esta correspondencia lleva ideales principales en hiperespacios y viceversa.
+\end{Cor}
+
+\begin{Cor}
+Si $V$ es una hipersuperficie, i.e, $V=V(f)$ para $f\in k[\vec{x}]\backslash k$ y sea $f=\prod_{j=1}^rf_j^{m_j}$ su descomposición en factores irreducibles entonces $V(f) = V(f_1)\cup \dots \cup V(f_r)$ es su descomposición en componentes irreducibles.
+\end{Cor}
+
+\begin{Cor}
+Sea $k$ algebraicamente cerrado e $I\subseteq k[x_1,\dots,x_n]$ ideal, encontes $V(J)$ finito si y solo si $\frac{k[x_1,\dots,x_n]}{I}$ es un $k$- espacio vectorial de dimensión finita. Además, en tal caso, $\#V(J) \le dim_k( \frac{k[\vec{x}]}{I})$
+\end{Cor}
+
+\begin{Dem}
+  $\# V(I) \le dim_k ( \frac{k[\vec{x}]}{I})$. Sean $P_1,\dots,P_r \in V(J)$ distintos $\Rightarrow \exists f_1,\dots,f_r \in k[\vec{x}$ tales que
+\begin{equation*}
+  f_j(P_j)= \left\{\begin{array}{ll}
+    1 \text{ si } i=j \\
+    0 \text{ si } i\neq j
+    \end{array} \right.
+\end{equation*}
+Veamos que $\bar{f}_1,\dots,\bar{f}_r\in \frac{k[\vec{x}]}{J}$ son $k$- linealmente independientes.
+
+Supongamos que $\exists \lambda_1,\dots, \lambda_r\in k$ tales que $\sum \lambda_i \bar{f}_i =0$ en $\frac{k{\vec{x}}}{J} \Rightarrow \sum \lambda_if_i \in J \Rightarrow \sum_{i=1}^r\lambda_i f_i(P_j)=0, \forall j=1,\dots,r$, luego $\bar{f}_1,\dots, \bar{f}_r$, linealmente independientes en $\frac{k[\vec{x}]}{J}\Rightarrow dim \frac{k[\vec{x}]}{J} \ge r$.
+
+Si $V(J)$ es infinito $\Rightarrow dim \frac{k[\vec{x}]}{J} \ge r, \forall r \in \mathbb{N} \Rightarrow dim \frac{k[\vec{x}]}{J}=\infty$.
+
+Si $V(J)$ tiene exactamente $r$ puntos $\Rightarrow dim \frac{k[\vec{x}]}{J}<\infty \Rightarrow V(J)$ finito.
+
+Supongamos ahora que $V(J)=\{P_1,\dots, P_r \}$ es finito, $P_i=(a_{1i},\dots,a_{ni})$.
+
+Sea $f_j=\prod_{i=1}^r (x_j-a_{ji}) \Rightarrow f_j(P_i)=0, \forall i,j, i=1,\dots, r, j=1,\dots, n \Rightarrow f_j\in IV(J)=_{k\text{ alg.cerrado}}\sqrt{J} \Rightarrow \exists m_j \ge 0$ tal que $k[x_j] \ni f^m_j\in J$, $f_j^{m_j}=x_j^{l_j}+$ términos de menor grado en $x_j \Rightarrow \bar{x_j}^{l_j}$= clase de suma finita de términos de $k[x_j]$ y grado $\le l_j-1  \Rightarrow \{\prod_{j=1}^n x_j^{\bar{k_j}}: 0\le k_j \le l_j,\forall j=1,\dots, n \}$ sistema generador del k-espacio vectorial $\frac{k[\vec{x}]}{J} \Rightarrow \frac{k[\vec{x}]}{J}$ tiene dimensión finita.
+\end{Dem}
+
+\textbf{Ejercicio 1.12: } $C\subseteq \mathbb{A}^2$ curva, $L\not \subset C, L\subseteq \mathbb{A}^2$ recta. $C=V(F),f\in k[x,y]$. Hay que probar que $C\cap L$ conjunto finito de cardinal $\le n= deg(f)$.
+
+\underline{\textit{Solución: }}
+
+$L=V(y-(ax+b)) \Rightarrow L\cap C = V(y-(ax+b),f(x,y)) \Rightarrow  0 \neq_{L\not \subset C} f(x,ax+b)\in k[x]$, tiene grado $\le m\Rightarrow $ existen a lo más $m$ posibles valores de $x$ tal que $f(x)=0$.
+
+\textbf{Ejercicio 1.13: } (a) $\{(x,y) \in \mathbb{A}^2(\mathbb{R}) : y= sin(x)\}$, hay que probar que no es un conjunto algebraico.
+
+\underline{\textit{Solución: }}
+
+Si fuera algebraico, entonces sería $C=V(S), S\subseteq k[x_1\dots, x_n]$. $C\cap V(y)=\{(\pi k,0): k\in \mathbb{Z} \} \subseteq L=V(y)$ recta afin. Dicho conjunto es infinito y distinto del total, entonces no es conjunto algebraico, y la intersección de algebraicos debería ser algebraica.
+
+\textbf{Ejercicio 1.25: } Probar que $V(y-x^2)\subseteq \mathbb{A}^2(\mathbb{C})$ es irreducible e $IV(y-x^2)=<y-x^2>$.
+
+\underline{\textit{Solución: }}
+
+\begin{nota}
+Sabemos que dado un conjunto algebraico, era irreducible si y solo si $I(V)$ era ideal primo.
+\end{nota}
+
+Basta ver que $IV(y-x^2)=<y-x^2>$ y que es primo.  $V(y-x^2)=\{(t,t^2): t\in \mathbb{C} \}$. $\supseteq $ la tenemos ya, probamos la contraria. Sea $f\in IV(y-x^2) \Rightarrow f(t,t^2)=0, \forall t \in \mathbb{C}$. Por otro lado, $f=q(x,y)(y-x^2)+r(x) \Rightarrow r(t)=0, \forall t\in \mathbb{C} \Rightarrow r=0 \Rightarrow f=q(y-x^2)\in <y-x^2>$, y se tiene la igualdad.
+
+Falta ver que es ideal primo, $\frac{k[x,y]}{<y-x^2>} \cong k[x]$, $k[x]\rightarrow \frac{k[x,y]}{<y-x^2>}$ es isomorfismo. La sobreyectividad se tiene porque $\bar{f(x,y)}=\bar{f(x,x^2)}, f(x,x^2)=g(x)\in k[x]$.
+
+\section{Módulos; Condiciones de finitud}
+
+Sea $\mathbb{A}$ anillo conmutativo y con elemento  unidad.
+
+
+\index{\texttt{A-módulo}}
+\begin{Def}
+Un \textbf{A-módulo} $M$ es un grupo abeliano $(M,+)$ dotada de una operación $\cdot: A\times M \rightarrow M$, que verifica:
+
+\begin{enumerate}
+\item $(a+b)m=am+bm, \forall a , b \in A, \forall m\in M$.
+\item $a(m+m')=am+am', \forall a \in A , \forall m, m'\in M$.
+\item $a(bm)=(ab)m$.
+\item $1_A m = m, \forall m \in M$.
+\end{enumerate}
+\end{Def}
+
+\textbf{Ejemplo: }
+
+\begin{itemize*}
+\item Si $A=\mathbb{Z}$, entonces un $\mathbb{Z}-$módulo es lo mismo que un grupo abeliano $a\in \mathbb{Z},m\in M, am=m+\cdots +m$.
+\item $A=k$ cuerpo, entonces un $k-$módulo es lo mismo que un k-espacio vectorial.
+\item Un anillo $A$ también es un $A-$módulo.
+\end{itemize*}
+
+
+\index{\texttt{Submódulo}}
+\begin{Def}
+Si $M$ es un $A-$módulo, un subgrupo abeliano $N\subset M$ es un \textbf{submódulo} si $am\in N, \forall a \in A, \forall m \in N$.
+\end{Def}
+
+\textbf{Ejemplo: }
+
+Los submódulos de un anillo $A$ son sus ideales.
+
+
+\index{\texttt{A-Módulo f.g}}
+\begin{Def}
+Sea $M$ un $A-$ módulo, diremos que un submódulo $N\subset M$ es \textbf{finitamente generado} ($f.g.$) si $\exists m_1,\dots, m_r\in N$ tales que $N=Am_1+\cdots +Am_r$ (es decir, $\forall n \in N, \exists a_1,\dots, a_r\in A$ tales que $n=\sum_{i=1}^ra_im_i$).
+\end{Def}
+
+Sea $R\subset S$ una extensión de anillos, se pueden considerar ciertas condiciones de finitud de $R$ sobre $S$. ($S$ es un $R-$módulo).
+
+\index{\texttt{R-Álgebra}}
+\begin{itemize*}
+\item $S$ se dice \textbf{$R-$ álgebra} $f.g.$ si $\exists v_1,\dots,v_n\in S$ tales que $S=R[v_1,\dots,v_n]$. Es decir, $\exists \varphi: R[x_1,\dots,x_n]\rightarrow S$ sobreyectivo (morfismo), $f(x_1,\dots,x_n)\rightarrow f(v_1,\dots,v_n)$. Por el primer teorema de isomorfía $\frac{R[x_1,\dots,x_n]}{ker\varphi}\cong Im\varphi =S$. (No es lo mismo que un anillo de polinomios).
+
+\item ¿Es $S$ un $R-$ módulo finitamente generado?
+
+\item Si $R=k\subset S=L$ es extensión de cuerpos y $L$ es una $k-$álgebra $f.g.$, se dice que $L$ es una extensión finitamente generada de $k$. 
+
+$$v_i\in L, L=k[v_1,\dots,v_r]=k(v_1,\dots,v_r)$$
+
+\item Una extensión $k\subset L$ de cuerpos se dice que es $f.g.$ si $\exists v_1,\dots,v_m\in L$ tales que $L=k(v_1,\dots,v_n)$.
+\end{itemize*}
+
+\textbf{Ejemplos: }
+
+\begin{itemize*}
+\item $A$ anillo, $S=A[x]$; $A\subset S$, y podemos ver que tomando $\varphi$ la propia inclusión se tiene que $S$ es una $A-$álgebra $f.g.$.
+
+No es un $A-$módulo finitamente generado. Reducción al absurdo: $\exists f_1,\dots, f_r\in A[x]$ tal que $S=Af_1+\dots+Af_r, \forall f\in S\Rightarrow deg(f)\le max\{deg(f_i)\} \rightarrow \leftarrow$.
+
+\item $k\subseteq k(x)$ es una extensión de cuerpos f.g. pero no es una $k-$álgebra finitamente generada, aunque sí es un k-álgebra por el hecho de contener el anillo $k$.
+
+\item Un ejemplo de k-álgebra finitamente generada es $\frac{R[x_1,\dots,x_n]}{I}=R[\bar{x}_1,\dots,\bar{x}_n]$
+\end{itemize*}
+
+\textbf{Cuestión a entregar viernes 14 Octubre:} Ejercicios 1.44, 1.45.
+
+
+Sea $R\subset S$ una extensión de anillos tal que $S$ sea $R-$ módulo finitamente generado. ¿Es $S$ una $R-$álgebra finitamente generada?
+
+Sí, $S=\sum Rv_i \subset R[v_1,\dots,v_n]\subseteq S \Rightarrow S=R[v_1,\dots, v_n]$.
+
+$R[v_1,\dots,v_n]= \{\sum r_\alpha v_1^{\alpha_1}\cdots v_n^{\alpha_n}: r_\alpha \in R\}$.
+
+\section{Elementos enteros y dependencia entera}
+
+Sea $R\subset S$ extensión de anillos.
+
+\index{\texttt{Elemento entero}}
+\begin{Def}
+Un elemento $s\in S$ es \textbf{entero} sobre $R$ si $\exists 0\neq f\in R[x]$ mónico tal que $f(s)=0$.
+\end{Def}
+
+\begin{nota}
+Si $R$ y $S$ son cuerpos, un elemento $s\in S$ entero sobre $R$ es lo mismo que un elemento algebraico sobre $R$.
+\end{nota}
+
+\textbf{Ejemplo: }
+
+Sea $r\in \mathbb{Q}$ tal que $r$ sea entero sobre $\mathbb{Z}$.
+
+$r=\frac{a}{b}, gcd(a,b)=1$.
+
+$r^n+a_{n-1}r^{n-1}+\dots,a_0=0$ en $\mathbb{Q}, a_i\in \mathbb{Z} \Rightarrow a^n=-a_{n-1}ba^{n-1}+\dots,a_0b^n=0=b[a_{n-1}a^{n-1}+\dots+a_0b^{n-1}]\Rightarrow b|a^n \Rightarrow b=1 \vee b=-1$.
+
+Luego, $r=\frac{a}{b} \in \mathbb{Z}$.
+
+\begin{Prop}
+$R\subset S$ anillos, $v\in S$. Son equivalentes: 
+\begin{enumerate}
+\item $v$ entero sobre $R$.
+\item $R[v]$ es un $R-$módulo finitamente generado.
+\item $\exists R'\subseteq S$ subanillo de $S$ tal que $R[v]\subseteq R'$ y $R'$ es un $R-$módulo finitamente generado.
+\end{enumerate}
+\end{Prop}
+
+\begin{Dem}
+\framebox{$1\Rightarrow 2$} $\exists n\ge 1, v^n+a_{n-1}v^{n-1}+\dots+a_0=0, a_i\in R \Rightarrow v^m=-\sum_{i=0}^{n-1}a_iv^i$.
+
+$R[v]=\{ \sum_{m=0}^k a_mv^m: a_i\in R,i=0,\dots, k\}=Rv^0+Rv+\dots+Rv^{n-1}$ $R-$módulo.
+
+\framebox{$2\Rightarrow 3$} $R'=R[v]$.
+
+\framebox{$3\Rightarrow 1$} $R[v]\subset R' \subset S$, $R'$ es un $R-$módulo finitamente generado. $R'=Rv_1+\dots+Rv_n$, $v_i\in R'$.
+
+$v\in R'\Rightarrow v\cdot v_i\in R' \Rightarrow \sum_{j=1}^n \delta_{ij}v_j= v\cdot v_i=\sum_{j=1}^n a_{ij}v_j \Rightarrow \sum_{j=1}^n(\delta_{ij}v\cdot v-a_{ij})v_j=0 \Rightarrow (Iv-A) (v_1\cdots v_n)'=0 \Rightarrow \underbrace{det(IV-A)}_{\in R[v]\subset R}(v_1\cdots v_n)'=\vec{0} \Rightarrow_{I_{R'}=\sum b_iv_i} det(IV-A)=0 \Rightarrow v$ es entero sobre $R$
+
+\end{Dem}
+
+\begin{nota}
+$\delta$ es la delta que vale 1 o 0, kronickle.
+\end{nota}
+
+\textbf{Ejercicios viernes 14 Oct:} 1.38,1.44,1.45,1.49,1.50.
+
+$R\subset S, v\in S$, $v$ entero sobre $R \Leftrightarrow R[v]$ es $R-$módulo finitamente generado.
+
+\textbf{Ejemplo: }
+
+$R=\mathbb{Z}\subset S=R, v=\sqrt{2}$ es entero sobre $\mathbb{Z}$, ya que $v^2-2=0$, de lo que se deduce que $\mathbb{Z}[\sqrt{2}]$ es $\mathbb{Z}-$módulo, grupo abeliano, finitamente generado. En concreto $\mathbb{Z}[\sqrt{2}]=\mathbb{Z}\cdot 1+\mathbb{Z}\sqrt{2}$.
+
+
+\begin{Cor}
+Sea $R\subset S$ extensión de anillos $\Rightarrow $ el conjunto $R'$ de los elementos de $S$ que son enteros sobre $R$ es un subanillo de $S$ que contiene a $R$.
+\end{Cor}
+
+\begin{Dem}
+Todo elemento $r\in R$ es entero sobre $R$ ya que $f=x-r\in R[x]$ es mónico no nulo y $f(r)=0 \Rightarrow R\subseteq R'\subseteq S$. 
+
+Hay que probar que $\forall a,b\in R'$ se cumple $a-b\in R'$, $ab\in R'$.
+
+Como $a$ es entero sobre $R\Rightarrow R[a]$ es un $R-$módulo finitamente generado, y análogo para $b$. Si es $b$ es entero sobre $R$, entonces $b$ es entero para $R[a]\Rightarrow R[a,b]$ es $R[a]-$módulo finitamente generado $\Rightarrow R[a,b]$ es $R-$módulo finitamente generado. 
+
+$a-b,ab \in R[a,b] \Rightarrow R[a-b],R[ab]\subset R[a,b]\subset S \Rightarrow a-b,ab$ enteros sobre $R$, es decir, $a-b,ab\in R'$.
+\end{Dem}
+
+\section{Extensiones de cuerpos}
+
+Sea $k\subset L$ extensión de cuerpos finitamente generado, $L=k(v_1,\dots,v_n)$, para ciertos $v_i\in L$.
+
+Si $n=1$, $L=k(v)=\{\frac{f(v)}{g(v)}:f,g\in k[x],g(v)\neq 0 \}$.
+
+Sea $\varphi:k[x]\rightarrow L, f(x)\rightarrow f(v)$ morfismo de anillos. Por el primer teorema de isomorfia se tiene $\frac{k[x]}{ker \varphi}\cong k[v]\subseteq L$. 
+
+Caso 1: $ker \varphi = 0 \Rightarrow k[x] \cong k[v]\neq k(v)=L$, porque $k[x]\neq k(x)$. Entonces $L$ no es una $k-$álgebra finitamente generada, y tampoco es $k-$espacio vectorial de dimensión finita, y $v$ no es algebraico sobre $k$.
+
+Caso 2: $ker\varphi \neq 0 \Rightarrow ker \varphi =<f>$,  omo $k[v]$ es dominio de integridad, es un ideal primo $\Rightarrow f\in k[x]$ irreducible $\Rightarrow ker \varphi =<f>$ maximal (Por un ejercicio anterior). Entonces, $\frac{k[x]}{ker\varphi}$ es un cuerpo, luego $k[v]$ también es un cuerpo $\Rightarrow k(v)=k[v]=L$ es $k-$álgebra finitamente generada.
+
+Por otro lado, como $f\in ker\varphi \Rightarrow f(v)=0$, como $k$ es un cuerpo, puedo suponer $f\neq 0$ mónico, y se tiene que $v$ es entero (algebraico) sobre $k$.
+
+\begin{nota}
+$k(v)$ cuerpo de fracciones, menor cuerpo que lo contiene.
+\end{nota}
+
+Entonces por la proposición anterior, se tiene que $L$ es $k-$módulo finitamente generado, es decir, $k-$espacio vectorial de dimensión finita.
+
+De manera más general tenemos lo siguiente: 
+
+\begin{Prop}
+\textbf{(Zariski)} Sea $k\subset L$ extensión de cuerpos y $L$ es una $k-$álgebra finitamente generada $\Rightarrow$ $L$ es un $k-$espacio vectorial de dimensión finita y, por tanto, $L$ es algebraico sobre $k$. ($k\subset L$ extensión algebraica).
+\end{Prop}
+
+\begin{Dem}
+Se demuestra por inducción, $L=k[v_1,\dots,v_n]$ $k-$álgebra finitamente generada por $v_1,\dots,v_n\in L$.
+
+Por el razonamiento anterior lo tenemos probado para $n=1$, lo suponemos cierto para $n-1$, y lo probamos para $n$.
+
+$L=k[v_1,\dots,v_n]=k'[v_2,\dots,v_n]$ con $k'=k(v_1)$. Como $L$ es $k'-$ álgebra finitamente generada, se tiene que $L$ es un $k'-$espacio vectorial de dimensión finita. 
+
+Por otro lado, si consideramos $k'=k(v_1]), k\subset k'$ es una extensión. Si $v_1$ es algebraico sobre $k$, entonces $k'$ es $k-$ espacio vectorial de dimensión finita. 
+
+Por ambas cosas, se tendrá que $L$ es $k-$espacio vectorial de dimensión finita.
+
+Supongamos que $v_1$ no es algebraico sobre $k$. Entonces, $k'=k(v_1) \cong k(x)$. 
+
+Como $(k'(v_i)\subset)L$ es $k'-$espacio vectorial de dimensión finita. Entonces, $v_2,\dots,v_n$ son enteros, y por tanto, algebraicos sobre $k'=k(v_1) \Rightarrow (v_i)^{n_i}+a_{in}(v_1)^{n_i-1}+\dots=0,a_{ij}\in k'=k(v) \Rightarrow \exists b\in k[v_1]$ tal que $ba_{ij}\in k[v_1] \Rightarrow (bv_i)^{n_i}+a_{in_i}b(bv_i)^{n_i-1}+\dots =0 \Rightarrow bv_i$ enteros sobre $k[v_1]$.
+
+$\Rightarrow k[v_1,bv_2,\dots,bv_n]=k'[bv_2,\dots,bv_n]$ es $k[v_1]-$módulo finitamente generado. $\forall f\in k[v_1,\dots,v_n]=L, \exists N\ge 0$ tal que $b^Nf \in k[v_1,bv_2,\dots,bv_n]$ esentero sobre $k[v_1]$. Como en particular, $k(v_1)\subset L$, entonces $\forall g\in k(v_1) \cong k(x),\exists N\ge 0$ tal que $b^Ng$ es entero sobre $k[v_1]\cong k[x]$, por dos ejercicios propuestos (1.44,1.45), ésto no es posible. \qed
+\end{Dem}
+
+\textbf{Demostración del teorema débil de los ceros de Hilbert:}
+
+$I\subset m\subseteq k[\vec{x}]$, $m$ ideal maximal $\Rightarrow v(m)\subseteq V(I)$. Hay que probar que $v(m)\neq \emptyset $. 
+
+Se considera la extensión $k\subseteq L=\frac{k[x_1,\dots,x_n]}{m}$. 
+
+Si $k=L \Rightarrow \forall i=1,\dots, n, \bar{x}_i=\bar{a}_i, a_i\in k \Rightarrow x_i-a_i\in m \Rightarrow <x_1-a_1,\dots,x_n-a_n>\subseteq m$, es un ideal maximal pues $\frac{k[\vec{x}]}{<x_1-a_1,\dots,x_n-a_n>} \cong k \Rightarrow m=<x_1-a_1,\dots,x_n-a_n> \Rightarrow v(m)=\{ (a_1,\dots,a_n)\} \neq \emptyset $ .
+
+Hay que probar que $k=L$, $k\subseteq L=\frac{k[x_1,\dots,x_n]}{m}$ cuerpo y k-álgebra finitamente generada $\xrightarrow{\text{Prop}} k\subseteq L$ extensión algebraica. $k$ algebraicamente cerrado $\Rightarrow L=k$.
+\vspace{2mm}
+
+
+\textbf{Problema 1.25:} (b) $V(y^4-x^2,y^4-x^2y^2+xy^2-x^3)$
+
+\underline{\textit{Solución: }}
+
+$(y^2-x)(y^2+x)$.
+
+Si $x=y^2\rightarrow y^4-y^6+y^4-y^6 =0 \rightarrow (y=0 \rightarrow x=0 \rightarrow (0,0)) \text{ ó } (y=+-1 \rightarrow x=1 (1,+-1))$.
+
+$x=-y^2$ no añade ninguna condición.
+
+$W=V(x+y^2)\cup \{(1,1)\}\{(1,-1)\}$ tres componentes irreducibles.
+
+\vspace{2mm}
+
+\textbf{Problema 1.26: } \textit{Probar que $F=y^2+x^2(x-1)^2$ es irreducible en $\mathbb{R}[x,y]$, pero $V(F)$ es reducible.}
+
+\underline{\textit{Solución: }}
+
+$F=(y-ix(x-1))(y+ix(x-1))$ factorización en $\mathbb{C}[x,y]$, es un dominio de factorización única, y vemos que eso implica que es irreducible en $\mathbb{R}[x,y]$ pues multiplicando por escalares, mantenemos algún elemento complejo.
+
+$y^2+x^2(x-1)^2=0 \Rightarrow y=0 \wedge [x=0 \vee x=1] \Rightarrow V(F)=\{(0,0),(1,0)\}.$
+
+\vspace{2mm}
+\textbf{Problema 1.27: } \textit{Sean $V,W\subseteq \mathbb{A}^n$ conjuntos algebraicos, $V\subseteq W$. Probar que cada componente irreducible de $V$ está contenida en una componente irreducible de $W$.}
+
+\underline{\textit{Solución: }}
+
+$V_i\subseteq W \Rightarrow V_i=(V_i\cap W_i)\cup \cdots \cup (V_i\cap W_r) \Rightarrow V_i= V_i\cap W_i \vee V_i = \cup_{j=2}^r(V_i\cap W_j) \Rightarrow \exists j  | v_i=W_j\cap V_i \Rightarrow V_i\subseteq W_j$.
+
+\vspace{2mm}
+\textbf{Problema 1.28: } Si $V=V_1\cup \cdots \cup V_r$ es la descomposición de $V$ en conjuntos algebraicos irreducibles hay que probar que $V_i \not \subset \cup_{j\neq i}V_j$.
+
+\underline{\textit{Solución: }}
+
+Reducción al absurdo: Si $V_i\subseteq \cup_{j\neq i}V_j \Rightarrow \exists j\neq i | V_i \subseteq V_j \rightarrow \leftarrow $.
+
+\vspace{2mm}
+\textbf{Problema 1.29: } $k$ infinito $\Rightarrow \mathbb{A}^n(k)$ irreducible.
+
+\underline{\textit{Solución: }}
+
+$I(\mathbb{A}^n)= \{F\in k[\vec{x}] | F(a_1,\dots,a_n)=0\}$ pero por un problema $F=0 \Rightarrow =<0>$ que es primo, y se tiene que $\mathbb{A}^n $ irreducible.
+
+\vspace{2mm}
+\textbf{Problema 1.32:}
+
+\underline{\textit{Solución: }}
+$I=<x^2+1>\subset R[x], V(I)=\emptyset $.
+
+$J=<x^2(x-1)^2+y^2>\subseteq \mathbb{R}[x,y]$ primo, $V(J)=\{(0,0)\}\cup \{(1,0)\}$ reducible.
+
+\vspace{2mm}
+\textbf{Problema 1.33:} \textit{(a) Descomponer $V(x^2+y^2-1,x^2-z^2-1)\subseteq \mathbb{A}^3(\mathbb{C})$.}
+
+\underline{\textit{Solución: }}
+
+(a) $f-g=(y-iz)(y+iz) \Rightarrow W=V(y+iz,x^2-z^2-1)\cup V(y-iz,x^2-z^2-1)$. Para ver que es irreducible, como estamos en un cuerpo algebraicamente cerrado, basta ver que $IV(\cdot)=\sqrt{<y+iz,x^2-z^2-1>}$. 
+
+$\frac{\mathbb{C}[x,y,z]}{<y+iz,x^2-z^2-1>} \sim \frac{\mathbb{C}[x,z]}{<x^2-z^2-1>}$ ddi. Lo prueba el ejercicio siguiente.
+
+\textbf{Problema 1.34: } \textit{Sea $R$ un dominio de factorización única:}
+\begin{enumerate}
+\item \textit{Probar que un polinomio mónico de grado 2 o 3 en $R[X]$ es irreducible si y sólo si no tiene raices en $R$.}
+\item El polinomio $x^2-a$ en $R[x]$ es irreducible $\Leftrightarrow a=b^2$ para algún $b\in R$. 
+\end{enumerate}
+
+\underline{\textit{Solución: }}
+
+\begin{enumerate}
+\item $f\in R[x], deg(f)=2 \vee deg(f)=3, f$ mónico. $f$ reducible $\Rightarrow f=(cx+d)g$ con $g$ de grado 1 o 2. $\Rightarrow $ el coeficiente lider de $g$ $b$, $cb=1 \Rightarrow  c$ unidad en $R$ $\Rightarrow x=c^{-1}d\in R$ y es raíz de $f$.
+
+$f$ tiene raíz $a\in R \Rightarrow f(a)=0, f=q(x-a)+r \Rightarrow r=0 \Rightarrow f=q(x-a)$ y por lo tanto, es reducible.
+
+\item $\exists b \in R$ tal que $b^2-a=0$
+\end{enumerate}
+
+\textbf{Problema 1.37: } Sea $k$ un cuerpo, $F\in k[x]$ polinomio de grado $n>0$. Hay que probar que $\{\bar{1},\dots,\bar{X}^{n-1}\}$ base de $\frac{k[\vec{x}]}{<F>}$.
+
+\underline{\textit{Solución: }}
+
+Puedo suponer $F$ mónico ya que $<F>=<cF>, \forall c \in k$.
+
+$\bar{F}=\bar{0}$ en $A$ $\Rightarrow \bar{X}^n=\bar{X^n}=\bar{-a_{n-1}x^{n-1}-\dots -a_0}$ k espacio vectorial generado por $B$.
+
+Por inducción, todas las potencias de $\bar{X}$ se pueden expresar de esa manera. 
+
+Veamos que son linealmente independientes: Supongo $\exists \lambda_i\in k$ tal que $\sum_{i=0}^{n-1}\lambda_i\bar{x}^i=\bar{0}$ en $A \Rightarrow \sum_{i=0}^{n-1}\lambda_ix^i\in <F> \Rightarrow \sum_{i=0}^{n-1}\lambda_ix^i=FQ \rightarrow \leftarrow \Rightarrow \lambda_i=0, \forall i$.
+

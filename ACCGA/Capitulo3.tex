@@ -1,0 +1,335 @@
+\chapter{Propiedades locales de curvas planas}
+
+\section{Puntos múltiples y lineas tangentes}
+
+Sabemos que el conjunto de las curvas planas se puede identificar con hipersuperficies de $\mathbb{A}^2$, que a su vez se puede poner en correspondencia biunívoca con ideales generados por un único elemento $I=<F>$, con $F$ irreducible.
+
+\begin{Def}
+Una curva es la clase de un polinomio $F$ no constante, módulo la multiplicación por constantes de $k[x,y]$. 
+\end{Def}
+
+\begin{Def}
+Sea $F\in k[x,y]$ una curva , y (como $k[x,y]$ DFU) $F=\prod_{i=1}^l F_i^{e_i}$ su factorización en factores irreducibles. Llamamos componentes irreducibles de $F$ a los $F_i$ y $e_i$ las multiplicidades. 
+\end{Def}
+
+\begin{nota}
+$V(F)=V(F_1)\cup \cdots \cup V(F_e)$
+\end{nota}
+
+\begin{nota}
+Si $F$ es irreducible, entonces $V(F)$ es una variedad afín. Llamaremos $\Gamma(F)=\Gamma(V(F))=k[x,y]/<F>$. $O(F)=Q(\Gamma(F))$ conjunto de las funciones racionales de $F$. $O_P(F)$ el conjunto de las funciones racionales definidas en $P$. 
+\end{nota}
+
+
+\textbf{Ejemplos:}
+
+\begin{itemize*}
+\item $Y-X^2$
+\item $Y^2-X^3$
+\item $Y^2-X^3-X$
+\item $Y^2-X^3-X^2$
+\item $(X^2+Y^2)^3-4X^2Y^2$
+\end{itemize*}
+
+\index{\texttt{Punto simple}}
+\index{\texttt{Punto singular}}
+\begin{Def}
+Sea $F$ una curva y $P=(a,b)\in F$. Decimos que $P$ es \textbf{simple} si $\frac{\partial F}{\partial x}(P) \neq 0$ ó $\frac{\partial F}{\partial y}(P) \neq 0$. En caso contrario, se llama \textbf{singular}. 
+\end{Def}
+
+\index{\texttt{Recta tangente}}
+\begin{Def}
+Si $P$ es simple, la recta $\frac{\partial F}{\partial x}(P)(x -a)+ \frac{\partial F}{\partial y}(P)(y-b)=0$ se llama la \textbf{recta tangente}. 
+\end{Def}
+
+
+\begin{Def}
+Sea $F$ una curva , y $P=O=(0,0)$. $F$ se puede escribir como $F=F_m+F_{m+1}+\cdots + F_n$ formas de grado $i$, $F_m\neq 0$. Se define la multiplicidad de $F$ en $P$ como $m_P(F)=m$. 
+\end{Def}
+
+\begin{nota}
+$P\in F \Leftrightarrow m_P(F)>0$. 
+\end{nota}
+
+\begin{nota}
+El punto $P\in F$ es simple (ó regular) si y sólo si $m_P(F)=1$. 
+\begin{Dem}
+\framebox{$\Rightarrow $} $P\in F$ simple. $F=F_1+F_2+\cdots = (aX+bY)+ \text{ formas de grado superior }$. Sabemos que $\frac{\partial F}{\partial X}(0,0)$ ó $\frac{\partial F}{\partial Y}$ son no nulas. $\frac{\partial F}{\partial X} (0,0) = a, \frac{\partial F}{\partial Y}(0,0)=b \Rightarrow F_1\neq 0 \Rightarrow m_P(F)=1$. 
+\framebox{$\Leftrightarrow $} Trivial \qed
+\end{Dem}
+\end{nota}
+
+
+Si $P$ es simple, $F_1$ es exactamente la recta tangente a $F$ en $P$. 
+
+
+\begin{Def}
+Sea $P=O=(0,0)$, $F$ una curva y 
+$$F=F_m+\cdots +F_n, \text{, descomposición en formas } f_n\neq 0$$
+Entonces, $F_m= \prod_i L_i^{r_i}$, y llamamos a cada $L_i$ recta tangente con multiplicidad $r_i$. 
+\end{Def}
+
+\textbf{Ejemplos: }
+\begin{itemize*}
+\item $F=Y-X^2$, la recta tangente es $Y=0$. 
+\item $F=Y^2-X^3$, la recta tangente es $Y=0$ con multiplicidad 2. 
+\item $F= Y^2-X^3-X^2= \underbrace{Y^2-X^2}_{F_2=(X+Y)(X-Y)}-X^3$, hay dos rectas tangentes. 
+\end{itemize*}
+
+
+\begin{Def}
+Si $F=F_m+\cdots + F_n$ tiene $m>1$ tangentes distintas. Se llama punto \textbf{múltiple} o singular ordinario, y si $m=2$ se llama \textbf{nodo}. Si tiene exactamente una tangente de multiplicidad $m>1$, se llama una \textbf{cúspide}. 
+\end{Def}
+
+\begin{Prop}
+Sea $F=\prod F_i^{e_i}$, descomposición en factores irreducibles, $P=O=(0,0)$. Entonces $m_P(F)=\sum e_i\cdot m_P(F_i)$. 
+\end{Prop}
+
+\begin{Dem}
+Idea: $F_i= F^{(i)}_{m_i}+\cdots F_{n_i}^{(i)}$, $m_P(F_i)=m_i$. $F=\prod F_i^{e_i} = (F_{m_1}^{(1)})^{e_1}\cdots (F_{m_l}^{(l)})^{e_l}+$ elementos de grado superior. Por lo tanto, la multiplicidad es la suma $m_P(F)=e_1m_1+\dots + e_lm_l$ \qed
+\end{Dem}
+
+\begin{Cor}
+Sea $P=O=(0,0)\in F$. $P$ es simple si y sólo si $P$ pertenece a exactamente una componente irreducible de $F$, $F_i$. Además, $F_i$ es una componente simple $(e_i=1)$. $P$ es simple en $F_i$. 
+\end{Cor}
+
+\begin{Def}
+Sea $P=(a,b)$ y sea $F$ una curva. Sea $T$ la traslación que lleva $O=(0,0)$ en $P=(a,b)$. $T:\mathbb{A}^2 \rightarrow \mathbb{A}^2$, donde $T=(X+a,Y+b)$. La curva trasladada es $F^T=F(X+a,Y+b)$, y la multiplicidad $m_P(F)= m_O(F^T)$. 
+\end{Def}
+
+\textbf{Ejemplo: }
+
+Sea $Y-X^2 \ni (1,1)$. $m_{(1,1)}F = m_{(0,0)}F^T = 1$, con $F^T=F(X+1,Y+1)=(Y+1)-(X+1)^2 = Y-X^2-2X$. 
+
+\vspace{3mm}
+En la situación anterior,  $G=F^T=G_m+\dots +G_n$, $G_m=\prod L_i^{r_i}, L_i=\alpha_iX + \beta_i Y$, y las rectas tangentes a $F$ en $P$ son $\alpha_i(X-a)+\beta_i(Y-b)$ con multiplicidad $r_i$. 
+
+\textbf{Problema 3.5:} Probar que $m_P(F)$ es el menor entero $m$ tal que para algún $i+j=m$, $\frac{\partial^m F}{\partial x^i \partial y^j}(P) \neq 0$.  Encuentra una descripción para la forma lider de $F$ en $P$ en término de sus derivadas. 
+
+\underline{\textit{Solución:}}
+Supongamos $P=(0,0)$. $F= F_m+\cdots + F_n$, sabemos que existen $i+j=m$ de manera que $F_m=aX^iY^j+ \cdots $. Y se tiene que $\frac{\partial^m F}{\partial x^i \partial y^j}(P)(0,0)=a$. El resto trivial. 
+
+\textbf{Problema 3.3: } Sea $F$ una curva $deg(F)=n$. Si $F$ tiene un punto $P$ de multiplicidad $n$. Entonces $F$ es la unión de $n$ rectas (no necesariamente distintas). 
+
+\underline{\textit{Solución:}}
+
+Sea $F=F_m+\dots + F_n$ descomposición en formas. Consideramos que $P$ es el origen. $n$ es el grado y $m$ es $m_p(P)$. $m=n \Rightarrow F$ es una forma de grado $n$, por lo tanto factoriza como producto de formas lineales. $F=F_n = \prod_{i=1}^k L_i^{r_i}$ con $r_1+\dots + r_k=n$. Por lo tanto, $F$ es la unión de las rectas $L_i$ con multiplicidad $i$. 
+
+\section{Multiplicidad y anillo local}
+
+El objetivo de esta sección es poder leer $m_P(F)$ en $O_p(F)$.
+Notación: Sea $F$ una curva, y $\Gamma(F) = k[x,y]/<F>$, si $G\in k[x,y]$ denotamos por $g=G+<F> \in \Gamma(F)$ y cuando haga falta, $g/1\in O_p(F)$. 
+
+\begin{Teo}
+Sea $F$ una curva, y $P$ un punto de $F$. $P$ es un punto simple si y sólo si $O_P(F)$ es un anillo de valoración discreta. En este caso, si $L$ es una recta que pasa por $P$ y no es tangente a $F$ (en $P$), entonces $l/1$ (la imagen de $l=L+<P>$ en $O_P(F)$) es un parámetro de uniformización de $O_P(F)$. 
+\end{Teo}
+
+\begin{Dem}
+\framebox{$\Rightarrow $} Cambio de coordenadas convirtiendo $P=O=(0,0)$, $L=x$ y que la tangente (al ser $P$ punto simple, es único) a $F$ en $P$ tenga ecuación $y=0$. Sabemos que $O_P(F)\cong O_P(\mathbb{A}^2)/ FO_P(\mathbb{A}^2)$, veamos cual es el ideal maximal de $O_P(F)$ que denotaremos por $m_P$, el ideal maximal $m$ de $O_P(\mathbb{A}^2)$ es $<x/1,y/1>$, y por lo tanto, $m_P=<x/1,y/1>$ y lo que tenemos que probar es que $m_P=<x>$. Consideramos $F=Y+$ términos de grado mayor que 1. Entonces, se puede escribir $F=YG-X^2H$ , donde $G=1+\cdots, H\in k[x]$. $G(P)\neq 0$, por lo tanto podemos tomar $yg-x^2h$ en $\Gamma(F)=k[x,y]/<F>$, y en ese ambiente, $yg-x^2h=0$, y podemos despejar, tomando $yg=x^2h \Rightarrow \frac{y}{1}\frac{g}{1}=\frac{x^2}{1}\frac{h}{1}$ en $O_P(F)\ni \frac{1}{g}$, pues $g\neq 0$, y queda $\frac{y}{1}=\frac{x^2}{1}\frac{h}{1}\frac{1}{g}$ y se tiene que $m_p=<\frac{x}{1},\frac{y}{1}>=<x>$.  \qed
+\end{Dem}
+
+\textbf{Ejemplo: } $y=x^2$, $p=(0,0)$, y se tiene que $y=x^2$ en $\Gamma(F)$ y por tanto, $y/1=x^2/1$ en $O_P(F)$. Entonces, $m_p<\frac{x}{1},\frac{y}{1}>=<\frac{x}{1}>$
+
+
+\begin{nota}
+Si el ideal maximal está generado por un solo elemento, es un anillo de valoración discreta. 
+\end{nota}
+
+
+\begin{nota}
+El orden está relacionado a la recta tangente, la caracteriza. 
+\end{nota}
+
+\begin{Cor}
+Sea $P$ un punto simple de $F$, ($F$ irreducible) y $L$ una recta que pasa por $P$. Entonces $ord_P^F(l)=1$ si y sólo si $L$ no es tangente a $F$ en $P$. Y $ord^F_P(l)>1$ si y sólo si $L$ tangente a $F$ en $P$. 
+\end{Cor}
+
+\begin{Dem}
+Usando el mismo cambio de coordenadas del teorema anterior. $Y=0$ es la recta tangente, y $L$ no tangente tiene ecuación $X=0$. Entonces $ord_P^F(x/1)=1, ord_P^F(y/1)=ord_P^F(\frac{x^2}{1}\frac{h}{1}\frac{1}{g})= ord_P^F(x^2)+ord_P^F(\frac{h}{g}) \ge 2$.  \qed
+\end{Dem}
+
+\begin{nota}
+En general, si $F$ no es irreducible, no tiene sentido hablar de $ord_P^F$ (ni si quiera está definillo el anillo local). Pero si $P\in F$ es simple, entonces $P$ pertenece a exactamente una componente irreducible, y definimos $ord_P^F(L):= ord_P^{F_i}(L)$.
+\end{nota}
+
+\begin{Teo}
+$F$ una curva irreducible, $P$ un punto. Para $n$ suficientemente grande, $$m_P(F)=dim_k(m_P^n/m_P^{n+1}),$$
+donde $m_P$ es el ideal maximal de $O_P(F)$. 
+\end{Teo}
+
+\begin{Dem}
+Sea $P=(0,0)$, $O=O_P(F)$, y denotamos $m_P(O_P(F))=m$, $m'=m_P(F)$. La sucesión de espacios vectoriales:
+$$0 \rightarrow m^n/m^{n+1} \rightarrow \underbrace{O/m^{n+1} \rightarrow O/m^{n} \rightarrow 0}_{(*1)} $$
+es exacta. Veamos que es exacta:
+
+$O \rightarrow O/m^n \rightarrow 0$, $m^{n+1}\subset m^n$, y por lo tanto está contenido en el núcleo, luego $(*1)$ es trivialmente exacta.  Ver demostración en la sección 2.9. Son subespacios de dimensión finita, y por lo tanto, $dim (m^n/m^{n+1}) = dim_k (O/m^{n+1})-dim_k(O/m^n)$. 
+
+Queremos calcular $dim_k(O/m^n)$ para $n>>0$. 
+
+Observamos que es suficiente demostrar que para $n>>0$, $dim (O/m^n)=n\cdot m'+s$ con $s$ constante. En ese caso, $dim_k(m^n/m^{n+1}) = (n+1)m'+s-(nm'+s)=m'$. Por la sección 2.9 y el problema 2.44. Tenemos:
+
+$O_P/m^n = O_p(F)/m^n \cong O_P(F)/I^n O_P(F) \cong O_P(\mathbb{A}^2)/<I^n,F>O_P(\mathbb{A}^2) \cong k[X,Y]/<I^n,F>$, con $I=<X,Y>\subseteq k[X,Y]$. (La última isomorfía se tiene por tener una cantidad finita de puntos). 
+
+$F=F_{m'}+\dots$, si tomamos $G\in I^{n-m'} \Rightarrow FG\in I^n$.  Consideramos $k[X,Y]/<I^n,F>$, es dificil calcularlo, pero sí conocemos $k[X,Y]/I^n$ que está contenido en el otro. Y podemos construir la siguiente sucesión exacta:
+$$ k[X,Y]/I^{n+m'}\xrightarrow{\psi} k[X,Y] /I^n \xrightarrow{\varphi} k[X,Y]/<I^n,F> \rightarrow 0 $$
+
+$\varphi(G+I^n) = G+<I^n,F>$, y $\psi(G+I^{n-m'})= GF+I^n$
+
+Para probar que es exacta, hay que probar:
+
+\begin{itemize*}
+\item $\varphi$ es sobreyectiva (Que lo tenemos).
+\item $\psi$ inyectiva: $\psi (H+I^{n-m'}) = \underbrace{HF}_{\text{Todo monomio de } HF \text{ tiene grado } \ge n (*2)} +I^n = 0 + I^n$, $(*2)$ implica que todo monomio de $H$ tiene grado $\ge n-m'$, y por lo tanto es $0$ en el cociente por $I^{n-m'}$. 
+\item $im \psi = ker \varphi$ 
+
+\framebox{$\subseteq $} Es equivalente a que $\varphi \circ \psi = 0$, y es trivial, pues $\varphi \circ \psi (G+I^{n-m})=\varphi(GF+I^n)=GF+<I^n,F>= \bar{0}$. 
+
+\framebox{$\supseteq $} $H+I^n$ tal que $\varphi(H+I^n)=0 \Leftrightarrow H+<I^n,F>=0 \Leftrightarrow H\in <I^n,F> \Leftrightarrow H= A+BF$, donde $A \in I^n$. Tomamos $\psi(B+I^{n-m}) = BF+I^n=A+BF+I^n=H+I^n$ 
+\end{itemize*} 
+
+Por lo tanto, podemos tomar $dim_k k[X,Y]/<I^n,F> = dim_k k[X,Y]/I^n - dim_k k[X,Y]/I^{n-m} = \frac{n(n+1)}{2}-\frac{(n-m)(n-m+1}{2}=nm-\underbrace{\frac{m(m+1)}{2}}_{cte=s}$ \qed
+\end{Dem}
+
+\begin{Cor}
+El recíproco del teorema 1.
+\end{Cor}
+
+\begin{Dem}
+Por el problema 2.50, si $O_P(F)$ es AVD, entonces $dim_k(m^n/m^{n+1})=1$, y por el teorema 2, $m_P(F)=1$ y se tiene que $P$ es simple. \qed
+\end{Dem}
+
+\begin{nota}
+Cuando hablamos de $n$ suficientemente grande, basta que sea mayor o igual que $m_P(F)$.
+\end{nota}
+
+\textbf{Problema 3.13: } Con la notación del teorema, $m=m_P(F)$. Hay que probar que $dim_k(m^n/m^{n+1})=n+1$ para $0\le n <m_P(F)$. En particular, el punto $P$ es simple si y sólo si $dim_k(m/m^2)=1$, y no es simple si es mayor o igual que 2. 
+
+\underline{\textit{Solución:}}
+
+$n\le m'$, el ideal $<I^n,F>=<I^n>$, y así, $O/m^n \cong k[X,Y]/<I^n,F> =k[X,Y]/<I^n>$. Y tenemos,
+$$0 \rightarrow m^n/m^{n+1} \rightarrow O/m^{n+1} \rightarrow O/m^{n} \rightarrow 0, $$
+$d=\frac{(n+1)(n+2)}{2}-\frac{n(n+1)}{2}=n+1$.
+
+
+\section{Número de intersección}
+
+Como la definición de número de intersección es poco intuitiva, se dará una serie de propiedades que justifiquen la definición. 
+
+\begin{enumerate}
+\item $I(P,F\cap G)\in \mathbb{Z}_{\ge 0}$ para cualesquiera curvas $F,G$ que se intersequen propiamente en $P$ (i.e. que no tengan ninguna componente (irreducible) común sobre $P$). $I(P,F\cap G)=\infty$ si no se intersecan propiamente en $P$. 
+
+\item $P\not \in F\cap G \Leftrightarrow I(P,F\cap G)=0$. $I(P,F\cap G)$ sólo depende de las componentes irreducibles de $F$ y $G$ que pasan por $P$. En particular, si $F,G$ son constantes no nulas $I(P,F\cap G)=0$. 
+
+\item Si $T$ es un cambio de coordenadas con $T(Q)=P$, $I(P,F\cap G)=I(Q,F^T\cap G^T)$. 
+
+\item $I(P,F\cap G) = I(P,G\cap F)$. 
+
+\item $I(P,F\cap G)\ge m_P(F)\cdot m_P(G)$. E igualdad si y solo si $F$ y $G$ no poseen tangentes comunes en $P$. En particular, $I(P,F\cap G)=1$ si y sólo si $P$ es simple para $F$ y $G$ y las tangentes son distintas.
+
+\item $F=\prod F_i^{r_i}$, $G=\prod G_j^{s_j}$, entonces $I(P,F\cap G)=\sum r_i s_j I(P,F_i\cap G_j)$.   
+
+\item $I(P,F\cap G)= I(P, F\cap (G+AF)), \forall A \in k[x,y]$. Es decir, $I(P,F\cap G)$ sólo depende de la imagen de $G$ en $\Gamma(F)=k[x,y]/<F>$. 
+\end{enumerate}
+
+\begin{Teo}
+Existe un único número definido para $P,F,G$ arbitrarios que verifica las propiedades (1-7) y viene dado por $I(P,F\cap G)=dim_k O_P(\mathbb{A}^2)/<F/1,G/1>$. 
+\end{Teo}
+
+\begin{Dem}
+\framebox{Unicidad} Queremos probar que las propiedades (1-7) determinan unívocamente  $I(P,F\cap G)$. Por la propiedad 3, podemos suponer que $P=(0,0)$. Por la propiedad 1, el caso $I(P,F\cap G)= \infty$ está determinado. Por la propiedad 2, $I(P,F\cap G)=0$ está determinado. 
+
+Procedemos a demostrar el resto de casos por inducción (fuerte): suponemos que $I(P,F\cap G)=n$ y la hipótesis es que $I(P,A\cap B)$ está unívocamente determinado para cualesquiera $A,B$ con $I(P,A\cap B)<n$. 
+
+Sean $r= deg(F(X,0))$ y $s=deg(G(X,0))$. Podemos suponer por la propiedad 4 que $r\le s$. \underline{Si $r=0$}, entonces $y|F(X,Y) \Rightarrow F=Y\cdot H$. Por la propiead 6, $I(P,F\cap G)=I(P,Y\cap G)+I(P,H\cap G)$. Ponemos $G(X,0)= X^m(a_0+a_1X+\cdots )$, y ocurre por la propiedad 7 que $I(P,Y\cap G)=I(P,Y\cap G(X,0))=_{P.6}\underbrace{I(P,Y\cap X^m)}_{=m\underbrace{I(P,Y\cap X)}_{P.5}= m}+\underbrace{I(P,Y\cap (a_0+a_1X+\cdots))}_{=0}$. Y llegamos a la conclusión de que $I(P,F\cap G)=I(P,Y\cap G)+I(P,H\cap G)=\underbrace{m}_{>0}+\underbrace{I(P,H\cap G)}_{<I(P,F\cap G)}$, y se aplica inducción. 
+
+\underline{ Si $r>0$}, podemos suponer que $F(X,0)$ y $G(X,0)$ son mónicos. Definimos $H:= G-X^{s-r}F$, y sabemos por la propiedad 7 que $I(P, F\cap G)=I(P,G-X^{s-r}F\cap F)$, y $H$ tiene grado estrictamente menor que $G$, $deg(H(X,0))<s$. Se repite el proceso hasta caer en el caso $r=0$, intercambiando si es necesario el orden.
+
+\framebox{Existencia} Definimos $I(P,F\cap G)=dim_k O_P(\mathbb{A}^2)/<f,G>$. La propiedad 4 se cumple porque no importa el orden en el ideal. La propiedad 7 se tiene sustituyendo $G$ por $AF$. La propiedad 2 se tiene porque si $p\notin G\cap F \Rightarrow p\notin F \vee p  \notin G \Rightarrow $ (por ejemplo no está en $F$), entonces $F$ una unidad y $<F,G> = O_P(\mathbb{A}^2)$ y $I(P,F\cap G)=0$. 
+Sólo depende de las componentes irreducibles que pasan por $P$, $F=F_1F_2$ con $p\notin F_2$. $O_P(\mathbb{A}^2)\ni F=F_1\underbrace{F_2}_{\text{Unidad}}$. 
+
+La propiedad 3 también es evidente, pues si $T$ es un cambio de coordenadas, induce un isomorfismo de anillos locales $T:O_Q(\mathbb{A}^2)\rightarrow O_P(\mathbb{A}^2)$, $\frac{H}{L} \rightarrow \frac{H^T}{L^T}$, entonces $O_P(\mathbb{A}^2)/<F,G> \cong O_Q(\mathbb{A}^2)/<F^T,G^T>$. Podemos a partir de ahora usar $P=(0,0)$. 
+
+Demostremos la propiedad 1, supongamos que $F$ y $G$ tienen una componente común sobre $P$, existe $H$ tal que $H(P)=0$ tal que $H|F$ y $H|G$. Eso quiere decir que $<F,G>\subseteq <H>$. Y por tanto, $<F/1,G/1> \subseteq <H/1>$ como ideales de $O_P(\mathbb{A}^2)$. Y tenemos la siguiente sucesión exacta de anillos, por lo tanto de espacios vectoriales:
+$$O_P(\mathbb{A}^2)/<F,G> \rightarrow O_P(\mathbb{A}^2)/<H> \rightarrow 0 $$
+
+Y se tiene que $dim_k O_P(\mathbb{A}^2)/<F,G> \ge dim_k \underbrace{O_P(\mathbb {A}^2)/H}_{\cong O_P(H)}=_{O_P(H)\supset \Gamma(H)}=\infty$, por el corolario 4 del Nulstellenstaz. Se usa que $H$ tiene un conjunto infinito de puntos, pues no es constante. 
+
+Si $F$ y $G$ no tienen componentes comunes sobre $P$, entonces $dim_k (O_P(\mathbb{A}^2)/<F,G>)=dim_k (k[x,y]/<F,G>)<\infty $. 
+
+Demostremos la propiedad 6, basta con probar $I(P,F\cap GH) =I(P,F\cap G)+I(P,F\cap H)$. Tenemos que $<F,GH>\subseteq <F,G>$ (denotemos $O=O_P(\mathbb{A}^2)$), entonces necesitamos la sucesión exacta:
+$$ 0 \rightarrow O/<F,H>\xrightarrow{\psi} O/<F,GH> \xrightarrow{\varphi} O/<F,G> \rightarrow 0 $$
+
+$\varphi(t+<F,GH>)=t+<F,G>$ bien definida y sobreyectiva.
+
+$\psi(t+<F,H>) = tG+ <F,GH>$. Hay que ver que $\psi$ es inyectiva y que $Im \psi = ker \varphi$. 
+
+Veamos que $\psi$ inyectiva:
+
+$\psi(t+<F,H>)=0+<F,GH> \Rightarrow tG= uF+vGH$, donde $u,v\in O$. Existe un polinomio $S\in k[x,y]$, $S(P)\neq 0$, así que $Su=A\in k[x,y]$, $sv=B\in k[x,y]$ y $st=C \in k[x,y]$ , entonces $stG=SuF+SvGH \Rightarrow CG=AF+BGH \Rightarrow G(C-BH)=AF$ en $k[x,y]$. Como $F$ y $G$ no tiene componentes comunes, entonces $F|(C-BH) \Rightarrow C-BH=DF \Rightarrow C=DF+BH$, dividimos por $S$ y tenemos $t = C/S = (D/S)F+(B/S)H  \Rightarrow \bar{t}=0$. 
+
+Falta ver que $im \psi = ker \varphi$:
+
+\framebox{$\subseteq$} $\varphi \circ \psi = 0$, y se tiene porque $\varphi \circ \psi (t+<F,H>) = \varphi(tG+<F,GH>)=tG+<F,G>=0$. \framebox{$\supseteq $} Sea $z+<F,GH>\in ker \varphi \Rightarrow z+<F,G> = 0 \Rightarrow z = uF +vG \Rightarrow \psi(v+<F,H>) = vG+<F,GH> = z+<F,GH>$. 
+
+Falta probar la propiedad 5, $I(P,F\cap G)\ge m_P(F)m_P(G)$, y se da la igualdad si y sólo si $F$ y $G$ no tienen tangentes comunes en $P$. 
+
+Llamamos $m=m_P(F),n=m_P(G), O=O_P(\mathbb{A}^2)$, y consideramos $I=<x,y> \subseteq k[X,Y]$. 
+
+Sabemos que $<F,G>\subseteq <I^{m+n},F,G>$, entonces tiene sentido considerar
+
+DIAGRAMA PÁGINA 54
+
+donde $\varphi, \pi, \alpha$ son los homomorfismos naturales y $ \psi$ se define por $\psi(A+I^n,B+I^m),=\psi(\bar{A},\bar{B})=\bar{AF+BG}=AF+BG+I^{m+n}$.
+
+Hay que ver que la sucesión de arriba es exacta, para ello hay que probar que $ker \varphi =Im \psi$:
+\framebox{$\supseteq $ } $\Leftrightarrow \varphi \circ \psi = 0$.
+
+\framebox{$\subseteq$ } $H+I^{m+n}$ tal que $\varphi(\bar{H})=\bar{0} \Leftrightarrow H\in <I^{n+m},F,G> \Leftrightarrow H=H_1+AF+BG, H_1\in I^{n+m}, \psi(A+I^n,B+I^m)=AF+BG+I^{m+n}=(AF+BG+H_1)+I^{n+m}$.
+
+Por lo tanto el diagrama es exacto. 
+
+$dim (ker \varphi) =dim(Im \psi) \le dim (k[X,Y]/I^n)+ dim(k[X,Y]/I^m)$, y se da la igualdad si y sólo si $\psi$ es inyectiva. 
+
+$dim(k[X,Y]/<I^{n+m},F,G>=dim (k[X,Y]/I^{m+n})-dim(ker \varphi)$.
+
+$dim(O_P(\mathbb{A}^2)/<F,G> \ge_{(*1)} dim (O/<I^{n+m},F,G>)=dim (k[X,Y]/<I^{m+n},F,G> = dim(k[X,Y]/I^{n+m})-dim(ker \varphi) \ge_{(*2)} dim (k[X,Y]/I^{n+m})-dim(k[X,Y]/I^n)-dim(k[X,Y]/I^m)=m\cdot n$. 
+
+Falta ver cuándo se da la igualdad. Se da si $\pi $ es isomorfismo, que da la igualdad $(*1)$ , o de manera equivalente si y sólo si $I^{n+m} \subset <F,G>$, y se tiene $(*2)$ si y sólo si $\psi$ es inyectiva. (Ejercicio) \qed
+\end{Dem}
+
+\begin{Lem}
+En las condiciones anteriores:
+\begin{enumerate}
+\item $F,G$ no tienen tangentes comunes en $P$, entonces $I^t\subset <F,G>O$ para todo $t\ge m+n-1$. 
+\item $\psi$ es inyectiva si y sólo si $F,G$ no tienen tangentes comunes en $P$.
+\end{enumerate}
+\end{Lem}
+
+\begin{Dem}
+Ejercicio. 
+\end{Dem}
+
+\textbf{Ejemplo:}
+
+$F=X^2-Y^3$, tiene dos ramas. 
+
+Tomamos $G=X$. $I(P,F\cap G)=I(P,X^2-Y^3\cap X)=I(P,Y^3\cap X)=3I(P,Y\cap X)=3$, porque no tienen tangentes comunes. 
+
+Tomamos ahora la horizontal. $I(P,F\cap H)=I(P,X^2-Y^3\cap Y)=I(P,X^2\cap Y)=2$.
+
+\textbf{Ejemplo: }
+
+$I(P,E\cap F)$, donde $E=(X^2+Y^2)^2+3X^2Y-Y^3$, y $F=(X^2+Y^2)^3-4X^2Y^2$. 
+
+Las tangentes de $E$:
+
+$E_3=(3X^2-Y^2)Y=Y(\sqrt{3}X-Y)(\sqrt{3}+Y)$ tomando los monomios de menor grado.
+
+$F_4=X^2Y^2$. 
+
+Por lo tanto que la multiplicidad va a ser mayor que $3\cdot 4=12$. 
+
+$I(P,E\cap F)=I(P,F-(X^2+Y^2)E\cap E)=I(P,-4X^2Y^2-(X^2+Y^2)Y(3X^2-Y^2)\cap (X^2+Y^2)^2+(3X^2-Y^2)Y)=I(P,Y(-4X^2Y-(X^2+Y^2)(3X^2-Y^2)\cap E)=I(P,Y\cap (X^2+Y^2)^2+(3X^2-Y^2)Y)+I(P,H_3\cap H_2)=I(P,Y\cap X^4)+3\cdot 2 = ...$ En el Fulton. 
+
+\textbf{Ejercicio:} Demostrar las propiedades 8 y 9. 
+
