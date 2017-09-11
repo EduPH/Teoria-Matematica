@@ -16,5 +16,9 @@ Recolección de teoría, teoremas y demostraciones
 
 1. [Autómatas con pila](https://github.com/EduPH/Teoria-Matematica/blob/master/AutomatasPila/AutomatasPila.pdf)
 
+## Topología algebráica
+
+1. [Apuntes Cálculo en Variedades](https://github.com/EduPH/Teoria-Matematica/blob/master/CV/CV.pdf)
+
 ## Estadística
 1. [Resumen modelos variables aleatorias. (Distribuciones principales)](https://github.com/EduPH/Teoria-Matematica/blob/master/Modelos%20variables%20aleatorias/Modelos.pdf)
