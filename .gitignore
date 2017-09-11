@@ -11,9 +11,11 @@
 *.log
 *.maf
 *.mtc*
-*.pdf
 *.toc
 *_region_.tex
 *~
 *.tex~
 *.latex~
+CV/_region_.pdf
+ACCGA/ACCGA.pdf
+ACCGA/_region_.pdf

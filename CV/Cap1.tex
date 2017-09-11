@@ -1,0 +1,76 @@
+\chapter{Nociones básicas de funciones sobre espacios euclídeos}
+
+\begin{itemize*}
+\item El espacio euclídeo $\mathbb{R}^n=\{(x_1,\dots,x_n):x_i\in \mathbb{R}\}$ espacio topológico sii $\mathbb{R}$-espacio vectorial.
+
+\item Dotada de distancia euclídea, compatible, producto escalar, etc.
+
+\item Topología euclídea: abiertos, cerrados (por sucesiones convergentes), compactos.
+
+\item Noción de continuidad. $f:\mathbb{R}^n \supseteq U\rightarrow \mathbb{R}^n$, $U$ abierto euclídeo. (Manda sucesiones convergentes en sucesiones convergentes)
+
+\item La imagen continua de un compacto es compacto, $f(K)$ es compacto si $K$ es compacto. Análogo por un conexo o arco-conexo. 
+\end{itemize*}
+
+
+\section{Diferenciabilidad}
+
+Sea $f:\mathbb{R}\rightarrow \mathbb{R}$ es diferenciable en $a\in \mathbb{R}$ si $\exists f'(a)\in \mathbb{R}$ tal que 
+$$\lim_{h\rightarrow 0} \frac{f(a+h)-f(a)}{h}=f'(a)$$
+
+Es decir, existe una transformación lineal $\lambda:\mathbb{R}\rightarrow \mathbb{R}$ tal que
+$$\lim_{h\rightarrow 0} \frac{f(a+h)-f(h)-\lambda(h)}{h}=0$$
+
+Y se puede generalizar a espacios euclídeos cualesquiera:
+
+Sea $f:\mathbb{R}^n\rightarrow \mathbb{R}^m$ diferenciable en $a\in \mathbb{R}^n$ si $\exists \lambda : \mathbb{R}^n\rightarrow \mathbb{R}^m$ homomorfismo de espacios vectoriales, tal que
+
+$$\lim_{h\rightarrow 0} \frac{|f(a+h)-f(a)-\lambda(h)|}{h}$$
+$$\lambda=Df(a), \lambda \text{ es único}$$
+
+
+\subsection{Regla de la cadena}
+
+$\mathbb{R}^n\xrightarrow{f} \mathbb{R}^m \xrightarrow{g} \mathbb{R}^p$, entonces
+$$D(g\circ f)(a)=Dg(f(a))\circ Df(a) $$
+
+\begin{enumerate}
+\item $f$ es constante, entonces $Df(a)=0$.
+\item $f$ es lineal, $Df=f$.
+\item $f= \pi_i \circ f_i \Rightarrow \exists Df(a) \Leftrightarrow \forall i Df_i(a)$. 
+\end{enumerate}
+
+\begin{Cor}
+\begin{enumerate}
+\item $D(f+g)(a)=Df(a)+Dg(a)$
+\item $D(fg)=g(a)Df(a)+f(a)Dg(a)$
+\end{enumerate}
+\end{Cor}
+
+\subsection{Derivadas parciales}
+
+
+Si $f:\mathbb{R}^n \rightarrow \mathbb{R}^m$, $a\in \mathbb{R}^n$.
+
+$$\exists D_if(a)=\lim_{h\rightarrow 0} \frac{f(a^1,\dots a^i+h,\dots , a^n)-f(a^1,\dots , a^n)}{h}$$
+
+es la i-ésima derivada parcial para todo $a\in \mathbb{R}^n$.
+
+
+Si $f$ es continua y $\exists $ todas las derivadas parciales de todos los órdenes, entonces diremos que $f$ es $C^\infty $.
+
+
+\begin{Teo}
+Sea $f:\mathbb{R}^n\rightarrow \mathbb{R}^m$ diferenciable en $a\in \mathbb{R}^n$, entonces existe $\forall i\le i \le m, 1\le j \le n$, $D_jf^i(a)$ y $f'(a)=(D_jf^i(a)):\mathbb{R}\rightarrow \mathbb{R}^m$ homomorfismo de espacios vectoriales. 
+\end{Teo}
+
+\begin{Teo}
+Si $f:\mathbb{R}^n\rightarrow \mathbb{R}^m$ y $\exists (D_jf^i(a))$, entonces $f$ es diferenciable en $a$ si $D_jf^i$ son continuas en $a$, $\forall i,j$.  (Se dice que $f$ es continuamente diferenciable). 
+\end{Teo}
+
+\subsection{Regla de la cadena extendida}
+
+Sea $g_1,\dots, g_m:\mathbb{R}^m \rightarrow \mathbb{R}$ continuamente diferenciables en $a\in \mathbb{R}^n$.  Sea $f:\mathbb{R}^m\rightarrow \mathbb{R}$ y sea $F:\mathbb{R}^n\rightarrow \mathbb{R}, x\mapsto F(x)=f(g_1(x),\dots , g_m(x))$. $\mathbb{R}^n\xrightarrow{G} \mathbb{R}^m \xrightarrow{f} \mathbb{R}$. Entonces, $D_iF(a)=\sum_{j=1}^m D_jf(g_1(a),\dots , g_m(a))\cdot D_ig_j(a)$.
+
+Esto quiere decir que 
+$$D(f\circ G)(a)=Df(G(a))\circ DG(a)=(D_1f(G(a)),\dots, D_mf(G(a))) (DG'(a)\dots DG^m(a))^t$$

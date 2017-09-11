@@ -1,0 +1,22 @@
+\chapter{Secuencia de Mayer-Vietoris}
+
+\begin{Teo}
+Sean $U_1$ y $U_2$ conjuntos abiertos de $\mathbb{R}^n$ tales que $U=U_1\cup U_2$. para $\nu=1,2, $ sean las inclusiones $i_\nu:U_\nu \rightarrow U $ y $j_\nu:U_1\cap U_2\rightarrow U_\nu$. Entonces la siguiente secuencia es exacta
+$$0\rightarrow \Omega^p(U)\xrightarrow{I^p}\Omega^p(U_1)\oplus \Omega^p(U_2)\xrightarrow{J^p} \Omega^p(U_1\cap U_2)\rightarrow 0 $$
+donde $I^p(\omega)=(i_1^*(\omega),i_2^*(\omega)), J^p(\omega_1,\omega_2)=j_1^*(\omega_1)-j_2^*(\omega_2)$. 
+\end{Teo}
+
+\textit{Demostración:} En el libro.
+
+\begin{Teo}
+  (Mayer-Vietoris) Sean $U_1$ y $U_2$ conjuntos abiertos en $\mathbb{R}^n$ y $U=U_1\cup U_2$. Existe una secuencia exacta de cohomología de espacios vectoriales.
+$$\cdots \rightarrow H^p(U)\xrightarrow{I^*}H^p(U_1)\oplus H^p(U_2)\xrightarrow{J^*}H^p(U_1\cap U_2)\xrightarrow{\partial^*}H^{p+1}(U)\rightarrow \cdots $$
+, donde $I^*([\omega])=(i_1^*[\omega],i_2^*[\omega]), J^*([\omega_1],[\omega_2])=j_1^*[\omega_1]-j_2^*[\omega_2]$. 
+\end{Teo}
+
+\begin{Cor}
+  Si $U_1$ y $U_2$ son abiertos disjuntos de $\mathbb{R}^n$ entonces
+ $$I^*:H^p(U_1\cup U_2)\rightarrow H^p(U_1)\oplus H^p(U_2) $$
+ es un isomorfismo.
+\end{Cor}
+

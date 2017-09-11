@@ -1,0 +1,112 @@
+\chapter{El álgebra alternada}
+
+\begin{Def}
+Sea $V$ un $\mathbb{R}$- espacio vectorial, decimos que 
+$$f:V \times \dots \times V \rightarrow \mathbb{R}$$
+es $R$- lineal, multilineal, si $f$ es lineal en cada coordenada (i.e como homomorfismo de $\mathbb{R}-$ espacio vectorial).
+\end{Def}
+
+\begin{Def}
+Una aplicación $\omega :V^R\rightarrow \mathbb{R}$ multilineal se dirá que es alternada si $\omega (\xi_1,\dots , \xi_R)=0$ si $ \xi_i=\xi_j$ para $i\neq j$. 
+\end{Def}
+
+\begin{Def}
+El conjunto de funciones multilineales alternadas de $V^R \rightarrow \mathbb{R}$ es un $\mathbb{R}-$e.v y lo denotamos por $Alt^R(V)=\{ \omega: V^R\rightarrow : \omega \text{ es multilineal y alternada} \}$. 
+\end{Def}
+
+\begin{Cor}
+Si $dim V=n$ entonces $Alt^R(V)=0, \forall R \ge m$. 
+\end{Cor}
+
+\begin{Dem}
+Sea $\omega \in Alt^R(V)\Rightarrow \omega: V^R \Rightarrow \mathbb{R}$. Tomamos $\{e_1,\dots , e_n\}$ base de $V \Rightarrow \xi_i=\sum_{j^1}^m \lambda_{i,j}e_j, \forall i$.
+
+$$\omega (\xi_1,\dots , \xi_R)=\omega (\sum_j \lambda_{i,j}e_j,\dots , \sum_j\lambda_{R,j}e_j)=\sum_J \lambda_J \omega (e_{j_1},\dots ,e_{j_R})$$.
+
+Como $R > 0 \Rightarrow \exists e,e': e_{j_e}=e_{j_{e'}} \Rightarrow \omega(e_{j_1},\dots, e_{j_R})=0 $
+\end{Dem}
+
+\begin{nota}
+\begin{itemize*}
+\item $Alt'(V)=\{ f:V\rightarrow \mathbb{R} \text{ lineal y alternada} \}=V^*$
+\item $Alt^0(V)=\mathbb{R}$
+\end{itemize*}
+\end{nota}
+
+El grupo de permutaciones del $\{ 1,\dots, R \}$ se denotan por $S(R)$. Recordar que toda permutación se puede escribir como composición de transposiciones. Podemos definir el homomorfismo de grupos:
+
+$$sgn:S(R)\rightarrow \{+1,-1\}=\mathbb{Z}_2$$
+tal que $sgn(\delta,\tau)=sgn(\delta)sgn(\tau)$ y si $\alpha $ es una transposición, entonces $sgn(\alpha )=-1$.
+
+luego, $sgn(\delta )=+1$ si $\delta$ es composición de un nº par de transposiciones y $-1$ en otro caso. 
+
+\begin{Lem}
+Si $\omega \in Alt^R(V)$ y $\delta \in S(R)$ entonces:
+$$ \omega(\xi_{\delta(1)},\dots , \xi_{\delta(R)} =sgn(\delta) \omega (\xi_1,\dots , \xi_R)$$
+\end{Lem} 
+
+\begin{Dem}
+Basta demostrarlo para $\delta$ una transposición, $\delta =(i,j), i\neq j, 1 \le i < j \le R$. Vamos a definir $\omega_{i,j}(\xi,\xi')= \omega(\xi_1,\dots, \xi_{i-1},\xi_{i+1},\dots , \xi_{j-1},\xi_{j+1},\dots , \xi_R)$.
+
+Es claro que $\omega_{ij}\in Alt^2(V)$, por tanto, $0=\omega_{i,j}(\xi_i+\xi_j,\xi_i+\xi_j)=\omega_{i,j}(\xi_i,\xi_j)+\omega_{i,j}(\xi_i,\xi_j)\Rightarrow \omega_{i,j}(\xi_i,\xi_j)=-\omega_{i,j}(\xi_J,\xi_i)$. Y se tiene el resultado. \qed
+\end{Dem}
+
+
+\textbf{Ejemplo:} $V=\mathbb{R}^R$, $\xi_i=(\xi_{e,1},\dots, \xi_{e,R})\in \mathbb{R}^R$.
+
+$\omega\in Alt^R(V)=Alt^R(\mathbb{R}^R), \omega(\xi_1,\dots, \xi_R)= det...$
+
+\begin{Def}
+Producto exterior:
+
+$$\bigwedge : Alt^p(V)\times Alt^q(V)\rightarrow Alt^{p+q}(V)$$
+
+\end{Def}
+
+Para $p=q=1, w_1\wedge w_2(\xi_1,\xi_2)=w_1(\xi_1)w_2(\xi_2)-w_1(\xi_2)w_2(\xi_1)$.
+
+
+\begin{nota}
+Dentro de las permutaciones $S(p+q)$, están las \textbf{$(p,q)$-barajas constante}.  $S(p+q)\supseteq S(p,q)=\{\delta \in S(p+q): \delta(1)<\delta(2)<\dots < \delta(p) \vee \delta(p+1)<\delta(p+2)<\dots <\delta(p+q)\}$, $\delta\in S(p+q)$, está completamente determinado por los valores $\{ \delta(1)<\delta(2)<\dots < \delta(p)\}\subseteq \{1,\dots, p+1\}$. Luego en $S(p+q)$ hay $\binom{p+q}{p}$ elementos.
+\end{nota}
+
+\begin{Def}
+Dados $w_1\in Alt^p(V), w_2\in Alt^q(V)$, definimos
+$$(w_1\wedge w_2)(\xi_1,\dots , \xi_{p+1})=\sum_{\delta\in S(p,q)} sgn(\delta) w_1(\xi_{\delta(1)},\dots , \xi_{\delta(p)})\cdot w_2(\xi_{\delta(p+1)},\dots, \xi_{\delta(p+q)})$$
+\end{Def}
+
+\begin{nota}
+
+Si $w_1\in Alt^0(V)=\mathbb{R}, w_2\in Alt^q(V)$
+
+\begin{itemize*}
+\item $S(0,q)=\{1_{\{1,\dots, q\}}\}$.
+
+\item $w_1\wedge w_2 = w_1\cdot w_2\in Alt^q(V)$.
+
+\item $w_1\wedge w_2(\xi_1,\dots , \xi_q)=w_1\cdot w_2(\xi_1,\dots , \xi_q)$.
+\end{itemize*}
+\end{nota}
+
+
+\framebox{Veamos que $w_1\wedge w_2\in Alt^{p+q}(V)$:}
+
+Vamos a comprobar que $w_1\wedge w_2(\xi_1,\xi_2,\dots, \xi_R)=0$, si $\xi_1=\xi_2$. 
+
+Definimos 
+$$S_{12}=\{\delta\in S(p,q):\delta(1)=1, \delta(p+1)=2\} $$
+$$S_{21}=\{\delta\in S(p,q):\delta(1)=2, \delta(p+1)=1\}$$
+$$S_0  =S(p,q)-(S_{12}\cup S_{21}) $$ 
+
+\begin{enumerate}
+\item Si $\delta \in S_0 \Rightarrow$
+$$w_1(\xi_{\delta(1)},\dots, \xi_{\delta(p)})=0  \vee w_2(\xi_{\delta(p+1)},\dots, \xi_{\delta(p+q)})=0$$ 
+
+\item Si compones por la izquierda con la transposición $(1,2)$ obtenemos una biyección $S_{12}\rightarrow S_{21}$. 
+
+\item $(w_1\wedge w_2)(\xi_1,\dots, \xi_{p+q})=\sum_{\delta\in S_{12}}sgn(\delta)w_1(\xi_{\delta(1)}\dots \xi_{\delta(p)})w_2(\xi_{\delta(p+1)},\dots , \xi_{\delta(p+q)})-\sum_{\tau\delta\in S_{12}}sgn(\tau\delta)w_1(\xi_{\tau\delta(1)}\dots \xi_{\tau\delta(p)})w_2(\xi_{\tau\delta(p+1)},\dots , \xi_{\tau\delta(p+q)})=0$
+
+Como $\delta(1)=1, \delta(p+1)=2 \Rightarrow \tau(\delta(1)=2, \tau\delta(p+1)=1$ y $\tau\delta(i)=\delta(i), \forall i\neq j, p+1.$, $\xi_1=\xi_2$.
+
+Es análogo si $\xi_i=\xi_{i+1}$. 
+\end{enumerate}

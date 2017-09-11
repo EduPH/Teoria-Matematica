@@ -1,0 +1,584 @@
+\chapter{Cohomología de Rham}
+
+Sea $U$ un abierto en $\mathbb{R}^n$, $\{e_1,\dots,e_n\}$ la base estandar y $\{\varepsilon_1,\dots,\varepsilon_n\}$ la base dual de $Alt^1(\mathbb{R}^n)$. 
+
+\begin{Def}
+Una $p-$forma diferencial en $U$ es una aplicación diferenciable $\omega:U\rightarrow Alt^p(\mathbb{R}^n)$. El espacio vectorial de dichas aplicaciones se denota $\Omega^p(U)$. 
+\end{Def}
+
+Si $p=0$ entonces $Alt^0(\mathbb{R}^n)=\mathbb{R}$ y $\Omega^0(U)$ es el espacio vectorial de las funciones diferenciables en $U$, $\Omega^0(U)=C^\infty(U,\mathbb{R})$. 
+\vspace{3mm}
+
+La \underline{derivada usual} de una aplicación diferenciable $\omega:U\rightarrow Alt^p(\mathbb{R}^n)$ se denota $D\omega$ y su valor en $x$ es $D_x\omega $. Es una aplicación lineal
+$$\underbrace{D_x\omega}_{(\frac{\partial \omega_\sigma}{\partial x_i}(x))_{\sigma\in S(p,n-p),1\le i \le n}}:\mathbb{R}^n\rightarrow Alt^p(\mathbb{R}^n),$$
+con
+$$(D_x\omega)(e_i)=\frac{d}{dt}\omega(x+te_i)_{i=0}=\frac{\partial \omega}{\partial x_i}(x). $$
+\vspace{3mm}
+
+
+En $Alt^p(\mathbb{R}^n)$ se tiene la base $\varepsilon_\sigma=\varepsilon_{\sigma(1)}\wedge \dots \wedge \varepsilon_{\sigma(p)}$. Como cada $\omega\in \Omega^p(U)$ se puede escribir como combinación lineal de la base de la forma $\omega(x)=\sum \omega_l(x)e_\sigma $, con $\omega_l(x)$ función real diferenciable en $x\in U$. Se tiene que la diferencial $D_x\omega $ es la aplicación lineal:
+$$D_x\omega(e_j) =\sum_{\sigma\in S(p,n-p)}\frac{\partial \omega_\sigma}{\partial x_j}(x)e_\sigma, j=1,\dots, n.$$
+
+La función $x\mapsto D_x\omega $ es una aplicación diferenciable de $U$ al espacio vectorial de las aplicaciones lineales de $\mathbb{R}^n$ a $Alt^p(\mathbb{R}^n)(\simeq \mathbb{R}^{{n \choose p}})$.
+
+\newpage
+\begin{Def}
+La diferencial exterior $d:\Omega^p(U)\rightarrow \Omega^{p+1}(U)$ es el operador lineal
+\begin{equation}
+  \label{eq:ec2}
+  d_x\omega(\xi_1,\dots,\xi_{p+1}) = \sum_{i=1}^{p+1}(-1)^{l-1}D_x\omega(\xi_l)(\xi_1,\dots,\hat{\xi_i},\dots,\xi_{p+1})
+\end{equation}
+
+\end{Def}
+
+
+Del lema \ref{rec:lema4} se tiene que $d_x\omega\in Alt^{p+1}(\mathbb{R}^n)$. Veámoslo:
+
+Si $\xi_i=\xi_{i+1}$, entonces:
+
+\begin{equation}
+  \begin{split}
+    &\sum_{l=1}^{p+1}(-1)^{l-1}D_x\omega(\xi_l)(\xi_1,\dots,\hat{\xi}_l,\dots,\xi_{p+1}) \\
+    &=(-1)^{i-1}D_x\omega(\xi_i)(\xi_1,\dots,\hat{\xi}_i,\dots,\xi_{p+1})+(-1)^iD_x\omega(\xi_1,\dots,\hat{\xi}_{i+1},\dots,\xi_{p+1}) \\
+    &=0. 
+  \end{split}
+\end{equation}
+
+Porque $(\xi_1,\dots,\hat{\xi}_i,\dots,\xi_{p+1})=(\xi_1,\dots,\hat{\xi}_{i+1},\dots,\xi_{p+1}).$
+
+\vspace{3mm}
+
+\textbf{Ejemplo:} Sea $x_i:U\rightarrow \mathbb{R}$ la proyección i-ésima. Entonces $dx_i\in \Omega^1(U)$ es la aplicación constante,  $dx_i:x\rightarrow \varepsilon_i$, ya que por \ref{eq:ec2} se tiene que $d_xx_i\in Alt^1(\mathbb{R}^n)$ y sea $\xi\in \mathbb{R}^n$. Por lo tanto,
+\begin{equation}
+  \begin{split}
+    d_xx_i(\xi)&=\sum_{l=1}(-1)^{l-1}D_xx_i(\xi)\\
+    &= D_xx_i(\xi) \\
+    &= \sum_{j=1}^n\frac{\partial x_i}{\partial x_j}(x)\xi_j \\
+    &= \xi_i = \varepsilon_i(\xi) \\
+    &\Rightarrow d_xx_i=\varepsilon_i,\forall x \in U.
+  \end{split}
+\end{equation}
+
+En general,sea $f\in \Omega^0(U)$, se tiene que 
+$$d_xf(\zeta^1,\dots,\zeta^n)=\frac{\partial f}{\partial x_1}(x)\zeta^1+\cdots + \frac{\partial f}{\partial x_n}(x)\zeta^n$$
+En otras palabras, $df=\sum \frac{\partial f}{\partial x_i}\varepsilon_i=\sum \frac{\partial f}{\partial x_i}dx_i$. 
+
+\begin{nota}
+$\varepsilon_\sigma=\varepsilon_{\sigma(1)}\wedge \dots \wedge \varepsilon_{\sigma(p)}$.
+\end{nota}
+
+\newpage
+\begin{Lem}
+Si $\omega(x)=f(x)\varepsilon_\sigma$ entonces $d_x\omega=d_xf\wedge \varepsilon_\sigma$.
+\end{Lem}
+
+\underline{\textbf{\textit{Demostración:}}}
+
+\vspace{3mm}
+Sea $\xi\in \mathbb{R}^n$, entonces $\xi=\sum_{i=1}^n \xi_ie_i$.
+\begin{equation}
+  \label{eq:ec3}
+  \begin{split}
+    D_x\omega(\xi)&= \\
+    &=\sum_i \xi_iD_x\omega(e_i)  \\
+    &=\sum_i \frac{\partial f}{\partial x_i}(x)\xi_i \varepsilon_\sigma  \\
+    &=\sum_i \frac{\partial f}{\partial x_i}(x)\varepsilon_i(\xi)\varepsilon_\sigma \\
+    &=dxf(\xi)\varepsilon_\sigma 
+  \end{split}
+\end{equation}
+Donde la primera igualdad se tiene gracias a:
+\begin{equation}
+  \begin{split}
+    D_x\omega(e_i) &= \\
+    &=\sum_{\bar{\sigma}\in S(p,n-p)}\frac{\partial \omega_{\bar{\sigma}}}{\partial x_i} (x)\varepsilon_{\bar{\sigma}(1)}\wedge \dots \wedge \varepsilon_{\bar{\sigma}(p)} \\
+    &=\frac{\partial f}{\partial x_i}(x)\varepsilon_\sigma
+  \end{split}
+\end{equation}
+Entonces por \ref{eq:ec3} se tiene,
+\begin{equation}
+  \begin{split}
+    d_x\omega(\xi_1,\dots,xi_{p+1})&= \\
+    &= \sum(-1)^{j-1}D_x\omega(\xi_j)(\xi_1,\dots,\hat{\xi}_j,\dots,\xi_{p+1}) \\
+    &= \sum_j (-1)^{j-1}d_xf(\xi_j)\varepsilon_\sigma (\xi_1,\dots,\hat{\xi}_{j-1},\dots,\xi_{p+1}) \\
+    &= d_xf\wedge \varepsilon_\sigma(\xi_1,\dots,\xi_{p+1})
+  \end{split}
+\end{equation}
+Y finalmente, tenemos que $d\omega =df\wedge \varepsilon_\sigma $. \qed
+
+
+\begin{nota}
+Para $\varepsilon_\sigma \in Alt^p(\mathbb{R}^n)$ se tiene que:
+$$ \varepsilon_k \wedge \varepsilon_\sigma  = \left \{ \begin{matrix} 0 & \mbox{ si } k\in \sigma
+\\ (-1)^r\varepsilon_J & \mbox{ si } k\notin \sigma \end{matrix}\right. $$
+donde, $J=(i_1,\dots,i_r,k,\dots,i_p)$. 
+\end{nota}
+
+
+\begin{Lem}
+Para $p\ge 0$ la composición $\omega^p(U)\rightarrow \Omega^{p+1}(U)\rightarrow \Omega^{p+2}(U)$ es idénticamente cero. 
+\end{Lem}
+
+
+\underline{\textbf{\textit{Demostración:}}}
+
+Sea $\omega=f\varepsilon_\sigma $. Entonces
+$$d\omega=df\wedge \varepsilon_\sigma \underbrace{=}_{\text{Bilinealidad}} \frac{\partial f}{\partial x_1}\varepsilon_1\wedge \varepsilon_\sigma+\dots + \frac{\partial f}{\partial x_n} \varepsilon_n\wedge \varepsilon_\sigma. $$
+Ahora, como $\varepsilon_i\wedge \varepsilon_i=0$ y $\varepsilon_i\wedge \varepsilon_j=- \varepsilon_j\wedge \varepsilon_i$, se tiene que
+\begin{equation}
+  \begin{split}
+    d^2\omega &= \sum_{i,j=1}^n \frac{\partial^2f}{\partial x_i \partial x_j}\varepsilon_i \wedge (\varepsilon_j \wedge \varepsilon_\sigma) \\
+    &= \sum_{i<j}(\frac{\partial^2f}{\partial x_i \partial x_j}-\frac{\partial^2f}{\partial x_j\partial x_i})\varepsilon_i\wedge \varepsilon_j\wedge \varepsilon_\sigma =0.
+  \end{split}
+\end{equation}
+\qed
+
+\begin{nota}
+$\Omega^{p-1}\xrightarrow{d}\Omega^p(U)\xrightarrow{d} \Omega^{p+1}(U)$ es el morfismo nulo, y cumple que $Im\{d:\Omega^{p-1}(U)\rightarrow \Omega^p(U)\} \subseteq ker\{d:\Omega^p(U)\rightarrow \Omega^{p+1}(U)\}$.  Y en general no se da la igualdad. 
+\end{nota}
+
+
+El producto exterior en $Alt^*(\mathbb{R}^n)$ induce un \textbf{producto exterior} en $\Omega^*(U)$ definiéndolo de la siguiente forma,
+$$(\omega_1\wedge \omega_2)(x)=\omega_1(x)\wedge \omega_2(x). $$
+El producto exterior de una $p-$forma diferencial y una $q-$forma diferencial es una $(p+q)-$forma diferencial, así que se obtiene la aplicación diferencial,
+$$\wedge:\Omega^p(U)\times \Omega^q(U)\rightarrow \Omega^{p+q}(U). $$
+
+
+
+\vspace{3mm}
+Veamos una serie de propiedades:
+
+\begin{enumerate}
+\item $(\omega_1\wedge \omega_2)_x(\xi_1,\dots,\xi_{p+q})=(\omega_1)_x\wedge (\omega_2)_x(\xi_1,\dots,\xi_{p+q})$.
+\item $\omega_1\wedge \omega_2$ es bilineal.
+\item $(\omega_1+\omega_2)\wedge \omega_3=\omega_1\wedge \omega_3+\omega_2\wedge \omega_3$.
+\item Si $f\in C^\infty(U;\mathbb{R})=\Omega^0(U)$ y $\omega\in \Omega^p(U)$, entonces $f\wedge \omega=f\cdot \omega$.
+\item $f(\omega_1)\wedge \omega_2=f(\omega_1\wedge \omega_2)=\omega_1\wedge (f\omega_2)$. 
+\end{enumerate}
+Esta última expresa la bilinealidad del producto en $Alt^*(\mathbb{R}^n)$. 
+
+\newpage
+
+\begin{Lem}
+Para $\omega_1\in \Omega^p(U)$ y $\omega_2\in \Omega^q(U)$,
+$$d(\omega_1\wedge \omega_2)=d\omega_1\wedge \omega_2+(-1)^p \omega_1\wedge d\omega_2. $$
+\end{Lem}
+
+\underline{\textbf{\textit{Demostración:}}}
+
+Basta probarlo cuando $\omega_1=f\varepsilon_\sigma $ y $\omega_2=g\varepsilon_{\tau} $. Entonces, $\omega_1\wedge \omega_2=fg\varepsilon_\sigma \wedge \varepsilon_\tau $, y
+\begin{equation}
+  \begin{split}
+    d(\omega_1\wedge \omega_2)&= d(fg \cdot\varepsilon_\sigma \wedge \varepsilon_\tau)= \\
+    &=d(fg)(\varepsilon_\sigma \wedge \varepsilon_\tau) \\
+    &=d(fg)\wedge \varepsilon_\sigma \wedge \varepsilon_\tau \\
+    &=((df)g+fdg)\wedge \varepsilon_\sigma \wedge \varepsilon_\tau \\
+    &=dfg\wedge \varepsilon_\sigma \wedge \varepsilon_\tau + fdg\wedge \varepsilon_\sigma \wedge \varepsilon_\tau \\
+    &=df\wedge \varepsilon_\sigma \wedge g\varepsilon_\tau +(-1)^p f \varepsilon_\sigma \wedge dg \wedge\varepsilon_\tau \\
+    &= d\omega_1\wedge \omega_2+(-1)^p \omega_1\wedge d\omega_2.
+  \end{split}
+\end{equation}
+\qed
+
+Con lo que llevamos, hemos introducido $\Omega^*(U)$ que es un álgebra anti-conmutativa con una diferencial,
+$$d:\Omega^*(U)\rightarrow \Omega^{*+1}(U),\quad d\circ d=0 $$
+y $d$ es una derivada que satisface el lema anterior. $(\Omega^*(U),d)$ es un álgebra diferencial graduada conmutativa, llamada el \textbf{complejo de deRham} de $U$.
+
+\begin{Teo}
+Existe un único operador lineal $d:\Omega^p(U)\rightarrow \Omega^{p+1}(U),p=0,1,\dots,$ tal que
+\begin{enumerate}
+\item $f\in \Omega^0(U),df=\frac{\partial f}{\partial x_1}\varepsilon_1+\cdots + \frac{\partial f}{\partial x_n}\varepsilon_n$.
+\item $d\circ d=0$.
+\item $d(\omega_1\wedge \omega_2)=d\omega_1\wedge \omega_2+(-1)^p\omega_1\wedge d\omega_2$ si $\omega_1\in \Omega^p(U)$. 
+\end{enumerate}
+\end{Teo}
+
+\underline{\textbf{\textit{Demostración:}}}
+
+Por como hemos definido $d$, cumple todas las propiedades. Supongamos $d'$ un operador lineal que satisface las tres propiedades, y veamos que $d'=d$. 
+
+Por la propiedad (1) tenemos que $d'f=\frac{\partial f}{\partial x_1}\varepsilon_1+\cdots + \frac{\partial f}{\partial x_n}\varepsilon_n = df \Rightarrow d =d'$ en $\Omega^0(U)$. En particular, podemos aplicar que $d'x_i=dx_i$ para la i-ésima proyección $x_i:U\rightarrow \mathbb{R}$. Hemos probado con anterioridad que $d'x_i=\varepsilon_i$, la función constante. Como por la propiedad (2), tenemos que $d'\circ d'=0$, tenemos que $0=d'(d'(\varepsilon_i)=d'(\varepsilon_i)$. Entonces, aplicando la propiedad (3), $d'\varepsilon_\sigma=0$. Sea $\omega=f\varepsilon_\sigma=f\wedge \varepsilon_\sigma,f\in C^\infty(U;\mathbb{R})$. Empleando de nuevo (3),
+$$d'\omega=d'f\wedge \varepsilon_\sigma+ f\wedge d'\varepsilon_\sigma = d'f\wedge \varepsilon_\sigma = df\wedge \varepsilon_\sigma = d\omega. $$
+Y cada $p-$ forma es combinación lineal de $\omega$ así definida, por lo tanto, $d=d'$ en $\Omega^p(U)$. \qed
+
+\begin{nota}
+Sea $U$ un abierto de $\mathbb{R}^3$, $d:\Omega^1(U)\rightarrow \Omega^2(U)$ viene dado por
+\begin{equation}
+  \begin{split}
+    d(f_1\varepsilon_1+f_2\varepsilon_2+f_3\varepsilon_3)=df_1\wedge \varepsilon_1+df_2\wedge \varepsilon_2+df_3\wedge \varepsilon_3 = \\
+(\frac{\partial f_2}{\partial x_2}-\frac{\partial f_1}{\partial x_2}) \varepsilon_1\wedge \varepsilon_2 + (\frac{\partial f_3}{\partial x_2}-\frac{\partial f_2}{\partial x_3}) \varepsilon_2\wedge \varepsilon_3+(\frac{\partial f_1}{\partial x_3}-\frac{\partial f_3}{\partial x_1})\varepsilon_3\wedge \varepsilon_1.
+  \end{split}
+\end{equation}
+Un buen ejercicio es demostrar la igualdad.  Así como hacerlo para tres funciones. 
+\end{nota}
+
+
+\begin{Def}
+El $p-$ésimo grupo cohomológico de deRham es el espacio vectorial cociente
+$$H^p(U)=\frac{ker(d:\Omega^p(U)\rightarrow \Omega^{p+1}(U)}{Im(d:\Omega^{p-1}(U) \rightarrow \Omega^p(U))} $$
+En particular, $H^p(U)=0$ para $p<0$, y $H^0(U)$ es el kernel de $d:C^\infty(U;\mathbb{R})\rightarrow \Omega^1(U)$, que es el espacio vectorial de aplicaciones diferenciables en $\mathbb{R}$ cuyas derivadas se anulan. Es decir, el espacio vectorial de las aplicaciones constantes.
+
+$$H^0(U)=ker \{d:\Omega^0(U)\rightarrow \Omega^1(U) \} = f:U\rightarrow \mathbb{R} : df=0 \} $$
+
+donde $df=0 \Leftrightarrow \sum \frac{\partial f}{\partial x_i} =0 \Leftrightarrow \forall i \frac{\partial f}{\partial x_i}=0 \Rightarrow H^0(U)=\{f:U \rightarrow \mathbb{R}: f\text{ es la constante} \}$. 
+\end{Def}
+
+\begin{Lem}
+$H^0(U)$ es el espacio vectorial de aplicaciones $U\rightarrow \mathbb{R}$ que son constantes en cada componente conexa de $U$. 
+\end{Lem}
+
+Se tiene que $dim_{\mathbb{R}} H^0(U)$ es el número de componentes conexas de $U$.
+
+\begin{Def}
+Los elementos en $\Omega^p(U)$ con $d\omega =0$ se llaman $p-$formas cerradas. Y aquellos elementos de la imagen $d(\Omega^{p-1}(U)\subset \Omega^p(U)$ son $p-$formas exactas. 
+\end{Def}
+
+\begin{nota}
+El $p-$ésimo grupo homológico mide si cada $p-$forma cerrada es exacta. Esta condición se satisface precisamente cuando $H^p(U)=0$. 
+\end{nota}
+
+\begin{Def}
+  Una $p-$forma cerrada $\omega\in \Omega^p(U)$ induce una clase de homología, denotada
+  $$[\omega]=\omega+d\Omega^{p-1}(U)\in H^p(U) ,$$
+  y $[\omega]=[\omega ']$ si y sólo si $\omega-\omega'$ es exacta.
+\end{Def}
+
+\begin{nota}
+  En general, el espacio vectorial de las $p-$formas cerradas y el espacio vectorial de las $p-$formas exactas son de dimensión infinita. Sin embargo, $H^p(U)$ es, usualmente, de dimensión finita.
+\end{nota}
+
+
+\begin{Def}
+  Se define el producto bilineal, asociativo y anti-conmutativo como
+  $$H^p(U)\times H^q(U)\rightarrow H^{p+q}(U)$$
+  mediante $[\omega_1][\omega_2]=[\omega_1\wedge \omega_2]$.
+\end{Def}
+El producto está bien definido, pues:
+\begin{equation}
+  \begin{split}
+    (\omega_1+d\eta_1)\wedge (\omega_2+d\eta_2) &= \omega_1\wedge \omega_2 + d \eta_1\wedge \omega_2+\omega_1\wedge d \eta_2+d\eta_1\wedge d\eta_2 \\
+    &= \omega_1 \wedge \omega_2+d(\eta_1\wedge \omega_2+(-1)^p\omega_1\wedge \eta_2+\eta_1\wedge d\eta_2).
+  \end{split}
+\end{equation}
+
+Queremos que $U\rightarrow H^p(U)$ sea un funtor contravariante. Por lo tanto, sea $\phi:U_1\rightarrow U_2$ una aplicación diferenciable entre abiertos $U_1\subset  \mathbb{R}^n$ y $U_2\subset \mathbb{R}^m$, se define la aplicación lineal:
+$$H^p(\phi):H^p(U_2)\rightarrow H^p(U_1), $$
+tal que:
+\begin{equation}
+  \begin{split}
+    &H^p(\phi_2 \circ \phi_1)=H^p(\phi_1)\circ H^p(\phi_2) \\
+    &H^p(id)=id.
+  \end{split}
+\end{equation}
+
+\begin{Def}
+  Sea $U_1\subset \mathbb{R}^n$ y $U_2\subset \mathbb{R}^m$ abiertos y $\phi:U_1\rightarrow U_2$ una aplicación diferenciable. El morfismo inducido $\Omega^p(U_2)\rightarrow \Omega^p(U_1)$ se define
+  $$\Omega^p(\phi)(\omega)_x=Alt^p(D_x\phi)\circ \omega(\phi(x)), \quad \Omega^0(\phi)(\omega)_x=\omega_{\phi(x)}=\omega \circ \phi. $$
+  $\Omega^P(\phi) $ es equivalente a escribir $\phi^*$.
+\end{Def}
+
+Se cumple que:
+\begin{equation}
+  \begin{split}
+    &\Omega^p(\phi_2 \circ \phi_1)=\Omega^p(\phi_1)\circ \Omega^p(\phi_2) \\
+    &\Omega^p(id)=id.
+  \end{split}
+\end{equation}
+
+Es fácil de ver por,
+$$\phi^*(\omega)_x(\xi_1,\dots,\xi_p)=\omega_{\phi(x)}(D_x\phi(\xi_1),\dots, D_x\phi(\xi_p)), $$
+y usando la regla de la cadena $D_x(\psi \circ \phi)=D_{\phi(x)}(\psi) \circ D_x(\phi),$ para $\phi:U_1\rightarrow U_2$ y $\psi: U_2\rightarrow U_3$.
+
+\begin{nota}
+$\Omega^p(i)(\omega=i^*(\omega)_x(\xi_1,\dots, \xi_p)=\omega_{i(x)}(D_xi(\xi_1),\dots,D_xi(\xi_p))=\omega_x(\xi_1,\dots, \xi_p)=\omega\circ i$, pues $D_xi=id$. 
+\end{nota}
+
+
+\begin{nota}
+$\varepsilon_i=dy_i$
+\end{nota}
+
+
+\newpage
+\textbf{Ejemplo:}  Para la $1-$forma $\varepsilon_i\in \Omega^1(U_2)$ se tiene que
+$$\phi^*(\varepsilon_i)=\sum_{k=1}^n \frac{\partial \phi_i}{\partial x_k}\varepsilon_k = d\phi_i $$
+con $\phi_i$ la i-ésima función coordenada. Veamoslo:
+\begin{equation}
+  \begin{split}
+    \phi^*(dy_i)_x(\xi)=(dy_i)_{\phi(x)}(D_x\phi(\xi))&=(dy_i)_{\phi(x)} (\sum_k(\sum_j \frac{\partial \phi_k}{\partial x_j}(x) \xi_j)e_k)=\\
+    &=\sum_k^n(dy_i)_{\phi(x)}((\sum_j^m\frac{\partial \phi_k}{\partial x_j}(x)\xi_j)e_k)= \\
+    &= \sum_j \frac{\partial \phi_i}{\partial x_j}(x)\xi_j \cdot 1 =  \\
+    &= \sum_j \frac{\partial \phi_i}{\partial x_j}(x)\cdot (dx_j)_x(\xi)= d(\phi_i)_k(\xi)
+  \end{split}    
+\end{equation}
+donde se ha aplicado que:
+
+\begin{equation}
+  D_x \phi(\xi) = \left( \begin{array}{ccc}
+                          \frac{\partial \phi_1}{\partial x_1} & \cdots &  \\
+                          \vdots &  &  \\
+                                                               & \cdots &  \end{array} \right) \cdot
+                   \left( \begin{array}{c}
+                           \xi_1  \\
+                           \vdots  \\
+                           \xi_n  \end{array} \right) = \sum_k(\sum_j \frac{\partial \phi_k}{\partial x_j}(x)\xi_j)e_k
+\end{equation}
+
+
+\begin{Teo}
+  \label{teo5}
+  Se tiene:
+
+  \begin{enumerate}
+  \item $\phi^*(\omega \wedge \tau)=\phi^*(\omega \wedge \phi^*(\tau)$.
+  \item $\phi^*(f)=f\circ \phi$ si $f\in  \Omega^0(U_2)$.
+  \item $d\phi^*(\omega) = \phi^*(d\omega)$. 
+  \end{enumerate}
+  Además, si $\phi':\Omega^*(U_2)\rightarrow \Omega^*(U_1)$ es un operador lineal que satisface las tres condiciones, entonces $\phi'=\phi^*$
+\end{Teo}
+
+\textbf{Demostración:} En libro. 
+
+
+\begin{Cor}
+$d(\phi^*(dy_i))=d(d\phi_i)=0$.
+\end{Cor}
+
+\begin{nota}
+El corolario se obtiene del ejemplo anterior, y de que una $p-$forma arbitraria es de la forma $\omega (x) = \sum \omega_\sigma (x) dx_\sigma $, con $y_i:U_2\rightarrow \mathbb{R}$, de forma que $\phi_i=y_i\circ \phi$. 
+\end{nota}
+
+\textbf{Ejemplo:}
+
+Sea $\gamma : (a,b) \rightarrow U$ una curva diferenciable en $U$, $\gamma= (\gamma_1,\dots,\gamma_n)$, y sea
+$$\omega=f_1dx_1+\cdots + f_ndx_n $$
+una $1-$forma en $U$. Entonces tenemos que
+\begin{equation}
+  \begin{split}
+    \gamma^*(\omega) &= \gamma^*(f_1) \wedge \gamma^*(dx_1)+\cdots + \gamma^*(f_n)\wedge \gamma^*(dx_n) \\
+    &= \gamma^*(f_1)d(\gamma^*(x_1))+\cdots + \gamma^*(f_n)d(\gamma^*(x_n)) \\
+    &= (f_1\circ \gamma)d\gamma_1 + \cdots + (f_n\circ \gamma) d\gamma_n \\
+    &= [(f_1\circ \gamma)\gamma'_1+\cdots + (f_n\circ \gamma)\gamma'_n]dt = \langle f(\gamma(t)),\gamma'(t) \rangle dt.
+  \end{split}
+\end{equation}
+Donde $\partial \gamma_i=\frac{\partial \gamma_i}{\partial t}=\gamma'_i$, y $<,>$ es el producto interior usual.
+
+
+\textbf{Ejemplo:}
+
+Sea $\phi:U_1\rightarrow U_2$ una aplicación diferenciable entre abiertos de $\mathbb{R}^n$. Entonces,
+$$\phi^*(dx_1\wedge \dots \wedge dx_n)=det (D_x\phi)dx_1\wedge \dots \wedge dx_n. $$
+Por el teorema \ref{teo5} se tiene:
+
+\begin{equation}
+  \begin{split}
+    \phi^*(dx_1\wedge \dots \wedge dx_n) &= \phi^*(dx_1)\wedge \dots \wedge \phi^*(dx_n)=d\phi^*(x_1)\wedge \dots \wedge d\phi^*(x_n) \\
+    &= d\phi_1 \wedge \dots \wedge d\phi_n\underbrace{=}_{(*)}det(D_x\phi)dx_1\wedge \dots \wedge dx_n.
+  \end{split}
+\end{equation}
+
+Siendo la última igualdad consecuencia del lema \ref{sec:lem1}
+\begin{equation}
+  \begin{split}
+    (*)&=(\sum_j \frac{\partial \phi_1}{\partial x_j}(x)(dx_j)_x)\wedge \dots \wedge (\sum_j \frac{\partial \phi_n}{\partial x_j}(x)(dx_j)_x) \\
+    &= \sum_{\tau \in S(n)}\prod_j \frac{\partial \phi_j}{\partial x_{\tau (j)}}(x) (dx_{\tau(1)}\wedge \dots \wedge dx_{\tau(n)})_x(\xi_1,\dots,x_n) \\
+    &= \sum_\tau sgn(\tau) \prod \frac{\partial \phi_j}{\partial x_{\tau (j)}}(x)(dx_{\tau(1)}\wedge \dots \wedge dx_{\tau(n)})_x(\xi_1,\dots,x_n)
+\end{split}
+\end{equation}
+\textbf{Ejemplo:}
+
+Si $\phi: \mathbb{R}^n\times \mathbb{R} \rightarrow \mathbb{R}^n$ viene dada por $\phi(x,t)=\psi(t) x$, donde $\psi(t)$ es una función real diferenciable. Entonces,
+\begin{equation}
+  \begin{split}
+    \phi^*(dx_i)&=d(\phi^*(x_i))=d(x_i\circ \phi)=d(\psi(t)x_i)\\
+    &=\sum_j \frac{\partial (\psi(t)x_i)}{\partial x_j}dx_j+\frac{\partial(\psi(t)x_i)}{\partial t}dt \\
+    &=x_i\psi'(t)dt+\psi(t)dx_i.
+  \end{split}
+\end{equation}
+
+\newpage
+\subsection{Ejercicios}
+
+\subsubsection{Ejercicio 3.1}
+
+Sea $U\subseteq \mathbb{R}^2$ abierto.
+
+\vspace{30mm}
+
+Vamos a ir determinando las funciones $\alpha,\beta $ y $\gamma $.
+
+Tenemos que $\alpha = id$, pues $\Omega^0(U)=C^\infty(U;\mathbb{R})$, y es claro que es isomorfismo.
+
+Ahora determinemos $\beta $, para ello imponemos que
+$$ grad \circ \alpha = \beta \circ d$$
+
+Sea $\omega = f\in \Omega^0(U)$, entonces:
+$$graf(\alpha(f))=grad (f) = (\frac{\partial f }{\partial x_1},\frac{\partial f}{\partial x_2})= \beta(d(f))=\beta (\frac{\partial f }{\partial x_1}dx_1+\frac{\partial f}{\partial x_2}dx_2) $$
+
+Como $\omega\in \Omega^1(U)=\omega_1dx_1+\omega_2dx_2, \omega_i\in C^\infty(U;\mathbb{R}$, establecemos:
+\begin{equation}
+  \begin{split}
+    \beta : \Omega^1(U)&\rightarrow C^\infty(U;\mathbb{R}) \\
+    \omega &\mapsto\beta(\omega):=(\omega_1,\omega_2)
+  \end{split}
+\end{equation}
+
+$\beta $ es isomorfismo, pues es homomorfismo y biyectivo.
+
+Una vez que conocemos $\beta $ podemos determinar $\gamma $, imponiendo:
+
+$$rot \circ \beta = \gamma \circ d $$
+
+Por lo tanto, siendo $\omega=\omega_1dx_1+\omega_2dx_2$, con $\omega_i\in C^\infty(U;\mathbb{R})$:
+
+\begin{equation}
+  \begin{split}
+    &rot(\beta (\omega)) = rot(\omega_1,\omega_2)=\frac{\partial \omega_1}{\partial x_2}-\frac{\partial \omega_2}{\partial x_1} \\
+    &\gamma(d(\omega))=\gamma (d\omega_1\wedge dx_1+d\omega_2\wedge dx_2)=\\
+    &\gamma ((\frac{\partial \omega_1}{\partial x_1}dx_1+\frac{\partial \omega_1}{\partial x_2}dx_2)\wedge dx_1 +(\frac{\omega_2}{\partial x_1}dx_1+\frac{\partial \omega_2}{\partial x_2}dx_2)\wedge dx_2)= \\
+    &= \gamma((\frac{\partial \omega_2}{\partial x_1}-\frac{\partial \omega_1}{\partial x_2})dx_1\wedge dx_2) = \frac{\partial \omega_1}{\partial x_2}-\frac{\partial \omega_1}{\partial x_1}
+  \end{split}
+\end{equation}
+
+Por lo tanto definimos $\gamma $:
+
+\begin{equation}
+  \begin{split}
+    \gamma: \Omega^2(U) &\rightarrow C^\infty(U;\mathbb{R}) \\
+    \omega= \omega_1 dx_1\wedge dx_2 &\mapsto \gamma(\omega) = -\omega_1 \\
+    &\text{ donde } \omega_1\in C^\infty (U;\mathbb{R})
+  \end{split}
+\end{equation}
+
+Ahora realizamos de manera análoga el apartado siguiente del ejercicio:
+
+\vspace{30mm}
+
+
+Necesitamos obtener las funciones $\alpha,\beta,\gamma $ y $\rho $.
+
+$\alpha = id$ debido a que $\omega^0(U)=C^\infty (U,\mathbb{R})$, que es un isomorfismo. Ahora determinamos $\beta $, imponiendo que se de la siguiente igualdad:
+$$grad \circ \alpha = d \circ \beta $$
+Y como en el apartado anterior, obtenemos $\beta(\omega) := (\omega_1,\omega_2) $. Que es un isomorfismo. 
+
+Como en el apartado anterior determinamos $\gamma $, imponiendo:
+ $$\beta \circ rot = d \circ \gamma $$
+Y se obtiene que $\gamma (\omega ) := -\omega_1 $. 
+
+Finalmente, la parte nueva viene de imponer:
+
+$$ \gamma \circ div = d \circ \rho$$
+
+Sea $\omega\in \Omega^2(U), \omega = f dx_1\wedge dx_2 \wedge dx_3 $:
+\begin{equation}
+  \begin{split}
+\gamma ( div (\omega )) &= \frac{\partial \omega_1}{\partial x_1}+\frac{\partial \omega_2}{\partial x_2}+\frac{\partial \omega_3}{\partial x_3}\\
+\rho (d  (\omega)) &= \rho ((\frac{\partial \omega_1}{\partial x_1}+\frac{\partial \omega_2}{\partial x_2}+\frac{\partial \omega_3}{\partial x_3})dx_1\wedge dx_2 \wedge dx_3 ) 
+ \end{split}
+\end{equation}
+
+Así que definimo $\rho $ de la siguiente manera: 
+
+\begin{equation}
+  \begin{split}
+    \rho &: \Omega^3(U)\rightarrow C^\infty (U,\mathbb{R})\\
+    \omega &= \omega_1 dx_1\wedge dx_2 \wedge dx_3 = \omega_1    
+  \end{split}
+\end{equation}
+
+Y finalmente tenemos que los dos complejos de cadenas son isomorfos. 
+
+\subsubsection{Ejercicio 3.2}
+
+Tenemos que definir un operador $(*):\Omega^p(U) \rightarrow \Omega^{n-p}(U)$ basado en la operación $*:Alt^p(\mathbb{R}^n)\rightarrow Alt^{n-p}(\mathbb{R}^n)$ del ejercicio 2.9. 
+
+\begin{equation}
+  \begin{split}
+    (*): \Omega^p(U)\rightarrow \Omega^{n-p}(U)& \\
+    \omega \mapsto (*)\omega : U & \rightarrow Alt^{n-p}(\mathbb{R}^n) \text{ dif.}\\
+    x & \mapsto ((*)\omega)_x:(\mathbb{R}^n)^{n-p} \rightarrow \mathbb{R}\\
+    &\quad (\xi_1,\dots,\xi_{n-p})\mapsto ((*)\omega)_x(\xi_1,\dots,x_{n-p})
+  \end{split}
+\end{equation}
+
+\begin{itemize}
+\item Hay que probar que $*(dx_1\wedge \dots \wedge dx_p)=dx_{p+1}\wedge \dots \wedge dx_n $. 
+
+Fijado $x\in U$, $*(dx_1\wedge \dots \wedge dx_p)_x = *((dx_1\wedge \dots \wedge dx_p)_x)=*((dx_1)_x\wedge \dots \wedge (dx_p)_x) = *(\varepsilon_1\wedge \dots \wedge \varepsilon_p)= \varepsilon_{p+1}\wedge \dots \wedge \varepsilon_n = dx_p\wedge \dots \wedge dx_n.$
+
+\item Hay que probar que $*\circ * = (-1)^{n(n-p)}$.
+
+$\omega \in \Omega^p(U) \Rightarrow x\in U, *(*(\omega)) \Rightarrow *(*(\omega))_x=**(\omega_x)=(-1)^{p(n-p)}\omega_x$. 
+
+\item Hay que probar que $d^*\circ d^*=0$.
+
+\begin{nota}
+\vspace{30mm}
+
+Se puede definir:
+$$H_p(U)=\frac{ker (d^*(\Omega^p\rightarrow \Omega^{p-1}(U)))}{Im(d^*(\Omega^{p+1}(U)\rightarrow \Omega^p(U)))} $$
+\end{nota}
+
+$\omega\in \Omega^p(U), d^*d^*(\omega ) =d^*((-1)^{np+n-1}*d*(\omega) )= (-1)^{n(p-1)+n-1}(-1)^{np+n-1}*d*(*d*(\omega))= (-1)^{n(p-1)+n-1}(-1)^{np+n-1}(-1)^{p(n-p)}*\underbrace{dd}_{=0}*(\omega)=0$.
+\end{itemize}
+
+
+\subsubsection{Ejercicio 3.4}
+
+Sea $Alt^p(\mathbb{R}^m;\mathbb{C})=\{\omega : \mathbb{R}^m\times \underbrace{\cdots}_{p}\mathbb{R}^m \rightarrow \mathbb{C} \text{ multilineales y alternadas}\}$ un $\mathbb{C}-$espacio vectorial.
+
+$$\omega\in Alt^p(\mathbb{R}^m,\mathbb{C}) \Rightarrow \omega = Re(\omega)+i Im(\omega) .$$
+
+\begin{itemize}
+\item $Re(\omega),Im(\omega) \in Alt^p(\mathbb{R}^m,\mathbb{R})$ (Es simple comprobación).
+
+\item Se puede definirel producto exterior
+  \begin{equation}
+    \begin{split}
+      Alt^P(\mathbb{R}^n;\mathbb{C})\times Alt^q(\mathbb{R}^n;\mathbb{C})&\xrightarrow{\wedge} Alt^{p+q}(\mathbb{R}^m;\mathbb{C}) \\
+      (\omega,\tau) &\mapsto \omega \wedge \tau
+    \end{split}
+  \end{equation}
+
+  \begin{equation}
+    \begin{split}
+      Re(\omega \wedge \tau) &= Re(\omega)\wedge Re(\tau) - Im(\omega)\wedge Im(\tau) \\
+      Im(\omega \wedge \tau) &= Re(\tau)\wedge Im(\tau) + Im(\omega)\wedge Re(\tau)
+    \end{split}
+  \end{equation}
+
+  Por lo tanto,
+
+  \begin{equation}
+    \begin{split}
+      \omega\wedge \tau &= (Re(\omega)\wedge Re(\tau)-Im(\omega)\wedge Im(\tau)+i(Re(\omega)\wedge Im(\tau) + Im(\omega)\wedge Re(\tau)) \\
+      \tau\wedge \omega &= (Re(\tau)\wedge Re(\omega)-Im(\tau)\wedge Im(\omega))+i(Re(\tau)\wedge Im(\omega) + Im(\tau) \wedge Re(\omega)) \\
+      &= (-1)^{pq}\omega\wedge \tau (\text{anti-conmutativo})
+    \end{split}
+  \end{equation}
+\end{itemize}
+
+
+\subsubsection{Problema 3.5}
+
+Sea $U\subseteq \mathbb{R}^n$. $\Omega^p(U;\mathbb{C})=\{\omega:U\rightarrow Alt^p(\mathbb{R}^n;\mathbb{C}) \text{ dif.}\}=C^\infty(U;Alt^p(\mathbb{R}^n;\mathbb{C}))$.
+
+Se tiene:
+\begin{equation}
+  \begin{split}
+    U &\xrightarrow{\omega}Alt^p(\mathbb{R}^n;\mathbb{C}) \\
+    x &\mapsto \omega_x=Re(\omega_x)+i Im(\omega_x)
+  \end{split}
+\end{equation}
+que es diferenciable. Entonces,
+
+\begin{equation}
+  \begin{split}
+     U &\xrightarrow{Re(\omega)}Alt^p(\mathbb{R}^n;\mathbb{C}) \\
+     x &\mapsto Re(\omega_x) \\
+     U &\xrightarrow{Im(\omega)}Alt^p(\mathbb{R}^n;\mathbb{C}) \\
+    x &\mapsto Im(\omega_x)
+  \end{split}
+\end{equation}
+son diferenciables.
+
+PENDIENTE

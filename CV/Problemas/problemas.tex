@@ -1,0 +1,266 @@
+\documentclass{article}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{fancyvrb}              % Verbatim extendido
+\usepackage{makeidx}               % Índice
+\usepackage{amsmath}               % AMS LaTeX
+\usepackage{amsthm} 
+\usepackage{latexsym}
+\usepackage{vmargin}
+\usepackage{a4wide}
+\usepackage{mathpazo}              % Fuentes semejante a palatino
+\newtheorem{teor}{Teorema}
+\newtheorem{nota}{Nota}
+\newtheorem{Def}{Definición}
+\newenvironment{itemize*}%
+  {\vspace*{-0mm}
+   \begin{itemize}%
+    \setlength{\itemsep}{0pt}%
+    \setlength{\parskip}{0pt}}%
+  {\vspace*{-0mm}
+   \end{itemize}}
+\newtheorem{Lem}{Lema}
+\setpapersize{A4}
+\setmargins{2.5cm}       % margen izquierdo
+{1.5cm}                        % margen superior
+{16.5cm}                      % anchura del texto
+{23.42cm}                    % altura del texto
+{10pt}                           % altura de los encabezados
+{1cm}                           % espacio entre el texto y los encabezados
+{0pt}                             % altura del pie de página
+{2cm}                           % espacio entre el texto y el pie de página
+\begin{document}
+
+\title{Ejercicios Cálculo en variedades}
+\maketitle
+
+
+\section{Ejercicio 2.2}
+
+\textbf{Encontrar $\omega\in Alt^2\mathbb{R}^4$ tal que $\omega\wedge \omega \neq 0$.}
+\vspace{3mm}
+
+Sea $\{e_1,\dots,e_4\}$ la base canónica de $\mathbb{R}^4$, se induce una base dual $\{\varepsilon_1,\dots,\varepsilon_4\}$ base de $Alt^1(\mathbb{R}^4)$. Por lo tanto, $Alt^2(\mathbb{R}^4)$ tiene como base $\{\varepsilon_i\wedge \varepsilon_j\}_{i,j,i<j}$. Sea $\omega\in Alt^2(\mathbb{R}^4), \omega\wedge \omega \in Alt^4(\mathbb{R}^4)$, espacio que tiene como base $\varepsilon_1\wedge \varepsilon_2 \wedge \varepsilon_3 \wedge \varepsilon_4$. 
+\begin{equation}
+  \begin{split}
+    \omega &= \lambda_1 \varepsilon_1\wedge \varepsilon_2+\cdots + \lambda_6\varepsilon_3\wedge \varepsilon_4 \\
+    \omega &= \lambda_1 \varepsilon_1\wedge \varepsilon_2+\cdots + \lambda_6\varepsilon_3\wedge \varepsilon_4 \\
+\text{ si } \lambda_1=\lambda_6=1,\quad \omega\wedge \omega &= 2\varepsilon_1\wedge \varepsilon_2 \wedge \varepsilon_3 \wedge \varepsilon_4
+  \end{split}
+\end{equation}
+
+\section{Ejercicio 2.3}
+
+\textbf{Probar que existen un isomorfismos}
+\vspace{3mm}
+
+$$\mathbb{R}^3\xrightarrow{i} Alt^1(\mathbb{R}^3), \quad \mathbb{R}^3 \xrightarrow{j} Alt^2\mathbb{R}^3 $$
+
+\textbf{Dados por}
+$$i(v)(w)=\langle v , w \rangle, \quad j(v)(w_1,w_2)=det(v,w_1,w_2), $$
+\textbf{donde $<,>$ es el producto interior usual. Probar que para $v_1,v_2\in \mathbb{R}^3$, se tiene}
+$$i(v_1)\wedge i(v_2)=j(v_1\times v_2). $$
+
+
+\begin{enumerate}
+\item  
+  \begin{itemize*}
+  \item $i$ está bien definido, pues el producto escalar es lineal.
+  \item $i$ es homomorfismo.
+
+    Hay que ver que $i(\lambda v_1+v_2)=\lambda i(v_1)+i(v_2)$. 
+
+    $i(\lambda v_1+v_2)=\langle \lambda v_1+v_2,w\rangle = \lambda \langle v_1,w \rangle + \langle v_2+w \rangle = \lambda i(v_1(w)+i(v_2)(w)$
+  \item Biyectividad de $i$. Análogo a probar que lleva bases en bases. 
+
+    $i(e_1)(w)=<e,w>=\lambda_1, i(e_j)(w)=\lambda_j, i(e_j)=\varepsilon_j$. 
+
+    $w=\sum_i \lambda_i e_i$. 
+  \end{itemize*}
+
+\item 
+  \begin{itemize*}
+  \item $j$ está bien definida.
+
+    $$v\in \mathbb{R}^3 \Rightarrow j(v)\in Alt^2(\mathbb{R}^3)$$
+    $j(v)$ es bilineal:
+
+    $det(v,\lambda w_1+w_2,w_3)=j(v)(\lambda w_1+w_2,w_3)=\lambda j(w_1,w_3)+j(w_2,w_3)=\lambda det (v,w_1,w_3)+det(v,w_2,w_3)$. 
+    
+    $j(v)$ es alternado:
+
+    $j(v)(w,w)=det(v,w,w)=0$. 
+  \item $j$ es homomorfismo:
+
+    $j(\lambda v_1+v_2)(w_1,w_2)=det(\lambda v_1+v_2,w_1,w_2)=\lambda det(v_1,w_1,w_2)+det(v_2,w_1,w_2)=(\lambda j (v_1)+j(v_2))(w_1,w_2)$.
+
+  \item $j$ isomorfismo:
+    
+    $\{ \varepsilon_1\wedge \varepsilon_2, \varepsilon_1 \wedge \varepsilon_3, \varepsilon_2\wedge \varepsilon_3 \}$ base de $Alt^2(\mathbb{R}^3)$. 
+
+    $j(e_1):\mathbb{R}^3\times \mathbb{R}^3 \rightarrow \mathbb{R}$
+
+    $(w_1,w_2)\mapsto det \left( \begin{array}{ccc}
+                                      1 & 0 & 0 \\
+                                      w_{11} & w_{12} & w_{13} \\
+                                      w_{21} & w_{22} & w_{23} \end{array} \right) =w_{12}w_{23}-w_{13}w_{22}=^? \varepsilon_2\wedge \varepsilon_3(w_1,w_2). $
+
+    $\varepsilon_2\wedge \varepsilon_3(w_1,w_2)=\sum_{\sigma \in S(1,1)} sign(\sigma) \varepsilon_2(w_{\sigma(1)})\varepsilon_3(w_{\sigma(2)})=\varepsilon_2(w_1)\varepsilon_3(w_2)-\varepsilon(w_2)\varepsilon_3(w_1)=w_{12}w_{23}-w_{22}w_{13}.$
+
+    $j(e_2)=\pm  \varepsilon_1\wedge \varepsilon_3(w_1,w_2)$
+    
+    $j(e_3)=\mp \varepsilon_1\wedge \varepsilon_2$.
+
+  \end{itemize*}
+
+  \item $i(v_1)\wedge i(v_2)=^? j(v_1\times v_2)$
+
+    $i(v_1)\wedge i(v_2)=\sum_{\sigma \in S(2,1)}i(v_1)\wedge i(v_2) (e_{\sigma(1)},e_{\sigma(2)})\varepsilon_{\sigma(1)} \wedge \varepsilon_{\sigma(2)}=A_{03} \varepsilon_1 \wedge \varepsilon_2 + A_{02}\varepsilon_1 \wedge \varepsilon_3 + A_{01}\varepsilon_2 \wedge \varepsilon_3$. 
+
+    $i(v_1)\wedge i(v_2)(e_1,e_2)=i(v_1)(e_2)i(v_1)(e_2)-i(v_1)(e_2)i(v_2)(e_1)=v_{11}v_{22}-v_{12}v_{21}=A_{03}$. (De manera análoga el resto de sumandos)
+\end{enumerate}
+
+\section{Ejercicio 2.5}
+
+\textbf{Probar la existencia de un producto interior en $Alt^p(V)$ tal que}
+$$ \langle \omega_1\wedge \dots \wedge \omega_p,\tau_1\wedge \dots \wedge \ tau_p \rangle,$$
+\textbf{para cualquier $\omega_i,\tau_j\in Alt^1(V)$, y}
+$$\langle \omega,\tau \rangle = \langle i^{-1}(\omega),i^{-1}(\tau)\rangle . $$
+\textbf{Sea $\{ b_1,\dots,b_n\}$ una base ortonormal de $V$, y sea $\beta_j=i(b_j)$. Probar que}
+$$\{\beta_{\sigma(1)}\wedge \dots \wedge \beta_{\sigma(p)} | \sigma \in S(p,n-p)\} $$
+\textbf{es una base ortonormal de $Alt^p(V)$.}
+
+
+\begin{itemize*}
+\item Sea $<w_i,\tau_j>=<i^{-1}(\omega_i),i^{-1}(\tau_j)>$ el producto escalar en $Alt^1(V)$ que se deduce del ejercicio 2.4. Se tiene que,
+$$<w_i,\tau_j>=<i^{-1}(\omega_i),i^{-1}(\tau_j)> = i(i^{-1}(\omega_i))(i^{-1}(\tau_j))=\omega_i(i^{-1}(\tau_j))$$
+
+Por otra parte, 
+
+$$<\tau_j,\omega_i>=<i^{-1}(\tau_j),i^{-1}(\omega_i)> = i(i^{-1}(\tau_j))(i^{-1}(\omega_i))=\tau_j(i^{-1}(\omega_i))$$
+
+Finalmente, calculamos el determinante:
+
+\begin{equation}
+  \begin{split}
+    det(<\omega_i,\tau_j>)&=det(\omega_i(i^{-1}(\tau_j)))_{i,j\in \{1,\dots,p\}}= \\
+    &= det \left( \begin{array}{ccc}
+                    \omega_1(i^{-1}(\tau_1)) & \cdots & \omega_1(i^{-1}(\tau_p)) \\
+                    \vdots &  & \vdots \\
+                    \omega_p(i^{-1}(\tau_1)) & \cdots  & \omega_p(i^{-1}(\tau_p)) \end{array} \right) \\
+                &= \omega_1\wedge \dots \wedge \omega_p (i^{-1}(\tau_1),\dots , i^{-1}(\tau_p)) \\
+                &= (\tau_1\wedge \dots \wedge \tau_p)(i^{-1}(\omega_1,\dots,i^{-1}(\omega_p)).
+  \end{split}
+\end{equation}
+$$   \langle  \omega_1\wedge \dots \wedge \omega_p,\tau_1\wedge \dots \wedge \tau_p \rangle = \omega_1\wedge \dots \wedge \omega_p(i^{-1}(\tau_1),\dots,i^{-1}(\tau_p)).$$
+Como todos los términos que lo componen son bilineales, $<\cdot,\cdot>$ es bilineal. 
+\item Es conmutativo,
+  \begin{equation}
+    \begin{split}
+      \langle  \omega_1\wedge \dots \wedge \omega_p,\tau_1\wedge \dots \wedge \tau_p \rangle &= \\
+      &=  \omega_1\wedge \dots \wedge \omega_p (i^{-1}(\tau_1),\dots , i^{-1}(\tau_p)) \\
+      &= \langle  \tau_1\wedge \dots \wedge \tau_p,\omega_1\wedge \dots \wedge \omega_p \rangle  \\
+      &= (\tau_1\wedge \dots \wedge \tau_p)(i^{-1}(\omega_1,\dots,i^{-1}(\omega_p)).
+    \end{split}
+  \end{equation}
+\item Hay que comprobar que cumple las propiedades del producto interior.
+  Sea $\omega,\tau \in Alt^p(V)$, tales que
+
+  \begin{equation}
+    \begin{split}
+      \omega &= \sum_{\sigma\in S(p,n-p)}\omega(e_{\sigma(1)},\dots,e_{\sigma(p)})\varepsilon_\sigma \\
+      \tau &=\sum_{\bar{\sigma}\in S(p,n-p)}\omega(e_{\bar{\sigma}(1)},\dots,e_{\bar{\sigma}(p)})\varepsilon_{\bar{\sigma} } \\
+      <\omega,\tau> &= \sum_{\sigma}\sum_{\bar{\sigma}} \omega_\sigma \tau_{\bar{\sigma}}<\varepsilon_\sigma,\varepsilon_{\bar{\sigma}}>.\\
+  <\omega,\omega> &= \sum_\sigma (\omega_\sigma)^2\ge 0 \\
+  <\varepsilon_\sigma,\varepsilon_{\bar{\sigma}}>&= \varepsilon_{\sigma(1)}\wedge \dots \wedge \varepsilon_{\sigma(p)}(e_{\bar{\sigma}(1)},\dots, e_{\bar{\sigma}(p)})= I_{\sigma}(\bar{\sigma}) \\
+  <\omega,\omega> &=0 \Leftrightarrow \omega_\sigma =0 \forall \sigma \in S(p,n-p)\Rightarrow \omega=0 \in Alt^p(V).
+    \end{split}
+  \end{equation}
+\item Por lo tanto:
+  \begin{enumerate}
+  \item $Alt^p(V)$ tiene un producto escalar.
+  \item
+    \begin{equation}
+      \begin{split}
+        \langle \omega,i(\xi_1)\wedge \dots \wedge i(\xi_p) \rangle &= \\
+        &= \langle \sum_\sigma \omega_\sigma \varepsilon_\sigma,i(\xi_1\wedge \dots \wedge i(\xi_p)\rangle \\
+        &=\sum_\sigma \omega_\sigma \langle \varepsilon_\sigma,i(\xi_1)\wedge \dots \wedge i(\xi_p) \rangle \\
+        &= \sum_\sigma \omega_\sigma \varepsilon_\sigma(\xi_1,\dots,\xi_p) \\
+        &= \omega(\xi_1,\dots,\xi_p).
+      \end{split}
+    \end{equation}
+  \item $\langle \omega, \varepsilon_{\sigma(1)}\wedge \dots \wedge \varepsilon_{\sigma(p)} \rangle = \langle \omega, i(e_{\sigma(1)})\wedge \dots \wedge i(e_{\sigma(p)}\rangle = \omega(e_{\sigma(1)},\dots,e_{\sigma(p)}). $
+  \item $\omega =\sum_\sigma \omega(e_{\sigma(1)},\dots , e_{\sigma(p)}) \varepsilon_{\sigma(1)} \wedge \dots \wedge \varepsilon_{\sigma(p)} = \sum_\sigma \langle \omega, \varepsilon_{\sigma(1)}\wedge \dots \wedge \varepsilon_{\sigma(p)} \rangle\varepsilon_{\sigma(1)}\wedge \dots \wedge \varepsilon_{\sigma(p)}.$
+  \end{enumerate}
+
+\item Bases ortonormales:
+
+  Sea $\{ b_1,\dots, b_n\}$ una base ortonormal de $V$, es decir,
+  $$ \langle b_i,b_j \rangle =
+  \begin{cases} 
+    0 & \mbox{si } i\neq j   \\
+    1 & \mbox{si } i=j
+  \end{cases}
+  $$
+
+  Sea $\{\beta_1,\dots,\beta_n\}$ la base dual de la anterior en $Alt^1(V)$, entonces tenemos $\{\beta_{\sigma(1)}\wedge \dots \wedge \beta_{\sigma(p)}\}_{\sigma\in S(p,n-p)}$ base de $Alt^p(V)$.
+
+  Finalmente,
+ $$ \langle \beta_{\sigma(1)}\wedge \dots \wedge \beta_{\sigma(p)},\beta_{\bar{\sigma}(1)}\wedge \dots \wedge \beta_{\bar{\sigma}(p)}\rangle  = \beta_{\sigma(1)}\wedge \dots \wedge \beta_{\sigma(p)}(\beta_{\bar{\sigma}(1)},\dots , \beta_{\bar{\sigma}(p)})=  \begin{cases} 
+    0 & \mbox{si } \sigma \neq \bar{\sigma}   \\
+    1 & \mbox{si } \sigma =\bar{\sigma}
+  \end{cases} $$
+\end{itemize*}
+
+\section{Ejercicio 2.6}
+
+\textbf{Supongamos $\omega \in Alt^p(V)$. Sean $v_1,\dots,v_p$ vectores en $V$ y sea $A=(a_{ij})$ una matriz $p\times p$. Probar que para $\omega_i=\sum_{j=1}^p a_{ij}b_j $ $(1\le i \le p)$ se tiene}
+$$\omega(\omega_1,\dots,\omega_p)=detA \cdot \omega(v_1,\dots,v_p) $$
+
+\vspace{3mm}
+Sea $\omega\in Alt^p(V) $, $v_1,\dots,v_p\in V$ y $A=(a_{ij})\in M_{p\times p} $. Podemos expresar $\omega_i=\sum_{j=1}^pa_{ij}v_j, i =1,\dots,p $. 
+
+Hay que probar que $\omega(\omega_1,\dots,\omega_p)=det (A) \cdot \omega (v_1,\dots,v_p)$.
+
+Si $p=2$, tenemos $A=(a_{i,j})_{i,j\in \{1,2\}}$. Por lo tanto, $\omega_1=a_{11}v_1+a_{12}v_2$ y $\omega_2=a_{21}v_2+a_{22}v_2$. 
+
+\begin{equation}
+  \begin{split}
+    \omega (\omega_1,\omega_2) &= \omega(a_{11}v_1+a_{12}v_2,a_{21}v_2+a_{22}v_2) =\\
+    &= a_{11}a_{22}\omega(v_1,v_2)+a_{12}a_{21}\omega(v_2,v_1) = \\
+    &= a_{11}a_{22}\omega(v_1,v_2)-a_{12}a_{21}\omega(v_1,v_2) = \\
+    &= (a_{11}a_{22}-a_{12}a_{21})\omega(v_1,v_2) = det (A)\cdot \omega(v_1,v_2).
+  \end{split}
+\end{equation}
+
+Y para un $p$ cualquiera:
+
+\begin{equation}
+  \begin{split}
+    \omega(\omega_1,\dots,\omega_p) &= \omega (\sum_{j=1}^pa_{ij}v_j,\dots,\sum_{j=1}^pa_{pj}v_j) = \\
+    &= \sum_{\tau\in S(p)}\prod^p_{k=1}a_{k\tau(k)}\omega(v_{\tau(1)},\dots,v_{\tau(p)})= \\
+    &= \underbrace{\sum_{ \tau\in S(p)}sgn(\tau) \prod_{k=1}^p a_{k\tau(k)}}_{det(A)} \cdot \omega(v_1,\dots,v_p).
+  \end{split}
+\end{equation}
+
+
+\section{Ejercicio 2.7}
+
+\textbf{Probar para $f:V\rightarrow W$ que}
+$$Alt^{p+q}(f)(\omega_1\wedge \omega_2)=Alt^p(f)(\omega_1)\wedge Alt^q(f)(\omega_2), $$
+\textbf{donde $\omega_1\in Alt^p(W),\omega_2\in Alt^q(W)$.}
+\vspace{3mm}
+
+
+\begin{equation}
+  \begin{split}
+    Alt^{p+q}(f)(\omega_1\wedge \omega_2) &= \\
+    &= \omega_1\wedge \omega_2(f(\xi_1),\dots,f(\xi_{p+q}))  \\
+    &= \sum_{\sigma \in S(p,n-p)} sgn(\sigma) \omega_1(f(\xi_{\sigma(1)}),\dots,f(\xi_{\sigma(p)}))\omega_2(f(\xi_{\sigma(p+1)}),\dots,f(\xi_{\sigma(p+q)})) \\
+    &= \sum_{\sigma \in S(p,n-p)}sgn(\sigma) Alt^p(f)\omega_1(\xi_{\sigma(1)},\dots,\xi_{\sigma(p)})Alt^q(f)\omega_2(\xi_{\sigma(p+1)},\dots ,\xi_{\sigma(p+q)})   \\
+    &= Alt^p(f)(\omega_1)\wedge Alt^q(f)(\omega_2)(\xi_1,\dots,xi_{p+q}).
+  \end{split}
+\end{equation}
+\end{document}
