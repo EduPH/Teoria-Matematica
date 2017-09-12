@@ -1,12 +1,11 @@
 # Compendio matemático
 Recolección de teoría, teoremas y demostraciones
 
-+ [Álgebra](#álgebra)
++ [Álgebra](#Álgebra)
 + [Ciencias de la Computación](#ciencias-de-la-computación)
-+ [Estadística](#Estadística)
++ [Estadística](#estad%C3%ADstica)
 + [Lógica](#lógica)
 + [Topología algebraica](#topología-algebraica)
-
 
 ## Álgebra
 
